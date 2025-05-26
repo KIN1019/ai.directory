@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ai-directory
-        image: artifactrepo.server.ha.org.hk:55743/docker-dev-cms/ai-directory:20250522
+        image: artifactrepo.server.ha.org.hk:55743/docker-dev-cms/ai-directory:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

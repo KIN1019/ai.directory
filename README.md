@@ -3,19 +3,19 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## Build Image
 
 ```sh
-podman buildx build --platform linux/amd64 -t artifactrepo.server.ha.org.hk:55743/int-docker-dev-cms/ai-directory:20250522 .
+podman buildx build --platform linux/amd64 -t artifactrepo.server.ha.org.hk:55743/int-docker-dev-cms/ai-directory:latest .
 ```
 
 ## Push Image
 
 ```sh
-podman push artifactrepo.server.ha.org.hk:55743/int-docker-dev-cms/ai-directory:20250522 --tls-verify=false
+podman push artifactrepo.server.ha.org.hk:55743/int-docker-dev-cms/ai-directory:latest --tls-verify=false
 ```
 
 ## Run Image
 
 ```sh
-podman run -p 8083:8080 artifactrepo.server.ha.org.hk:55743/int-docker-dev-cms/ai-directory:20250522
+podman run -p 8083:8080 artifactrepo.server.ha.org.hk:55743/int-docker-dev-cms/ai-directory:latest
 ```
 
 
