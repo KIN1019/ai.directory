@@ -9,6 +9,7 @@ import { SmoothCursor } from "@/components/ui/smooth-cursor";
 import { Dam } from "lucide-react";
 import { Layout } from 'nextra-theme-docs'
 import { getPageMap } from 'nextra/page-map'
+import { DockDemo } from "@/components/magicui/example/dock-demo";
 
 const interSans = Inter({
 	variable: "--font-geist-sans",
@@ -101,6 +102,7 @@ export default async function RootLayout({
 						{children}
 						<Toaster />
 						<SmoothCursor springConfig={{ damping: 100, stiffness: 1000, mass: 0.3, restDelta: 0.0001 }} />
+						<DockDemo />
 					</Layout>
 				</ThemeProvider>
 			</body>

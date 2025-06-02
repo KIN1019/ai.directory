@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import yaml from "js-yaml";
 import { RulesCardWithDrawer } from "@/components/rules/RulesCard";
+import { DockDemo } from "@/components/magicui/example/dock-demo";
 
 type Tag = {
 	slug: string;
@@ -69,9 +70,8 @@ export default async function RulesPage({
 	const tagName = await getTagName(slug[0]);
 
 	return (
-		<div className="p-8">
+		<div className="p-8 pb-32">
 			<h1 className="text-2xl font-bold mb-6">{tagName} Rules</h1>
-
 			{rules.length > 0 ? (
 				<div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-3">
 					{rules.map((rule) => (

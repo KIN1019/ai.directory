@@ -57,7 +57,7 @@ function RulesCardWithDrawer(props: RulesCardProps) {
 		<Drawer open={open} onClose={close} onAnimationEnd={handleOpenChange}>
 			<Link href={props.href}>
 				<div className="h-full w-full group relative">
-					<DrawerTrigger className="absolute h-full w-full z-10" />
+					<DrawerTrigger className="absolute h-full w-full z-1" />
 					<RulesCard {...props} />
 				</div>
 			</Link>
