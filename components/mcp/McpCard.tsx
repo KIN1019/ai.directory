@@ -81,7 +81,7 @@ function McpCardWithDialog(props: McpCardProps) {
 					<McpCard {...props} />
 				</div>
 			</DialogTrigger>
-			<DialogContent className="sm:max-w-[800px] min-h-[400px] rounded-xs">
+			<DialogContent className="sm:max-w-[800px] min-h-[400px] rounded-sm">
 				<DialogHeader>
 					<DialogTitle>{props.name}</DialogTitle>
 					<DialogDescription>
