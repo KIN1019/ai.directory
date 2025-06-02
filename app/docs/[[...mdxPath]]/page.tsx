@@ -1,5 +1,6 @@
 import { generateStaticParamsFor, importPage } from 'nextra/pages'
 import { useMDXComponents as getMDXComponents } from '@/mdx-components'
+import { ScrollProgress } from "@/components/magicui/scroll-progress";
  
 export const generateStaticParams = generateStaticParamsFor('mdxPath')
  
@@ -17,6 +18,7 @@ export default async function Page(props: { params: Promise<{ mdxPath: string[] 
   const { default: MDXContent, toc, metadata } = result
   return (
     <Wrapper toc={toc} metadata={metadata}>
+      <ScrollProgress className="top-[68px]" />
       <MDXContent {...props} params={params} />
     </Wrapper>
   )
