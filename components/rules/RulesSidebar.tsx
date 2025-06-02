@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
 import matter from "gray-matter";
-import { RulesSidebarItem } from "./RulesSidebarItem";
+import { GenericSidebar } from "@/components/sidebar/sidebar";
 
 type Tag = {
 	slug: string;
@@ -77,35 +77,31 @@ async function RulesSidebar() {
 
 	if (error) {
 		return (
-			<nav className="w-64 h-full bg-background p-4 shrink-0">
-				<div className="text-destructive text-sm">
-					<h3 className="font-bold mb-2">Error:</h3>
-					<p>{error}</p>
-				</div>
-			</nav>
+			<GenericSidebar
+				items={[]}
+				baseUrl="/rules"
+				errorMessage={error}
+				emptyMessage="No tags found"
+			/>
 		);
 	}
 
 	const sortedTags = tags
 		? [...tags].sort((a, b) => (b.count || 0) - (a.count || 0))
-		: null;
+		: [];
+
+	const sidebarItems = sortedTags.map(tag => ({
+		slug: tag.slug,
+		name: tag.name,
+		count: tag.count || 0
+	}));
 
 	return (
-		<nav className="w-64 shrink-0 h-[calc(100vh-68px)] bg-background border-r border-border">
-			{sortedTags &&
-				sortedTags.map((tag) => (
-					<RulesSidebarItem
-						key={tag.slug}
-						slug={tag.slug}
-						count={tag.count || 0}
-					>
-						{tag.name}
-					</RulesSidebarItem>
-				))}
-			{!tags && !error && (
-				<div className="p-4 text-muted-foreground text-sm">No tags found</div>
-			)}
-		</nav>
+		<GenericSidebar
+			items={sidebarItems}
+			baseUrl="/rules"
+			emptyMessage="No tags found"
+		/>
 	);
 }
 

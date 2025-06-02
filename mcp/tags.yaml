@@ -1,0 +1,10 @@
+- slug: wiki
+  name: Wiki & Documentation
+- slug: java
+  name: Java & Spring
+- slug: react
+  name: React & Frontend
+- slug: backend
+  name: Backend Services
+- slug: cms
+  name: CMS Framework
