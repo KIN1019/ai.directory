@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Check, Copy, ExternalLink, FileCode, Info, Settings, Wrench } from "lucide-react";
@@ -9,7 +10,7 @@ import { cn } from "@/lib/utils";
 type Tool = {
 	name: string;
 	description: string;
-	[key: string]: any;
+	[key: string]: unknown;
 };
 
 type McpDialogProps = {
@@ -55,7 +56,13 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 				return (
 					<div className="flex flex-col items-center justify-center h-full p-8 text-center overflow-y-auto">
 						<div className="mb-6">
-							<img src={logo} alt={name} className="w-12 h-12 rounded object-cover" />
+							<Image 
+								src={logo} 
+								alt={name} 
+								width={48}
+								height={48}
+								className="rounded object-cover" 
+							/>
 						</div>
 						<h2 className="text-xl font-bold mb-4">{name}</h2>
 						<p className="text-sm text-muted-foreground max-w-2xl leading-relaxed">

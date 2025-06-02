@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
 	Card,
 	CardContent,
@@ -25,7 +26,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 type Tool = {
 	name: string;
 	description: string;
-	[key: string]: any;
+	[key: string]: unknown;
 };
 
 type McpCardProps = {
@@ -45,7 +46,13 @@ function McpCard(props: McpCardProps) {
 	return (
 		<Card className="" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
 			<CardHeader className="flex flex-row justify-start gap-4 items-center">
-				<img src={props.logo} alt={props.name} className="w-10 h-10 rounded object-cover" />
+				<Image 
+					src={props.logo} 
+					alt={props.name} 
+					width={40}
+					height={40}
+					className="rounded object-cover" 
+				/>
 				<CardTitle className="text-sm">{props.name}</CardTitle>
 			</CardHeader>
 			<CardContent className="flex flex-col gap-y-4">

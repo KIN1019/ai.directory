@@ -8,7 +8,6 @@ export type SidebarItem = {
 	count?: number;
 	icon?: React.ReactNode;
 	badge?: string;
-	[key: string]: any; // Allow additional properties
 };
 
 export interface GenericSidebarProps {

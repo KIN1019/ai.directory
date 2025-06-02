@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
+import { Suspense } from "react";
 import { McpMultiSelectSidebar } from "@/components/mcp/McpMultiSelectSidebar";
 
 type Tag = {
@@ -92,11 +93,24 @@ export default async function McpLayout({
 
 	return (
 		<main className="flex min-h-screen">
-			<McpMultiSelectSidebar 
-				tags={tags || []} 
-				error={error}
-			/>
-			<div className="flex-1 overflow-auto h-screen">
+			<Suspense fallback={
+				<div className="w-[250px] border-r min-h-screen">
+					<div className="p-4">
+						<h2 className="text-sm font-semibold ml-1">Tags</h2>
+						<div className="space-y-1 mt-4">
+							<div className="h-8 bg-muted animate-pulse rounded"></div>
+							<div className="h-8 bg-muted animate-pulse rounded"></div>
+							<div className="h-8 bg-muted animate-pulse rounded"></div>
+						</div>
+					</div>
+				</div>
+			}>
+				<McpMultiSelectSidebar 
+					tags={tags || []} 
+					error={error}
+				/>
+			</Suspense>
+			<div className="flex-1 overflow-auto">
 				{children}
 			</div>
 		</main>
