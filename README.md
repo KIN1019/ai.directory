@@ -18,6 +18,11 @@ podman push artifactrepo.server.ha.org.hk:55743/int-docker-dev-cms/ai-directory:
 podman run -p 8083:8080 artifactrepo.server.ha.org.hk:55743/int-docker-dev-cms/ai-directory:latest
 ```
 
+## Restart Deployment
+
+```sh
+oc rollout restart deployment/ai-directory
+```
 
 ## Getting Started
 
