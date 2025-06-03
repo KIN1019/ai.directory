@@ -262,8 +262,8 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 	};
 
 	return (
-		<div className="flex h-[400px] w-full max-h-[600px] overflow-hidden">
-			<nav className="w-64 border-r pr-4 flex flex-col shrink-0">
+		<div className="flex h-[500px] w-full max-h-[700px] overflow-hidden">
+			<nav className="w-48 border-r pr-4 flex flex-col shrink-0">
 				<div className="space-y-2 flex-1 overflow-y-auto">
 					{setupSteps.map((step, index) => (
 						<button
@@ -284,7 +284,7 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 			</nav>
 
 			<main className="flex-1 flex flex-col min-w-0 overflow-hidden">
-				<div className="flex-1 overflow-y-auto max-h-[400px]">
+				<div className="flex-1 overflow-y-auto max-h-[700px]">
 					{renderStepContent()}
 				</div>
 			</main>
