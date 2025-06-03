@@ -86,8 +86,6 @@ tools:
     description: Search for code across GitHub repositories
   - name: search_users
     description: Search for GitHub users
-
-
   - name: get_code_scanning_alert
     description: Get a code scanning alert
   - name: list_code_scanning_alerts
