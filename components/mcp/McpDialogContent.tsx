@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -77,6 +77,8 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 	const [selectedEditor, setSelectedEditor] = useState<"vscode" | "cursor">("vscode");
 	const [inputValues, setInputValues] = useState<Record<string, string>>({});
 	const [toolsSearch, setToolsSearch] = useState("");
+	const [showScrollGlow, setShowScrollGlow] = useState(false);
+	const toolsScrollRef = useRef<HTMLDivElement>(null);
 
 	// Extract input field requirements from env variables
 	const getInputFields = () => {
@@ -116,6 +118,36 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 		
 		return processedEnv;
 	};
+
+	// Handle scroll for tools container to show/hide glow effect
+	const handleToolsScroll = () => {
+		const container = toolsScrollRef.current;
+		if (!container) return;
+
+		const { scrollTop, scrollHeight, clientHeight } = container;
+		const isAtBottom = scrollTop + clientHeight >= scrollHeight - 10; // 10px threshold
+		setShowScrollGlow(!isAtBottom && scrollHeight > clientHeight);
+	};
+
+	// Set up scroll listener for tools container
+	useEffect(() => {
+		const container = toolsScrollRef.current;
+		if (!container) return;
+
+		// Initial check
+		handleToolsScroll();
+
+		container.addEventListener('scroll', handleToolsScroll);
+		
+		// Also check when content changes (search results)
+		const resizeObserver = new ResizeObserver(handleToolsScroll);
+		resizeObserver.observe(container);
+
+		return () => {
+			container.removeEventListener('scroll', handleToolsScroll);
+			resizeObserver.disconnect();
+		};
+	}, [currentStep, toolsSearch]); // Re-run when step changes or search changes
 
 	const renderStepContent = () => {
 		switch (currentStep) {
@@ -319,9 +351,9 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 				);
 
 				return (
-					<div className="h-full overflow-y-auto">
-						<div className="p-6">
-							<div className="mb-6">
+					<div className="h-full overflow-hidden relative">
+						<div className="p-6 pb-0">
+							<div>
 								<h3 className="text-md font-semibold mb-2">Available Tools</h3>
 								<p className="text-muted-foreground text-sm mb-4">
 									This MCP provides {tools.length} tool{tools.length !== 1 ? 's' : ''} for integration.
@@ -338,7 +370,14 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 									/>
 								</div>
 							</div>
+						</div>
 
+						{/* Scrollable tools container */}
+						<div 
+							ref={toolsScrollRef}
+							className="px-6 pb-6 overflow-y-auto"
+							style={{ height: 'calc(100% - 160px)' }}
+						>
 							<div className="grid gap-4">
 								{filteredTools.map((tool, index) => (
 									<div key={index} className="border rounded-lg p-4 hover:bg-muted/50 transition-colors">
@@ -377,6 +416,11 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 								</div>
 							)}
 						</div>
+
+						{/* Scroll glow effect */}
+						{showScrollGlow && (
+							<div className="absolute bottom-0 left-0 right-0 h-12 pointer-events-none bg-gradient-to-t from-background via-background/60 to-transparent shadow-inner" />
+						)}
 					</div>
 				);
 
