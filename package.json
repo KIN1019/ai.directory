@@ -38,6 +38,7 @@
 		"react-day-picker": "8.10.1",
 		"react-dom": "^19.0.0",
 		"react-highlight": "^0.15.0",
+		"react-markdown": "^10.1.0",
 		"shiki": "^3.4.2",
 		"sonner": "^2.0.3",
 		"tailwind-merge": "^3.3.0",

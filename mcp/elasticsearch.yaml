@@ -9,8 +9,9 @@ config:
     - -y
     - \@elastic/mcp-server-elasticsearch
   env:
-    ES_URL: ${input:elasticsearch_url}
-    ES_API_KEY: ${input:elasticsearch_api_key}
+    ES_URL: https://eap-kb-sit
+    ES_USERNAME: ${input:elasticsearch_username}
+    ES_PASSWORD: ${input:elasticsearch_password}
 tags:
   - elasticsearch
 tools:

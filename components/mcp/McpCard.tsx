@@ -40,6 +40,7 @@ type McpCardProps = {
 		| { type: "stdio", command: string, args: string[], env: { [key: string]: string } };
 	fileName?: string;
 	open?: boolean;
+	setupDescription?: string;
 };
 
 function McpCard(props: McpCardProps) {

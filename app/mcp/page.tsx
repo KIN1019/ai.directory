@@ -25,6 +25,7 @@ type McpData = {
 	};
 	tags: string[];
 	href?: string;
+	setupDescription?: string;
 };
 
 type McpDocument = {
@@ -38,6 +39,7 @@ type McpDocument = {
 	setupCode: { type: "sse", url: string } | { type: "stdio", command: string, args: string[], env: { [key: string]: string } };
 	href: string;
 	fileName: string;
+	setupDescription?: string;
 };
 
 async function getTagNames(slugs: string[]): Promise<string[]> {
@@ -91,6 +93,7 @@ async function getMcpsByTags(selectedTags: string[]): Promise<McpDocument[]> {
 				setupCode,
 				href: mcpData.href || "#",
 				fileName: fileName,
+				setupDescription: mcpData.setupDescription,
 			});
 		}
 	}
@@ -146,6 +149,7 @@ export default async function McpPage({
 								href={mcp.href}
 								fileName={mcp.fileName}
 								open={openDialog === mcpSlug}
+								setupDescription={mcp.setupDescription}
 							/>
 						);
 					})}

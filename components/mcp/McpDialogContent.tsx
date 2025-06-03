@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -24,6 +25,7 @@ type McpDialogProps = {
 	setupCode:
 		| { type: "sse", url: string }
 		| { type: "stdio", command: string, args: string[], env: { [key: string]: string } };
+	setupDescription?: string;
 };
 
 type SetupStep = {
@@ -72,7 +74,7 @@ function CopyButton({ text, size = "sm", variant = "outline", className = "" }: 
 	);
 }
 
-function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpDialogProps) {
+function McpDialogMain({ name, description, logo, tools, href, setupCode, setupDescription }: McpDialogProps) {
 	const [currentStep, setCurrentStep] = useState("overview");
 	const [selectedEditor, setSelectedEditor] = useState<"vscode" | "cursor">("vscode");
 	const [inputValues, setInputValues] = useState<Record<string, string>>({});
@@ -236,6 +238,36 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 									Add the following configuration to your editor settings to enable this MCP server.
 								</p>
 							</div>
+
+							{setupDescription && (
+								<div className="bg-muted/30 border border-muted rounded-lg p-4 mb-6">
+									<h4 className="text-sm font-medium mb-3">Additional Setup Notes</h4>
+									<div className="text-sm prose prose-sm max-w-none dark:prose-invert">
+										<ReactMarkdown
+											components={{
+												p: ({children}) => <p className="mb-2 last:mb-0">{children}</p>,
+												a: ({href, children}) => (
+													<a 
+														href={href} 
+														target="_blank" 
+														rel="noopener noreferrer"
+														className="text-primary underline"
+													>
+														{children}
+													</a>
+												),
+												code: ({children}) => (
+													<code className="bg-muted px-1 py-0.5 rounded text-xs">
+														{children}
+													</code>
+												),
+											}}
+										>
+											{setupDescription}
+										</ReactMarkdown>
+									</div>
+								</div>
+							)}
 
 							{inputFields.length > 0 && (
 								<div className="space-y-4">
