@@ -35,12 +35,17 @@ const setupSteps: SetupStep[] = [
 	{ id: "tools", title: "Available Tools", icon: Wrench },
 ];
 
-function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpDialogProps) {
-	const [currentStep, setCurrentStep] = useState("overview");
-	const [copied, setCopied] = useState(false);
-	const [selectedEditor, setSelectedEditor] = useState<"vscode" | "cursor">("vscode");
+type CopyButtonProps = {
+	text: string;
+	size?: "sm" | "default" | "lg";
+	variant?: "default" | "outline" | "secondary" | "ghost" | "destructive";
+	className?: string;
+};
 
-	const handleCopy = async (text: string) => {
+function CopyButton({ text, size = "sm", variant = "outline", className = "" }: CopyButtonProps) {
+	const [copied, setCopied] = useState(false);
+
+	const handleCopy = async () => {
 		try {
 			await navigator.clipboard.writeText(text);
 			setCopied(true);
@@ -49,6 +54,23 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 			console.error('Failed to copy text:', err);
 		}
 	};
+
+	return (
+		<Button
+			variant={variant}
+			size={size}
+			onClick={handleCopy}
+			className={`gap-2 ${className}`}
+		>
+			<Copy className="w-4 h-4" />
+			{copied ? "Copied!" : "Copy"}
+		</Button>
+	);
+}
+
+function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpDialogProps) {
+	const [currentStep, setCurrentStep] = useState("overview");
+	const [selectedEditor, setSelectedEditor] = useState<"vscode" | "cursor">("vscode");
 
 	const renderStepContent = () => {
 		switch (currentStep) {
@@ -101,6 +123,10 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 					}
 				};
 
+				const vscodeCLICommand = setupCode.type === "sse"
+					? `code --add-mcp '{"name":"${name.toLowerCase().replace(/\s+/g, '-')}","url":["${setupCode.url}"]}'`
+					: `code --add-mcp '{"name":"${name.toLowerCase().replace(/\s+/g, '-')}","command":"${setupCode.command.split(" ")[0]}","args":["${setupCode.command.split(" ").slice(1).join('","')}"]}'`;
+
 				return (
 					<div className="h-full overflow-y-auto">
 						<div className="p-6 space-y-6">
@@ -137,24 +163,29 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 
 								{selectedEditor === "vscode" && (
 									<div className="space-y-4">
-										<div className="bg-muted/50 rounded-lg p-4">
-											<div className="flex flex-row items-center gap-4 justify-between mb-2">
-												<p className="text-sm text-muted-foreground">
-													Add to your VSCode settings.json:
-												</p>
-												<Button
-													variant="outline"
-													size="sm"
-													onClick={() => handleCopy(JSON.stringify(setupConfigVSCode, null, 2))}
-													className="gap-2"
-												>
-													<Copy className="w-4 h-4" />
-													{copied ? "Copied!" : "Copy"}
-												</Button>
+										<div className="bg-muted/50 rounded-lg p-4 flex gap-4 flex-col">
+											<div>
+												<div className="flex flex-row items-center gap-4 justify-between mb-2">
+													<p className="text-sm text-muted-foreground">
+														Install the MCP server using the VS Code CLI
+													</p>
+													<CopyButton text={vscodeCLICommand} />
+												</div>
+												<pre className="bg-background border rounded p-3 text-xs overflow-x-auto h-fit overflow-y-auto">
+													<code>{vscodeCLICommand}</code>
+												</pre>
 											</div>
-											<pre className="bg-background border rounded p-3 text-xs overflow-x-auto h-fit overflow-y-auto">
-												<code>{JSON.stringify(setupConfigVSCode, null, 2)}</code>
-											</pre>
+											<div>
+												<div className="flex flex-row items-center gap-4 justify-between mb-2">
+													<p className="text-sm text-muted-foreground">
+														Or add to your VSCode settings.json:
+													</p>
+													<CopyButton text={JSON.stringify(setupConfigVSCode, null, 2)} />
+												</div>
+												<pre className="bg-background border rounded p-3 text-xs overflow-x-auto h-fit overflow-y-auto">
+													<code>{JSON.stringify(setupConfigVSCode, null, 2)}</code>
+												</pre>
+											</div>
 										</div>
 									</div>
 								)}
@@ -166,15 +197,7 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 												<p className="text-sm text-muted-foreground">
 													Add to your Cursor settings:
 												</p>
-												<Button
-													variant="outline"
-													size="sm"
-													onClick={() => handleCopy(JSON.stringify(setupConfigCursor, null, 2))}
-													className="gap-2"
-												>
-													<Copy className="w-4 h-4" />
-													{copied ? "Copied!" : "Copy"}
-												</Button>
+												<CopyButton text={JSON.stringify(setupConfigCursor, null, 2)} />
 											</div>
 											<pre className="bg-background border rounded p-3 text-xs overflow-x-auto h-fit overflow-y-auto">
 												<code>{JSON.stringify(setupConfigCursor, null, 2)}</code>
