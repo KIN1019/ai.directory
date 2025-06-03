@@ -119,6 +119,15 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 		return processedEnv;
 	};
 
+	// Clean up escaped characters in args (e.g., \@ becomes @)
+	const getProcessedArgs = () => {
+		if (setupCode.type !== "stdio" || !setupCode.args) return [];
+		
+		return setupCode.args.map(arg => 
+			arg.replace(/\\@/g, '@').replace(/\\\\/g, '\\')
+		);
+	};
+
 	// Handle scroll for tools container to show/hide glow effect
 	const handleToolsScroll = () => {
 		const container = toolsScrollRef.current;
@@ -193,7 +202,7 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 							: {
 								type: "stdio",
 								command: setupCode.command,
-								args: setupCode.args,
+								args: getProcessedArgs(),
 								...(setupCode.env && Object.keys(setupCode.env).length > 0 && { env: getProcessedEnv() })
 							}
 					}
@@ -207,7 +216,7 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 								: {
 									type: "stdio",
 									command: setupCode.command,
-									args: setupCode.args,
+									args: getProcessedArgs(),
 									...(setupCode.env && Object.keys(setupCode.env).length > 0 && { env: getProcessedEnv() })
 								}
 						}
@@ -216,7 +225,7 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 
 				const vscodeCLICommand = setupCode.type === "sse"
 					? `code --add-mcp '{"name":"${name.toLowerCase().replace(/\s+/g, '-')}","url":["${setupCode.url}"]}'`
-					: `code --add-mcp '{"name":"${name.toLowerCase().replace(/\s+/g, '-')}","command":"${setupCode.command}","args":${JSON.stringify(setupCode.args)}${setupCode.env && Object.keys(setupCode.env).length > 0 ? `,"env":${JSON.stringify(getProcessedEnv())}` : ""}}'`;
+					: `code --add-mcp '{"name":"${name.toLowerCase().replace(/\s+/g, '-')}","command":"${setupCode.command}","args":${JSON.stringify(getProcessedArgs())}${setupCode.env && Object.keys(setupCode.env).length > 0 ? `,"env":${JSON.stringify(getProcessedEnv())}` : ""}}'`;
 
 				return (
 					<div className="h-full overflow-y-auto">
@@ -353,7 +362,7 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 				return (
 					<div className="h-full overflow-hidden relative">
 						<div className="p-6 pb-0">
-							<div>
+							<div className="mb-6">
 								<h3 className="text-md font-semibold mb-2">Available Tools</h3>
 								<p className="text-muted-foreground text-sm mb-4">
 									This MCP provides {tools.length} tool{tools.length !== 1 ? 's' : ''} for integration.
@@ -361,7 +370,7 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 								
 								{/* Search Bar */}
 								<div className="relative flex justify-between items-center">
-									<Search className="absolute left-3 top-[4px] text-muted-foreground w-4 h-4" />
+									<Search className="absolute left-3 top-[8px] text-muted-foreground w-4 h-4" />
 									<Input
 										placeholder="Search tools..."
 										value={toolsSearch}
@@ -419,7 +428,7 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 
 						{/* Scroll glow effect */}
 						{showScrollGlow && (
-							<div className="absolute bottom-0 left-0 right-0 h-12 pointer-events-none bg-gradient-to-t from-background via-background/60 to-transparent shadow-inner" />
+							<div className="absolute bottom-0 left-0 right-0 h-12 pointer-events-none bg-gradient-to-t from-background via-background/60 to-transparent" />
 						)}
 					</div>
 				);
