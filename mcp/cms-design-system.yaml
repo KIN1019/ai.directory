@@ -1,6 +1,6 @@
-name: CMS Design System Wiki
+name: cmdc (Common Document Context)
 description: >-
-  This server provides the Wiki of CMS Design System.
+  This server provides the Wiki of CMS Design System, Common Scheduler Framework, HA Spring Boot Starter, and other internal context.
 logo: /cms-logo.jpg
 tools:
   - name: LIST_DOCS
