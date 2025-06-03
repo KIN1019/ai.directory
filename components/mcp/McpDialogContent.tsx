@@ -4,7 +4,9 @@ import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, Copy, ExternalLink, FileCode, Info, Settings, Wrench } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Check, Copy, ExternalLink, FileCode, Info, Settings, Wrench, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Tool = {
@@ -19,7 +21,9 @@ type McpDialogProps = {
 	logo: string;
 	tools: Tool[];
 	href: string;
-	setupCode: { type: "sse", url: string } | { type: "stdio", command: string };
+	setupCode:
+		| { type: "sse", url: string }
+		| { type: "stdio", command: string, args: string[], env: { [key: string]: string } };
 };
 
 type SetupStep = {
@@ -71,6 +75,47 @@ function CopyButton({ text, size = "sm", variant = "outline", className = "" }: 
 function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpDialogProps) {
 	const [currentStep, setCurrentStep] = useState("overview");
 	const [selectedEditor, setSelectedEditor] = useState<"vscode" | "cursor">("vscode");
+	const [inputValues, setInputValues] = useState<Record<string, string>>({});
+	const [toolsSearch, setToolsSearch] = useState("");
+
+	// Extract input field requirements from env variables
+	const getInputFields = () => {
+		if (setupCode.type !== "stdio" || !setupCode.env) return [];
+		
+		const inputFields: Array<{ key: string; label: string; envKey: string }> = [];
+		
+		Object.entries(setupCode.env).forEach(([envKey, value]) => {
+			const match = value.match(/^\$\{input:([^}]+)\}$/);
+			if (match) {
+				const inputKey = match[1];
+				const label = inputKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+				inputFields.push({ key: inputKey, label, envKey });
+			}
+		});
+		
+		return inputFields;
+	};
+
+	const inputFields = getInputFields();
+
+	// Substitute input values in env object
+	const getProcessedEnv = () => {
+		if (setupCode.type !== "stdio" || !setupCode.env) return {};
+		
+		const processedEnv: Record<string, string> = {};
+		
+		Object.entries(setupCode.env).forEach(([envKey, value]) => {
+			const match = value.match(/^\$\{input:([^}]+)\}$/);
+			if (match) {
+				const inputKey = match[1];
+				processedEnv[envKey] = inputValues[inputKey] || `[Enter ${inputKey.replace(/_/g, ' ')}]`;
+			} else {
+				processedEnv[envKey] = value;
+			}
+		});
+		
+		return processedEnv;
+	};
 
 	const renderStepContent = () => {
 		switch (currentStep) {
@@ -111,21 +156,35 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 			case "setup":
 				const setupConfigVSCode = {
 					"mcpServers": {
-						[name.toLowerCase().replace(/\s+/g, '-')]: setupCode
+						[name.toLowerCase().replace(/\s+/g, '-')]: setupCode.type === "sse" 
+							? setupCode 
+							: {
+								type: "stdio",
+								command: setupCode.command,
+								args: setupCode.args,
+								...(setupCode.env && Object.keys(setupCode.env).length > 0 && { env: getProcessedEnv() })
+							}
 					}
 				};
 
 				const setupConfigCursor = {
 					"mcp": {
 						"servers": {
-							[name.toLowerCase().replace(/\s+/g, '-')]: setupCode
+							[name.toLowerCase().replace(/\s+/g, '-')]: setupCode.type === "sse" 
+								? setupCode 
+								: {
+									type: "stdio",
+									command: setupCode.command,
+									args: setupCode.args,
+									...(setupCode.env && Object.keys(setupCode.env).length > 0 && { env: getProcessedEnv() })
+								}
 						}
 					}
 				};
 
 				const vscodeCLICommand = setupCode.type === "sse"
 					? `code --add-mcp '{"name":"${name.toLowerCase().replace(/\s+/g, '-')}","url":["${setupCode.url}"]}'`
-					: `code --add-mcp '{"name":"${name.toLowerCase().replace(/\s+/g, '-')}","command":"${setupCode.command.split(" ")[0]}","args":["${setupCode.command.split(" ").slice(1).join('","')}"]}'`;
+					: `code --add-mcp '{"name":"${name.toLowerCase().replace(/\s+/g, '-')}","command":"${setupCode.command}","args":${JSON.stringify(setupCode.args)}${setupCode.env && Object.keys(setupCode.env).length > 0 ? `,"env":${JSON.stringify(getProcessedEnv())}` : ""}}'`;
 
 				return (
 					<div className="h-full overflow-y-auto">
@@ -136,6 +195,32 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 									Add the following configuration to your editor settings to enable this MCP server.
 								</p>
 							</div>
+
+							{inputFields.length > 0 && (
+								<div className="space-y-4">
+									<h4 className="text-sm font-medium">Required Configuration</h4>
+									<div className="grid gap-4">
+										{inputFields.map((field) => (
+											<div key={field.key} className="space-y-2">
+												<Label htmlFor={field.key} className="text-sm font-medium">
+													{field.label}
+												</Label>
+												<Input
+													id={field.key}
+													type={field.key.toLowerCase().includes('token') || field.key.toLowerCase().includes('password') ? 'password' : 'text'}
+													placeholder={`Enter your ${field.label.toLowerCase()}`}
+													value={inputValues[field.key] || ''}
+													onChange={(e) => setInputValues(prev => ({
+														...prev,
+														[field.key]: e.target.value
+													}))}
+													className="w-full"
+												/>
+											</div>
+										))}
+									</div>
+								</div>
+							)}
 
 							<div className="space-y-4">
 								<div className="flex border-b">
@@ -220,18 +305,35 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 				);
 
 			case "tools":
+				// Filter tools based on search query
+				const filteredTools = tools.filter(tool => 
+					tool.name.toLowerCase().includes(toolsSearch.toLowerCase()) ||
+					tool.description.toLowerCase().includes(toolsSearch.toLowerCase())
+				);
+
 				return (
 					<div className="h-full overflow-y-auto">
 						<div className="p-6">
 							<div className="mb-6">
 								<h3 className="text-md font-semibold mb-2">Available Tools</h3>
-								<p className="text-muted-foreground text-sm">
+								<p className="text-muted-foreground text-sm mb-4">
 									This MCP provides {tools.length} tool{tools.length !== 1 ? 's' : ''} for integration.
 								</p>
+								
+								{/* Search Bar */}
+								<div className="relative flex justify-between items-center">
+									<Search className="absolute left-3 top-[4px] text-muted-foreground w-4 h-4" />
+									<Input
+										placeholder="Search tools..."
+										value={toolsSearch}
+										onChange={(e) => setToolsSearch(e.target.value)}
+										className="pl-10"
+									/>
+								</div>
 							</div>
 
 							<div className="grid gap-4">
-								{tools.map((tool, index) => (
+								{filteredTools.map((tool, index) => (
 									<div key={index} className="border rounded-lg p-4 hover:bg-muted/50 transition-colors">
 										<div className="flex items-start justify-between">
 											<div className="flex-1">
@@ -245,6 +347,21 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 									</div>
 								))}
 							</div>
+
+							{filteredTools.length === 0 && toolsSearch && (
+								<div className="text-center py-8 text-muted-foreground">
+									<Search className="w-12 h-12 mx-auto mb-3 opacity-50" />
+									<p>No tools found matching "{toolsSearch}"</p>
+									<Button 
+										variant="outline" 
+										size="sm" 
+										onClick={() => setToolsSearch("")}
+										className="mt-2"
+									>
+										Clear search
+									</Button>
+								</div>
+							)}
 
 							{tools.length === 0 && (
 								<div className="text-center py-8 text-muted-foreground">

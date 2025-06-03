@@ -20,6 +20,8 @@ type McpData = {
 		type: "sse" | "stdio";
 		url?: string;
 		command?: string;
+		args?: string[];
+		env?: Record<string, string>;
 	};
 	tags: string[];
 	href?: string;
@@ -33,7 +35,7 @@ type McpDocument = {
 		name: string;
 		description: string;
 	}>;
-	setupCode: { type: "sse", url: string } | { type: "stdio", command: string };
+	setupCode: { type: "sse", url: string } | { type: "stdio", command: string, args: string[], env: { [key: string]: string } };
 	href: string;
 	fileName: string;
 };
@@ -74,7 +76,12 @@ async function getMcpsByTags(selectedTags: string[]): Promise<McpDocument[]> {
 		if (shouldInclude) {
 			const setupCode = mcpData.config.type === "sse" 
 				? { type: "sse" as const, url: mcpData.config.url! }
-				: { type: "stdio" as const, command: mcpData.config.command! };
+				: { 
+					type: "stdio" as const, 
+					command: mcpData.config.command!, 
+					args: mcpData.config.args || [],
+					env: mcpData.config.env || {}
+				};
 
 			allMcps.push({
 				name: mcpData.name,

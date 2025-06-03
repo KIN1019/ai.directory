@@ -1,0 +1,110 @@
+name: HA GitHub
+description: >-
+  The HA GitHub MCP Server provides seamless integration with hagithub.home APIs, enabling advanced automation and interaction capabilities for developers and tools.
+logo: /github-logo.png
+config:
+  type: stdio
+  command: podman
+  args:
+    - run
+    - -i
+    - --rm
+    - -e
+    - GITHUB_PERSONAL_ACCESS_TOKEN
+    - -e
+    - GITHUB_HOST
+    - ghcr.io/github/github-mcp-server
+  env:
+    GITHUB_PERSONAL_ACCESS_TOKEN: ${input:github_token}
+    GITHUB_HOST: https://hagithub.home
+tags:
+  - github
+tools:
+  - name: get_me
+    description: Get details of the authenticated user
+  - name: get_issue
+    description: Gets the contents of an issue within a repository
+  - name: get_issue_comments
+    description: Get comments for a GitHub issue
+  - name: create_issue
+    description: Create a new issue in a GitHub repository
+  - name: add_issue_comment
+    description: Add a comment to an issue
+  - name: list_issues
+    description: List and filter repository issues
+  - name: update_issue
+    description: Update an existing issue in a GitHub repository
+  - name: search_issues
+    description: Search for issues and pull requests
+  - name: get_pull_request
+    description: Get details of a specific pull request
+  - name: list_pull_requests
+    description: List and filter repository pull requests
+  - name: merge_pull_request
+    description: Merge a pull request
+  - name: get_pull_request_files
+    description: Get the list of files changed in a pull request
+  - name: get_pull_request_status
+    description: Get the combined status of all status checks for a pull request
+  - name: update_pull_request_branch
+    description: Update a pull request branch with the latest changes from the base branch
+  - name: get_pull_request_comments
+    description: Get the review comments on a pull request
+  - name: get_pull_request_reviews
+    description: Get the reviews on a pull request
+  - name: create_pull_request_review
+    description: Create a review on a pull request review
+  - name: create_pull_request
+    description: Create a new pull request
+  - name: add_pull_request_review_comment
+    description: Add a review comment to a pull request or reply to an existing comment
+  - name: update_pull_request
+    description: Update an existing pull request in a GitHub repository
+  - name: request_copilot_review
+    description: Request a GitHub Copilot review for a pull request (experimental; subject to GitHub API support)
+  - name: create_or_update_file
+    description: Create or update a single file in a repository
+  - name: list_branches
+    description: List branches in a GitHub repository
+  - name: push_files
+    description: Push multiple files in a single commit
+  - name: search_repositories
+    description: Search for GitHub repositories
+  - name: create_repository
+    description: Create a new GitHub repository
+  - name: get_file_contents
+    description: Get contents of a file or directory
+  - name: fork_repository
+    description: Fork a repository
+  - name: create_branch
+    description: Create a new branch
+  - name: list_commits
+    description: Get a list of commits of a branch in a repository
+  - name: get_commit
+    description: Get details for a commit from a repository
+  - name: search_code
+    description: Search for code across GitHub repositories
+  - name: search_users
+    description: Search for GitHub users
+
+
+  - name: get_code_scanning_alert
+    description: Get a code scanning alert
+  - name: list_code_scanning_alerts
+    description: List code scanning alerts for a repository
+  - name: get_secret_scanning_alert
+    description: Get a secret scanning alert
+  - name: list_secret_scanning_alerts
+    description: List secret scanning alerts for a repository
+  - name: list_notifications
+    description: List notifications for a GitHub user
+  - name: get_notification_details
+    description: Get detailed information for a specific GitHub notification
+  - name: dismiss_notification
+    description: Dismiss a notification by marking it as read or done
+  - name: mark_all_notifications_read
+    description: Mark all notifications as read
+  - name: manage_notification_subscription
+    description: Manage a notification subscription (ignore, watch, or delete) for a notification thread
+  - name: manage_repository_notification_subscription
+    description: Manage a repository notification subscription (ignore, watch, or delete)

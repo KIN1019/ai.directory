@@ -35,7 +35,9 @@ type McpCardProps = {
 	logo: string;
 	tools: Tool[];
 	href: string;
-	setupCode: { type: "sse", url: string } | { type: "stdio", command: string };
+	setupCode:
+		| { type: "sse", url: string }
+		| { type: "stdio", command: string, args: string[], env: { [key: string]: string } };
 	fileName?: string;
 	open?: boolean;
 };
@@ -44,7 +46,7 @@ function McpCard(props: McpCardProps) {
 	const [isHovered, setIsHovered] = useState(false);
 
 	return (
-		<Card className="" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+		<Card onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
 			<CardHeader className="flex flex-row justify-start gap-4 items-center">
 				<Image 
 					src={props.logo} 
@@ -56,7 +58,7 @@ function McpCard(props: McpCardProps) {
 				<CardTitle className="text-sm">{props.name}</CardTitle>
 			</CardHeader>
 			<CardContent className="flex flex-col gap-y-4">
-				<p className="text-xs">{props.description}</p>
+				<p className="text-xs h-8 overflow-hidden text-ellipsis">{props.description}</p>
 				<Badge variant={isHovered ? "default" : "outline"}>{props.tools.length} tools</Badge>
 			</CardContent>
 		</Card>
