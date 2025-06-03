@@ -1,0 +1,24 @@
+name: Elasticsearch
+description: >-
+  This Elasticsearch MCP Server connects agents to your Elasticsearch data. It allows you to interact with your Elasticsearch indices through natural language conversations.
+logo: /elasticsearch-logo.png
+config:
+  type: stdio
+  command: npx
+  args:
+    - -y
+    - \@elastic/mcp-server-elasticsearch
+  env:
+    ES_URL: ${input:elasticsearch_url}
+    ES_API_KEY: ${input:elasticsearch_api_key}
+tags:
+  - elasticsearch
+tools:
+  - name: list_indices
+    description: List all available Elasticsearch indices
+  - name: get_mappings
+    description: Get field mappings for a specific Elasticsearch index
+  - name: search
+    description: Perform an Elasticsearch search with the provided query DSL
+  - name: get_shards
+    description: get_shards

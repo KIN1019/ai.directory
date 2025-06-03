@@ -10,3 +10,5 @@
   name: CMS Framework
 - slug: github
   name: GitHub
+- slug: elasticsearch
+  name: Elasticsearch
