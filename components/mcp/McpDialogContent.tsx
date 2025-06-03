@@ -248,6 +248,14 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 
 								{selectedEditor === "vscode" && (
 									<div className="space-y-4">
+										{setupCode.type === "stdio" && (
+											<div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+												<h5 className="font-medium text-blue-900 dark:text-blue-100 mb-2">Note for stdio setup:</h5>
+												<p className="text-sm text-blue-800 dark:text-blue-200">
+													Make sure the command <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">{setupCode.command}</code> is available in your PATH.
+												</p>
+											</div>
+										)}
 										<div className="bg-muted/50 rounded-lg p-4 flex gap-4 flex-col">
 											<div>
 												<div className="flex flex-row items-center gap-4 justify-between mb-2">
@@ -277,6 +285,14 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 
 								{selectedEditor === "cursor" && (
 									<div className="space-y-4">
+										{setupCode.type === "stdio" && (
+											<div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+												<h5 className="font-medium text-blue-900 dark:text-blue-100 mb-2">Note for stdio setup:</h5>
+												<p className="text-sm text-blue-800 dark:text-blue-200">
+													Make sure the command <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">{setupCode.command}</code> is available in your PATH.
+												</p>
+											</div>
+										)}
 										<div className="bg-muted/50 rounded-lg p-4">
 											<div className="flex flex-row items-center gap-4 justify-between mb-2">
 												<p className="text-sm text-muted-foreground">
@@ -291,15 +307,6 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode }: McpD
 									</div>
 								)}
 							</div>
-
-							{setupCode.type === "stdio" && (
-								<div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
-									<h5 className="font-medium text-blue-900 dark:text-blue-100 mb-2">Note for stdio setup:</h5>
-									<p className="text-sm text-blue-800 dark:text-blue-200">
-										Make sure the command <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">{setupCode.command}</code> is available in your PATH.
-									</p>
-								</div>
-							)}
 						</div>
 					</div>
 				);
