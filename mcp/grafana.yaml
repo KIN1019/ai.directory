@@ -1,0 +1,24 @@
+name: Grafana
+description: >-
+  This Grafana MCP Server provides access to your Grafana instance and the surrounding ecosystem.
+logo: /grafana-logo.png
+setupDescription: |-
+  Download the Grafana MCP Server binary from [here](https://github.com/grafana/mcp-grafana/releases) and put it under `PATH`.
+config:
+  type: stdio
+  command: mcp-grafana
+  args: []
+  env:
+    GRAFANA_URL: ${input:grafana_url}
+    GRAFANA_API_KEY: ${input:grafana_api_key}
+tags:
+  - elasticsearch
+tools:
+  - name: list_indices
+    description: List all available Elasticsearch indices
+  - name: get_mappings
+    description: Get field mappings for a specific Elasticsearch index
+  - name: search
+    description: Perform an Elasticsearch search with the provided query DSL
+  - name: get_shards
+    description: get_shards
