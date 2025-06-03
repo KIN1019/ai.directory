@@ -1,0 +1,49 @@
+name: OpenShift
+description: >-
+  A powerful and flexible Kubernetes MCP server implementation with support for Kubernetes and OpenShift.
+logo: /openshift-logo.png
+config:
+  type: stdio
+  command: npx
+  args:
+    - -y
+    - kubernetes-mcp-server@latest
+tags:
+  - cloud
+tools:
+  - name: configuration_view
+    description: Get the current Kubernetes configuration content as a kubeconfig YAML
+  - name: events_list
+    description: List all the Kubernetes events in the current cluster from all namespaces
+  - name: helm_install
+    description: Install a Helm chart in the current or provided namespace with the provided name and chart
+  - name: helm_list
+    description: List all the Helm releases in the current or provided namespace (or in all namespaces if specified)
+  - name: helm_uninstall
+    description: Uninstall a Helm release in the current or provided namespace with the provided name
+  - name: namespaces_list
+    description: List all the Kubernetes namespaces in the current cluster
+  - name: pods_delete
+    description: Delete a Kubernetes Pod in the current or provided namespace with the provided name
+  - name: pods_exec
+    description: Execute a command in a Kubernetes Pod in the current or provided namespace with the provided name and command
+  - name: pods_get
+    description: Get a Kubernetes Pod in the current or provided namespace with the provided name
+  - name: pods_list
+    description: List all the Kubernetes pods in the current cluster from all namespaces
+  - name: pods_list_in_namespace
+    description: List all the Kubernetes pods in the specified namespace in the current cluster
+  - name: pods_log
+    description: Get the logs of a Kubernetes Pod in the current or provided namespace with the provided name
+  - name: pods_run
+    description: Run a Kubernetes Pod in the current or provided namespace with the provided container image and optional name
+  - name: projects_list
+    description: List all the OpenShift projects in the current cluster
+  - name: resources_create_or_update
+    description: Create or update a Kubernetes resource in the current cluster by providing a YAML or JSON representation of the resource
+  - name: resources_delete
+    description: Delete a Kubernetes resource in the current cluster
+  - name: resources_get
+    description: Get a Kubernetes resource in the current cluster
+  - name: resources_list
+    description: List Kubernetes resources and objects in the current cluster

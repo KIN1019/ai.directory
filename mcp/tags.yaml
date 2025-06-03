@@ -12,3 +12,5 @@
   name: GitHub
 - slug: elasticsearch
   name: Elasticsearch
+- slug: cloud
+  name: Cloud
