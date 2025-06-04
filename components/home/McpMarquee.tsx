@@ -1,12 +1,14 @@
 import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/magicui/marquee";
+import Link from "next/link";
 
 const reviews = [
   {
-    name: "Common Schedueler",
-    username: "4 tools available",
-    body: "For kickstarting your Common Scheduler Framework projects.",
+    name: "cmdc",
+    username: "3 tools available",
+    body: "This server provides internal contexts in HA.",
     img: "/cms-logo.jpg",
+    href: "/mcp?dialog=cmdc",
   },
   {
     name: "HA Drive",
@@ -15,10 +17,11 @@ const reviews = [
     img: "/ha-drive-logo.jpg",
   },
   {
-    name: "CMS Design System",
-    username: "6 tools available",
-    body: "Write React in CMS Design System using AI.",
-    img: "/cms-logo.jpg",
+    name: "Grafana",
+    username: "4 tools available",
+    body: "This Grafana MCP Server provides access to your Grafana instance.",
+    img: "/grafana-logo.png",
+    href: "/mcp?dialog=grafana",
   },
   {
     name: "JIRA",
@@ -27,10 +30,11 @@ const reviews = [
     img: "/jira-logo.png",
   },
   {
-    name: "CMS Spring Starter",
-    username: "3 tools available",
-    body: "Start your Spring Boot projects with CMS Spring Starter.",
-    img: "/cms-logo.jpg",
+    name: "OpenShift",
+    username: "18 tools available",
+    body: "A powerful and flexible MCP server with support for OpenShift.",
+    img: "/openshift-logo.png",
+    href: "/mcp?dialog=openshift",
   },
   {
     name: "csaf.home",
@@ -45,10 +49,11 @@ const reviews = [
     img: "/sc4-logo.jpg",
   },
   {
-    name: "hagithub.home",
+    name: "HA GitHub",
     username: "16 tools available",
     body: "View issues, create pull requests, and more.",
     img: "/github-logo.png",
+    href: "/mcp?dialog=hagithub",
   },
 ];
 
@@ -60,33 +65,37 @@ const ReviewCard = ({
   name,
   username,
   body,
+  href,
 }: {
   img: string;
   name: string;
   username: string;
   body: string;
+  href?: string;
 }) => {
   return (
-    <figure
-      className={cn(
-        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
-        // light styles
-        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-        // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15] bg-background",
-      )}
-    >
-      <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
-        <div className="flex flex-col">
-          <figcaption className="text-sm font-medium dark:text-white">
-            {name}
-          </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">{username}</p>
+    <Link href={href || "#"}>
+      <figure
+        className={cn(
+          "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+          // light styles
+          "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+          // dark styles
+          "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15] bg-background",
+        )}
+      >
+        <div className="flex flex-row items-center gap-2">
+          <img className="rounded-full" width="32" height="32" alt="" src={img} />
+          <div className="flex flex-col">
+            <figcaption className="text-sm font-medium dark:text-white">
+              {name}
+            </figcaption>
+            <p className="text-xs font-medium dark:text-white/40">{username}</p>
+          </div>
         </div>
-      </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
-    </figure>
+        <blockquote className="mt-2 text-sm">{body}</blockquote>
+      </figure>
+    </Link>
   );
 };
 
