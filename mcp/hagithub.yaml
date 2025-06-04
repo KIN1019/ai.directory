@@ -15,7 +15,7 @@ config:
     GITHUB_PERSONAL_ACCESS_TOKEN: ${input:github_token}
     GITHUB_HOST: https://hagithub.home
 tags:
-  - github
+  - development
 tools:
   - name: get_me
     description: Get details of the authenticated user

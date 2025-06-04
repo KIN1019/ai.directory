@@ -11,6 +11,8 @@ config:
     - kubernetes-mcp-server@latest
 tags:
   - cloud
+  - development
+  - production
 tools:
   - name: configuration_view
     description: Get the current Kubernetes configuration content as a kubeconfig YAML

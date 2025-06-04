@@ -1,11 +1,5 @@
 - slug: wiki
   name: Wiki & Documentation
-- slug: java
-  name: Java & Spring
-- slug: react
-  name: React & Frontend
-- slug: backend
-  name: Backend Services
 - slug: cms
   name: CMS Framework
 - slug: github
@@ -14,3 +8,9 @@
   name: Elasticsearch
 - slug: cloud
   name: Cloud
+- slug: qa
+  name: Quality Assurance
+- slug: development
+  name: Development
+- slug: production
+  name: Production
