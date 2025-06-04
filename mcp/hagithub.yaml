@@ -3,7 +3,8 @@ description: >-
   The HA GitHub MCP Server provides seamless integration with hagithub.home APIs, enabling advanced automation and interaction capabilities for developers and tools.
 logo: /github-logo.png
 setupDescription: |-
-  Download the GitHub MCP Server binary from [here](https://github.com/github/github-mcp-server/releases/tag/v0.1.1) and put it under `PATH`.
+  - Download the GitHub MCP Server binary from [here](https://github.com/github/github-mcp-server/releases/tag/v0.1.1) and put it under `PATH`.
+  - If you experience **certificate-related issues**, please ensure that the certificate for `hagithub.home` is added to your system's trusted certificate store.
 config:
   type: stdio
   command: github-mcp-server

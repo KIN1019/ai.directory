@@ -242,10 +242,17 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode, setupD
 							{setupDescription && (
 								<div className="bg-muted/30 border border-muted rounded-lg p-4 mb-6">
 									<h4 className="text-sm font-medium mb-3">Additional Setup Notes</h4>
-									<div className="text-sm prose prose-sm max-w-none dark:prose-invert">
+									<div className="text-sm">
 										<ReactMarkdown
 											components={{
 												p: ({children}) => <p className="mb-2 last:mb-0">{children}</p>,
+												ul: ({children}) => <div className="mb-2 space-y-1">{children}</div>,
+												li: ({children}) => (
+													<div className="text-sm flex items-start gap-2">
+														<span className="text-muted-foreground mt-1 flex-shrink-0">•</span>
+														<span>{children}</span>
+													</div>
+												),
 												a: ({href, children}) => (
 													<a 
 														href={href} 
