@@ -2,6 +2,8 @@ name: Elasticsearch (Not Ready)
 slug: elasticsearch
 description: >-
   This Elasticsearch MCP Server connects agents to your Elasticsearch data. It allows you to interact with your Elasticsearch indices through natural language conversations.
+setupDescription: |-
+  - If you experience **certificate-related issues**, please ensure that the certificate for the Elasticsearch server is added to your system's trusted certificate store.
 logo: /elasticsearch-logo.png
 config:
   type: stdio

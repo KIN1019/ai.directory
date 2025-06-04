@@ -4,8 +4,8 @@ description: >-
   This Grafana MCP Server provides access to your Grafana instance and the surrounding ecosystem.
 logo: /grafana-logo.png
 setupDescription: |-
-  Download the Grafana MCP Server binary from [here](https://github.com/grafana/mcp-grafana/releases) and put it under `PATH`.  
-  If you experience **certificate-related issues**, please ensure that the certificate for your Grafana server is added to your system's trusted certificate store.
+  - Download the Grafana MCP Server binary from [here](https://github.com/grafana/mcp-grafana/releases) and put it under `PATH`.
+  - If you experience **certificate-related issues**, please ensure that the certificate for your Grafana server is added to your system's trusted certificate store.
 config:
   type: stdio
   command: mcp-grafana
