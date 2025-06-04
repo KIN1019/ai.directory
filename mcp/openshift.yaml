@@ -1,4 +1,5 @@
 name: OpenShift
+slug: openshift
 description: >-
   A powerful and flexible Kubernetes MCP server implementation with support for Kubernetes and OpenShift.
 logo: /openshift-logo.png

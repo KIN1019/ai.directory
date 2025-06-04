@@ -26,6 +26,7 @@ type McpDialogProps = {
 		| { type: "sse", url: string }
 		| { type: "stdio", command: string, args: string[], env: { [key: string]: string } };
 	setupDescription?: string;
+	slug?: string;
 };
 
 type SetupStep = {
@@ -74,7 +75,7 @@ function CopyButton({ text, size = "sm", variant = "outline", className = "" }: 
 	);
 }
 
-function McpDialogMain({ name, description, logo, tools, href, setupCode, setupDescription }: McpDialogProps) {
+function McpDialogMain({ name, description, logo, tools, href, setupCode, setupDescription, slug }: McpDialogProps) {
 	const [currentStep, setCurrentStep] = useState("overview");
 	const [selectedEditor, setSelectedEditor] = useState<"vscode" | "cursor">("vscode");
 	const [inputValues, setInputValues] = useState<Record<string, string>>({});
@@ -160,6 +161,9 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode, setupD
 		};
 	}, [currentStep, toolsSearch]); // Re-run when step changes or search changes
 
+	// Use slug if available, otherwise fallback to transformed name
+	const configName = slug || name.toLowerCase().replace(/\s+/g, '-');
+
 	const renderStepContent = () => {
 		switch (currentStep) {
 			case "overview":
@@ -199,7 +203,7 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode, setupD
 			case "setup":
 				const setupConfigVSCode = {
 					"mcpServers": {
-						[name.toLowerCase().replace(/\s+/g, '-')]: setupCode.type === "sse" 
+						[configName]: setupCode.type === "sse" 
 							? setupCode 
 							: {
 								type: "stdio",
@@ -213,7 +217,7 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode, setupD
 				const setupConfigCursor = {
 					"mcp": {
 						"servers": {
-							[name.toLowerCase().replace(/\s+/g, '-')]: setupCode.type === "sse" 
+							[configName]: setupCode.type === "sse" 
 								? setupCode 
 								: {
 									type: "stdio",
@@ -226,8 +230,8 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode, setupD
 				};
 
 				const vscodeCLICommand = setupCode.type === "sse"
-					? `code --add-mcp '{"name":"${name.toLowerCase().replace(/\s+/g, '-')}","url":["${setupCode.url}"]}'`
-					: `code --add-mcp '{"name":"${name.toLowerCase().replace(/\s+/g, '-')}","command":"${setupCode.command}","args":${JSON.stringify(getProcessedArgs())}${setupCode.env && Object.keys(setupCode.env).length > 0 ? `,"env":${JSON.stringify(getProcessedEnv())}` : ""}}'`;
+					? `code --add-mcp '{"name":"${configName}","url":["${setupCode.url}"]}'`
+					: `code --add-mcp '{"name":"${configName}","command":"${setupCode.command}","args":${JSON.stringify(getProcessedArgs())}${setupCode.env && Object.keys(setupCode.env).length > 0 ? `,"env":${JSON.stringify(getProcessedEnv())}` : ""}}'`;
 
 				return (
 					<div className="h-full overflow-y-auto">

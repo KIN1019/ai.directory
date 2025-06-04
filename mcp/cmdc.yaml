@@ -1,4 +1,5 @@
 name: cmdc (Common Document Context)
+slug: cmdc
 description: >-
   This server provides the Wiki of CMS Design System, Common Scheduler Framework, HA Spring Boot Starter, and other internal context.
 logo: /cms-logo.jpg

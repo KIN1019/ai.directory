@@ -1,4 +1,5 @@
 name: Elasticsearch (Not Ready)
+slug: elasticsearch
 description: >-
   This Elasticsearch MCP Server connects agents to your Elasticsearch data. It allows you to interact with your Elasticsearch indices through natural language conversations.
 logo: /elasticsearch-logo.png

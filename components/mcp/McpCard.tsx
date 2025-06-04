@@ -41,6 +41,7 @@ type McpCardProps = {
 	fileName?: string;
 	open?: boolean;
 	setupDescription?: string;
+	slug?: string;
 };
 
 function McpCard(props: McpCardProps) {
