@@ -1,0 +1,53 @@
+name: SonarQube (Not Ready)
+slug: sonarqube
+description: >-
+  An MCP server that integrates with SonarQube to provide AI assistants with access to code quality metrics, issues, and analysis results.
+logo: /sonarqube-logo.png
+setupDescription: |-
+  - If you experience **certificate-related issues**, please ensure that the certificate for the SonarQube server is added to your system's trusted certificate store.
+config:
+  type: stdio
+  command: npx
+  args:
+    - -y
+    - sonarqube-mcp-server@latest
+  env:
+    SONARQUBE_URL: ${input:sonarqube_url}
+    SONARQUBE_TOKEN: ${input:sonarqube_token}
+tags:
+  - qa
+tools:
+  - name: projects
+    description: List all SonarQube projects with pagination support.
+  - name: metrics
+    description: Get available metrics from SonarQube.
+  - name: measures_component
+    description: Get measures for a specific component.
+  - name: measures_components
+    description: Get measures for multiple components.
+  - name: measures_history
+    description: Get measures history for a component.
+  - name: issues
+    description: Get issues from SonarQube projects with advanced filtering, sorting, and branch/PR support.
+  - name: hotspots
+    description: Search for security hotspots with specialized filters for security review workflows.
+  - name: hotspot
+    description: Get detailed information about a specific security hotspot including security context.
+  - name: update_hotspot_status
+    description: Update the status of a security hotspot (requires appropriate permissions).
+  - name: quality_gates
+    description: List available quality gates.
+  - name: quality_gate
+    description: Get quality gate conditions.
+  - name: quality_gate_status
+    description: Get project quality gate status.
+  - name: source_code
+    description: View source code with issues highlighted.
+  - name: scm_blame
+    description: Get SCM blame information for source code.
+  - name: system_health
+    description: Get the health status of the SonarQube instance.
+  - name: system_status
+    description: Get the status of the SonarQube instance.
+  - name: system_ping
+    description: Ping the SonarQube instance to check if it is up.
