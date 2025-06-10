@@ -1,4 +1,4 @@
-name: SonarQube (Not Ready)
+name: SonarQube
 slug: sonarqube
 description: >-
   An MCP server that integrates with SonarQube to provide AI assistants with access to code quality metrics, issues, and analysis results.
@@ -10,9 +10,9 @@ config:
   command: npx
   args:
     - -y
-    - sonarqube-mcp-server@latest
+    - ha-sonarqube-mcp-server@latest
   env:
-    SONARQUBE_URL: ${input:sonarqube_url}
+    SONARQUBE_URL: ${input:sonarqube_url:https://hatool-sonarqube.home/}
     SONARQUBE_TOKEN: ${input:sonarqube_token}
 tags:
   - qa
