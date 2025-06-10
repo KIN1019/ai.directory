@@ -12,7 +12,7 @@ config:
     - -y
     - ha-sonarqube-mcp-server@latest
   env:
-    SONARQUBE_URL: ${input:sonarqube_url:https://hatool-sonarqube.home/}
+    SONARQUBE_URL: https://hatool-sonarqube.home
     SONARQUBE_TOKEN: ${input:sonarqube_token}
 tags:
   - qa
