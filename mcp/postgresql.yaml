@@ -1,18 +1,36 @@
 name: PostgreSQL
 slug: postgresql
 description: >-
-  A MCP server that provides read-only access to PostgreSQL databases. This server enables LLMs to inspect database schemas and execute read-only queries.
+  Postgres MCP Pro is an MCP server built to support you and your AI agents throughout the entire development process—from initial coding, through testing and deployment, and to production tuning and maintenance.
 logo: /postgresql-logo.png
-tools:
-  - name: query
-    description: Execute read-only SQL queries against the connected database. All queries are executed within a READ ONLY transaction
 config:
   type: stdio
-  command: npx
+  command: uvx
   args:
-    - -y
-    - \@modelcontextprotocol/server-postgres
-    - ${input:pg_url}[postgresql://user:pass@localhost:5432/mydb]
+    - postgres-mcp
+    - --access-mode=unrestricted
+  env:
+    DATABASE_URI: ${input:database_url}[postgresql://username:password@localhost:5432/dbname]
 tags:
   - development
   - production
+  - qa
+tools:
+  - name: list_schemas
+    description: Lists all database schemas available in the PostgreSQL instance.
+  - name: list_objects
+    description: Lists database objects (tables, views, sequences, extensions) within a specified schema.
+  - name: get_object_details
+    description: Provides information about a specific database object, for example, a table's columns, constraints, and indexes.
+  - name: execute_sql
+    description: Executes SQL statements on the database, with read-only limitations when connected in restricted mode.
+  - name: explain_query
+    description: Gets the execution plan for a SQL query describing how PostgreSQL will process it and exposing the query planner's cost model. Can be invoked with hypothetical indexes to simulate the behavior after adding indexes.
+  - name: get_top_queries
+    description: Reports the slowest SQL queries based on total execution time using pg_stat_statements data.
+  - name: analyze_workload_indexes
+    description: Analyzes the database workload to identify resource-intensive queries, then recommends optimal indexes for them.
+  - name: analyze_query_indexes
+    description: Analyzes a list of specific SQL queries (up to 10) and recommends optimal indexes for them.
+  - name: analyze_db_health
+    description: "Performs comprehensive health checks including: buffer cache hit rates, connection health, constraint validation, index health (duplicate/unused/invalid), sequence limits, and vacuum health."
