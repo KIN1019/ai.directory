@@ -1,0 +1,21 @@
+name: Framelink Figma 
+slug: framelink-figma
+description: >-
+  Give Cursor and other AI-powered coding tools access to your Figma files with this Model Context Protocol server.
+logo: /figma-logo.png
+setupDescription: |-
+  - You will need to create a Figma access token to use this server. Instructions on how to create a Figma API access token can be found [here](https://help.figma.com/hc/en-us/articles/8085703771159-Manage-personal-access-tokens).
+config:
+  type: stdio
+  command: npx
+  args:
+    - -y
+    - figma-developer-mcp
+    - --stdio
+  env:
+    FIGMA_API_KEY: ${input:figma_api_key}
+tags:
+  - development
+tools:
+  - name: figma_access
+    description: Access Figma

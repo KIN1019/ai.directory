@@ -1,0 +1,17 @@
+name: Figma Dev Mode
+slug: figma-dev-mode
+description: >-
+  Give Cursor and other AI-powered coding tools access to your Figma files with this Model Context Protocol server.
+logo: /figma-logo.png
+setupDescription: |-
+  - You would need to install Figma to use this server.
+  - You can get the full features list from [here](https://www.figma.com/blog/introducing-figmas-dev-mode-mcp-server/).
+  - You can access the setup guide [here](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Dev-Mode-MCP-Server).
+config:
+  type: sse
+  url: http://127.0.0.1:3845/sse
+tags:
+  - development
+tools:
+  - name: figma_dev_mode
+    description: Access Figma Dev Mode
