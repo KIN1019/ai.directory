@@ -1,0 +1,18 @@
+name: PostgreSQL
+slug: postgresql
+description: >-
+  A MCP server that provides read-only access to PostgreSQL databases. This server enables LLMs to inspect database schemas and execute read-only queries.
+logo: /postgresql-logo.png
+tools:
+  - name: query
+    description: Execute read-only SQL queries against the connected database. All queries are executed within a READ ONLY transaction
+config:
+  type: stdio
+  command: npx
+  args:
+    - -y
+    - \@modelcontextprotocol/server-postgres
+    - ${input:pg_url}[postgresql://user:pass@localhost:5432/mydb]
+tags:
+  - development
+  - production
