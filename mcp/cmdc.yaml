@@ -15,4 +15,4 @@ config:
   url: https://schedulerfwk-mcp-server-poc-cms-dhp-1.tstcld61.server.ha.org.hk/sse
 tags:
   - development
-  - wiki
+  - docs
