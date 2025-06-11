@@ -1,0 +1,25 @@
+name: AWS Documentation
+slug: aws-documentation
+description: >-
+  This MCP server provides tools to access AWS documentation, search for content, and get recommendations.
+logo: /aws-logo.png
+config:
+  type: stdio
+  command: uvx
+  args:
+    - awslabs.aws-documentation-mcp-server@latest
+  env:
+    FASTMCP_LOG_LEVEL: ERROR
+    AWS_DOCUMENTATION_PARTITION: aws
+tags:
+  - docs
+  - cloud
+tools:
+  - name: read_documentation
+    description: Fetches an AWS documentation page and converts it to markdown format.
+  - name: search_documentation (global only)
+    description: Searches AWS documentation using the official AWS Documentation Search API.
+  - name: recommend (global only)
+    description: Gets content recommendations for an AWS documentation page.
+  - name: get_available_services (China only)
+    description: Gets a list of available AWS services in China regions.
