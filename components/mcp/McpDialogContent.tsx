@@ -85,19 +85,44 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode, setupD
 
 	// Extract input field requirements from env variables
 	const getInputFields = () => {
-		if (setupCode.type !== "stdio" || !setupCode.env) return [];
-		
-		const inputFields: Array<{ key: string; label: string; envKey: string }> = [];
-		
-		Object.entries(setupCode.env).forEach(([envKey, value]) => {
-			const match = value.match(/^\$\{input:([^}]+)\}$/);
+		if (setupCode.type !== "stdio") return [];
+	
+		const inputFields: Array<{ key: string; label: string; source: string; defaultValue?: string }> = [];
+		const foundKeys = new Set<string>();
+	
+		// Helper to extract key and default from pattern
+		const extractInput = (str: string) => {
+			const match = str.match(/^\$\{input:([^}]+)\}(?:\[([^\]]*)\])?$/);
 			if (match) {
-				const inputKey = match[1];
-				const label = inputKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-				inputFields.push({ key: inputKey, label, envKey });
+				return { key: match[1], defaultValue: match[2] };
 			}
-		});
-		
+			return null;
+		};
+	
+		// Check env
+		if (setupCode.env) {
+			Object.entries(setupCode.env).forEach(([envKey, value]) => {
+				const result = extractInput(value);
+				if (result && !foundKeys.has(result.key)) {
+					const label = result.key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+					inputFields.push({ key: result.key, label, source: 'env', defaultValue: result.defaultValue });
+					foundKeys.add(result.key);
+				}
+			});
+		}
+	
+		// Check args
+		if (setupCode.args) {
+			setupCode.args.forEach((arg) => {
+				const result = extractInput(arg);
+				if (result && !foundKeys.has(result.key)) {
+					const label = result.key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+					inputFields.push({ key: result.key, label, source: 'args', defaultValue: result.defaultValue });
+					foundKeys.add(result.key);
+				}
+			});
+		}
+	
 		return inputFields;
 	};
 
@@ -292,7 +317,7 @@ function McpDialogMain({ name, description, logo, tools, href, setupCode, setupD
 												<Input
 													id={field.key}
 													type={field.key.toLowerCase().includes('token') || field.key.toLowerCase().includes('password') ? 'password' : 'text'}
-													placeholder={`Enter your ${field.label.toLowerCase()}`}
+													placeholder={field.defaultValue ? field.defaultValue : `Enter your ${field.label.toLowerCase()}`}
 													value={inputValues[field.key] || ''}
 													onChange={(e) => setInputValues(prev => ({
 														...prev,
