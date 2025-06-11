@@ -1,0 +1,63 @@
+name: JFrog
+slug: jfrog
+description: >-
+  MCP Server for the JFrog Platform API, enabling repository management, build tracking, release lifecycle management, and more.
+logo: /jfrog-logo.png
+config:
+  type: stdio
+  command: npx
+  args:
+    - -y
+    - ha-jfrog-mcp@latest
+  env:
+    JFROG_URL: https://artifactrepo.server.ha.org.hk:55743
+    JFROG_USERNAME: ${input:jfrog_username}
+    JFROG_PASSWORD: ${input:jfrog_password}
+tags:
+  - development
+  - production
+tools:
+  - name: check_jfrog_availability
+    description: Check if JFrog platform is ready and functioning
+  - name: create_local_repository
+    description: Create a new local repository in Artifactory
+  - name: create_remote_repository
+    description: Create a new remote repository in Artifactory to proxy external package registries
+  - name: create_virtual_repository
+    description: Create a new virtual repository in Artifactory that aggregates multiple repositories
+  - name: list_repositories
+    description: List all repositories in Artifactory with optional filtering
+  - name: set_folder_property
+    description: Set properties on a folder in Artifactory, with optional recursive application
+  - name: execute_aql_query
+    description: Execute an Artifactory Query Language (AQL) query to search for artifacts, builds, or other entities in JFrog Artifactory
+  - name: list_jfrog_builds
+    description: Return a list of all builds in the JFrog platform
+  - name: get_specific_build
+    description: Get details for a specific build by name
+  - name: list_jfrog_runtime_clusters
+    description: Return a list of all runtime clusters in the JFrog platform
+  - name: get_jfrog_runtime_specific_cluster
+    description: Return a runtime cluster by ID
+  - name: list_jfrog_running_images
+    description: List all running container images across runtime clusters with their security and operational status
+  - name: list_jfrog_environments
+    description: Get a list of all environments types in the JFrog platform with their details
+  - name: list_jfrog_projects
+    description: Get a list of all projects in the JFrog platform with their details
+  - name: get_specific_project
+    description: Get detailed information about a specific project in the JFrog platform
+  - name: create_project
+    description: Create a new project in the JFrog platform
+  - name: jfrog_get_package_info
+    description: Get publicly available information about a software package
+  - name: jfrog_get_package_versions
+    description: Get a list of versions of a publicly available package with publication dates
+  - name: jfrog_get_package_version_vulnerabilities
+    description: Get a list of known vulnerabilities affecting a specific version of an open source package
+  - name: jfrog_get_vulnerability_info
+    description: Get detailed information about a specific vulnerability, including affected packages and versions
+  - name: jfrog_get_package_curation_status
+    description: Check the curation status of a specific package version
+  - name: jfrog_get_artifacts_summary
+    description: Get artifacts issues summary in a repository or build, categorized and counted by severity (Low, Medium, High, Critical, Unkown)
