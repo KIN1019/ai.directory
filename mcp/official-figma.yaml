@@ -1,7 +1,7 @@
 name: Figma Dev Mode
 slug: figma-dev-mode
 description: >-
-  Give Cursor and other AI-powered coding tools access to your Figma files with this Model Context Protocol server.
+  The Figma Dev Mode MCP server brings Figma directly into the developer workflow to help LLMs achieve design-informed code generation.
 logo: /figma-logo.png
 setupDescription: |-
   - You would need to install Figma to use this server.
