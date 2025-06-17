@@ -49,10 +49,44 @@ This prompt should work for any Spring Boot project and generate or update unit 
 
 ---
 
-## 📖Tips
+## 📊 Benchmark: Project Unit Test Coverage
 
-- Make sure your project builds and runs successfully before starting.
-- Review generated tests for accuracy and completeness.
-- Use the summary report to identify areas needing more coverage for SonarQube compliance.
+> **SonarQube Pass Criteria:** Coverage percentage must be **≥ 80%**.
 
----
+### 1️⃣ Project: cms-pccms-storage-pri-svc
+
+> **Note:** The following folders are excluded from SonarQube coverage analysis, as specified in `sonar-project.properties`:
+> - `src/test/**`
+> - `**/util/**`
+> - `**/config/**`
+> 
+
+| Folder      | Classes (count) | Public Functions (count) |
+|-------------|-----------------|--------------------------|
+| controller  | 1               | 4                        |
+| service     | 2               | 13                       |
+| utils       | 4               | 48                       |
+| dto         | 10              | 6 (getters/setters)      |
+
+- **SonarQube average coverage:** ~61%
+- **Manually implemented coverage:** ~19%
+- **Manually implemented functions:** switch case, try catch, etc
+
+### 2️⃣ Project: cms-pccms-scheduler-svc
+
+> **Note:** The following folders are excluded from SonarQube coverage analysis, as specified in `sonar-project.properties`:
+> - `src/test/**`
+> - `**/config/**`
+> 
+
+| Folder      | Classes (count)                | Public Functions (count)         |
+|-------------|-------------------------------|----------------------------------|
+| service     | 4                             | 8                                |
+| client      | 4 (interfaces/classes)        | 12                               |
+| entity      | 3                             | 11 (getters/setters/builders)    |
+| factory     | 1                             | 1                                |
+
+
+- **SonarQube average coverage:** ~70%
+- **Manually implemented coverage:** ~10%
+
