@@ -1,36 +1,42 @@
 export default {
   introduction: {
     title: 'Introduction',
-      theme: {
-        breadcrumb: false
-      }
+    theme: {
+      breadcrumb: false
+    }
   },
   news: {
     title: 'News',
-      theme: {
-        breadcrumb: false
-      }
+    theme: {
+      breadcrumb: false
+    }
   },
   ides: {
-  title: 'IDEs',
+    title: 'IDEs',
     theme: {
       breadcrumb: false
     }
   },
   models: {
-  title: 'Models',
+    title: 'Models',
     theme: {
       breadcrumb: false
     }
   },
   unitTestGeneration: {
-  title: 'Unit-Test-Generation',
+    title: 'Unit-Test-Generation',
     theme: {
       breadcrumb: false
     }
   },
   mcp: {
-  title: 'MCP',
+    title: 'MCP',
+    theme: {
+      breadcrumb: false
+    }
+  },
+  llms: {
+    title: 'LLMs',
     theme: {
       breadcrumb: false
     }
