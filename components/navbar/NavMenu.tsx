@@ -58,44 +58,16 @@ export function NavMenu() {
 		<NavigationMenu>
 			<NavigationMenuList>
 				<NavigationMenuItem>
-					<NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-					<NavigationMenuContent>
-						<ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-							<li className="row-span-3">
-								<NavigationMenuLink asChild>
-									<Link
-										className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-										href="/docs/intro"
-									>
-										<img src="/ha-logo.svg" />
-										<div className="mb-2 mt-4 text-lg font-medium">
-											AI Directory
-										</div>
-										<p className="text-sm leading-tight text-muted-foreground">
-											AI resources for CMS related workloads.
-										</p>
-									</Link>
-								</NavigationMenuLink>
-							</li>
-							<ListItem href="/docs/intro" title="Introduction">
-								What is rules, llms.txts, and MCPs?
-							</ListItem>
-							<ListItem href="/docs/setup" title="Installation & Setup">
-								How to setup rules, llms.txts and MCPs?
-							</ListItem>
-							<ListItem
-								href="/docs/primitives/typography"
-								title="Best Practices"
-							>
-								Best practices on using AI tools.
-							</ListItem>
-						</ul>
-					</NavigationMenuContent>
+					<Link href="/docs/introduction" legacyBehavior passHref>
+						<NavigationMenuLink className={navigationMenuTriggerStyle()}>
+							Docs
+						</NavigationMenuLink>
+					</Link>
 				</NavigationMenuItem>
 				<NavigationMenuItem>
-					<Link href="/rules" legacyBehavior passHref>
+					<Link href="/prompts" legacyBehavior passHref>
 						<NavigationMenuLink className={navigationMenuTriggerStyle()}>
-							Rules
+							Prompts
 						</NavigationMenuLink>
 					</Link>
 				</NavigationMenuItem>
@@ -109,7 +81,7 @@ export function NavMenu() {
 				<NavigationMenuItem>
 					<Link href="/mcp" legacyBehavior passHref>
 						<NavigationMenuLink className={navigationMenuTriggerStyle()}>
-							MCPs
+							MCPs Catalog
 						</NavigationMenuLink>
 					</Link>
 				</NavigationMenuItem>

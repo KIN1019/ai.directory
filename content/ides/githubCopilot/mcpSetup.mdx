@@ -1,0 +1,80 @@
+# Setting Up MCP in GitHub Copilot (VS Code)
+
+**Reference:**  
+[Use MCP servers in VS Code (Preview)](https://code.visualstudio.com/docs/copilot/chat/mcp-servers)
+
+### What is MCP in VS Code?
+
+MCP enables Copilot agent mode in VS Code to connect to external tools and services via MCP servers. This allows the AI to perform actions like file operations, database queries, API calls, and more, right from your development environment.
+
+### Prerequisites
+
+- Latest version of Visual Studio Code (v1.99+)
+- GitHub Copilot extension installed
+
+### Steps to Enable and Configure MCP
+
+#### 1. Enable MCP Support
+
+- Open VS Code settings.
+- Search for `chat.mcp.enabled` and enable it.
+
+#### 2. Add an MCP Server
+
+You can add MCP servers via workspace or user settings.
+
+**a. Workspace Settings:**
+
+1. In your project's root folder, create or edit `.vscode/mcp.json`.
+2. Add your MCP server configuration, choosing either **stdio** or **sse** transport as appropriate.
+   - **stdio Example:**
+     ```json
+     {
+       "servers": {
+         "my-local-server": {
+           "type": "stdio",
+           "command": "npx",
+           "args": ["-y", "mcp-server"],
+           "env": {
+             "API_KEY": "your-value"
+           }
+         }
+       }
+     }
+     ```
+   - **sse Example:**
+     ```json
+     {
+       "servers": {
+         "my-remote-server": {
+           "type": "sse",
+           "url": "http://example.com:8000/sse",
+         }
+       }
+     }
+     ```
+3. Save the file. VS Code will prompt securely for any secrets (like API keys) on server start.
+
+**b. User Settings:**
+
+- Add the MCP server configuration to your `settings.json` to enable it across all workspaces.
+
+**c. Command Palette:**
+
+- Use the **MCP: Add Server** command to add and configure servers interactively.
+
+#### 3. Use MCP Tools in Agent Mode
+
+- Open the Chat view (`Ctrl+Alt+I` or `⌃⌘I`).
+- Switch to **Agent** mode.
+- Click the **Tools** button to view and manage available tools.
+- Start using tools in chat prompts; confirm actions as needed.
+
+#### 4. Manage and Troubleshoot
+
+- Use **MCP: List Servers** from the Command Palette to view, start, stop, or debug servers.
+
+**For more details and advanced options, see the official guide:**  
+👉 [Use MCP servers in VS Code (Preview)](https://code.visualstudio.com/docs/copilot/chat/mcp-servers)
+
+---

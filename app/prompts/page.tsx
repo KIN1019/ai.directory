@@ -43,5 +43,5 @@ export default async function RulesHome() {
 	const firstTag = tagsWithCount.length > 0 ? tagsWithCount[0].slug : "react";
 
 	// Redirect to the first tag's page
-	redirect(`/rules/${firstTag}`);
+	redirect(`/prompts/${firstTag}`);
 }

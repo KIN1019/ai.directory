@@ -79,7 +79,7 @@ async function RulesSidebar() {
 		return (
 			<GenericSidebar
 				items={[]}
-				baseUrl="/rules"
+				baseUrl="/prompts"
 				errorMessage={error}
 				emptyMessage="No tags found"
 			/>
@@ -99,7 +99,7 @@ async function RulesSidebar() {
 	return (
 		<GenericSidebar
 			items={sidebarItems}
-			baseUrl="/rules"
+			baseUrl="/prompts"
 			emptyMessage="No tags found"
 		/>
 	);

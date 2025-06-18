@@ -82,7 +82,7 @@ export default async function RulesPage({
 							content={rule.content}
 							tags={rule.tags}
 							open={slug[1] === rule.fileName.split(".")[0]}
-							href={`/rules/${slug[0]}/${rule.fileName.split(".")[0]}`}
+							href={`/prompts/${slug[0]}/${rule.fileName.split(".")[0]}`}
 						/>
 					))}
 				</div>
