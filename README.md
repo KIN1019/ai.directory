@@ -6,6 +6,12 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 podman buildx build --platform linux/amd64 -t artifactrepo.server.ha.org.hk:55743/int-docker-dev-cms/ai-directory:latest .
 ```
 
+## Login artifactory
+
+```sh
+podman login artifactrepo.server.ha.org.hk:55743
+```
+
 ## Push Image
 
 ```sh
@@ -16,6 +22,12 @@ podman push artifactrepo.server.ha.org.hk:55743/int-docker-dev-cms/ai-directory:
 
 ```sh
 podman run -p 8083:8080 artifactrepo.server.ha.org.hk:55743/int-docker-dev-cms/ai-directory:latest
+```
+
+## Locate to project
+
+```sh
+oc project poc-cms-dhp-1
 ```
 
 ## Restart Deployment
