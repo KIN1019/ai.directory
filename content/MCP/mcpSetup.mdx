@@ -1,0 +1,65 @@
+import { Terminal, HardDriveUpload } from "lucide-react";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+
+# MCP Server Setup
+
+MCP (Model Context Protocol) is an open standard for connecting AI agents to external tools, services, and data sources. By setting up MCP servers, you can enhance GitHub Copilot's agent mode in VS Code and extend Cursor's capabilities, allowing the AI to securely interact with your tools and automate complex workflows.
+
+## Supported MCP Transports: stdio and SSE
+
+MCP servers can connect to your AI agent using two primary protocols: **stdio** and **SSE (Server-Sent Events)**.
+
+<div className="grid grid-rows-2 gap-4 my-4">
+	<Card>
+		<CardContent className="flex flex-row justify-between gap-16">
+			<div className="flex flex-col gap-4">
+				<div className="flex flex-row gap-2 items-center">
+					<Terminal className="shrink-0"/>
+					<CardTitle>STDIO</CardTitle>
+				</div>
+				<CardDescription>
+					- Runs on your **local machine**
+					- Communicates directly via stdout
+					- Only accessible by you locally
+				</CardDescription>
+			</div>
+			<div className="w-[410px]">
+				```json
+				{
+					"my-local-server": {
+						"command": "npx",
+						"args": ["-y", "mcp-server"]
+					}
+				}
+				```
+			</div>
+		</CardContent>
+	</Card>
+	<Card>
+		<CardContent className="flex flex-row justify-between gap-16">
+			<div className="flex flex-col gap-4">
+				<div className="flex flex-row gap-2 items-center">
+					<HardDriveUpload className="shrink-0"/>
+					<CardTitle>Server-Sent Events</CardTitle>
+				</div>
+				<CardDescription>
+					- Can run locally or remotely
+					- Communicates over the network
+					- Can be shared across machines
+				</CardDescription>
+			</div>
+			<div className="w-[410px]">
+				```json
+				{
+					"my-remote-server": {
+						"url": "http://example.com:8080/sse"
+					}
+				}
+				```
+			</div>
+		</CardContent>
+	</Card>
+</div>
+
+Both `stdio` and `sse` transports can be specified in your MCP configuration files for **Copilot (VS Code)** and **Cursor**.
+

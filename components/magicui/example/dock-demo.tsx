@@ -71,12 +71,12 @@ const DATA = {
     social: {
       Docs: {
         name: "Docs",
-        url: "/docs/intro",
+        url: "/docs/introduction",
         icon: Book,
       },
       Rules: {
-        name: "Rules",
-        url: "/rules",
+        name: "Prompts",
+        url: "/prompts",
         icon: Scale,
       },
       "llms.txt": {
@@ -85,7 +85,7 @@ const DATA = {
         icon: ScrollText,
       },
       MCPs: {
-        name: "MCPs",
+        name: "MCPs ",
         url: "/mcp",
         icon: Blocks,
       },

@@ -1,0 +1,45 @@
+import { FolderTree, UserRound, History } from "lucide-react";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+
+# Instruction Setup
+
+This guide explains how to configure **repository custom instructions** for GitHub Copilot and how to create **rules** in Cursor. These systems let you provide AI coding assistants with persistent, context-specific guidance—making their responses more aligned with your team's workflows, coding standards, and preferences.
+
+## GitHub Copilot: Repository Custom Instructions
+
+GitHub Copilot supports repository-level custom instructions, allowing you to encode preferences, workflows, or important context into a Markdown file. This information is automatically included in Copilot Chat and when Copilot is assigned to issues or pull requests.
+
+**Official documentation:**  
+[Adding repository custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=vscode)
+
+### Steps to Set Up
+
+1. **Create the Instructions File**
+   - In the root of your repository, create a file named `.github/copilot-instructions.md`.
+   - If the `.github` directory does not exist, create it first.
+
+2. **Write Your Instructions**
+   - Use short, clear, and self-contained statements.
+   - Example:
+     ```markdown
+     Always use React 18 and Material-UI v5 for frontend code.
+     Integrate with CMS MX APIs when backend functionality is required.
+     Follow our repository's code style as defined in styleguide.md.
+     ```
+   - Instructions are written in Markdown. Whitespace and line breaks are ignored, so write for readability.
+
+3. **Save and Commit**
+   - Commit and push the `.github/copilot-instructions.md` file to your repository.
+
+4. **Usage**
+   - Copilot will automatically include these instructions in chat interactions, pull requests, and issue assignments related to the repository.
+   - In Copilot Chat (in VS Code, Visual Studio, or GitHub web), you can see if the instructions are being applied by checking the References list.
+
+5. **Manage or Update**
+   - Edit `.github/copilot-instructions.md` at any time to update or refine your rules.
+
+**Tips:**
+- Keep instructions concise and relevant to your project.
+- Avoid conflicting guidance.
+- See more examples and details in the [official Copilot documentation](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=vscode).
+
