@@ -26,7 +26,7 @@ function CommandRoot(props: CommandRootProps) {
 				<CommandItem>
 					<ScrollText />
 					<span>
-						Search <span className="font-mono">llms.txt</span>
+						Search Contexts
 					</span>
 				</CommandItem>
 				<CommandItem>

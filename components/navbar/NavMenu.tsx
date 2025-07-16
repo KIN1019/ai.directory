@@ -75,8 +75,7 @@ export function NavMenu() {
 					<Link href="/llmstxt" legacyBehavior passHref>
 						<NavigationMenuLink className={navigationMenuTriggerStyle()}>
 							<div>
-							  <span className="font-mono">llms.txt</span>
-							  <span> Catalog</span>
+							  Contexts
 							</div>
 						</NavigationMenuLink>
 					</Link>

@@ -79,8 +79,8 @@ const DATA = {
         url: "/prompts",
         icon: Scale,
       },
-      "llms.txt": {
-        name: "llms.txt",
+      Contexts: {
+        name: "Contexts",
         url: "/llmstxt",
         icon: ScrollText,
       },
