@@ -29,7 +29,7 @@ export default {
       breadcrumb: false
     }
   },
-  mcp: {
+  MCP: {
     title: 'MCP',
     theme: {
       breadcrumb: false
