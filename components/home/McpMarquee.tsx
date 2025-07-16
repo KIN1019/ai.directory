@@ -38,13 +38,13 @@ const reviews = [
   },
   {
     name: "csaf.home",
-    username: "llms.txt available",
+    username: "Contexts available",
     body: "I don't know what to say. I'm speechless. This is amazing.",
     img: "/csaf-logo.jpg",
   },
   {
     name: "sc4.home",
-    username: "llms-full.txt available",
+    username: "Contexts available",
     body: "All info about EAP, ECP, AIOPS, and ADC now available to AI.",
     img: "/sc4-logo.jpg",
   },
