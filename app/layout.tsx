@@ -101,7 +101,7 @@ export default async function RootLayout({
 					>
 						{children}
 						<Toaster />
-						<SmoothCursor springConfig={{ damping: 100, stiffness: 1000, mass: 0.3, restDelta: 0.0001 }} />
+						<SmoothCursor springConfig={{ damping: 100, stiffness: 2000, mass: 0.1, restDelta: 0.0001 }} />
 						<DockDemo />
 					</Layout>
 				</ThemeProvider>
