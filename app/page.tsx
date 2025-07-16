@@ -9,7 +9,7 @@ export default function Home() {
 			<main className="row-start-2 items-center sm:items-start pb-32">
 				<div className="w-fit mx-auto">
 					<div className="flex gap-4 my-6">
-						<div className="font-mono text-4xl">ai.directory</div>
+						<div className="font-mono text-4xl">dhpai.home</div>
 					</div>
 					<HomeBento />
 				</div>
