@@ -29,8 +29,8 @@ export default {
       breadcrumb: false
     }
   },
-  MCP: {
-    title: 'MCP',
+  mcpSetup: {
+    title: 'MCP Introduction',
     theme: {
       breadcrumb: false
     }
