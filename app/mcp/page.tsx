@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
 import { McpCardWithDialog } from "@/components/mcp/McpCard";
+import { getLeadingNumber } from "./layout";
 
 type Tag = {
 	slug: string;
@@ -137,7 +138,16 @@ export default async function McpPage({
 				)}
 			</div>
 
-			{mcps.length > 0 ? (
+			{mcps.sort((a, b) => {
+				const numA = getLeadingNumber(a.fileName);
+				const numB = getLeadingNumber(b.fileName);
+
+				if (!isNaN(numA) && !isNaN(numB) && numA !== numB) {
+					return numA - numB;
+				}
+
+				return a.fileName.localeCompare(b.fileName);
+			}).length > 0 ? (
 				<div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
 					{mcps.map((mcp) => {
 						const mcpSlug = mcp.fileName.replace('.yaml', '');

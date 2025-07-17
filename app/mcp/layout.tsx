@@ -26,6 +26,11 @@ type McpData = {
 	tags: string[];
 };
 
+export const getLeadingNumber = (str: string) => {
+	const match = str.match(/^\d+/);
+	return match ? parseInt(match[0], 10) : NaN;
+};
+
 async function getMcpTags() {
 	try {
 		const mcpDirectory = path.join(process.cwd(), "mcp");
@@ -43,7 +48,16 @@ async function getMcpTags() {
 		const tagCounts = new Map<string, number>();
 		const uniqueTags = new Set<string>();
 
-		fileNames.forEach((fileName) => {
+		fileNames.sort((a, b) => {
+			const numA = getLeadingNumber(a);
+			const numB = getLeadingNumber(b);
+
+			if (!isNaN(numA) && !isNaN(numB) && numA !== numB) {
+				return numA - numB;
+			}
+
+			return a.localeCompare(b);
+		}).forEach((fileName) => {
 			const filePath = path.join(mcpDirectory, fileName);
 			const fileContent = fs.readFileSync(filePath, "utf8");
 			const mcpData = yaml.load(fileContent) as McpData;
