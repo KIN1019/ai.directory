@@ -3,7 +3,7 @@ import path from "path";
 import yaml from "js-yaml";
 import { Suspense } from "react";
 import { McpMultiSelectSidebar } from "@/components/mcp/McpMultiSelectSidebar";
-
+import { getLeadingNumber } from "@/lib/utils";
 type Tag = {
 	slug: string;
 	name: string;
@@ -24,11 +24,6 @@ type McpData = {
 		command?: string;
 	};
 	tags: string[];
-};
-
-export const getLeadingNumber = (str: string) => {
-	const match = str.match(/^\d+/);
-	return match ? parseInt(match[0], 10) : NaN;
 };
 
 async function getMcpTags() {
