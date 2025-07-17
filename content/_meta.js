@@ -1,4 +1,10 @@
 export default {
+  introduction: {
+    title: 'Introduction',
+    theme: {
+      breadcrumb: false
+    }
+  },
   concepts: {
     title: 'Basic Concepts',
     theme: {
