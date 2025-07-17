@@ -1,6 +1,6 @@
 export default {
-  introduction: {
-    title: 'Introduction',
+  concepts: {
+    title: 'Basic Concepts',
     theme: {
       breadcrumb: false
     }
