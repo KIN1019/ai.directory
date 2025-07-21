@@ -81,7 +81,7 @@ const DATA = {
       },
       Contexts: {
         name: "Contexts",
-        url: "/llmstxt",
+        url: "/contexts",
         icon: ScrollText,
       },
       MCPs: {
