@@ -27,7 +27,7 @@ export default async function ContextDetailPage({
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+        className="text-teal-600 hover:text-teal-800 dark:text-teal-400 dark:hover:text-teal-300"
       >
         {url}
       </a>
@@ -61,7 +61,7 @@ export default async function ContextDetailPage({
         
         <div className="flex items-center gap-6 text-sm">
           <div className="flex items-center gap-2">
-            <CheckCircle className="w-4 h-4 text-green-600" />
+            <CheckCircle className="w-4 h-4 text-teal-600" />
             <span className="font-medium">Completed</span>
           </div>
           
@@ -86,7 +86,7 @@ export default async function ContextDetailPage({
               <span className="text-sm font-medium">Tech Stack:</span>
               <div className="flex flex-wrap gap-1">
                 {context.techStacks.map((tech) => (
-                  <Badge key={tech} variant="secondary" className="text-xs">
+                  <Badge key={tech} variant="secondary" className="text-xs bg-teal-800 text-white">
                     {tech}
                   </Badge>
                 ))}
@@ -100,7 +100,7 @@ export default async function ContextDetailPage({
               <span className="text-sm font-medium">Teams:</span>
               <div className="flex flex-wrap gap-1">
                 {context.teams.map((team) => (
-                  <Badge key={team} variant="secondary" className="text-xs">
+                  <Badge key={team} variant="secondary" className="text-xs bg-teal-800 text-white">
                     {team}
                   </Badge>
                 ))}
@@ -116,7 +116,7 @@ export default async function ContextDetailPage({
               <span className="text-sm font-medium">Categories:</span>
               <div className="flex flex-wrap gap-1">
                 {context.categories.map((category) => (
-                  <Badge key={category} variant="secondary" className="text-xs">
+                  <Badge key={category} variant="secondary" className="text-xs bg-teal-800 text-white">
                     {category}
                   </Badge>
                 ))}
@@ -138,7 +138,7 @@ export default async function ContextDetailPage({
               placeholder="e.g. data fetching, routing, middleware"
               className="flex-1"
             />
-            <Button>Show Results</Button>
+            <Button className="bg-teal-800 hover:bg-teal-700 text-white">Show Results</Button>
           </div>
         </div>
       </div>

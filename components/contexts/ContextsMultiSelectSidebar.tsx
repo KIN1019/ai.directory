@@ -165,7 +165,7 @@ export function ContextsMultiSelectSidebar({ filterGroups, error }: ContextsMult
                           onClick={() => handleFilterClick(group.key, item.slug)}
                           className={`flex items-center justify-between p-2 rounded-md cursor-pointer transition-colors text-sm ${
                             isSelected
-                              ? 'bg-primary text-primary-foreground'
+                              ? 'bg-teal-800 text-white'
                               : 'hover:bg-muted'
                           }`}
                         >
@@ -194,7 +194,7 @@ export function ContextsMultiSelectSidebar({ filterGroups, error }: ContextsMult
                       <Badge 
                         key={`${groupKey}-${filterSlug}`} 
                         variant="default" 
-                        className="text-xs cursor-pointer"
+                        className="text-xs cursor-pointer bg-teal-800 text-white hover:bg-teal-800"
                         onClick={() => handleFilterClick(groupKey, filterSlug)}
                       >
                         {filter.name}

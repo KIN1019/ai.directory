@@ -94,7 +94,7 @@ export function ContextCard({ context }: ContextCardProps) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleSourceClick}
-          className="flex items-center gap-1 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+          className="flex items-center gap-1 text-teal-600 hover:text-teal-800 dark:text-teal-400 dark:hover:text-teal-300"
         >
           <Github className="w-3 h-3" />
           <span className="text-xs">{source}</span>
@@ -111,7 +111,7 @@ export function ContextCard({ context }: ContextCardProps) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleSourceClick}
-          className="flex items-center gap-1 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+          className="flex items-center gap-1 text-teal-600 hover:text-teal-800 dark:text-teal-400 dark:hover:text-teal-300"
         >
           <ExternalLink className="w-3 h-3" />
           <span className="text-xs truncate max-w-[150px]" title={source}>
