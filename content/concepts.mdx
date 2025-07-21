@@ -1,0 +1,73 @@
+#  Introduction
+
+As AI assistants like DeepSeek and other language models start to play a role in healthcare settings, it's crucial to understand how they can be safely and effectively integrated into the Hospital Authority's workflows. In HA, these technologies can help with everything from appointment management to clinical decision support—but only if they interact securely and responsibly with hospital systems and sensitive patient data. Three key concepts make this possible: **MCP**, **`llms.txt`**, and **Rules**. Here's how they fit into the HA environment.
+
+## What is MCP (Model Context Protocol)?
+
+<div className="flex justify-center p-4">
+	<img src="/mcp-illustration.webp" alt="MCP Illustration" className="max-w-3/4" />
+</div>
+
+Think of MCP as the secure translator or adapter that allows AI assistants to connect with the Hospital Authority's complex IT systems, including the Clinical Management System (CMS), Electronic Patient Record (ePR), and various internal databases. Without MCP, even the smartest AI would be like a new doctor who doesn't have access to patient files or the right login credentials.
+
+**MCP:**
+
+- Provides a **secure, controlled bridge** between AI assistants and HA systemsdata.
+- Ensures that only **authorised requests** are processed, following hospital  security protocols.
+- Handles **permissions**, so that AI can only access the information that staff are allowed to see.
+- **Encrypts and monitors** all data transfers, protecting patient privacy and complying with Hong Kong's privacy ordinances.
+
+For example, if you ask an AI assistant, “Show me Mr. Chan's latest lab results,” MCP ensures the AI can securely access only the relevant part of the CMS, logs the access, and returns the information to you—without exposing any other patient data.
+
+## What is `llms.txt` and `llms-full.txt`?
+
+<div className="flex justify-center p-4">
+	<img src="/llms-txt.png" alt="llms.txt Illustration" className="max-w-3/4" />
+</div>
+
+Just as websites use `robots.txt` to guide search engines, `llms.txt` is a special file that can be used to guide AI assistants on how to interact with their online resources. For the HA, this might apply to public hospital websites, internal portals, or even patient information resources.
+
+`llms.txt` can include:
+
+- An overview of the website or portal's **purpose** (e.g., “This site provides information about public hospital services in Hong Kong.”)
+- Key **topics** covered (e.g., “emergency services, specialist clinics, health education.”)
+- Directions to **important resources** (e.g., “COVID-19 updates: /covid19”)
+- **Restrictions** on how information should be used (e.g., “Do not use staff directory for marketing purposes.”)
+
+By providing this file, the HA ensures that AI systems can quickly understand what content is available and how to use it appropriately, reducing risk of misinterpretation or misuse.
+
+### What is `llms-full.txt`?
+
+While `llms.txt` gives a high-level summary, `llms-full.txt` is a more detailed and comprehensive file intended for AI assistants that need precise, structured guidance about a website or information system. This is especially helpful for large organizations like the HA, where systems are complex and contain sensitive or regulated data.
+
+`llms-full.txt` may include:
+
+- A detailed map of the website or portal, including specific URLs, data structures, and page purposes.
+- Metadata about each section, such as update frequency, accessibility, and data sensitivity.
+- Explicit rules for AI usage on certain pages or with certain types of information.
+- Contact points for human escalation if the AI encounters uncertainty.
+
+For example, if an AI is helping staff navigate the ePR or a hospital intranet, `llms-full.txt` can instruct exactly how to access a patient discharge summary, what fields to display, and under what circumstances to withhold or flag sensitive information.
+
+In summary, `llms.txt` is like a quick orientation guide, `llms-full.txt` is like a detailed operations manual for AI assistants, ensuring they act precisely as intended in complex environments.
+
+## What are Rules?
+
+Rules are critically important in the healthcare context. They act as digital “hospital policies” for AI, setting boundaries for what AI assistants can and cannot do within the HA environment. These rules ensure that AI supports clinical and administrative staff in a responsible, ethical, and compliant way.
+
+Rules can include:
+- **Data privacy requirements:** “Never share patient information with unauthorised users.”
+- **Clinical safety checks:** “Always clarify uncertainty in medical advice; do not make diagnoses.”
+- **Professional behaviour:** “Maintain respectful tone with all staff and patients.”
+- **Regulatory compliance:** “Follow Hospital Authority guidelines and local health regulations at all times.”
+- **Role-specific protocols:** “Only show medication history to authorised clinicians.”
+
+For example, if you ask an AI for advice about a medication, the rules might require the AI to remind you to check with a pharmacist or doctor, rather than making a conclusive recommendation itself.
+
+## How They All Work Together
+
+These three components work together to ensure AI assistants are safe, effective, and trustworthy. Let's say a nurse wants to check a patient's discharge summary. MCP provides a secure connection to the CMS, `llms.txt` helps the AI understand the structure and restrictions of the hospital intranet, and Rules ensure that only the correct information is shared, in a way that respects patient privacy and professional standards.
+
+- **MCP** controls secure access to sensitive systems.
+- **`llms.txt`** guides the AI on how to interpret and interact with digital resources.
+- **Rules** enforce compliance, professionalism, and safety.

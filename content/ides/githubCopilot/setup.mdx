@@ -1,3 +1,87 @@
-# HA Copilot Setup
+# GitHub Copilot - HA Optimised Setup
 
-### 🚧 Content under construction! Stay tuned for updates.
+This guide walks you through everything you need to get **GitHub Copilot** working seamlessly inside the Hospital Authority's environment while taking advantage of **Model Context Protocol (MCP)** and repository instructions.
+
+## 1. Prerequisites
+
+- Visual Studio Code ≥ 1.100 **or** JetBrains IDE with the Copilot plugin
+- An active `ha.github.com` account with Copilot entitlement
+- Network access to `https://copilot-proxy.ha.org.hk` (corporate proxy)
+- The dhpai.home *rules* you'd like to inject (see `/prompts`)
+
+## 2. Install the Copilot Extension
+
+1. Open VS Code.
+2. Press `Ctrl + Shift + X` to open **Extensions**.
+3. Search for **GitHub Copilot** and click **Install**.
+4. Reload the window when prompted.
+
+> 💡 *JetBrains users*: open *Settings ▸ Plugins ▸ Marketplace*, search for **GitHub Copilot**, and install.
+
+## 3. Import Recommended Settings
+
+1. Download [`settings.json`](https://github.com/doggy8088/github-copilot-configs/blob/main/.vscode/settings.json).
+2. In VS Code, press `Ctrl +,` to open *Settings*.
+3. Click the three-dot menu ▸ **Open Settings (JSON)**.
+4. Replace the file contents with the downloaded snippet and **save**.
+   
+The template enables the **Chat** view, removes telemetry, and tweaks suggestion debounce for best latency on HA's network.
+
+## 4. Configure the Corporate Proxy *(if applicable)*
+
+```jsonc
+// settings.json
+"http.proxy": "http://proxy.ha.org.hk:8080",
+"http.proxyStrictSSL": false
+```
+
+Restart VS Code after saving proxy settings.
+
+## 5. Add Repository Custom Instructions
+
+Create `.github/copilot-instructions.md` at your repository root:
+
+```md
+Always import internal React components from @ha/ui.
+Use MCP endpoints instead of raw REST calls whenever possible.
+Follow ESLint rules in .ha-eslint.json.
+```
+
+Copilot will automatically include these instructions in every chat and pull-request review.
+
+## 6. Inject dhpai.home Rules in Copilot Chat
+
+1. Browse to `/prompts` on dhpai.home and open a rule card.
+2. Click **Copy Markdown**.
+3. In Copilot Chat, type `@assistant --config` and paste the rule.
+
+This ensures Copilot uses the same guard-rails and context as other dhpai.home tools.
+
+## 7. Verification Smoke Test
+
+Type the following inside a `.tsx` file:
+
+```ts
+/** Create a Material-UI button that calls /api/patients */
+```
+
+Copilot should:
+
+- Use `@ha/mcp` rather than `fetch('/api/patients')`.
+- Import `Button` from `@mui/material`.
+
+If not, revisit steps 5-6.
+
+## 8. Troubleshooting
+
+| Symptom | Fix |
+|---------|-----|
+| **“Copilot not authorized”** | Re-authenticate via **`GitHub: Sign in`** in the Command Palette. |
+| **Suggestions lagging** | Verify proxy settings & reduce `copilot.experimental.inlineSuggest.delay`. |
+| **Irrelevant frameworks suggested** | Ensure `.github/copilot-instructions.md` is committed and pushed. |
+
+## 9. Next Steps
+
+- Explore **/mcp** for ready-made adapters (Grafana, Jira, OpenShift …).
+- Read about [Unit-Test Generation](/docs/unitTestGeneration) to auto-generate tests via Copilot.
+- Join the `#ha-copilot` Rocket.Chat channel for community Q&A.

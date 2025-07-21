@@ -3,7 +3,7 @@ import path from "path";
 import yaml from "js-yaml";
 import { Suspense } from "react";
 import { McpMultiSelectSidebar } from "@/components/mcp/McpMultiSelectSidebar";
-
+import { getLeadingNumber } from "@/lib/utils";
 type Tag = {
 	slug: string;
 	name: string;
@@ -43,7 +43,16 @@ async function getMcpTags() {
 		const tagCounts = new Map<string, number>();
 		const uniqueTags = new Set<string>();
 
-		fileNames.forEach((fileName) => {
+		fileNames.sort((a, b) => {
+			const numA = getLeadingNumber(a);
+			const numB = getLeadingNumber(b);
+
+			if (!isNaN(numA) && !isNaN(numB) && numA !== numB) {
+				return numA - numB;
+			}
+
+			return a.localeCompare(b);
+		}).forEach((fileName) => {
 			const filePath = path.join(mcpDirectory, fileName);
 			const fileContent = fs.readFileSync(filePath, "utf8");
 			const mcpData = yaml.load(fileContent) as McpData;

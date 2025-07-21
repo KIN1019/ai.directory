@@ -5,6 +5,12 @@ export default {
       breadcrumb: false
     }
   },
+  concepts: {
+    title: 'Basic Concepts',
+    theme: {
+      breadcrumb: false
+    }
+  },
   news: {
     title: 'News',
     theme: {
@@ -29,8 +35,8 @@ export default {
       breadcrumb: false
     }
   },
-  MCP: {
-    title: 'MCP',
+  mcpSetup: {
+    title: 'MCP Introduction',
     theme: {
       breadcrumb: false
     }
