@@ -1,0 +1,88 @@
+# Context category definitions
+# This file defines all available filter categories for contexts
+
+techStacks:
+  - slug: react
+    name: React
+  - slug: java
+    name: Java
+  - slug: springboot
+    name: Spring Boot
+  - slug: typescript
+    name: TypeScript
+  - slug: nodejs
+    name: Node.js
+  - slug: nextjs
+    name: Next.js
+  - slug: python
+    name: Python
+  - slug: angular
+    name: Angular
+  - slug: vue
+    name: Vue
+  - slug: dotnet
+    name: .NET
+  - slug: kotlin
+    name: Kotlin
+  - slug: swift
+    name: Swift
+  - slug: flutter
+    name: Flutter
+  - slug: react-native
+    name: React Native
+
+teams:
+  - slug: cp14
+    name: CP14
+  - slug: cp13
+    name: CP13
+  - slug: sc4
+    name: SC4
+  - slug: sc5
+    name: SC5
+  - slug: cp15
+    name: CP15
+  - slug: sc3
+    name: SC3
+  - slug: sc6
+    name: SC6
+  - slug: cp12
+    name: CP12
+  - slug: cp11
+    name: CP11
+  - slug: core-platform
+    name: Core Platform
+  - slug: security
+    name: Security Team
+  - slug: infrastructure
+    name: Infrastructure
+
+categories:
+  - slug: website
+    name: Website
+  - slug: library
+    name: Library
+  - slug: storybook
+    name: Storybook
+  - slug: api
+    name: API
+  - slug: mobile-app
+    name: Mobile App
+  - slug: desktop-app
+    name: Desktop App
+  - slug: microservice
+    name: Microservice
+  - slug: monorepo
+    name: Monorepo
+  - slug: documentation
+    name: Documentation
+  - slug: cli-tool
+    name: CLI Tool
+  - slug: dashboard
+    name: Dashboard
+  - slug: e-commerce
+    name: E-commerce
+  - slug: cms
+    name: CMS
+  - slug: admin-panel
+    name: Admin Panel
