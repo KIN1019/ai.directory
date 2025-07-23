@@ -2,7 +2,7 @@ export default {
   introduction: "Introduction",
   concepts: "Basic Concepts",
   news: "News",
-  ides: "IDEs",
+  "github-copilot": "GitHub Copilot",
   models: "Models",
   unitTestGeneration: "Unit-Test-Generation",
   mcpSetup: "MCP Introduction",
