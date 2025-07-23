@@ -1,4 +1,4 @@
-# Preventing Context Poisoning
+# Prevent Context Poisoning
 
 GitHub Copilot gets confused when you mix tasks in one chat, leading to strange suggestions, like giving someone mixed directions they keep following.
 

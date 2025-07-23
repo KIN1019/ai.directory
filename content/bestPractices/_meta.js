@@ -1,3 +1,3 @@
 export default {
-  "preventing-context-poisoning": "Preventing Context Poisoning"
+  "prevent-context-poisoning": "Prevent Context Poisoning"
 }
