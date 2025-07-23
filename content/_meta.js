@@ -6,6 +6,5 @@ export default {
   models: "Model Comparisons",
   unitTestGeneration: "Unit-Test-Generation",
   mcpSetup: "MCP Introduction",
-  llms: "LLMs",
   bestPractices: "Best Practices"
 }
