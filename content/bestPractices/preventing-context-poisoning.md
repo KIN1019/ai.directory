@@ -4,17 +4,13 @@ GitHub Copilot gets confused when you mix tasks in one chat, leading to strange 
 
 ## How Confusion Starts
 
-A common mistake is to ask Copilot **to perform different kinds of tasks back-to-back in the same chat**.
+When you **mix different types of tasks in a single Copilot chat**, like switching between code changes and deployments, **Copilot can learn false patterns and get confused**. This is called context poisoning, where it starts applying the wrong actions in new situations. The following diagram demonstrates this problem:
 
-Here’s an example of how this confusion can happen step-by-step:
+<img src="/images/context-poisoning.png" alt="Diagram illustrating context poisoning: An AI learns a false pattern from a user's repeated commands and incorrectly applies it in a new situation." width="60%" style="margin: auto"/>
 
-1. First, you ask Copilot to help you **change a piece of code**.
-2. Immediately after, you ask it to **deploy the changes**.
-3. You repeat this sequence a few times.
-4. Copilot forms a pattern: **"Code changes are always followed by deployment."**
-5. Later, when you ask it to change different code,**even just for testing, it may still suggest deployment steps** because it's following the learned pattern.
+In the **Polluted Context** example, the AI incorrectly learns from the single chat that code changes are always followed by deployment. It then wrongly applies this pattern when asked for a test-only change.
 
-Copilot sees all open files and remembers the entire chat. Mixing topics or tasks without clear transitions confuses it, especially in long, complex sessions.
+**Separate Chats** create a clean context for each task, preventing these false associations and ensuring the AI only performs the requested action.
 
 ## Common Ways Copilot Gets Confused
 
@@ -34,4 +30,6 @@ Here are some simple tricks to keep Copilot on the right track and to fix it whe
 - **Be very clear about what is needed.** Don't assume Copilot knows what is meant. Spell it out.
 - **Quickly review the past chat.** Every so often, look back at the conversation to see if any confusing patterns might have been accidentally created.
 
-Clean chat context is clean code. Messy prompts yield messy AI output. Confusion often stems from polluted context.
+> Clean chat context is clean code.  
+> Messy prompts yield messy AI output.  
+> Confusion often stems from polluted context.
