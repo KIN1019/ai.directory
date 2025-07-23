@@ -65,13 +65,13 @@ function filterPageMap(pageMap: any[]): any[] {
 			}
 			return;
 		}
-		
+  
 		// Keep items that don't have a route (meta items) but exclude index/home
 		if (!item.route && item.name !== 'index') {
 			result.push(item);
 		}
 	});
-	
+ 
 	return result;
 }
 
@@ -101,7 +101,6 @@ export default async function RootLayout({
 					>
 						{children}
 						<Toaster />
-						<SmoothCursor springConfig={{ damping: 100, stiffness: 2000, mass: 0.1, restDelta: 0.0001 }} />
 						<DockDemo />
 					</Layout>
 				</ThemeProvider>
