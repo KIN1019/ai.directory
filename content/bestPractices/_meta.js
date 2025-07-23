@@ -1,5 +1,3 @@
 export default {
-  "preventing-context-poisoning": {
-    title: 'Preventing Context Poisoning'
-  },
+  "preventing-context-poisoning": "Preventing Context Poisoning"
 }
