@@ -47,4 +47,7 @@ export default {
       breadcrumb: false
     }
   },
+  bestPractices: {
+    title: 'Best Practices',
+  }
 }
