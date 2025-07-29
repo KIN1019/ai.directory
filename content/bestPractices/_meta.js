@@ -1,3 +1,5 @@
 export default {
-  "preventing-context-poisoning": "Preventing Context Poisoning"
+  "prevent-context-poisoning": "Prevent Context Poisoning",
+  "setup-whitelist-for-tools": "Setup Whitelist for Tools",
+  "engineer-your-prompts": "Engineer Your Prompts",
 }

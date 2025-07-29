@@ -1,10 +1,8 @@
-# 🚀 Guide: Generating Unit Tests for SonarQube Analysis in Visual Studio Code with Copilot 
+# Generating Unit Tests for SonarQube Analysis in Visual Studio Code with Copilot 
 
 This guide explains how to automatically generate unit tests for your Spring Boot project using GitHub Copilot Chat (Agent Mode) in Visual Studio Code, optimized for SonarQube analysis.
 
----
-
-## 🛠️Preconditions
+## Preconditions
 
 - **Visual Studio Code**: Version **1.99** or above.
 - **Copilot Chat Agent Mode**:  
@@ -17,9 +15,7 @@ This guide explains how to automatically generate unit tests for your Spring Boo
   - Ensure the **JaCoCo Maven plugin** is present.  
     If not, please add the JaCoCo Plugin.
 
----
-
-## 📝Unit Test Generation Prompt
+## Unit Test Generation Prompt
 
 Copy and paste the following prompt into Copilot Chat (Agent Mode) and run:
 
@@ -47,13 +43,11 @@ For every public class and public method found (except those in config):
 This prompt should work for any Spring Boot project and generate or update unit tests for all relevant classes (excluding config), not just the currently open file. All steps should be performed automatically after pasting this prompt.
 ```
 
----
-
-## 📊 Benchmark: Project Unit Test Coverage
+## Benchmark: Project Unit Test Coverage
 
 > **SonarQube Pass Criteria:** Coverage percentage must be **≥ 80%**.
 
-### 1️⃣ Project: cms-pccms-storage-pri-svc
+### Project: cms-pccms-storage-pri-svc
 
 > **Note:** The following folders are excluded from SonarQube coverage analysis, as specified in `sonar-project.properties`:
 > - `src/test/**`
@@ -72,7 +66,7 @@ This prompt should work for any Spring Boot project and generate or update unit 
 - **Manually implemented coverage:** ~19%
 - **Manually implemented functions:** switch case, try catch, etc
 
-### 2️⃣ Project: cms-pccms-scheduler-svc
+### Project: cms-pccms-scheduler-svc
 
 > **Note:** The following folders are excluded from SonarQube coverage analysis, as specified in `sonar-project.properties`:
 > - `src/test/**`
@@ -89,4 +83,3 @@ This prompt should work for any Spring Boot project and generate or update unit 
 
 - **SonarQube average coverage:** ~70%
 - **Manually implemented coverage:** ~10%
-
