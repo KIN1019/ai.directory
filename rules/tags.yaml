@@ -72,3 +72,6 @@
 
 - slug: jacoco
   name: JaCoCo
+
+- slug: jest
+  name: Jest
