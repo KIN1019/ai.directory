@@ -75,3 +75,9 @@
 
 - slug: jest
   name: Jest
+
+- slug: best-practices
+  name: Best Practices
+
+- slug: prompt-engineering
+  name: Prompt Engineering
