@@ -1,0 +1,32 @@
+# Copilot Chat modes
+
+## Edit Mode vs Agent Mode
+
+### [Why would I use edit mode instead of agent mode?](https://code.visualstudio.com/docs/copilot/chat/copilot-edits#_why-would-i-use-edit-mode-instead-of-agent-mode)
+
+Consider the following criteria to choose between edit mode and agent mode:
+
+- **Edit scope**: you might use edit mode if your request involves only code edits and you know the precise scope for the changes.
+- **Duration**: agent mode involves multiple steps to process a request, so it might take longer to get a response. For example, to determine the relevant context and files to edit, determine the plan of action, and more.
+- **Non-deterministic**: agent mode evaluates the outcome of the generated edits and might iterate multiple times. As a result, agent mode can be more non-deterministic than edit mode.
+- **Request quota**: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.
+
+### How to switch between edit mode and agent mode
+
+![vscode_create_instruction_file_prompt_step1](/images/vscode-chat-chatmodes.png)
+
+
+### Custom Chat Modes
+
+Starting from VS Code version 1.103.x, you can create custom chat modes to tailor Copilot's behavior to your needs.
+
+**Create a chat mode**
+1. You can create a chat mode file in your workspace or user profile.
+2. Run the Chat: New Mode File command in the Command Palette (`Ctrl+Shift+P`).
+3. Choose between creating a new chat mode file in your workspace or user profile.
+4. Enter a name for the chat mode. This name is used in the chat mode dropdown list in the Chat view.
+5. Provide the details for the chat mode in the newly created `.chatmode.md` file.
+
+Provide the description and configure the list of available tools or tool sets in the Front Matter metadata.
+Add instructions for the chat mode in the body of the file.
+By default, VS Code looks for workspace chat mode files in the `.github/chatmodes` folder. You can configure the locations of workspace chat mode files with the `chat.modeFilesLocations` setting.
