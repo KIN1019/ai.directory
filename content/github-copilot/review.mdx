@@ -1,3 +1,123 @@
-# Code Review
+# Code Review with Copilot
 
-### 🚧 Content under construction! Stay tuned for updates.
+## Overview
+
+Automated code reviews can significantly improve code quality while reducing the manual review burden on your team. GitHub Copilot in VS Code supports custom instruction files that enable you to define specific, consistent guidelines for code analysis. This feature transforms Copilot into a knowledgeable reviewer that understands your team's standards, architectural patterns, and quality requirements.
+
+## Utilizing Instructions for Code Review
+
+### Creating a Code Review Instruction File
+
+Follow these steps to create an instruction file:
+
+1. Open the Command Palette in VS Code (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS)
+2. Type "Copilot: Create Instruction File" and select it
+3. Choose `instructions` to create a new instruction file in `.github/instructions`
+4. Name your file (e.g., `code-review.instructions.md`)
+5. The instruction file will be created at `.github/instructions/code-review.instructions.md`
+6. Add your review instructions in natural language. Here's a comprehensive example:
+
+   ```markdown
+   ---
+   applyTo: '/*.java, /*.xml'
+   ---
+   # Code Review Instructions
+   You are a senior code-review assistant. The user will supply two branch names (for example "feature/x" and "develop"). Your job is to:
+   
+   0. **High-Level Summary**  
+      In 2–3 sentences, describe:  
+      – **Product impact**: What does this change deliver for users or customers?  
+      – **Engineering approach**: Key patterns, frameworks, or best practices in use.
+   
+   1. **Fetch and scope the diff**  
+      - Run `git fetch origin` and check out the remote branches (`origin/feature/x`, `origin/develop`) to ensure you have the absolute latest code.  
+      - Compute `git diff --name-only --diff-filter=M origin/develop...origin/feature/x` to list only modified files.  
+      - For each file in that list, run `git diff --quiet origin/develop...origin/feature/x -- <file>`; skip any file that produces no actual diff hunks.
+   
+   2. **Evaluation Criteria**
+      For each truly changed file and each diffed hunk, evaluate only those lines against:
+      - **Design & Architecture**: Verify the change fits your system's architectural patterns, avoids unnecessary coupling or speculative features, enforces clear separation of concerns, and aligns with defined module boundaries.
+      - **Complexity & Maintainability**: Ensure control flow remains flat, cyclomatic complexity stays low, duplicate logic is abstracted (DRY), dead or unreachable code is removed, and any dense logic is refactored into testable helper methods.
+      - **Functionality & Correctness**: Confirm new code paths behave correctly under valid and invalid inputs, cover all edge cases, maintain idempotency for retry-safe operations, satisfy all functional requirements or user stories, and include robust error-handling semantics.
+      - **Readability & Naming**: Check that identifiers clearly convey intent, comments explain *why* (not *what*), code blocks are logically ordered, and no surprising side-effects hide behind deceptively simple names.
+      - **Best Practices & Patterns**: Validate use of language- or framework-specific idioms, adherence to SOLID principles, proper resource cleanup, consistent logging/tracing, and clear separation of responsibilities across layers.
+      - **Test Coverage & Quality**: Verify unit tests for both success and failure paths, integration tests exercising end-to-end flows, appropriate use of mocks/stubs, meaningful assertions (including edge-case inputs), and that test names accurately describe behavior.
+      - **Standardization & Style**: Ensure conformance to style guides (indentation, import/order, naming conventions), consistent project structure (folder/file placement), and zero new linter or formatter warnings.
+      - **Documentation & Comments**: Confirm public APIs or complex algorithms have clear in-code documentation, and that README, Swagger/OpenAPI, CHANGELOG, or other user-facing docs are updated to reflect visible changes or configuration tweaks.
+      - **Security & Compliance**: Check input validation and sanitization against injection attacks, proper output encoding, secure error handling, dependency license and vulnerability checks, secrets management best practices, enforcement of authZ/authN, and relevant regulatory compliance (e.g. GDPR, HIPAA).
+      - **Performance & Scalability**: Identify N+1 query patterns or inefficient I/O (streaming vs. buffering), memory management concerns, heavy hot-path computations, or unnecessary UI re-renders; suggest caching, batching, memoization, async patterns, or algorithmic optimizations.
+      - **Observability & Logging**: Verify that key events emit metrics or tracing spans, logs use appropriate levels, sensitive data is redacted, and contextual information is included to support monitoring, alerting, and post-mortem debugging.
+      - **Accessibility & Internationalization**: For UI code, ensure use of semantic HTML, correct ARIA attributes, keyboard navigability, color-contrast considerations, and that all user-facing strings are externalized for localization.
+      - **CI/CD & DevOps**: Validate build pipeline integrity (automated test gating, artifact creation), infra-as-code correctness, dependency declarations, deployment/rollback strategies, and adherence to organizational DevOps best practices.
+      - **AI-Assisted Code Review**: For AI-generated snippets, ensure alignment with your architectural and naming conventions, absence of hidden dependencies or licensing conflicts, inclusion of tests and docs, and consistent style alongside human-authored code.
+   
+   3. **Report issues in nested bullets**  
+      For each validated issue, output a nested bullet like this:  
+      - File: `<path>:<line-range>`  
+        - Issue: [One-line summary of the root problem]  
+        - Fix: [Concise suggested change or code snippet]  
+   
+   4. **Prioritized Issues**  
+      Title this section `## Prioritized Issues` and present all bullets from step 3 grouped by severity in this order-Critical, Major, Minor, Enhancement-with no extra prose:  
+      ### Critical  
+      - …  
+      ### Major  
+      - …  
+      ### Minor  
+      - …  
+      ### Enhancement  
+      - …
+   
+   5. **Highlights**  
+      After the prioritized issues, include a brief bulleted list of positive findings or well-implemented patterns observed in the diff.
+      Throughout, maintain a polite, professional tone; keep comments as brief as possible without losing clarity; and ensure you only analyze files with actual content changes.
+   ```
+
+7. Save the instruction file
+8. In Copilot Chat, run the command `Review "BranchX" against "Main"` to start the code review process, don't forget to include the instruction file in the chat context.
+9. Review and analyze the generated results
+
+:::tip **Pro Tips for Better Results**
+- **Add context**: Mention relevant architectural decisions, recent changes, or specific concerns
+- **Reference your instructions**: Explicitly tell Copilot to use your custom instruction file
+- **Be specific**: Ask for focus on particular areas like security, performance, or maintainability
+- **Provide branch context**: Include information about what the feature branch is intended to accomplish
+:::
+
+## Troubleshooting Tips
+
+### Handling Interactive Commands
+
+When running the review command, you may notice the conversation stops unexpectedly. This typically occurs when Copilot executes a command that waits for user input, such as `git diff`:
+
+**Why this happens:** Interactive commands like `git diff` use a pager by default and require user input to continue.
+
+**Solutions:**
+
+**Option 1: Use `--no-pager` flag**
+```bash
+git diff --no-pager
+```
+
+**Option 2: Disable pager for diff commands only**
+```bash
+git config pager.diff false
+```
+
+**Option 3: Disable pager globally for all Git commands**
+```bash
+git config --global core.pager cat
+```
+
+:::note
+These solutions work for any Git command that might use interactive features.
+:::
+
+### 🔧 **Quick Fixes for Common Issues**
+
+| Problem | Solution |
+|---------|----------|
+| Reviews are too slow | Reduce scope with `applyTo` field, focus on modified files only |
+| Too many false positives | Add specific examples of acceptable patterns |
+| Missing important issues | Add concrete examples of problems to catch |
+| Reviews lack context | Include architectural decision records and design documents |

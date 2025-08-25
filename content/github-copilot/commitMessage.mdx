@@ -1,3 +1,43 @@
 # Commit Messages
 
-### 🚧 Content under construction! Stay tuned for updates.
+## Setup AI Git Commit Messages in VS Code
+
+1. Create `.vscode/settings.json` file in the project root directory.
+2. Add your personal prompts / instructions in settings `github.copilot.chat.commitMessageGeneration.instructions` as text in natural language:
+
+```json
+{
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Use conventional commit message format."
+    }
+  ]
+}
+```
+
+or reference to other markdown `.md` files:
+
+```json
+{
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "file": "./docs/commit-message-instructions.md"
+    }
+  ]
+}
+```
+
+You can even mix the `text` and `file` types together like:
+
+```json
+{
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Use conventional commit message format."
+    },
+    {
+      "file": "./docs/commit-message-instructions.md"
+    }
+  ]
+}
+```

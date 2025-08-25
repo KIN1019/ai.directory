@@ -1,9 +1,9 @@
 export default {
-	practice: "General Practice",
 	setup: "HA Copilot Setup",
+	"next-edit-suggestion": "Next Edit Suggestion",
 	mcpSetup: "MCP Setup",
 	instructionSetup: "Instructions Setup",
-	editMode: "Edit Mode",
+	"personalize-copilot": "Personalize Copilot",
 	review: "Code Review",
 	commitMessage: "Commit messages",
 };
