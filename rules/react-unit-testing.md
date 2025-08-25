@@ -3,6 +3,7 @@ title: React Jest MUI Testing
 description: You are an expert in TypeScript, React, Material UI, and testing with React Testing Library and Jest.
 tags: [typescript, react, mui, testing, cmsmx, jest]
 ---
+
 # React Testing Guidelines with TypeScript
 
 ## Core Testing Philosophy
@@ -19,7 +20,6 @@ If the task is unreasonable or infeasible, or if any of the tests are incorrect,
 After receiving tool results, carefully reflect on their quality and determine optimal next steps before proceeding. Use your thinking to plan and iterate based on this new information, and then take the best next action.
 For maximum efficiency, whenever you need to perform multiple independent operations, invoke all relevant tools simultaneously rather than sequentially.
 
-
 ## Essential Testing Setup
 
 Your testing environment requires several key dependencies to work effectively with TypeScript and React Testing Library. Install @testing-library/react, @testing-library/user-event, and @testing-library/jest-dom for core testing functionality, along with their corresponding type definitions: @types/jest, @types/react, and @types/react-dom. You'll also need jest, jest-environment-jsdom, ts-jest, and typescript to run tests in a TypeScript environment.
@@ -28,34 +28,34 @@ Create a setup file to configure your testing environment properly:
 
 ```typescript
 // setupTests.ts
-import '@testing-library/jest-dom';
-import { cleanup } from '@testing-library/react';
+import "@testing-library/jest-dom";
+import { cleanup } from "@testing-library/react";
 
 // Cleanup after each test case automatically
 afterEach(() => {
-  cleanup();
+	cleanup();
 });
 
 // Mock window.matchMedia for components that use media queries
-Object.defineProperty(window, 'matchMedia', {
-  writable: true,
-  value: jest.fn().mockImplementation(query => ({
-    matches: false,
-    media: query,
-    onchange: null,
-    addListener: jest.fn(),
-    removeListener: jest.fn(),
-    addEventListener: jest.fn(),
-    removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn(),
-  })),
+Object.defineProperty(window, "matchMedia", {
+	writable: true,
+	value: jest.fn().mockImplementation((query) => ({
+		matches: false,
+		media: query,
+		onchange: null,
+		addListener: jest.fn(),
+		removeListener: jest.fn(),
+		addEventListener: jest.fn(),
+		removeEventListener: jest.fn(),
+		dispatchEvent: jest.fn(),
+	})),
 });
 
 // Add any other global test setup here
 global.ResizeObserver = jest.fn().mockImplementation(() => ({
-  observe: jest.fn(),
-  unobserve: jest.fn(),
-  disconnect: jest.fn(),
+	observe: jest.fn(),
+	unobserve: jest.fn(),
+	disconnect: jest.fn(),
 }));
 ```
 
@@ -415,106 +415,114 @@ describe('Dashboard', () => {
 Custom hooks require special consideration since they can't be tested in isolation without a component. Use renderHook from React Testing Library to test hooks independently:
 
 ```typescript
-import { renderHook, act, waitFor } from '@testing-library/react';
+import { renderHook, act, waitFor } from "@testing-library/react";
 
 interface UseFetchOptions<T> {
-  initialData?: T;
-  onSuccess?: (data: T) => void;
-  onError?: (error: Error) => void;
+	initialData?: T;
+	onSuccess?: (data: T) => void;
+	onError?: (error: Error) => void;
 }
 
 interface UseFetchResult<T> {
-  data: T | null;
-  loading: boolean;
-  error: Error | null;
-  refetch: () => Promise<void>;
+	data: T | null;
+	loading: boolean;
+	error: Error | null;
+	refetch: () => Promise<void>;
 }
 
 // Example custom hook
-function useFetch<T>(url: string, options?: UseFetchOptions<T>): UseFetchResult<T> {
-  // Implementation details...
+function useFetch<T>(
+	url: string,
+	options?: UseFetchOptions<T>,
+): UseFetchResult<T> {
+	// Implementation details...
 }
 
-describe('useFetch', () => {
-  const mockData = { id: 1, title: 'Test Item' };
+describe("useFetch", () => {
+	const mockData = { id: 1, title: "Test Item" };
 
-  beforeEach(() => {
-    global.fetch = jest.fn();
-  });
+	beforeEach(() => {
+		global.fetch = jest.fn();
+	});
 
-  afterEach(() => {
-    jest.restoreAllMocks();
-  });
+	afterEach(() => {
+		jest.restoreAllMocks();
+	});
 
-  it('fetches data successfully', async () => {
-    (global.fetch as jest.Mock).mockResolvedValueOnce({
-      ok: true,
-      json: async () => mockData
-    });
+	it("fetches data successfully", async () => {
+		(global.fetch as jest.Mock).mockResolvedValueOnce({
+			ok: true,
+			json: async () => mockData,
+		});
 
-    const { result } = renderHook(() => useFetch<typeof mockData>('/api/items/1'));
+		const { result } = renderHook(() =>
+			useFetch<typeof mockData>("/api/items/1"),
+		);
 
-    expect(result.current.loading).toBe(true);
-    expect(result.current.data).toBeNull();
-    expect(result.current.error).toBeNull();
+		expect(result.current.loading).toBe(true);
+		expect(result.current.data).toBeNull();
+		expect(result.current.error).toBeNull();
 
-    await waitFor(() => {
-      expect(result.current.loading).toBe(false);
-    });
+		await waitFor(() => {
+			expect(result.current.loading).toBe(false);
+		});
 
-    expect(result.current.data).toEqual(mockData);
-    expect(result.current.error).toBeNull();
-    expect(global.fetch).toHaveBeenCalledWith('/api/items/1', expect.any(Object));
-  });
+		expect(result.current.data).toEqual(mockData);
+		expect(result.current.error).toBeNull();
+		expect(global.fetch).toHaveBeenCalledWith(
+			"/api/items/1",
+			expect.any(Object),
+		);
+	});
 
-  it('handles errors gracefully', async () => {
-    const errorMessage = 'Network error';
-    (global.fetch as jest.Mock).mockRejectedValueOnce(new Error(errorMessage));
+	it("handles errors gracefully", async () => {
+		const errorMessage = "Network error";
+		(global.fetch as jest.Mock).mockRejectedValueOnce(new Error(errorMessage));
 
-    const onError = jest.fn();
-    const { result } = renderHook(() =>
-      useFetch('/api/items/1', { onError })
-    );
+		const onError = jest.fn();
+		const { result } = renderHook(() => useFetch("/api/items/1", { onError }));
 
-    await waitFor(() => {
-      expect(result.current.loading).toBe(false);
-    });
+		await waitFor(() => {
+			expect(result.current.loading).toBe(false);
+		});
 
-    expect(result.current.data).toBeNull();
-    expect(result.current.error).toEqual(new Error(errorMessage));
-    expect(onError).toHaveBeenCalledWith(new Error(errorMessage));
-  });
+		expect(result.current.data).toBeNull();
+		expect(result.current.error).toEqual(new Error(errorMessage));
+		expect(onError).toHaveBeenCalledWith(new Error(errorMessage));
+	});
 
-  it('supports manual refetching', async () => {
-    (global.fetch as jest.Mock)
-      .mockResolvedValueOnce({
-        ok: true,
-        json: async () => mockData
-      })
-      .mockResolvedValueOnce({
-        ok: true,
-        json: async () => ({ ...mockData, title: 'Updated Item' })
-      });
+	it("supports manual refetching", async () => {
+		(global.fetch as jest.Mock)
+			.mockResolvedValueOnce({
+				ok: true,
+				json: async () => mockData,
+			})
+			.mockResolvedValueOnce({
+				ok: true,
+				json: async () => ({ ...mockData, title: "Updated Item" }),
+			});
 
-    const { result } = renderHook(() => useFetch<typeof mockData>('/api/items/1'));
+		const { result } = renderHook(() =>
+			useFetch<typeof mockData>("/api/items/1"),
+		);
 
-    await waitFor(() => {
-      expect(result.current.data).toEqual(mockData);
-    });
+		await waitFor(() => {
+			expect(result.current.data).toEqual(mockData);
+		});
 
-    act(() => {
-      result.current.refetch();
-    });
+		act(() => {
+			result.current.refetch();
+		});
 
-    expect(result.current.loading).toBe(true);
+		expect(result.current.loading).toBe(true);
 
-    await waitFor(() => {
-      expect(result.current.loading).toBe(false);
-    });
+		await waitFor(() => {
+			expect(result.current.loading).toBe(false);
+		});
 
-    expect(result.current.data).toEqual({ ...mockData, title: 'Updated Item' });
-    expect(global.fetch).toHaveBeenCalledTimes(2);
-  });
+		expect(result.current.data).toEqual({ ...mockData, title: "Updated Item" });
+		expect(global.fetch).toHaveBeenCalledTimes(2);
+	});
 });
 ```
 
@@ -782,4 +790,3 @@ Remember that TypeScript's compile-time checks don't replace runtime validation.
 ## Conclusion
 
 Effective React testing with TypeScript combines the best of both worlds: React Testing Library's user-centric approach and TypeScript's type safety. Focus on testing what users experience rather than implementation details, leverage TypeScript to catch errors early and document component contracts, use semantic queries to ensure accessibility, and structure tests for clarity and maintainability. Your tests should give confidence that components work correctly while serving as living documentation for how components should be used.
-

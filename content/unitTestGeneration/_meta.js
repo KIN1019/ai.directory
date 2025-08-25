@@ -1,4 +1,4 @@
-export default{
+export default {
 	junit: "JUnit",
-	jest: "Jest"
-}
+	jest: "Jest",
+};

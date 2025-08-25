@@ -1,1 +1,1 @@
-declare module 'gray-matter'; 
+declare module "gray-matter";

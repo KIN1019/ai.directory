@@ -90,10 +90,10 @@ async function RulesSidebar() {
 		? [...tags].sort((a, b) => (b.count || 0) - (a.count || 0))
 		: [];
 
-	const sidebarItems = sortedTags.map(tag => ({
+	const sidebarItems = sortedTags.map((tag) => ({
 		slug: tag.slug,
 		name: tag.name,
-		count: tag.count || 0
+		count: tag.count || 0,
 	}));
 
 	return (

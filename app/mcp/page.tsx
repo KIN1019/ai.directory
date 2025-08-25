@@ -38,7 +38,14 @@ type McpDocument = {
 		name: string;
 		description: string;
 	}>;
-	setupCode: { type: "sse", url: string } | { type: "stdio", command: string, args: string[], env: { [key: string]: string } };
+	setupCode:
+		| { type: "sse"; url: string }
+		| {
+				type: "stdio";
+				command: string;
+				args: string[];
+				env: { [key: string]: string };
+		  };
 	href: string;
 	fileName: string;
 	setupDescription?: string;
@@ -51,8 +58,8 @@ async function getTagNames(slugs: string[]): Promise<string[]> {
 		const tagsYamlContent = fs.readFileSync(tagsYamlPath, "utf8");
 		const tagsList = yaml.load(tagsYamlContent) as Tag[];
 
-		const tagMap = new Map(tagsList.map(tag => [tag.slug, tag.name]));
-		return slugs.map(slug => tagMap.get(slug) || slug);
+		const tagMap = new Map(tagsList.map((tag) => [tag.slug, tag.name]));
+		return slugs.map((slug) => tagMap.get(slug) || slug);
 	} catch (err) {
 		console.error("Error loading tag names:", err);
 		return slugs;
@@ -74,19 +81,22 @@ async function getMcpsByTags(selectedTags: string[]): Promise<McpDocument[]> {
 
 		// If no tags selected, include all MCPs
 		// If tags selected, include MCPs that have at least one matching tag
-		const shouldInclude = selectedTags.length === 0 || 
-			(mcpData.tags && Array.isArray(mcpData.tags) && 
-			 selectedTags.some(selectedTag => mcpData.tags.includes(selectedTag)));
+		const shouldInclude =
+			selectedTags.length === 0 ||
+			(mcpData.tags &&
+				Array.isArray(mcpData.tags) &&
+				selectedTags.some((selectedTag) => mcpData.tags.includes(selectedTag)));
 
 		if (shouldInclude) {
-			const setupCode = mcpData.config.type === "sse" 
-				? { type: "sse" as const, url: mcpData.config.url! }
-				: { 
-					type: "stdio" as const, 
-					command: mcpData.config.command!, 
-					args: mcpData.config.args || [],
-					env: mcpData.config.env || {}
-				};
+			const setupCode =
+				mcpData.config.type === "sse"
+					? { type: "sse" as const, url: mcpData.config.url! }
+					: {
+							type: "stdio" as const,
+							command: mcpData.config.command!,
+							args: mcpData.config.args || [],
+							env: mcpData.config.env || {},
+						};
 
 			allMcps.push({
 				name: mcpData.name,
@@ -111,11 +121,14 @@ export default async function McpPage({
 	searchParams: Promise<{ tags?: string; dialog?: string }>;
 }) {
 	const params = await searchParams;
-	const selectedTags = params.tags ? params.tags.split(',').filter(Boolean) : [];
+	const selectedTags = params.tags
+		? params.tags.split(",").filter(Boolean)
+		: [];
 	const openDialog = params.dialog || null;
-	
+
 	const mcps = await getMcpsByTags(selectedTags);
-	const tagNames = selectedTags.length > 0 ? await getTagNames(selectedTags) : [];
+	const tagNames =
+		selectedTags.length > 0 ? await getTagNames(selectedTags) : [];
 
 	const getPageTitle = () => {
 		if (selectedTags.length === 0) {
@@ -150,7 +163,7 @@ export default async function McpPage({
 			}).length > 0 ? (
 				<div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
 					{mcps.map((mcp) => {
-						const mcpSlug = mcp.fileName.replace('.yaml', '');
+						const mcpSlug = mcp.fileName.replace(".yaml", "");
 						return (
 							<McpCardWithDialog
 								key={mcp.fileName}
@@ -170,10 +183,9 @@ export default async function McpPage({
 				</div>
 			) : (
 				<p className="text-muted-foreground">
-					{selectedTags.length > 0 
+					{selectedTags.length > 0
 						? `No MCPs found for the selected tags: ${tagNames.join(", ")}`
-						: "No MCPs found"
-					}
+						: "No MCPs found"}
 				</p>
 			)}
 		</div>

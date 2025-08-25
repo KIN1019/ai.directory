@@ -76,4 +76,3 @@ void shouldThrowExceptionWhenUserIdIsNull() {
 
 **Goal:**  
 Maintain and improve test coverage, focusing on untested logic and error branches, until **overall coverage is between 85% and 100%** as reported by JaCoCo and SonarQube.
-

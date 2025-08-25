@@ -11,11 +11,13 @@ The following are some core principles that apply to most prompt engineering tas
 Agents respond effectively to clear and explicit instructions. Specifying your desired output can significantly enhance results. To achieve "above and beyond" behavior, it may be necessary to explicitly request these actions.
 
 Less effective:
+
 ```text
 Create an analytics dashboard
 ```
 
 More effective:
+
 ```text
 Create an analytics dashboard.
 Include as many relevant features and interactions as possible.
@@ -29,11 +31,13 @@ Go beyond the basics to create a fully-featured implementation.
 Providing context or motivation behind your instructions, such as **explaining to the agent why** such behavior is important, can help the agent better understand your goals and deliver more targeted responses.
 
 Less effective:
+
 ```
 NEVER use ellipses
 ```
 
 More effective:
+
 ```
 Your response will be read aloud by a text-to-speech engine,
 so never use ellipses since the text-to-speech engine will
@@ -61,11 +65,11 @@ Please write a high quality, general purpose solution.
 Implement a solution that works correctly for all valid inputs, not just the test cases.
 Do not hard-code values or create solutions that only work for specific test inputs.
 Instead, implement the actual logic that solves the problem generally.
-  
+
 Focus on understanding the problem requirements and implementing the correct algorithm.
 Tests are there to verify correctness, not to define the solution.
 Provide a principled implementation that follows best practices and software design principles.
-  
+
 If the task is unreasonable or infeasible, or if any of the tests are incorrect,
 please tell me. The solution should be robust, maintainable, and extendable.
 ```
@@ -77,11 +81,13 @@ While the general principles provide a solid foundation, the following specific 
 ### Tell the agent DO instead of DON'T in steering output formatting
 
 Less effective:
+
 ```
 Do not use markdown in your response
 ```
 
 More effective:
+
 ```
 Your response should be composed of smoothly flowing prose paragraphs.
 ```
@@ -115,7 +121,8 @@ You can also improve Claude’s frontend performance in specific areas by provid
 - "Add thoughtful details like hover states, transitions, and micro-interactions"
 - "Create an impressive demonstration showcasing web development capabilities"
 - "Apply design principles: hierarchy, contrast, balance, and movement"
-​
+  ​
+
 ---
 
 ### Reduce file creation in agentic coding

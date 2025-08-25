@@ -70,7 +70,9 @@ function RulesCard(props: RulesCardProps) {
 		<Card className="h-fit">
 			<CardHeader>
 				<CardTitle>{props.title}</CardTitle>
-				<CardDescription className="h-10 overflow-hidden">{props.description}</CardDescription>
+				<CardDescription className="h-10 overflow-hidden">
+					{props.description}
+				</CardDescription>
 			</CardHeader>
 			<CardContent className="h-fit relative">
 				<div className="font-mono bg-secondary text-xs whitespace-pre-wrap px-3 py-2 h-96 overflow-auto rounded-xs">

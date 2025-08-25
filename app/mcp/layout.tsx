@@ -35,35 +35,40 @@ async function getMcpTags() {
 
 		const tagsYamlPath = path.join(mcpDirectory, "tags.yaml");
 		const tagsYamlContent = fs.readFileSync(tagsYamlPath, "utf8");
-		const tagsList = yaml.load(tagsYamlContent) as Array<{slug: string; name: string}>;
+		const tagsList = yaml.load(tagsYamlContent) as Array<{
+			slug: string;
+			name: string;
+		}>;
 
-		const tagsMap = new Map<string, {slug: string; name: string}>();
+		const tagsMap = new Map<string, { slug: string; name: string }>();
 		tagsList.forEach((tag) => tagsMap.set(tag.slug, tag));
 
 		const tagCounts = new Map<string, number>();
 		const uniqueTags = new Set<string>();
 
-		fileNames.sort((a, b) => {
-			const numA = getLeadingNumber(a);
-			const numB = getLeadingNumber(b);
+		fileNames
+			.sort((a, b) => {
+				const numA = getLeadingNumber(a);
+				const numB = getLeadingNumber(b);
 
-			if (!isNaN(numA) && !isNaN(numB) && numA !== numB) {
-				return numA - numB;
-			}
+				if (!isNaN(numA) && !isNaN(numB) && numA !== numB) {
+					return numA - numB;
+				}
 
-			return a.localeCompare(b);
-		}).forEach((fileName) => {
-			const filePath = path.join(mcpDirectory, fileName);
-			const fileContent = fs.readFileSync(filePath, "utf8");
-			const mcpData = yaml.load(fileContent) as McpData;
+				return a.localeCompare(b);
+			})
+			.forEach((fileName) => {
+				const filePath = path.join(mcpDirectory, fileName);
+				const fileContent = fs.readFileSync(filePath, "utf8");
+				const mcpData = yaml.load(fileContent) as McpData;
 
-			if (mcpData.tags && Array.isArray(mcpData.tags)) {
-				mcpData.tags.forEach((tag: string) => {
-					uniqueTags.add(tag);
-					tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
-				});
-			}
-		});
+				if (mcpData.tags && Array.isArray(mcpData.tags)) {
+					mcpData.tags.forEach((tag: string) => {
+						uniqueTags.add(tag);
+						tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+					});
+				}
+			});
 
 		const validTags: Tag[] = [];
 		const missingTags: string[] = [];
@@ -102,26 +107,23 @@ export default async function McpLayout({
 
 	return (
 		<main className="flex min-h-screen">
-			<Suspense fallback={
-				<div className="w-[250px] border-r min-h-screen">
-					<div className="p-4">
-						<h2 className="text-sm font-semibold ml-1">Tags</h2>
-						<div className="space-y-1 mt-4">
-							<div className="h-8 bg-muted animate-pulse rounded"></div>
-							<div className="h-8 bg-muted animate-pulse rounded"></div>
-							<div className="h-8 bg-muted animate-pulse rounded"></div>
+			<Suspense
+				fallback={
+					<div className="w-[250px] border-r min-h-screen">
+						<div className="p-4">
+							<h2 className="text-sm font-semibold ml-1">Tags</h2>
+							<div className="space-y-1 mt-4">
+								<div className="h-8 bg-muted animate-pulse rounded"></div>
+								<div className="h-8 bg-muted animate-pulse rounded"></div>
+								<div className="h-8 bg-muted animate-pulse rounded"></div>
+							</div>
 						</div>
 					</div>
-				</div>
-			}>
-				<McpMultiSelectSidebar 
-					tags={tags || []} 
-					error={error}
-				/>
+				}
+			>
+				<McpMultiSelectSidebar tags={tags || []} error={error} />
 			</Suspense>
-			<div className="flex-1 overflow-auto">
-				{children}
-			</div>
+			<div className="flex-1 overflow-auto">{children}</div>
 		</main>
 	);
 }

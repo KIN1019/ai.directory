@@ -16,13 +16,14 @@ export function GenericSidebarItem({
 	baseUrl,
 	showCount = true,
 	className,
-	onClick
+	onClick,
 }: GenericSidebarItemProps) {
 	const pathname = usePathname();
 	const itemUrl = `${baseUrl}/${item.slug}`;
-	
+
 	// More precise path matching - check if pathname exactly matches or starts with itemUrl followed by a slash
-	const isCurrentPage = pathname === itemUrl || pathname.startsWith(`${itemUrl}/`);
+	const isCurrentPage =
+		pathname === itemUrl || pathname.startsWith(`${itemUrl}/`);
 
 	const handleClick = (e: React.MouseEvent) => {
 		if (onClick) {
@@ -41,7 +42,7 @@ export function GenericSidebarItem({
 				{item.icon && <span className="shrink-0">{item.icon}</span>}
 				<span>{item.name}</span>
 			</div>
-			
+
 			<div className="flex items-center gap-2">
 				{item.badge && (
 					<span className="px-2 py-1 text-xs bg-muted text-muted-foreground rounded">
@@ -54,4 +55,4 @@ export function GenericSidebarItem({
 			</div>
 		</a>
 	);
-} 
+}

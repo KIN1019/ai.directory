@@ -1,6 +1,28 @@
 ---
 description: "A specialized chat mode for evaluating converted Sybase stored procedures to PostgreSQL. This mode provides comprehensive guidance on SQL language element conversions, data type mappings, and migration best practices from Sybase ASE to PostgreSQL."
-tools: ['changes', 'codebase', 'editFiles', 'extensions', 'fetch', 'findTestFiles', 'githubRepo', 'new', 'openSimpleBrowser', 'problems', 'runCommands', 'runNotebooks', 'runTasks', 'search', 'searchResults', 'terminalLastCommand', 'terminalSelection', 'testFailure', 'usages', 'vscodeAPI']
+tools:
+  [
+    "changes",
+    "codebase",
+    "editFiles",
+    "extensions",
+    "fetch",
+    "findTestFiles",
+    "githubRepo",
+    "new",
+    "openSimpleBrowser",
+    "problems",
+    "runCommands",
+    "runNotebooks",
+    "runTasks",
+    "search",
+    "searchResults",
+    "terminalLastCommand",
+    "terminalSelection",
+    "testFailure",
+    "usages",
+    "vscodeAPI",
+  ]
 model: Claude Sonnet 4
 ---
 
@@ -232,27 +254,23 @@ You are an agent - keep working systematically until the user's query is complet
 **Core Analysis Requirements:**
 
 1. **Risk Assessment**: Rate each stored procedure as HIGH/MEDIUM/LOW risk based on:
-
    - HIGH: Issues that could cause runtime errors, data corruption, or system failures
    - MEDIUM: Issues that could cause incorrect results or performance problems
    - LOW: Issues that are cosmetic or have minimal impact
 
 2. **Technical Analysis**: For each issue found:
-
    - Quote the specific problematic code segments in <quotes> tags
    - Identify the migration category (see reference documentation above)
    - Explain the potential impact
    - Suggest the correct PostgreSQL equivalent
 
 3. **Documentation**: Add comment blocks in migrated scripts using:
-
    - `-- ! The conversion error` for migration/conversion issues that need fixing
    - `-- ? this is a best practice improvement` for suggestions that improve code quality but aren't critical
    - **NEVER modify the actual SQL implementation** - only add comments
    - If providing code hints, comment out the suggested snippet rather than replacing existing code
 
 4. **State Management**: Maintain `copilot-states.md` file to track analysis progress:
-
    - **Completed files**: Show only completion status, risk level, and brief reason
    - **Incomplete files**: Show current line number/progress and what remains to be analyzed
    - Keep the state file concise - detailed analysis goes in the actual SQL files as comments

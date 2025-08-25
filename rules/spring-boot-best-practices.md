@@ -3,10 +3,13 @@ title: Spring Boot Best Practices
 description: Best practices prompt for Spring Boot
 tags: [java, springboot, best-practices]
 ---
+
 ---
+
 mode: 'agent'
 tools: ['changes', 'codebase', 'editFiles', 'problems', 'search']
 description: 'Get best practices for developing applications with Spring Boot.'
+
 ---
 
 # Spring Boot Best Practices

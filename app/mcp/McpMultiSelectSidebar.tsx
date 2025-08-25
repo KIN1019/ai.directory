@@ -15,35 +15,38 @@ type McpMultiSelectSidebarProps = {
 	error?: string;
 };
 
-export function McpMultiSelectSidebar({ tags, error }: McpMultiSelectSidebarProps) {
+export function McpMultiSelectSidebar({
+	tags,
+	error,
+}: McpMultiSelectSidebarProps) {
 	const router = useRouter();
 	const searchParams = useSearchParams();
 	const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
 	// Initialize selected tags from URL params
 	useEffect(() => {
-		const tagsParam = searchParams.get('tags');
+		const tagsParam = searchParams.get("tags");
 		if (tagsParam) {
-			setSelectedTags(tagsParam.split(',').filter(Boolean));
+			setSelectedTags(tagsParam.split(",").filter(Boolean));
 		}
 	}, [searchParams]);
 
 	const handleTagClick = (tagSlug: string) => {
 		const isSelected = selectedTags.includes(tagSlug);
 		const newSelectedTags = isSelected
-			? selectedTags.filter(tag => tag !== tagSlug)
+			? selectedTags.filter((tag) => tag !== tagSlug)
 			: [...selectedTags, tagSlug];
-		
+
 		setSelectedTags(newSelectedTags);
-		
+
 		// Update URL while preserving other parameters like dialog
 		const params = new URLSearchParams(searchParams);
 		if (newSelectedTags.length > 0) {
-			params.set('tags', newSelectedTags.join(','));
+			params.set("tags", newSelectedTags.join(","));
 		} else {
-			params.delete('tags');
+			params.delete("tags");
 		}
-		
+
 		router.push(`/mcp?${params.toString()}`);
 	};
 
@@ -51,9 +54,9 @@ export function McpMultiSelectSidebar({ tags, error }: McpMultiSelectSidebarProp
 		setSelectedTags([]);
 		// Preserve dialog parameter when clearing tags
 		const params = new URLSearchParams(searchParams);
-		params.delete('tags');
+		params.delete("tags");
 		const queryString = params.toString();
-		router.push(`/mcp${queryString ? '?' + queryString : ''}`);
+		router.push(`/mcp${queryString ? "?" + queryString : ""}`);
 	};
 
 	if (error) {
@@ -83,7 +86,7 @@ export function McpMultiSelectSidebar({ tags, error }: McpMultiSelectSidebarProp
 						</button>
 					)}
 				</div>
-				
+
 				<div className="space-y-1">
 					{sortedTags.map((tag) => {
 						const isSelected = selectedTags.includes(tag.slug);
@@ -93,14 +96,14 @@ export function McpMultiSelectSidebar({ tags, error }: McpMultiSelectSidebarProp
 								onClick={() => handleTagClick(tag.slug)}
 								className={`flex items-center justify-between p-2 rounded-md cursor-pointer transition-colors ${
 									isSelected
-										? 'bg-primary text-primary-foreground'
-										: 'hover:bg-muted'
+										? "bg-primary text-primary-foreground"
+										: "hover:bg-muted"
 								}`}
 							>
 								<span className="text-sm">{tag.name}</span>
-								<Badge 
+								<Badge
 									variant={isSelected ? "outline" : "secondary"}
-									className={`ml-2 ${isSelected ? 'border-primary-foreground text-primary-foreground bg-transparent' : ''}`}
+									className={`ml-2 ${isSelected ? "border-primary-foreground text-primary-foreground bg-transparent" : ""}`}
 								>
 									{tag.count}
 								</Badge>
@@ -114,7 +117,7 @@ export function McpMultiSelectSidebar({ tags, error }: McpMultiSelectSidebarProp
 						<h3 className="text-sm font-medium mb-2">Selected Tags:</h3>
 						<div className="flex flex-wrap gap-1">
 							{selectedTags.map((tagSlug) => {
-								const tag = tags.find(t => t.slug === tagSlug);
+								const tag = tags.find((t) => t.slug === tagSlug);
 								return tag ? (
 									<Badge key={tagSlug} variant="default" className="text-xs">
 										{tag.name}
@@ -127,4 +130,4 @@ export function McpMultiSelectSidebar({ tags, error }: McpMultiSelectSidebarProp
 			</div>
 		</div>
 	);
-} 
+}

@@ -49,7 +49,6 @@ tools:
   - name: add_activity_to_incident
     description: Add an activity item to an incident in Grafana Incident
 
-
   - name: resolve_incident
     description: Resolve an incident in Grafana Incident
   - name: query_loki_logs

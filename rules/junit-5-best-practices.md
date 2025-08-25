@@ -3,10 +3,13 @@ title: JUnit 5+ Best Practices
 description: Best practices prompt for JUnit 5
 tags: [java, springboot, junit, best-practices]
 ---
+
 ---
+
 mode: 'agent'
 tools: ['changes', 'codebase', 'editFiles', 'problems', 'search']
 description: 'Get best practices for JUnit 5 unit testing, including data-driven tests'
+
 ---
 
 # JUnit 5+ Best Practices

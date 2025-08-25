@@ -7,7 +7,7 @@ This guide walks you through everything you need to get **GitHub Copilot** worki
 - Visual Studio Code ≥ 1.100 **or** JetBrains IDE with the Copilot plugin
 - An active `ha.github.com` account with Copilot entitlement
 - Network access to `https://copilot-proxy.ha.org.hk` (corporate proxy)
-- The dhpai.home *rules* you'd like to inject (see `/prompts`)
+- The dhpai.home _rules_ you'd like to inject (see `/prompts`)
 
 ## 2. Install the Copilot Extension
 
@@ -16,18 +16,18 @@ This guide walks you through everything you need to get **GitHub Copilot** worki
 3. Search for **GitHub Copilot** and click **Install**.
 4. Reload the window when prompted.
 
-> 💡 *JetBrains users*: open *Settings ▸ Plugins ▸ Marketplace*, search for **GitHub Copilot**, and install.
+> 💡 _JetBrains users_: open _Settings ▸ Plugins ▸ Marketplace_, search for **GitHub Copilot**, and install.
 
 ## 3. Import Recommended Settings
 
 1. Download [`settings.json`](https://github.com/doggy8088/github-copilot-configs/blob/main/.vscode/settings.json).
-2. In VS Code, press `Ctrl +,` to open *Settings*.
+2. In VS Code, press `Ctrl +,` to open _Settings_.
 3. Click the three-dot menu ▸ **Open Settings (JSON)**.
 4. Replace the file contents with the downloaded snippet and **save**.
-   
+
 The template enables the **Chat** view, removes telemetry, and tweaks suggestion debounce for best latency on HA's network.
 
-## 4. Configure the Corporate Proxy *(if applicable)*
+## 4. Configure the Corporate Proxy _(if applicable)_
 
 ```jsonc
 // settings.json
@@ -74,11 +74,11 @@ If not, revisit steps 5-6.
 
 ## 8. Troubleshooting
 
-| Symptom | Fix |
-|---------|-----|
-| **“Copilot not authorized”** | Re-authenticate via **`GitHub: Sign in`** in the Command Palette. |
-| **Suggestions lagging** | Verify proxy settings & reduce `copilot.experimental.inlineSuggest.delay`. |
-| **Irrelevant frameworks suggested** | Ensure `.github/copilot-instructions.md` is committed and pushed. |
+| Symptom                             | Fix                                                                        |
+| ----------------------------------- | -------------------------------------------------------------------------- |
+| **“Copilot not authorized”**        | Re-authenticate via **`GitHub: Sign in`** in the Command Palette.          |
+| **Suggestions lagging**             | Verify proxy settings & reduce `copilot.experimental.inlineSuggest.delay`. |
+| **Irrelevant frameworks suggested** | Ensure `.github/copilot-instructions.md` is committed and pushed.          |
 
 ## 9. Next Steps
 

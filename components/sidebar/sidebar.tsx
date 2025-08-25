@@ -18,7 +18,11 @@ export interface GenericSidebarProps {
 	title?: string;
 	className?: string;
 	itemClassName?: string;
-	sortBy?: 'count' | 'name' | 'slug' | ((a: SidebarItem, b: SidebarItem) => number);
+	sortBy?:
+		| "count"
+		| "name"
+		| "slug"
+		| ((a: SidebarItem, b: SidebarItem) => number);
 	showCount?: boolean;
 	onItemClick?: (item: SidebarItem) => void;
 }
@@ -31,23 +35,23 @@ export function GenericSidebar({
 	title,
 	className = "w-64 shrink-0 h-[calc(100vh-68px)] bg-background border-r border-border",
 	itemClassName,
-	sortBy = 'count',
+	sortBy = "count",
 	showCount = true,
-	onItemClick
+	onItemClick,
 }: GenericSidebarProps) {
 	// Sort items if needed
 	const sortedItems = [...items];
-	if (typeof sortBy === 'function') {
+	if (typeof sortBy === "function") {
 		sortedItems.sort(sortBy);
 	} else {
 		switch (sortBy) {
-			case 'count':
+			case "count":
 				sortedItems.sort((a, b) => (b.count || 0) - (a.count || 0));
 				break;
-			case 'name':
+			case "name":
 				sortedItems.sort((a, b) => a.name.localeCompare(b.name));
 				break;
-			case 'slug':
+			case "slug":
 				sortedItems.sort((a, b) => a.slug.localeCompare(b.slug));
 				break;
 		}
@@ -73,7 +77,7 @@ export function GenericSidebar({
 					<h2 className="font-semibold text-lg">{title}</h2>
 				</div>
 			)}
-			
+
 			{sortedItems.length > 0 ? (
 				sortedItems.map((item) => (
 					<GenericSidebarItem
@@ -90,4 +94,4 @@ export function GenericSidebar({
 			)}
 		</nav>
 	);
-} 
+}

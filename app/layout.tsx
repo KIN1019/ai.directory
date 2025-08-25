@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
-import 'nextra-theme-docs/style.css'
+import "nextra-theme-docs/style.css";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NavBar } from "@/components/navbar";
 import { Toaster } from "@/components/ui/sonner";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
 import { Dam } from "lucide-react";
-import { Layout } from 'nextra-theme-docs'
-import { getPageMap } from 'nextra/page-map'
+import { Layout } from "nextra-theme-docs";
+import { getPageMap } from "nextra/page-map";
 import { DockDemo } from "@/components/magicui/example/dock-demo";
 
 const interSans = Inter({
@@ -29,49 +29,49 @@ export const metadata: Metadata = {
 // Filter pageMap to only include docs pages, exclude app routes
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function filterPageMap(pageMap: any[]): any[] {
-	const excludedRoutes = ['mcp', 'rules', 'api', 'index'];
+	const excludedRoutes = ["mcp", "rules", "api", "index"];
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const result: any[] = [];
-	
+
 	pageMap.forEach((item) => {
 		// If it's a named route that we want to exclude, skip it
 		if (item.name && excludedRoutes.includes(item.name)) {
 			return;
 		}
-		
+
 		// If this is the docs folder, extract its children to root level
-		if (item.route === '/docs' || (item.name === 'docs' && item.children)) {
+		if (item.route === "/docs" || (item.name === "docs" && item.children)) {
 			// Add all docs children to the result at root level
 			if (item.children) {
 				result.push(...item.children);
 			}
 			return;
 		}
-		
+
 		// Keep docs-related content
-		if (item.route && item.route.startsWith('/docs')) {
+		if (item.route && item.route.startsWith("/docs")) {
 			result.push(item);
 			return;
 		}
-		
+
 		// Filter children recursively if they exist
 		if (item.children) {
 			const filteredChildren = filterPageMap(item.children);
 			if (filteredChildren.length > 0) {
 				result.push({
 					...item,
-					children: filteredChildren
+					children: filteredChildren,
 				});
 			}
 			return;
 		}
-  
+
 		// Keep items that don't have a route (meta items) but exclude index/home
-		if (!item.route && item.name !== 'index') {
+		if (!item.route && item.name !== "index") {
 			result.push(item);
 		}
 	});
- 
+
 	return result;
 }
 
@@ -82,7 +82,7 @@ export default async function RootLayout({
 }>) {
 	const originalPageMap = await getPageMap();
 	const filteredPageMap = filterPageMap(originalPageMap);
-	
+
 	return (
 		<html lang="en" suppressHydrationWarning dir="ltr">
 			<head />
@@ -95,10 +95,7 @@ export default async function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<Layout
-						navbar={<NavBar />}
-						pageMap={filteredPageMap}
-					>
+					<Layout navbar={<NavBar />} pageMap={filteredPageMap}>
 						{children}
 						<Toaster />
 						<DockDemo />

@@ -30,18 +30,22 @@ type RowDataModel = {
   remark?: { text: string; user: string };
 }`;
 
-export default function CodeComparisonDemo({ className }: { className: string }) {
-  return (
-    <div className={className}>
-      <CodeComparison
-        beforeCode={beforeCode}
-        afterCode={afterCode}
-        language="typescript"
-        filename="PatientTable.tsx"
-        lightTheme="github-light"
-        darkTheme="github-dark"
-        highlightColor="rgba(101, 117, 133, 0.16)"
-      />
-    </div>
-  );
+export default function CodeComparisonDemo({
+	className,
+}: {
+	className: string;
+}) {
+	return (
+		<div className={className}>
+			<CodeComparison
+				beforeCode={beforeCode}
+				afterCode={afterCode}
+				language="typescript"
+				filename="PatientTable.tsx"
+				lightTheme="github-light"
+				darkTheme="github-dark"
+				highlightColor="rgba(101, 117, 133, 0.16)"
+			/>
+		</div>
+	);
 }

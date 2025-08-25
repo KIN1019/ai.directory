@@ -25,11 +25,11 @@ public class PatientController {
             @RequestParam(defaultValue = "20") int size,
             @RequestParam(defaultValue = "id") String sortBy,
             @RequestParam(defaultValue = "ASC") Sort.Direction direction) {
-        
+
         Pageable pageable = PageRequest.of(page, size, Sort.by(direction, sortBy));
         Page<Patient> patients = patientService.findAll(pageable);
         Page<PatientDTO> patientDTOs = patients.map(patientMapper::toDTO);
-        
+
         return ResponseEntity.ok(patientDTOs);
     }
 
@@ -38,7 +38,7 @@ public class PatientController {
     public ResponseEntity<PatientDTO> getPatientById(@PathVariable Long id) {
         Patient patient = patientService.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("Patient not found with id: " + id));
-        
+
         return ResponseEntity.ok(patientMapper.toDTO(patient));
     }
 
@@ -47,16 +47,16 @@ public class PatientController {
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<PatientDTO> createPatient(
             @Valid @RequestBody CreatePatientRequest request) {
-        
+
         Patient patient = patientMapper.toEntity(request);
         Patient savedPatient = patientService.save(patient);
-        
+
         URI location = ServletUriComponentsBuilder
             .fromCurrentRequest()
             .path("/{id}")
             .buildAndExpand(savedPatient.getId())
             .toUri();
-        
+
         return ResponseEntity.created(location).body(patientMapper.toDTO(savedPatient));
     }
 
@@ -65,13 +65,13 @@ public class PatientController {
     public ResponseEntity<PatientDTO> updatePatient(
             @PathVariable Long id,
             @Valid @RequestBody UpdatePatientRequest request) {
-        
+
         Patient existingPatient = patientService.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("Patient not found with id: " + id));
-        
+
         patientMapper.updateEntity(request, existingPatient);
         Patient updatedPatient = patientService.save(existingPatient);
-        
+
         return ResponseEntity.ok(patientMapper.toDTO(updatedPatient));
     }
 
@@ -82,7 +82,7 @@ public class PatientController {
         if (!patientService.existsById(id)) {
             throw new ResourceNotFoundException("Patient not found with id: " + id);
         }
-        
+
         patientService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
@@ -97,30 +97,30 @@ public class PatientController {
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreatePatientRequest {
-    
+
     @NotBlank(message = "Name is required")
     @Size(max = 100, message = "Name must not exceed 100 characters")
     private String name;
-    
+
     @NotBlank(message = "HKID is required")
     @Pattern(regexp = "[A-Z]\\d{6}\\([0-9A]\\)", message = "Invalid HKID format")
     private String hkid;
-    
+
     @NotNull(message = "Date of birth is required")
     @Past(message = "Date of birth must be in the past")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth;
-    
+
     @NotNull(message = "Gender is required")
     @Pattern(regexp = "[MF]", message = "Gender must be M or F")
     private String gender;
-    
+
     @Pattern(regexp = "\\d{8}", message = "Phone number must be 8 digits")
     private String phoneNumber;
-    
+
     @Email(message = "Invalid email format")
     private String email;
-    
+
     @Size(max = 500, message = "Address must not exceed 500 characters")
     private String address;
 }
@@ -153,7 +153,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleResourceNotFoundException(
             ResourceNotFoundException ex, WebRequest request) {
-        
+
         ErrorResponse errorResponse = ErrorResponse.builder()
             .timestamp(LocalDateTime.now())
             .status(HttpStatus.NOT_FOUND.value())
@@ -161,19 +161,19 @@ public class GlobalExceptionHandler {
             .message(ex.getMessage())
             .path(request.getDescription(false).replace("uri=", ""))
             .build();
-        
+
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleValidationException(
             MethodArgumentNotValidException ex, WebRequest request) {
-        
+
         Map<String, String> errors = new HashMap<>();
         ex.getBindingResult().getFieldErrors().forEach(error ->
             errors.put(error.getField(), error.getDefaultMessage())
         );
-        
+
         ErrorResponse errorResponse = ErrorResponse.builder()
             .timestamp(LocalDateTime.now())
             .status(HttpStatus.BAD_REQUEST.value())
@@ -182,16 +182,16 @@ public class GlobalExceptionHandler {
             .validationErrors(errors)
             .path(request.getDescription(false).replace("uri=", ""))
             .build();
-        
+
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGlobalException(
             Exception ex, WebRequest request) {
-        
+
         log.error("Unexpected error occurred", ex);
-        
+
         ErrorResponse errorResponse = ErrorResponse.builder()
             .timestamp(LocalDateTime.now())
             .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
@@ -199,8 +199,8 @@ public class GlobalExceptionHandler {
             .message("An unexpected error occurred")
             .path(request.getDescription(false).replace("uri=", ""))
             .build();
-        
+
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
     }
 }
-``` 
+```

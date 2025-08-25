@@ -1,3 +1,26 @@
 {
-    "includeCoAuthoredBy": false
+	"includeCoAuthoredBy": false,
+	"hooks": {
+		"Stop": [
+			{
+				"hooks": [
+					{
+						"type": "command",
+						"command": "say \"I'm done\""
+					}
+				]
+			}
+		],
+		"Notification": [
+			{
+				"matcher": "",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "notify-send 'Claude Code' 'Awaiting your input'"
+					}
+				]
+			}
+		]
+	}
 }

@@ -1,11 +1,15 @@
-#  Introduction
+# Introduction
 
 As AI assistants like DeepSeek and other language models start to play a role in healthcare settings, it's crucial to understand how they can be safely and effectively integrated into the Hospital Authority's workflows. In HA, these technologies can help with everything from appointment management to clinical decision support—but only if they interact securely and responsibly with hospital systems and sensitive patient data. Three key concepts make this possible: **MCP**, **`llms.txt`**, and **Rules**. Here's how they fit into the HA environment.
 
 ## What is MCP (Model Context Protocol)?
 
 <div className="flex justify-center p-4">
-	<img src="/mcp-illustration.webp" alt="MCP Illustration" className="max-w-3/4" />
+	<img
+		src="/mcp-illustration.webp"
+		alt="MCP Illustration"
+		className="max-w-3/4"
+	/>
 </div>
 
 Think of MCP as the secure translator or adapter that allows AI assistants to connect with the Hospital Authority's complex IT systems, including the Clinical Management System (CMS), Electronic Patient Record (ePR), and various internal databases. Without MCP, even the smartest AI would be like a new doctor who doesn't have access to patient files or the right login credentials.
@@ -13,7 +17,7 @@ Think of MCP as the secure translator or adapter that allows AI assistants to co
 **MCP:**
 
 - Provides a **secure, controlled bridge** between AI assistants and HA systemsdata.
-- Ensures that only **authorised requests** are processed, following hospital  security protocols.
+- Ensures that only **authorised requests** are processed, following hospital security protocols.
 - Handles **permissions**, so that AI can only access the information that staff are allowed to see.
 - **Encrypts and monitors** all data transfers, protecting patient privacy and complying with Hong Kong's privacy ordinances.
 
@@ -56,6 +60,7 @@ In summary, `llms.txt` is like a quick orientation guide, `llms-full.txt` is lik
 Rules are critically important in the healthcare context. They act as digital “hospital policies” for AI, setting boundaries for what AI assistants can and cannot do within the HA environment. These rules ensure that AI supports clinical and administrative staff in a responsible, ethical, and compliant way.
 
 Rules can include:
+
 - **Data privacy requirements:** “Never share patient information with unauthorised users.”
 - **Clinical safety checks:** “Always clarify uncertainty in medical advice; do not make diagnoses.”
 - **Professional behaviour:** “Maintain respectful tone with all staff and patients.”

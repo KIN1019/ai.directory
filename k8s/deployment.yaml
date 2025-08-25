@@ -13,17 +13,17 @@ spec:
         app: ai-directory
     spec:
       containers:
-      - name: ai-directory
-        image: artifactrepo.server.ha.org.hk:55743/docker-dev-cms/ai-directory:latest
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-        volumeMounts:
-        - name: logs
-          mountPath: /app/logs
+        - name: ai-directory
+          image: artifactrepo.server.ha.org.hk:55743/docker-dev-cms/ai-directory:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: logs
+              mountPath: /app/logs
       imagePullSecrets:
-         - name: regcred
+        - name: regcred
       volumes:
-      - name: logs
-        persistentVolumeClaim:
-          claimName: ai-directory-logs
+        - name: logs
+          persistentVolumeClaim:
+            claimName: ai-directory-logs

@@ -87,19 +87,19 @@ export function AppNavigator() {
         ) : (
           <>
             <Stack.Screen name="Main" component={MainTabs} />
-            <Stack.Screen 
-              name="PatientDetail" 
+            <Stack.Screen
+              name="PatientDetail"
               component={PatientDetailScreen}
-              options={{ 
+              options={{
                 headerShown: true,
                 headerTitle: 'Patient Details',
                 presentation: 'modal'
               }}
             />
-            <Stack.Screen 
-              name="Settings" 
+            <Stack.Screen
+              name="Settings"
               component={SettingsScreen}
-              options={{ 
+              options={{
                 headerShown: true,
                 headerTitle: 'Settings'
               }}
@@ -297,4 +297,4 @@ class ScaffoldWithNavBar extends StatelessWidget {
     }
   }
 }
-``` 
+```

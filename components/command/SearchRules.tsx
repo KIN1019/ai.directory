@@ -41,7 +41,7 @@ function SearchRules(props: SearchRulesProps) {
 			})
 			.catch((err) => console.error("Failed to load rules:", err));
 	}, []);
-	
+
 	// Reset active index when search query changes
 	useEffect(() => {
 		setActiveIndex(0);
@@ -49,23 +49,27 @@ function SearchRules(props: SearchRulesProps) {
 
 	// Filter rules based on search query if present
 	const filteredRules = props.searchQuery
-		? rules.filter(rule => 
-			rule.title.toLowerCase().includes(props.searchQuery.toLowerCase()) || 
-			rule.content.toLowerCase().includes(props.searchQuery.toLowerCase()))
+		? rules.filter(
+				(rule) =>
+					rule.title.toLowerCase().includes(props.searchQuery.toLowerCase()) ||
+					rule.content.toLowerCase().includes(props.searchQuery.toLowerCase()),
+			)
 		: rules;
 
 	// Handle keyboard navigation
 	const handleKeyDown = (e: React.KeyboardEvent) => {
 		if (filteredRules.length === 0) return;
-		
+
 		switch (e.key) {
 			case "ArrowDown":
 				e.preventDefault();
-				setActiveIndex(prev => (prev + 1) % filteredRules.length);
+				setActiveIndex((prev) => (prev + 1) % filteredRules.length);
 				break;
 			case "ArrowUp":
 				e.preventDefault();
-				setActiveIndex(prev => (prev - 1 + filteredRules.length) % filteredRules.length);
+				setActiveIndex(
+					(prev) => (prev - 1 + filteredRules.length) % filteredRules.length,
+				);
 				break;
 			case "Enter":
 				if (props.onSelect && filteredRules[activeIndex]) {
@@ -99,7 +103,7 @@ function SearchRules(props: SearchRulesProps) {
 			<CommandEmpty>No results found.</CommandEmpty>
 			<CommandGroup>
 				{filteredRules.map((rule, idx) => (
-					<CommandItem 
+					<CommandItem
 						key={rule.slug}
 						value={rule.slug}
 						onSelect={() => {
@@ -109,14 +113,16 @@ function SearchRules(props: SearchRulesProps) {
 							}
 						}}
 						onMouseEnter={() => setActiveIndex(idx)}
-						className={activeIndex === idx ? "bg-accent text-accent-foreground" : ""}
+						className={
+							activeIndex === idx ? "bg-accent text-accent-foreground" : ""
+						}
 					>
 						<span>{rule.title}</span>
 					</CommandItem>
 				))}
 			</CommandGroup>
 		</CommandList>
-	)
+	);
 
 	return (
 		<div className="grid grid-cols-[250px_minmax(0,_1fr)] overflow-hidden sm:min-h-[700px]">

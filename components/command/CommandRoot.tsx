@@ -25,9 +25,7 @@ function CommandRoot(props: CommandRootProps) {
 				</CommandItem>
 				<CommandItem>
 					<ScrollText />
-					<span>
-						Search Contexts
-					</span>
+					<span>Search Contexts</span>
 				</CommandItem>
 				<CommandItem>
 					<Blocks />

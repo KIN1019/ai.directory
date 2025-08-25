@@ -16,9 +16,9 @@ For these reasons, you should never fully trust an AI with unattended access to 
 
 Auto-allowing read-only commands like `ls`, `cat`, `grep`, `git status`, `pwd`, and read-only MCP commands for `HA Context` or `context7` is a safe way to improve efficiency. By whitelisting them, you can:
 
--   **Speed Up Your Workflow:** Get instant answers from commands that inspect your codebase.
--   **Reduce Distractions:** Avoid unnecessary approval prompts for harmless commands.
--   **Stay Focused:** Keep your attention on your work, not on managing your tools.
+- **Speed Up Your Workflow:** Get instant answers from commands that inspect your codebase.
+- **Reduce Distractions:** Avoid unnecessary approval prompts for harmless commands.
+- **Stay Focused:** Keep your attention on your work, not on managing your tools.
 
 ## How to Setup a Whitelist for Commands
 

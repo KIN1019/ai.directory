@@ -9,16 +9,16 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "@/components/ui/dialog";
 import { Separator } from "@radix-ui/react-dropdown-menu";
 import { McpDialogMain } from "./McpDialogContent";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -36,8 +36,13 @@ type McpCardProps = {
 	tools: Tool[];
 	href: string;
 	setupCode:
-		| { type: "sse", url: string }
-		| { type: "stdio", command: string, args: string[], env: { [key: string]: string } };
+		| { type: "sse"; url: string }
+		| {
+				type: "stdio";
+				command: string;
+				args: string[];
+				env: { [key: string]: string };
+		  };
 	fileName?: string;
 	open?: boolean;
 	setupDescription?: string;
@@ -48,41 +53,50 @@ function McpCard(props: McpCardProps) {
 	const [isHovered, setIsHovered] = useState(false);
 
 	return (
-		<Card onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+		<Card
+			onMouseEnter={() => setIsHovered(true)}
+			onMouseLeave={() => setIsHovered(false)}
+		>
 			<CardHeader className="flex flex-row justify-start gap-4 items-center">
-				<Image 
-					src={props.logo} 
-					alt={props.name} 
+				<Image
+					src={props.logo}
+					alt={props.name}
 					width={40}
 					height={40}
-					className="rounded object-cover" 
+					className="rounded object-cover"
 				/>
 				<CardTitle className="text-sm">{props.name}</CardTitle>
 			</CardHeader>
 			<CardContent className="flex flex-col gap-y-4">
-				<p className="text-xs h-8 overflow-hidden text-ellipsis">{props.description}</p>
-				<Badge variant={isHovered ? "default" : "outline"}>{props.tools.length} tools</Badge>
+				<p className="text-xs h-8 overflow-hidden text-ellipsis">
+					{props.description}
+				</p>
+				<Badge variant={isHovered ? "default" : "outline"}>
+					{props.tools.length} tools
+				</Badge>
 			</CardContent>
 		</Card>
-	)
+	);
 }
 
 function McpCardWithDialog(props: McpCardProps) {
 	const router = useRouter();
 	const searchParams = useSearchParams();
-	const mcpSlug = props.fileName?.replace('.yaml', '') || props.name.toLowerCase().replace(/\s+/g, '-');
+	const mcpSlug =
+		props.fileName?.replace(".yaml", "") ||
+		props.name.toLowerCase().replace(/\s+/g, "-");
 
 	const handleDialogChange = (open: boolean) => {
 		const params = new URLSearchParams(searchParams);
-		
+
 		if (open) {
-			params.set('dialog', mcpSlug);
+			params.set("dialog", mcpSlug);
 		} else {
-			params.delete('dialog');
+			params.delete("dialog");
 		}
-		
+
 		const queryString = params.toString();
-		router.push(`/mcp${queryString ? '?' + queryString : ''}`);
+		router.push(`/mcp${queryString ? "?" + queryString : ""}`);
 	};
 
 	return (
@@ -95,15 +109,13 @@ function McpCardWithDialog(props: McpCardProps) {
 			<DialogContent className="sm:max-w-[900px] min-h-[400px] rounded-sm">
 				<DialogHeader>
 					<DialogTitle>{props.name}</DialogTitle>
-					<DialogDescription>
-						{props.description}
-					</DialogDescription>
+					<DialogDescription>{props.description}</DialogDescription>
 				</DialogHeader>
 				<Separator />
 				<McpDialogMain {...props} />
 			</DialogContent>
 		</Dialog>
-	)
+	);
 }
 
-export { McpCard, McpCardWithDialog }
+export { McpCard, McpCardWithDialog };

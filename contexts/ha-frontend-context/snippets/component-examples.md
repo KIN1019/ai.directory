@@ -43,16 +43,16 @@ export function PatientCard({ patient, onClick }: PatientCardProps) {
     const birth = new Date(dateOfBirth);
     let age = today.getFullYear() - birth.getFullYear();
     const monthDiff = today.getMonth() - birth.getMonth();
-    
+
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
       age--;
     }
-    
+
     return age;
   };
 
   return (
-    <Card 
+    <Card
       className="hover:shadow-md transition-shadow cursor-pointer"
       onClick={onClick}
     >
@@ -81,21 +81,21 @@ export function PatientCard({ patient, onClick }: PatientCardProps) {
             <CalendarDays className="h-4 w-4" />
             <span>Born: {new Date(patient.dateOfBirth).toLocaleDateString()}</span>
           </div>
-          
+
           {patient.phoneNumber && (
             <div className="flex items-center gap-2">
               <Phone className="h-4 w-4" />
               <span>{patient.phoneNumber}</span>
             </div>
           )}
-          
+
           {patient.email && (
             <div className="flex items-center gap-2">
               <Mail className="h-4 w-4" />
               <span className="truncate">{patient.email}</span>
             </div>
           )}
-          
+
           {patient.address && (
             <div className="flex items-start gap-2">
               <MapPin className="h-4 w-4 mt-0.5" />
@@ -181,7 +181,7 @@ export function PatientTable({
           </TableHeader>
           <TableBody>
             {patients.map((patient) => (
-              <TableRow 
+              <TableRow
                 key={patient.id}
                 className="cursor-pointer hover:bg-muted/50"
                 onClick={() => onPatientClick(patient)}
@@ -242,4 +242,4 @@ export function PatientTable({
     </div>
   );
 }
-``` 
+```
