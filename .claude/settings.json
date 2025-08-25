@@ -6,18 +6,17 @@
 				"hooks": [
 					{
 						"type": "command",
-						"command": "say \"I'm done\""
+						"command": "terminal-notifier -title \"Claude Code\" -message \"I'm done\" -sound Glass"
 					}
 				]
 			}
 		],
 		"Notification": [
 			{
-				"matcher": "",
 				"hooks": [
 					{
 						"type": "command",
-						"command": "notify-send 'Claude Code' 'Awaiting your input'"
+						"command": "terminal-notifier -title \"Claude Code\" -message \"Awaiting your input\" -sound Submarine"
 					}
 				]
 			}
