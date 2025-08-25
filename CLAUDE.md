@@ -10,6 +10,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check code formatting
 
 ### Container Operations
 
@@ -25,7 +27,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture Overview
 
-This is a Next.js 15 application using the App Router pattern that serves as an AI directory platform. The application features three main content areas: Contexts, MCP (Model Context Protocol) servers, and Prompts.
+This is a Next.js 15 application using the App Router pattern that serves as an AI directory platform for Hospital Authority development teams. The application features three main content areas: Contexts, MCP (Model Context Protocol) servers, and Prompts.
+
+### Project Structure
+
+- `src/app/` - Next.js App Router pages and co-located components
+- `src/components/` - Shared UI components and utilities
+- `resources/` - YAML-driven content (contexts, MCP servers, rules)
+- `content/` - MDX documentation files for Nextra
+- `k8s/` - Kubernetes deployment configurations
+- `public/` - Static assets and organization logos
 
 ### Key Architectural Patterns
 
@@ -43,9 +54,9 @@ This is a Next.js 15 application using the App Router pattern that serves as an 
 
 **YAML-driven Content**: Content is managed through YAML files with structured metadata:
 
-- `contexts/` directory contains context definitions with tags.yaml for filtering
-- `mcp/` directory contains MCP server configurations with tags.yaml
-- `rules/` directory contains prompt templates and rules
+- `resources/contexts/` directory contains context definitions with tags.yaml for filtering
+- `resources/mcp/` directory contains MCP server configurations with tags.yaml
+- `resources/rules/` directory contains prompt templates and rules
 - `content/` directory contains MDX documentation
 
 **Dynamic Filtering System**: Each content area implements multi-select filtering:
@@ -57,10 +68,11 @@ This is a Next.js 15 application using the App Router pattern that serves as an 
 ### Technology Stack
 
 - **Framework**: Next.js 15 with App Router and Turbopack
-- **UI**: Radix UI primitives with custom component library
-- **Styling**: Tailwind CSS v4 with custom animations
+- **UI**: Radix UI primitives with Shadcn/UI components
+- **Styling**: Tailwind CSS v4 with Framer Motion animations
 - **Content**: Nextra for docs, YAML + gray-matter for structured content
 - **State**: React Server Components with client-side filtering
+- **Quality**: ESLint + Prettier with Husky pre-commit hooks
 - **Deployment**: Container-based with OpenShift
 
 ### Data Flow Patterns
