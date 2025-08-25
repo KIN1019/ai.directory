@@ -1,5 +1,6 @@
 name: JFrog
 slug: jfrog
+hidden: true
 description: >-
   MCP Server for the JFrog Platform API, enabling repository management, build tracking, release lifecycle management, and more.
 logo: /jfrog-logo.png

@@ -1,5 +1,6 @@
 name: AWS Documentation
 slug: aws-documentation
+hidden: true
 description: >-
   This MCP server provides tools to access AWS documentation, search for content, and get recommendations.
 logo: /aws-logo.png

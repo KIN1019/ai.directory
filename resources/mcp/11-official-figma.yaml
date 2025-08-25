@@ -1,5 +1,6 @@
 name: Figma Dev Mode
 slug: figma-dev-mode
+hidden: true
 description: >-
   The Figma Dev Mode MCP server brings Figma directly into the developer workflow to help LLMs achieve design-informed code generation.
 logo: /figma-logo.png

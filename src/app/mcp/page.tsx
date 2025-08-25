@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
-import { McpCardWithDialog } from "./McpCard";
 import { getLeadingNumber } from "@/lib/utils";
+import { McpListWithMoreButton } from "./McpListWithMoreButton";
 
 type Tag = {
 	slug: string;
@@ -28,6 +28,7 @@ type McpData = {
 	href?: string;
 	setupDescription?: string;
 	slug?: string;
+	hidden?: boolean;
 };
 
 type McpDocument = {
@@ -50,6 +51,7 @@ type McpDocument = {
 	fileName: string;
 	setupDescription?: string;
 	slug?: string;
+	hidden?: boolean;
 };
 
 async function getTagNames(slugs: string[]): Promise<string[]> {
@@ -113,6 +115,7 @@ async function getMcpsByTags(selectedTags: string[]): Promise<McpDocument[]> {
 				fileName: fileName,
 				setupDescription: mcpData.setupDescription,
 				slug: mcpData.slug,
+				hidden: mcpData.hidden,
 			});
 		}
 	}
@@ -145,6 +148,17 @@ export default async function McpPage({
 		}
 	};
 
+	const sortedMcps = mcps.sort((a, b) => {
+		const numA = getLeadingNumber(a.fileName);
+		const numB = getLeadingNumber(b.fileName);
+
+		if (!isNaN(numA) && !isNaN(numB) && numA !== numB) {
+			return numA - numB;
+		}
+
+		return a.fileName.localeCompare(b.fileName);
+	});
+
 	return (
 		<div className="p-8">
 			<div className="mb-6">
@@ -156,36 +170,8 @@ export default async function McpPage({
 				)}
 			</div>
 
-			{mcps.sort((a, b) => {
-				const numA = getLeadingNumber(a.fileName);
-				const numB = getLeadingNumber(b.fileName);
-
-				if (!isNaN(numA) && !isNaN(numB) && numA !== numB) {
-					return numA - numB;
-				}
-
-				return a.fileName.localeCompare(b.fileName);
-			}).length > 0 ? (
-				<div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-6">
-					{mcps.map((mcp) => {
-						const mcpSlug = mcp.fileName.replace(".yaml", "");
-						return (
-							<McpCardWithDialog
-								key={mcp.fileName}
-								name={mcp.name}
-								description={mcp.description}
-								logo={mcp.logo}
-								tools={mcp.tools}
-								setupCode={mcp.setupCode}
-								href={mcp.href}
-								fileName={mcp.fileName}
-								open={openDialog === mcpSlug}
-								setupDescription={mcp.setupDescription}
-								slug={mcp.slug}
-							/>
-						);
-					})}
-				</div>
+			{sortedMcps.length > 0 ? (
+				<McpListWithMoreButton mcps={sortedMcps} openDialog={openDialog} />
 			) : (
 				<p className="text-muted-foreground">
 					{selectedTags.length > 0

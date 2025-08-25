@@ -1,5 +1,6 @@
 name: PostgreSQL
 slug: postgresql
+hidden: true
 description: >-
   Postgres MCP Pro is an MCP server built to support you and your AI agents throughout the entire development process—from initial coding, through testing and deployment, and to production tuning and maintenance.
 logo: /postgresql-logo.png
