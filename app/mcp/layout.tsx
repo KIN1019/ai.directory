@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
 import { Suspense } from "react";
-import { McpMultiSelectSidebar } from "@/components/mcp/McpMultiSelectSidebar";
+import { McpMultiSelectSidebar } from "./McpMultiSelectSidebar";
 import { getLeadingNumber } from "@/lib/utils";
 type Tag = {
 	slug: string;

@@ -2,8 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import yaml from "js-yaml";
-import { RulesCardWithDrawer } from "@/components/rules/RulesCard";
-import { DockDemo } from "@/components/magicui/example/dock-demo";
+import { RulesCardWithDrawer } from "../RulesCard";
 
 type Tag = {
 	slug: string;

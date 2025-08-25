@@ -1,8 +1,7 @@
 import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
-import { Suspense } from "react";
-import { ContextsMultiSelectSidebar, FilterGroup } from "@/components/contexts/ContextsMultiSelectSidebar";
+import { FilterGroup } from "./ContextsMultiSelectSidebar";
 import { ContextsLayoutClient } from "./ContextsLayoutClient";
 
 type TagDefinition = {

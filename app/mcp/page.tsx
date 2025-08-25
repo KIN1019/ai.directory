@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
-import { McpCardWithDialog } from "@/components/mcp/McpCard";
+import { McpCardWithDialog } from "./McpCard";
 import { getLeadingNumber } from "@/lib/utils";
 
 type Tag = {

@@ -1,4 +1,4 @@
-import { RulesSidebar } from "@/components/rules/RulesSidebar";
+import { RulesSidebar } from "./RulesSidebar";
 
 export default function RulesLayout({
 	children,

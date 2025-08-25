@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
-import { ContextCard, ContextData } from "@/components/contexts/ContextCard";
+import { ContextCard, ContextData } from "./ContextCard";
 
 async function getContexts(): Promise<{ contexts: ContextData[]; error?: string }> {
   try {

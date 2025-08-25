@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { Suspense } from "react";
-import { ContextsMultiSelectSidebar, FilterGroup } from "@/components/contexts/ContextsMultiSelectSidebar";
+import { ContextsMultiSelectSidebar, FilterGroup } from "./ContextsMultiSelectSidebar";
 
 interface ContextsLayoutClientProps {
   children: React.ReactNode;

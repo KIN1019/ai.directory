@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
-import { ContextData } from "@/components/contexts/ContextCard";
+import { ContextData } from "../ContextCard";
 
 export interface SnippetFile {
   name: string;
