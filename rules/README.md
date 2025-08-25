@@ -20,7 +20,14 @@ You are a [specific role] with expertise in [technologies].
 - What to do and avoid
 ```
 
-**Tags:** Must exist in `tags.yaml` or an error will be thrown. Add new tags there first:
+**Website display:**
+
+- `title` → Card title and individual page heading
+- `description` → Card description text in listings
+- `tags` → Filter categories and tag badges
+- Content → Full page content when clicked
+
+**Tags:** Must exist in `tags.yaml` or error will be thrown. Add new tags there first:
 
 ```yaml
 - slug: new-tag
@@ -28,5 +35,3 @@ You are a [specific role] with expertise in [technologies].
 ```
 
 **File naming:** Use kebab-case like `ha-frontend-developer.md`
-
-**Content:** Start with persona definition, use bullet points, be specific and actionable.
