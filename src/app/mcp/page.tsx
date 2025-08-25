@@ -54,7 +54,12 @@ type McpDocument = {
 
 async function getTagNames(slugs: string[]): Promise<string[]> {
 	try {
-		const tagsYamlPath = path.join(process.cwd(), "mcp", "tags.yaml");
+		const tagsYamlPath = path.join(
+			process.cwd(),
+			"resources",
+			"mcp",
+			"tags.yaml",
+		);
 		const tagsYamlContent = fs.readFileSync(tagsYamlPath, "utf8");
 		const tagsList = yaml.load(tagsYamlContent) as Tag[];
 
@@ -67,7 +72,7 @@ async function getTagNames(slugs: string[]): Promise<string[]> {
 }
 
 async function getMcpsByTags(selectedTags: string[]): Promise<McpDocument[]> {
-	const mcpDirectory = path.join(process.cwd(), "mcp");
+	const mcpDirectory = path.join(process.cwd(), "resources", "mcp");
 	const fileNames = fs
 		.readdirSync(mcpDirectory)
 		.filter((file) => file.endsWith(".yaml") && file !== "tags.yaml");

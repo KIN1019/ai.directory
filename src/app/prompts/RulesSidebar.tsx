@@ -12,7 +12,7 @@ type Tag = {
 
 async function getRulesTags() {
 	try {
-		const rulesDirectory = path.join(process.cwd(), "rules");
+		const rulesDirectory = path.join(process.cwd(), "resources", "rules");
 		const fileNames = fs
 			.readdirSync(rulesDirectory)
 			.filter((file) => file.endsWith(".md"));

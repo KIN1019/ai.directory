@@ -20,7 +20,12 @@ async function getContextTags(): Promise<{
 	error?: string;
 }> {
 	try {
-		const tagsPath = path.join(process.cwd(), "contexts", "tags.yaml");
+		const tagsPath = path.join(
+			process.cwd(),
+			"resources",
+			"contexts",
+			"tags.yaml",
+		);
 		const tagsContent = fs.readFileSync(tagsPath, "utf8");
 		const tags = yaml.load(tagsContent) as ContextTags;
 

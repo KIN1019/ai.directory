@@ -28,7 +28,7 @@ type McpData = {
 
 async function getMcpTags() {
 	try {
-		const mcpDirectory = path.join(process.cwd(), "mcp");
+		const mcpDirectory = path.join(process.cwd(), "resources", "mcp");
 		const fileNames = fs
 			.readdirSync(mcpDirectory)
 			.filter((file) => file.endsWith(".yaml") && file !== "tags.yaml");

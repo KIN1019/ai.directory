@@ -19,7 +19,12 @@ type RuleDocument = {
 
 async function getTagName(slug: string): Promise<string> {
 	try {
-		const tagsYamlPath = path.join(process.cwd(), "rules", "tags.yaml");
+		const tagsYamlPath = path.join(
+			process.cwd(),
+			"resources",
+			"rules",
+			"tags.yaml",
+		);
 		const tagsYamlContent = fs.readFileSync(tagsYamlPath, "utf8");
 		const tagsList = yaml.load(tagsYamlContent) as Tag[];
 
@@ -32,7 +37,7 @@ async function getTagName(slug: string): Promise<string> {
 }
 
 async function getRulesByTag(tag: string): Promise<RuleDocument[]> {
-	const rulesDirectory = path.join(process.cwd(), "rules");
+	const rulesDirectory = path.join(process.cwd(), "resources", "rules");
 	const fileNames = fs
 		.readdirSync(rulesDirectory)
 		.filter((file) => file.endsWith(".md"));

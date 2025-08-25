@@ -17,7 +17,7 @@ export async function getContextBySlug(
 	slug: string,
 ): Promise<ContextWithSnippets | null> {
 	try {
-		const contextsDir = path.join(process.cwd(), "contexts");
+		const contextsDir = path.join(process.cwd(), "resources", "contexts");
 		const contextPath = path.join(contextsDir, slug);
 
 		// Check if context directory exists

@@ -11,12 +11,17 @@ type Tag = {
 
 export default async function RulesHome() {
 	// Read tags.yaml to get the first tag
-	const tagsYamlPath = path.join(process.cwd(), "rules", "tags.yaml");
+	const tagsYamlPath = path.join(
+		process.cwd(),
+		"resources",
+		"rules",
+		"tags.yaml",
+	);
 	const tagsYamlContent = fs.readFileSync(tagsYamlPath, "utf8");
 	const tagsList = yaml.load(tagsYamlContent) as Tag[];
 
 	// Count occurrences of tags in markdown files
-	const rulesDirectory = path.join(process.cwd(), "rules");
+	const rulesDirectory = path.join(process.cwd(), "resources", "rules");
 	const fileNames = fs
 		.readdirSync(rulesDirectory)
 		.filter((file) => file.endsWith(".md"));

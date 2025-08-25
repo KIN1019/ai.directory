@@ -8,7 +8,7 @@ async function getContexts(): Promise<{
 	error?: string;
 }> {
 	try {
-		const contextsDir = path.join(process.cwd(), "contexts");
+		const contextsDir = path.join(process.cwd(), "resources", "contexts");
 		const entries = fs.readdirSync(contextsDir, { withFileTypes: true });
 
 		const contexts: ContextData[] = [];
