@@ -1,15 +1,27 @@
-name: cmdc (Common Document Context)
+name: DHPAI Context MCP
 slug: cmdc
 description: >-
-  This server provides the Wiki of CMS Design System, Common Scheduler Framework, HA Spring Boot Starter, and other internal context.
+  Covers internal knowledges and extensive library management for Hospital Authority development. Learn more in the [DHPAI Context MCP documentation](/docs/dhpai-context-mcp).
 logo: /cms-logo.jpg
 tools:
-  - name: LIST_DOCS
-    description: Returns a list of all documents in the specified wiki.
-  - name: GET_DOCS
-    description: Retrieves the content of a specific document from the specified wiki.
-  - name: GET_ALL_DOCS
-    description: Retrieves all documents and their contents from the specified wiki.
+  - name: bedrock_search
+    description: Retrieve HA internal RAG result about internal context and knowledge (library management, documentation, and development resources).
+  - name: get_all_docs
+    description: Retrieves all documents and their contents from the specified wiki. The available wikis include CMS Design System, Common Scheduler Framework, and Spring Boot Starter.
+  - name: get_docs
+    description: Retrieves the content of a specific document from the specified wiki. The available wikis include CMS Design System, Common Scheduler Framework, and Spring Boot Starter.
+  - name: get_library_info
+    description: Get detailed information about a specific library including its version and category information from the Hospital Authority library catalog.
+  - name: list_all_libraries
+    description: Returns a list of all available library categories and their libraries in the Hospital Authority development ecosystem.
+  - name: list_docs
+    description: Returns a list of all documents in the specified wiki. The available wiki titles are CMS Design System, Common Scheduler Framework, and Spring Boot Starter.
+  - name: list_library_categories
+    description: List all available library categories with counts from the Hospital Authority OSPO library catalog.
+  - name: search_categories
+    description: Search for library categories by title/category name (partial matching supported). Returns matching categories from the HA library catalog.
+  - name: search_libraries_by_name
+    description: Search for libraries by name (partial matching supported). Returns matching libraries from the Hospital Authority curated collection.
 config:
   type: sse
   url: https://schedulerfwk-mcp-server-poc-cms-dhp-1.tstcld61.server.ha.org.hk/sse

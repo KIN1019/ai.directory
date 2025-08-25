@@ -1,0 +1,55 @@
+# DHPAI Context MCP
+
+The **DHPAI Context MCP** is a comprehensive Model Context Protocol server that provides Hospital Authority developers with access to curated libraries, internal documentation, and development resources specifically tailored for HA's technology ecosystem.
+
+## Overview
+
+This MCP server serves as the central hub for Hospital Authority development context. The DHPAI Context MCP provides 9 comprehensive tools covering:
+
+### RAG Search
+- **bedrock_search**: Retrieve HA internal RAG results about internal context and knowledge
+
+### Library Management
+- **search_libraries_by_name**: Search for libraries by name with partial matching support
+- **get_library_info**: Get detailed information about specific libraries including versions and categories
+- **list_library_categories**: List all available library categories with counts from the HA OSPO catalog
+- **list_all_libraries**: Returns complete list of library categories and their libraries
+- **search_categories**: Search for library categories by title/name with partial matching
+
+### Documentation Access
+- **list_docs**: Browse documents across all wiki systems (CMS Design System, Common Scheduler Framework, Spring Boot Starter)
+- **get_docs**: Retrieve specific document content from the specified wiki
+- **get_all_docs**: Bulk access to all documents and their contents from specified wikis
+
+## Documentation Wikis
+
+### 1. CMS Design System
+UI components and design guidelines specifically for Hospital Authority applications, ensuring consistent user interfaces across all CMS systems.
+
+### 2. Common Scheduler Framework
+Comprehensive documentation for the scheduling functionality used throughout HA systems, including APIs, configuration, and best practices.
+
+### 3. Spring Boot Starter
+Backend development guidance for Hospital Authority's Spring Boot implementations, covering security, database connections, and enterprise integrations.
+
+## Key Benefits
+
+### ❌ Without DHPAI Context
+- Relies on general LLM knowledge, no internal specific knowledge
+- No relevant code examples for internal libraries
+- Risk of hallucinated APIs
+
+### ✅ With DHPAI Context
+- Up-to-date, version-specific documentation
+- Real code examples from Hospital Authority sources
+- Direct integration into VSCode Copilot prompts
+- Access to curated libraries and comprehensive documentation
+
+## Getting Started
+
+To begin using the DHPAI Context MCP:
+
+1. Visit the [DHPAI Context MCP page](/mcp?dialog=1-cmdc) to get configuration details and setup instructions
+2. Configure the MCP server in your development environment using the provided setup code
+
+For general MCP setup instructions, refer to the [MCP Setup Guide](/docs/mcpSetup).
