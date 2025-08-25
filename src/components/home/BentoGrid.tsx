@@ -19,7 +19,7 @@ type File = {
 
 async function getRulesFiles(): Promise<File[]> {
 	try {
-		const rulesDirectory = path.join(process.cwd(), "rules");
+		const rulesDirectory = path.join(process.cwd(), "resources", "rules");
 		const fileNames = fs
 			.readdirSync(rulesDirectory)
 			.filter((file) => file.endsWith(".md"));
@@ -31,7 +31,7 @@ async function getRulesFiles(): Promise<File[]> {
 			const slug = fileName.replace(".md", "");
 
 			return {
-				href: `/rules/${data.tags && data.tags.length > 0 ? data.tags[0] : "react"}/${slug}`,
+				href: `/prompts/${data.tags && data.tags.length > 0 ? data.tags[0] : "react"}/${slug}`,
 				name: data.title || fileName.replace(".md", ""),
 				body: data.description || "No description available",
 				tags: data.tags || [],
@@ -91,7 +91,7 @@ const features = [
 		Icon: FileTextIcon,
 		name: "Rules & Instructions",
 		description: "Find rules that fit HA's use cases.",
-		href: "/rules",
+		href: "/prompts",
 		cta: "Learn more",
 		className: "col-span-3 lg:col-span-1",
 		background: <DynamicRulesMarquee />,
@@ -101,7 +101,7 @@ const features = [
 		name: "IDE Integration",
 		description:
 			"Integrate our AI tools in IDEs to nitro boost your efficiency.",
-		href: "/docs/setup",
+		href: "/docs/github-copilot/setup",
 		cta: "Learn more",
 		className: "col-span-3 lg:col-span-2",
 		background: (
@@ -112,7 +112,7 @@ const features = [
 		Icon: Share2Icon,
 		name: "MCP Integrations",
 		description: "Provides MCP integration for internal libraries & services.",
-		href: "/docs/intro",
+		href: "/mcp",
 		cta: "Learn more",
 		className: "col-span-3 lg:col-span-2",
 		background: (
@@ -124,7 +124,7 @@ const features = [
 		name: "AI Chat and Search",
 		description: "Chat with AI and search for informations.",
 		className: "col-span-3 lg:col-span-1",
-		href: "/docs/intro",
+		href: "/",
 		cta: "Learn more",
 		background: (
 			<AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full scale-75 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-90" />
