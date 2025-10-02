@@ -4,6 +4,8 @@ export default {
 	mcpSetup: "MCP Setup",
 	instructionSetup: "Instructions Setup",
 	"personalize-copilot": "Personalize Copilot",
-	review: "Code Review",
-	commitMessage: "Commit messages",
-};
+	chatModes: "Chat Modes",
+	editMode: "Edit Mode",
+	review : "Code Review",
+	commitMessage : "Commit messages"
+}
