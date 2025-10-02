@@ -3,7 +3,7 @@ export default{
 	setup: "HA Copilot Setup",
 	mcpSetup: "MCP Setup",
 	instructionSetup: "Instructions Setup",
-	editMode: "Edit Mode",
+	chatModes: "Chat Modes",
 	review : "Code Review",
 	commitMessage : "Commit messages"
 }
