@@ -5,7 +5,6 @@ export default {
 	instructionSetup: "Instructions Setup",
 	"personalize-copilot": "Personalize Copilot",
 	chatModes: "Chat Modes",
-	editMode: "Edit Mode",
 	review : "Code Review",
 	commitMessage : "Commit messages"
 }
