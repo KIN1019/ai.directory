@@ -33,3 +33,93 @@ Welcome to **dhpai.home**, a one-stop portal that brings together all the pieces
 - **Always up-to-date** - The site is built with MDX + Next.js; every merge to `main` triggers an automatic redeploy, so you are always reading the latest guidelines.
 
 Enjoy exploring - and let us know what integrations you would like to see next!
+
+## DHPAI Context Engineering
+
+### What is Context Engineering?
+
+Think of AI assistants like having a very smart colleague who knows *general* programming - but doesn't know the *specific* rules, libraries, and patterns used in your organization. **Context Engineering** is how we teach the AI about HA's specific tools, standards, and best practices.
+
+Imagine you're onboarding a new developer to your team. You'd give them:
+- 📋 **Quick reference cards** for common tasks (like "how to create a new component")
+- 📚 **Style guides** explaining coding standards across the whole project
+- 👤 **A mentor** who understands their specific role (frontend dev, backend dev, etc.)
+
+That's exactly what Context Engineering does for AI assistants! We provide three types of files that guide the AI:
+
+### Prompt Engineering Files
+
+These files tell the AI *how to behave* and *what standards to follow*:
+
+| Type            | File Pattern        | What It Does (In Simple Terms)                                                                   | When You'd Use It                                                                        |
+| --------------- | ------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| **Prompts**     | `*.prompt.md`       | Like asking a colleague: "Can you help me create a login form?"                                  | Quick code generation, solving a specific problem, generating documentation              |
+| **Instructions**| `*.instructions.md` | Like a coding style guide: "Always use TypeScript. Never use `any`. Format dates like YYYY-MM-DD"| Making sure all code follows the same standards, enforcing best practices                |
+| **Chat Modes**  | `*.chatmode.md`     | Like having different experts: a React specialist, a Java architect, a security auditor          | When you need domain-specific guidance (e.g., "talk to me like I'm doing frontend work") |
+
+**Example in Action:**
+- Without context: AI might suggest generic code using libraries HA doesn't use
+- With context: AI knows to use `cms-react-ui` components and follows HA's security guidelines
+
+---
+
+### Context Knowledge Base: Teaching AI About HA Libraries
+
+This is where it gets powerful. We don't just tell AI the *rules* - we also give it access to HA's *internal documentation and code libraries*.
+
+#### The Challenge
+Your internal wikis, component libraries, and framework docs aren't publicly available on the internet. Regular AI models have never seen them. It's like asking someone to fix your car without letting them see the owner's manual.
+
+#### The Solution: Automated Knowledge Pipeline
+
+We've built a system that:
+1. 🔍 **Finds** all your internal documentation (GitHub wikis, component docs, API references)
+2. 🤖 **Processes** them using AI to extract the most useful parts (code examples, API signatures, usage patterns)
+3. 📦 **Packages** them in a format AI assistants can quickly understand
+4. 🔌 **Connects** them to your IDE through MCP (Model Context Protocol) servers
+5. 🔄 **Updates** automatically every day so the AI always has the latest information
+
+#### How It Works (The Technical Flow)
+
+```
+┌─────────────────┐        ┌──────────────────┐     ┌──────────────────┐     ┌──────────────────┐
+│ GitHub Wikis    │───────>│ AI extracts key  │────>│ Organized in MCP │────>│ Your IDE/Copilot │
+│ Component Docs  │        │ code snippets    │     │ for fast lookup  │     │ asks MCP for     │
+│ API References  │        │ & examples       │     │                  │     │ relevant docs    │
+└─────────────────┘        └──────────────────┘     └──────────────────┘     └──────────────────┘
+```
+
+**What Happens Behind the Scenes:**
+
+| Step | What Happens | Why It Matters |
+| ---- | ------------ | -------------- |
+| 1.**Ingestion** | System pulls documentation from your GitHub repositories | Gets the source material |
+| 2.**Processing** | AI reads through docs and extracts useful code snippets, function signatures, and examples | Makes docs easier for AI to understand quickly |
+| 3.**Optimization** | Compresses information to fit in AI's "working memory" (context window) | Ensures AI can access info without getting overwhelmed |
+| 4.**Storage** | Indexed and stored in MCP servers | AI can search and retrieve specific info in milliseconds |
+| 5.**Maintenance** | Automatically syncs every day | AI always has the latest updates without manual work |
+
+**Real-World Example:**
+
+When you ask GitHub Copilot: *"Create a button using the CMS Design System"*
+
+- ❌ **Without context**: Copilot suggests a generic HTML button or Material-UI
+- ✅ **With context**: Copilot knows about `cms-react-ui`, fetches the latest Button component documentation, and generates code using the correct import and props!
+
+---
+
+### Available Knowledge Repositories
+
+**What's Already Available?**
+
+We've already processed three major HA libraries and made them available through MCP servers. This means when you're coding, your AI assistant can instantly access documentation and examples for these libraries:
+
+| Knowledge Domain               | Document Count | Source Repository                                                                                             | Last Updated | Status    |
+| ------------------------------ | -------------- | --------------------------------------------------------------------------------------------------------------| ------------ | --------- |
+| **CMS Design System**          | 22             | [`CMSCHASSIS/react-ui`](https://hagithub.home/CMSCHASSIS/react-ui)                                            | 2025-10-03   | ✓ Active  |
+| **Common Scheduler Framework** | 7              | [`CMSCHASSIS/cms-common-schedulerfwk/wiki`](https://hagithub.home/CMSCHASSIS/cms-common-schedulerfwk/wiki)    | 2025-10-03   | ✓ Active  |
+| **Spring Boot Starter**        | 10             | [`CHASSIS/ha-spring-boot-starter/wiki`](https://hagithub.home/CHASSIS/ha-spring-boot-starter/wiki)            | 2025-10-03   | ✓ Active  |
+
+**Understanding the Numbers:**
+- **Document Count**: How many wiki pages or documentation files were processed
+- **Status**: ✓ Active means it's ready to use now!
