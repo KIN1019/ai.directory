@@ -1,0 +1,12 @@
+name: CMSCHASSIS React UI
+description: React UI library for CMSCHASSIS
+slug: cmschassis-react-ui
+source: /CMSCHASSIS/react-ui
+lastUpdated: 2024-01-15
+techStacks:
+  - react
+  - typescript
+teams:
+  - CMSCHASSIS
+categories:
+  - ui

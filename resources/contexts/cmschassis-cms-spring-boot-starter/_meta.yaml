@@ -1,0 +1,13 @@
+name: CMS Spring Boot Starter
+description: Spring Boot Starter for CMSCHASSIS
+slug: cmschassis-cms-spring-boot-starter
+source: /CMSCHASSIS/cms-spring-boot-starter
+lastUpdated: 2024-01-15
+techStacks:
+  - java
+  - springboot
+  - typescript
+teams:
+  - CMSCHASSIS
+categories:
+  - library

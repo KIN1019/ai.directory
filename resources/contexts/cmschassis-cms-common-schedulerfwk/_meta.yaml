@@ -1,0 +1,12 @@
+name: CMSCHASSIS Common Scheduler Framework
+description: Common Scheduler Framework for CMSCHASSIS
+slug: cmschassis-cms-common-schedulerfwk
+source: /CMSCHASSIS/cms-common-schedulerfwk
+lastUpdated: 2024-01-15
+techStacks:
+  - java
+  - springboot
+teams:
+  - CMSCHASSIS
+categories:
+  - library
