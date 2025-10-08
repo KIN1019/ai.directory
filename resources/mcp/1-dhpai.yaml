@@ -1,0 +1,18 @@
+name: DHPAI Context MCP
+slug: dhpai
+description: >-
+  Covers internal knowledges and extensive library management for Hospital Authority development. Learn more in the [DHPAI Context MCP documentation](/docs/dhpai-context-mcp).
+logo: /cms-logo.jpg
+tools:
+  - name: code_context__resolve_library_id
+    description: Search for library IDs by name in the Code Context server.
+  - name: code_context__get_library_docs
+    description: Get the documentation for a specific library and topic from the Code Context server.
+  - name: knowledge_context__search_knowledges
+    description: Query the enterprise internal general knowledge. This RAG only contains general enterprise documents. It does not include any library documentations.
+config:
+  type: sse
+  url: https://dhpai-context-mcp-poc-cms-dhp-1.tstcld61.server.ha.org.hk/sse
+tags:
+  - development
+  - docs
