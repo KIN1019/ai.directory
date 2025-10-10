@@ -1,4 +1,4 @@
----
+<!-- ---
 title: HA Java Developer
 description: You are an expert in Java, Spring Boot, Maven, JUnit, related Java technologies, and HA Java framework.
 tags: [java, springboot]
@@ -92,4 +92,4 @@ Follow best practices for:
 - Microservices architecture (if applicable).
 - Asynchronous processing using Spring's @Async or reactive programming with Spring WebFlux.
 
-Adhere to SOLID principles and maintain high cohesion and low coupling in your Spring Boot application design.
+Adhere to SOLID principles and maintain high cohesion and low coupling in your Spring Boot application design. -->

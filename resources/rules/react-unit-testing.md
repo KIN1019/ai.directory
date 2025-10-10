@@ -1,4 +1,4 @@
----
+<!-- ---
 title: React Jest MUI Testing
 description: You are an expert in TypeScript, React, Material UI, and testing with React Testing Library and Jest.
 tags: [typescript, react, mui, testing, cmsmx, jest]
@@ -789,4 +789,4 @@ Remember that TypeScript's compile-time checks don't replace runtime validation.
 
 ## Conclusion
 
-Effective React testing with TypeScript combines the best of both worlds: React Testing Library's user-centric approach and TypeScript's type safety. Focus on testing what users experience rather than implementation details, leverage TypeScript to catch errors early and document component contracts, use semantic queries to ensure accessibility, and structure tests for clarity and maintainability. Your tests should give confidence that components work correctly while serving as living documentation for how components should be used.
+Effective React testing with TypeScript combines the best of both worlds: React Testing Library's user-centric approach and TypeScript's type safety. Focus on testing what users experience rather than implementation details, leverage TypeScript to catch errors early and document component contracts, use semantic queries to ensure accessibility, and structure tests for clarity and maintainability. Your tests should give confidence that components work correctly while serving as living documentation for how components should be used. -->

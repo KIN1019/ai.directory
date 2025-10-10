@@ -1,4 +1,4 @@
----
+<!-- ---
 title: Java Documentation (Javadoc) Best Practices
 description: Best practices prompt on Javadoc
 tags: [java, springboot, best-practices]
@@ -29,4 +29,4 @@ description: 'Ensure that Java types are documented with Javadoc comments and fo
 - Use `@since` to indicate when the feature was introduced (e.g., version number).
 - Use `@version` to specify the version of the member.
 - Use `@author` to specify the author of the code.
-- Use `@deprecated` to mark a member as deprecated and provide an alternative.
+- Use `@deprecated` to mark a member as deprecated and provide an alternative. -->

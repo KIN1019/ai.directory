@@ -1,4 +1,4 @@
----
+<!-- ---
 title: TypeScript Jest Best Practices
 description: Best practices prompt on Jest
 tags: [typescript, jest, best-practices]
@@ -55,4 +55,4 @@ mode: 'agent'
 - Arrays: `expect(array).toContain(item)`, `expect(array).toHaveLength(3)`
 - Objects: `expect(object).toHaveProperty('key', value)`
 - Exceptions: `expect(fn).toThrow()`, `expect(fn).toThrow(Error)`
-- Mock functions: `expect(mockFn).toHaveBeenCalled()`, `expect(mockFn).toHaveBeenCalledWith(arg1, arg2)`
+- Mock functions: `expect(mockFn).toHaveBeenCalled()`, `expect(mockFn).toHaveBeenCalledWith(arg1, arg2)` -->
