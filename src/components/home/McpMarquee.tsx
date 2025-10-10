@@ -5,10 +5,38 @@ import Link from "next/link";
 const reviews = [
 	{
 		name: "cmdc",
-		username: "3 tools available",
+		username: "9 tools available",
 		body: "This server provides internal contexts in HA.",
 		img: "/cms-logo.jpg",
 		href: "/mcp?dialog=cmdc",
+	},
+	{
+		name: "HA GitHub",
+		username: "43 tools available",
+		body: "View issues, create pull requests, and more.",
+		img: "/github-logo.png",
+		href: "/mcp?dialog=hagithub",
+	},
+	{
+		name: "SonarQube",
+		username: "17 tools available",
+		body: "This server provides internal contexts in HA.",
+		img: "/sonarqube-logo.png",
+		href: "/mcp?dialog=sonarqube",
+	},
+	{
+		name: "Figma",
+		username: "1 tools available",
+		body: "This server provides internal contexts in HA.",
+		img: "/figma-logo.png",
+		href: "/mcp?dialog=figma",
+	},
+	{
+		name: "Playwright",
+		username: "34 tools available",
+		body: "This server provides internal contexts in HA.",
+		img: "/playwright-logo.png",
+		href: "/mcp?dialo=Playwright",
 	},
 	// {
 	// 	name: "HA Drive",
@@ -48,17 +76,14 @@ const reviews = [
 	// 	body: "All info about EAP, ECP, AIOPS, and ADC now available to AI.",
 	// 	img: "/sc4-logo.jpg",
 	// },
-	{
-		name: "HA GitHub",
-		username: "16 tools available",
-		body: "View issues, create pull requests, and more.",
-		img: "/github-logo.png",
-		href: "/mcp?dialog=hagithub",
-	},
+
 ];
 
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
+// const firstRow = reviews.slice(0, reviews.length / 2);
+// const secondRow = reviews.slice(reviews.length / 2);
+
+const firstRow = reviews
+const secondRow = reviews
 
 const ReviewCard = ({
 	img,

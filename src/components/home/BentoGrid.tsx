@@ -124,7 +124,7 @@ const features = [
 		name: "AI Chat and Search",
 		description: "Chat with AI and search for informations.",
 		className: "col-span-3 lg:col-span-1",
-		href: "/",
+		href: "https://hagithub.home/pages/CMS/cms-dhp-migration-doc/",
 		cta: "Learn more",
 		background: (
 			<AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full scale-75 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-90" />
