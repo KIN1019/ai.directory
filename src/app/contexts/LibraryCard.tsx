@@ -7,61 +7,32 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
-	Code2,
-	Users,
-	FolderOpen,
-	Calendar,
-	FileText,
 	ExternalLink,
 	Github,
 	LucideIcon,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-export interface ContextData {
+export interface LibraryData {
 	name: string;
 	description: string;
 	slug: string;
 	source?: string;
 	lastUpdated?: string;
-	snippetsCount?: number;
+	llmsTxtUrl?: string;
 	techStacks?: string[];
 	teams?: string[];
 	categories?: string[];
-	content?: string;
 }
 
-interface ContextCardProps {
-	context: ContextData;
-}
-
-interface BadgeSectionProps {
-	icon: LucideIcon;
-	items: string[];
+interface LibraryCardProps {
+	library: LibraryData;
 }
 
 interface MetaItemProps {
 	icon?: LucideIcon;
 	children: React.ReactNode;
-}
-
-function BadgeSection({ icon: Icon, items }: BadgeSectionProps) {
-	if (!items || items.length === 0) return null;
-
-	return (
-		<div className="flex items-start gap-2">
-			<Icon className="w-4 h-4 text-muted-foreground mt-0.5" />
-			<div className="flex flex-wrap gap-1">
-				{items.map((item) => (
-					<Badge key={item} variant="secondary" className="text-xs">
-						{item}
-					</Badge>
-				))}
-			</div>
-		</div>
-	);
 }
 
 function MetaItem({ icon: Icon, children }: MetaItemProps) {
@@ -73,11 +44,11 @@ function MetaItem({ icon: Icon, children }: MetaItemProps) {
 	);
 }
 
-export function ContextCard({ context }: ContextCardProps) {
+export function LibraryCard({ library }: LibraryCardProps) {
 	const router = useRouter();
 
 	const handleClick = () => {
-		router.push(`/contexts/${context.slug}`);
+		router.push(`/contexts/${library.slug}`);
 	};
 
 	const formatDate = (dateString?: string) => {
@@ -96,11 +67,6 @@ export function ContextCard({ context }: ContextCardProps) {
 	const renderSource = (source?: string) => {
 		if (!source) return null;
 
-		const handleSourceClick = (e: React.MouseEvent) => {
-			e.stopPropagation(); // Prevent card click
-		};
-
-		// Check if it's a GitHub repo format (/owner/repo)
 		if (source.startsWith("/")) {
 			const githubUrl = `https://github.com${source}`;
 			return (
@@ -108,7 +74,7 @@ export function ContextCard({ context }: ContextCardProps) {
 					href={githubUrl}
 					target="_blank"
 					rel="noopener noreferrer"
-					onClick={handleSourceClick}
+					onClick={(e) => e.stopPropagation()}
 					className="flex items-center gap-1 text-teal-600 hover:text-teal-800 dark:text-teal-400 dark:hover:text-teal-300"
 				>
 					<Github className="w-3 h-3" />
@@ -118,14 +84,13 @@ export function ContextCard({ context }: ContextCardProps) {
 			);
 		}
 
-		// Check if it's a full URL
 		if (source.startsWith("http://") || source.startsWith("https://")) {
 			return (
 				<a
 					href={source}
 					target="_blank"
 					rel="noopener noreferrer"
-					onClick={handleSourceClick}
+					onClick={(e) => e.stopPropagation()}
 					className="flex items-center gap-1 text-teal-600 hover:text-teal-800 dark:text-teal-400 dark:hover:text-teal-300"
 				>
 					<ExternalLink className="w-3 h-3" />
@@ -136,7 +101,6 @@ export function ContextCard({ context }: ContextCardProps) {
 			);
 		}
 
-		// Fallback for other formats
 		return (
 			<div className="flex items-center gap-1">
 				<ExternalLink className="w-3 h-3" />
@@ -151,37 +115,20 @@ export function ContextCard({ context }: ContextCardProps) {
 			onClick={handleClick}
 		>
 			<CardHeader>
-				<CardTitle className="text-lg">{context.name}</CardTitle>
+				<CardTitle className="text-lg">{library.name}</CardTitle>
 				<CardDescription className="h-10 overflow-hidden">
-					{context.description}
+					{library.description}
 				</CardDescription>
 			</CardHeader>
 			<CardContent className="space-y-3">
-				{/* Source and Meta Information */}
-				<div className="space-y-1 text-sm text-muted-foreground">
-					{context.source && (
-						<MetaItem>{renderSource(context.source)}</MetaItem>
-					)}
-					{context.snippetsCount !== undefined && (
-						<MetaItem icon={FileText}>
-							<span className="text-xs">
-								{context.snippetsCount} snippet
-								{context.snippetsCount !== 1 ? "s" : ""}
-							</span>
-						</MetaItem>
-					)}
-					{context.lastUpdated && (
-						<MetaItem icon={Calendar}>
-							<span className="text-xs">{formatDate(context.lastUpdated)}</span>
-						</MetaItem>
-					)}
-				</div>
-
-				{/* Badge Sections */}
-				<BadgeSection icon={Code2} items={context.techStacks || []} />
-				<BadgeSection icon={Users} items={context.teams || []} />
-				<BadgeSection icon={FolderOpen} items={context.categories || []} />
+				{/* Source Information */}
+				{library.source && (
+					<div className="text-sm text-muted-foreground">
+						<MetaItem>{renderSource(library.source)}</MetaItem>
+					</div>
+				)}
 			</CardContent>
 		</Card>
 	);
 }
+
