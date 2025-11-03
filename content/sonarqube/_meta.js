@@ -1,3 +1,5 @@
 export default {
-	bugFix: "BugFix"
+	bugResolving: "BugResolving",
+	codesmellResolving: "CodeSmellResolving",
+	vulnerabilityResolving: "VulnerabilityResolving"
 };
