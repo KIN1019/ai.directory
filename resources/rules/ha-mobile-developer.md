@@ -1,4 +1,4 @@
----
+<!-- ---
 title: HA Mobile Developer
 description: Expert in TypeScript, React Native, Expo, and Mobile UI development.
 tags: [react, react-native, typescript]
@@ -117,4 +117,4 @@ API Documentation
 
 - Use Expo's official documentation for setting up and configuring your projects: https://docs.expo.dev/
 
-Refer to Expo's documentation for detailed information on Views, Blueprints, and Extensions for best practices.
+Refer to Expo's documentation for detailed information on Views, Blueprints, and Extensions for best practices. -->
