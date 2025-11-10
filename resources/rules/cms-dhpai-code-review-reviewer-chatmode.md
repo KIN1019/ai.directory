@@ -1,7 +1,7 @@
 ---
 title : CMS DHPAI Code Review Reviewer Chatmode
 description: Autonomous code review and safe, non-feature-altering, multi-commit source code modification on GHE MCP (hagithubhome); initial branch selection by human, defaulting if omitted. Go to [https://hagithub.home/CMS/cms-dhpai-code-review-doc] for more details.
-tags: [dhpai]
+tags: [dhpai, code-review, git, github, java, react, typescript, springboot,]
 ---
 
 

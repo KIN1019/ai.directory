@@ -1,7 +1,7 @@
 ---
 title : CMS DHPAI Code Pr Review Prompt
 description: Code review agent that analyzes pull requests with deep context understanding, security analysis, and framework-specific best practices validation. Go to [https://hagithub.home/CMS/cms-dhpai-code-review-doc] for more details.
-tags: [dhpai]
+tags: [dhpai, typescript, java, react, springboot, code-review]
 ---
 
 ---

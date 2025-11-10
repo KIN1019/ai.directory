@@ -84,3 +84,42 @@
 
 - slug: dhpai
   name: DHPAI Agents
+
+- slug: code-review
+  name: Code Review
+
+- slug: javascript
+  name: JavaScript
+
+- slug: unit-testing
+  name: Unit Testing
+
+- slug: git
+  name: Git
+
+- slug: github
+  name: GitHub
+
+- slug: pr-review
+  name: PR Review
+
+- slug: code-quality
+  name: Code Quality
+
+- slug: schema-validation
+  name: Schema Validation
+
+- slug: jsonb
+  name: JSONB
+
+- slug: vscode
+  name: VS Code
+
+- slug: copilot
+  name: GitHub Copilot
+
+- slug: bug-fixing
+  name: Bug Fixing
+
+- slug: sql
+  name: SQL

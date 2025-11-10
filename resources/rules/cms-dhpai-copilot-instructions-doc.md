@@ -1,7 +1,7 @@
 ---
 title: CMS DHPAI Copilot Instruction
 description: This is a template starter for configuring AI coding agents in VS Code workspaces. The project provides structured prompt templates and configuration patterns for AI-assisted development workflows.. Go to [https://hagithub.home/CMS/cms-dhpai-copilot-playbook-doc] for more details.
-tags: [dhpai]
+tags: [dhpai, vscode, copilot]
 ---
 
 # VS Code Copilot Instructions

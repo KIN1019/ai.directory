@@ -1,7 +1,7 @@
 ---
 title: CMS DHPAI Copilot Pr Review
 description: This agent is designed to review pull requests in a GitHub repository, specifically for the CMS project. It will analyze the code changes, provide feedback, and ensure adherence to coding standards and best practices. Go to [https://hagithub.home/CMS/cms-dhpai-code-review-doc] for more details.
-tags: [dhpai]
+tags: [dhpai, pr-review, github, java, react, typescript, springboot]
 ---
 
 ---

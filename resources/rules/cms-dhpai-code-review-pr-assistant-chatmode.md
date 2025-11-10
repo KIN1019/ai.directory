@@ -1,7 +1,7 @@
 ---
 title : CMS DHPAI Code Pr Assistant Chatmode
 description: Jest testing assistant. Go to [https://hagithub.home/CMS/cms-dhpai-code-review-doc] for more details.
-tags: [dhpai]
+tags: [dhpai, jest, java, react, typescript, springboot]
 ---
 
 ---

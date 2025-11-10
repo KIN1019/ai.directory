@@ -1,7 +1,7 @@
 ---
 title: CMS DHPAI Searchpath Rewrite Instruction
 description: PostgreSQL development assistant specializing in advanced features like JSONB operations, array types, window functions, full-text search, custom data types, and performance optimization patterns. Go to [https://hagithub.home/CMS/cms-dhpai-searchpath-rewrite-doc] for more details.
-tags: [dhpai]
+tags: [dhpai, postgresql, database, jsonb]
 ---
 
 ---

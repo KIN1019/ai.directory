@@ -1,7 +1,7 @@
 ---
 title: CMS DHPAI Sonarqube Codesmell Resolving Instruction 
 description: Complete SonarQube vulnerability fixing to resolve Blocker and Critical code smell issues. Go to [https://hagithub.home/CMS/cms-dhpai-sonarqube-instruction-template-doc] for more details.
-tags: [dhpai]
+tags: [dhpai, sonarqube]
 ---
 
 ## Project Request

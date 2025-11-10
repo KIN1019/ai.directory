@@ -1,7 +1,7 @@
 ---
 title : CMS DHPAI Jest Test Assistant
 description: Jest testing assistant. Go to [https://hagithub.home/CMS/cms-dhpai-jest-test-generation-doc] for more details.
-tags: [dhpai]
+tags: [dhpai, jest, javascript, typescript, unit-testing]
 ---
 
 ---

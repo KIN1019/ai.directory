@@ -1,7 +1,7 @@
 ---
 title: CMS DHPAI Copilot Code Review
 description: AI-powered PR review agent with security analysis, framework validation, and structured severity-based feedback. Go to [https://hagithub.home/CMS/cms-dhpai-code-review-doc] for more details.
-tags: [dhpai]
+tags: [dhpai, code-review, java, react, typescript, springboot]
 ---
 
 ---

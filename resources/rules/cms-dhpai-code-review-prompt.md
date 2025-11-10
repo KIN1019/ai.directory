@@ -1,7 +1,7 @@
 ---
 title : CMS DHPAI Code Review Pormpt
 description: Expert enterprise code reviewer for Java (17+) and ReactJS projects using Context7 MCP and corporate MCP server. Go to [https://hagithub.home/CMS/cms-dhpai-code-review-doc] for more details.
-tags: [dhpai]
+tags: [dhpai, java, react, typescript, springboot, code-review]
 ---
 
 ---

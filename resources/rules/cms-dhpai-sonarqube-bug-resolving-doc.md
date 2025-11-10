@@ -1,7 +1,7 @@
 ---
 title: CMS DHPAI Sonarqube Bug Resolving Instruction 
 description: Complete SonarQube bug fixing to resolve all bug issues. Go to [https://hagithub.home/CMS/cms-dhpai-sonarqube-instruction-template-doc] for more details.
-tags: [dhpai]
+tags: [dhpai, sonarqube, bug-fixing]
 ---
 
 ## Project Request

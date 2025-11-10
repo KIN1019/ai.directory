@@ -1,7 +1,7 @@
 ---
 title: CMS DHPAI Copilot Booster
 description: Template that boost GitHub Copilot's performance. Go to [https://hagithub.home/CMS/cms-dhpai-copilot-booster-doc] for more details.
-tags: [dhpai]
+tags: [dhpai, copilot, github]
 ---
 
 ---
