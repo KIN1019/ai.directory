@@ -58,6 +58,24 @@
 - slug: nextjs
   name: Next.js
 
+- slug: dhpai
+  name: DHPAI
+
+- slug: openshift
+  name: OpenShift
+
+- slug: selenium
+  name: Selenium
+
+- slug: logging
+  name: Logging
+
+- slug: monitoring
+  name: Monitoring
+
+- slug: bug-fixing
+  name: Bug Fixing
+
 - slug: react-native
   name: React Native
 
@@ -84,6 +102,9 @@
 
 - slug: dhpai
   name: DHPAI Agents
+
+- slug: skills
+  name: Skills
 
 - slug: code-review
   name: Code Review
@@ -123,3 +144,40 @@
 
 - slug: sql
   name: SQL
+
+# Added missing tags reported by sidebar warning
+- slug: data-testid
+  name: data-testid
+
+- slug: frontend
+  name: Frontend
+
+- slug: bugfix
+  name: Bug Fix
+
+- slug: ci
+  name: CI
+
+- slug: codesmell
+  name: Code Smell
+
+- slug: vulnerability
+  name: Vulnerability
+
+- slug: security
+  name: Security
+
+- slug: spring-boot
+  name: Spring Boot
+
+- slug: openapi
+  name: OpenAPI
+
+- slug: swagger
+  name: Swagger
+
+- slug: springdoc
+  name: SpringDoc
+
+- slug: section
+  name: Section

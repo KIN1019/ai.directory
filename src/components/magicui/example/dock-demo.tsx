@@ -9,6 +9,7 @@ import {
 	Scale,
 	ScrollText,
 	Blocks,
+	GraduationCap,
 } from "lucide-react";
 import Link from "next/link";
 import React from "react";
@@ -97,6 +98,11 @@ const DATA = {
 				name: "MCPs ",
 				url: "/mcp",
 				icon: Blocks,
+			},
+			Skills: {
+				name: "Skills",
+				url: "/skills",
+				icon: GraduationCap,
 			},
 		},
 	},
