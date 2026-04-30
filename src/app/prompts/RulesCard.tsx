@@ -22,7 +22,7 @@ import { toast } from "sonner";
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 interface RulesCardProps {
 	title: string;
@@ -36,12 +36,17 @@ interface RulesCardProps {
 function RulesCardWithDrawer(props: RulesCardProps) {
 	const router = useRouter();
 	const pathname = usePathname();
+	const searchParams = useSearchParams();
 	const [open, setOpen] = useState(props.open);
 	const pendingRoute = useRef<string | null>(null);
 
 	const close = () => {
 		setOpen(false);
-		pendingRoute.current = pathname.split("/").slice(0, 3).join("/");
+		const basePath = pathname.split("/").slice(0, -1).join("/") || "/prompts";
+		const queryString = searchParams.toString();
+		pendingRoute.current = queryString
+			? `${basePath}?${queryString}`
+			: basePath;
 	};
 
 	const handleOpenChange = (isOpen: boolean) => {

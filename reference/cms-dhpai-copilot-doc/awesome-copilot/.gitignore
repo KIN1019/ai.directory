@@ -1,0 +1,9 @@
+node_modules
+*.orig
+Copilot-Processing.md
+
+# macOS system files
+.DS_Store
+
+# Local backups
+bak/

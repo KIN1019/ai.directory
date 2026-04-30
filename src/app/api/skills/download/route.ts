@@ -18,6 +18,7 @@ function addToZip(dir: string, zipFolder: JSZip) {
 export async function GET(request: NextRequest) {
 	const { searchParams } = new URL(request.url);
 	const folderPath = searchParams.get("path");
+	const overrideName = searchParams.get("name");
 
 	if (!folderPath) {
 		return NextResponse.json(
@@ -26,9 +27,9 @@ export async function GET(request: NextRequest) {
 		);
 	}
 
-	// Security: prevent path traversal — path must be inside fetched-dhpai-docs
+	// Security: prevent path traversal — path must be inside reference
 	const resolvedPath = path.resolve(process.cwd(), folderPath);
-	const allowedBase = path.resolve(process.cwd(), "fetched-dhpai-docs");
+	const allowedBase = path.resolve(process.cwd(), "reference");
 
 	if (!resolvedPath.startsWith(allowedBase + path.sep)) {
 		return NextResponse.json({ error: "Invalid path" }, { status: 403 });
@@ -44,13 +45,16 @@ export async function GET(request: NextRequest) {
 	const zip = new JSZip();
 	addToZip(resolvedPath, zip);
 
-	const folderName = path.basename(resolvedPath);
+	// Use override name if provided (for Download All → repo name), else skill folder name
+	const zipName = overrideName
+		? overrideName.replaceAll(/[^a-zA-Z0-9._-]/g, "-")
+		: path.basename(resolvedPath);
 	const zipBuffer = await zip.generateAsync({ type: "nodebuffer" });
 
 	return new NextResponse(new Uint8Array(zipBuffer), {
 		headers: {
 			"Content-Type": "application/zip",
-			"Content-Disposition": `attachment; filename="${folderName}.zip"`,
+			"Content-Disposition": `attachment; filename="${zipName}.zip"`,
 		},
 	});
 }

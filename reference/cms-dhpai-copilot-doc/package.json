@@ -1,0 +1,28 @@
+{
+	"name": "cms-dhpai-copilot-doc",
+	"version": "1.0.0",
+	"description": "CMS DHP AI Copilot Documentation - A curated collection of ChatModes, Instructions, and Prompts for GitHub Copilot",
+	"main": "update-readme.js",
+	"scripts": {
+		"build": "node update-readme.js",
+		"contributors:add": "all-contributors add",
+		"contributors:generate": "all-contributors generate",
+		"contributors:check": "all-contributors check"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://hagithub.home/CMS/cms-dhpai-copilot-doc.git"
+	},
+	"keywords": [
+		"github",
+		"copilot",
+		"ai",
+		"prompts",
+		"instructions"
+	],
+	"author": "GitHub",
+	"license": "MIT",
+	"devDependencies": {
+		"all-contributors-cli": "^6.26.1"
+	}
+}

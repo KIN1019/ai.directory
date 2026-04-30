@@ -1,0 +1,167 @@
+{
+	"servers": {
+		"HA Wiki": {
+			"url": "https://schedulerfwk-mcp-server-poc-cms-dhp-1.tstcld61.server.ha.org.hk/sse",
+			"type": "http"
+		},
+
+		"hagithub": {
+			"command": "github-mcp-server",
+			"args": ["stdio"],
+			"env": {
+				"GITHUB_HOST": "https://hagithub.ha.org.hk",
+				"GITHUB_PERSONAL_ACCESS_TOKEN": "${input:HAGITHUB_PAT}",
+				"HTTPS_PROXY": "${input:http-proxy}"
+			},
+			"type": "stdio"
+		},
+
+		"hagithubhome": {
+			"command": "github-mcp-server",
+			"args": ["stdio"],
+			"env": {
+				"GITHUB_HOST": "https://hagithub.home",
+				"GITHUB_PERSONAL_ACCESS_TOKEN": "${input:HAGITHUB_HOME_PAT}"
+			},
+			"type": "stdio"
+		},
+
+		"sonarqube": {
+			"type": "stdio",
+			"command": "npx",
+			"args": ["-y", "ha-sonarqube-mcp-server@latest"],
+			"env": {
+				"SONARQUBE_URL": "https://hatool-sonarqube.home",
+				"SONARQUBE_TOKEN": "${input:sonarqube-token}"
+			}
+		},
+
+		// "jfrog": {
+		//   "type": "stdio",
+		//   "command": "npx",
+		//   "args": ["-y", "ha-jfrog-mcp@latest"],
+		//   "env": {
+		//     "JFROG_URL": "https://artifactrepo.server.ha.org.hk:55743",
+		//     "JFROG_USERNAME": "${input:corp-user}",
+		//     "JFROG_PASSWORD": "${input:corp-pass}",
+		//     "HTTP_PROXY": "${input:http-proxy}",
+		//     "HTTPS_PROXY": "${input:http-proxy}"
+		//   }
+		// },
+
+		// "context7": {
+		//   "type": "stdio",
+		//   "command": "npx",
+		//   "args": ["-y", "@upstash/context7-mcp@latest"],
+		//   "gallery": true
+		// },
+
+		// "markitdown": {
+		//   "type": "stdio",
+		//   "command": "uvx",
+		//   "args": ["markitdown-mcp"],
+		//   "gallery": true
+		// },
+
+		// "sequentialthinking": {
+		//   "type": "stdio",
+		//   "command": "npx",
+		//   "args": ["-y", "@modelcontextprotocol/server-sequential-thinking@latest"],
+		//   "gallery": true
+		// },
+
+		"mongodb": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"mongodb-mcp-server@latest",
+				"--connectionString",
+				"${input:mongodb-connection-string}",
+				"--readOnly"
+			]
+		},
+
+		"grafana": {
+			"type": "stdio",
+			"command": "mcp-grafana",
+			"args": ["-debug"],
+			"env": {
+				"GRAFANA_URL": "${input:grafana-url}",
+				"GRAFANA_API_KEY": "${input:grafana-api-key}"
+			}
+		}
+	},
+
+	"inputs": [
+		{
+			"type": "promptString",
+			"id": "corp-user",
+			"description": "corporate username",
+			"default": "<your corp_id here>"
+		},
+		{
+			"type": "promptString",
+			"id": "corp-pass",
+			"description": "corporate password",
+			"password": true
+		},
+		{
+			"type": "promptString",
+			"id": "http-proxy",
+			"description": "HTTP_PROXY URL",
+			"default": "http://<username>:<password>@proxy.ha.org.hk:8080"
+		},
+		{
+			"type": "promptString",
+			"id": "sonarqube-token",
+			"description": "sonarqube token",
+			"password": true,
+			"default": "<your token here>"
+		},
+		{
+			"type": "promptString",
+			"id": "mongodb-connection-string",
+			"description": "MongoDB connection string",
+			"password": true,
+			"default": "<your connection string here>"
+		},
+		{
+			"type": "promptString",
+			"id": "HAGITHUB_PAT",
+			"description": "hagithub.ha.org.hk PAT token",
+			"password": true,
+			"default": "<your token here>"
+		},
+		{
+			"type": "promptString",
+			"id": "HAGITHUB_HOME_PAT",
+			"description": "hagithub.home PAT token",
+			"password": true,
+			"default": "<your token here>"
+		},
+		{
+			"type": "promptString",
+			"id": "grafana-api-key",
+			"description": "Grafana API URL",
+			"password": true,
+			"default": "<your API key here>"
+		},
+		{
+			"type": "pickString",
+			"id": "grafana-url",
+			"description": "Grafana API URL",
+			"default": "https://grafana-cms-amqdsg-sit.tstcld61.server.ha.org.hk",
+			"options": [
+				{
+					"label": "cms-amqdsg-sit (DC6)",
+					"value": "https://grafana-cms-amqdsg-sit.tstcld61.server.ha.org.hk"
+				},
+				{
+					"label": "cms-amqdsg-sit (DC7)",
+					"value": "https://grafana-cms-amqdsg-uat.tstcld62.server.ha.org.hk"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installing to VS Code...</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+        }
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid white;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        .link-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 2rem;
+            word-break: break-all;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        .copy-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        .copy-btn:hover {
+            background: #f0f0f0;
+        }
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+        #fallback {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">📦</div>
+        <h1>Opening VS Code...</h1>
+        <div class="spinner"></div>
+        <p class="message" id="message">Please wait while we open VS Code to install your resource.</p>
+        
+        <div id="fallback">
+            <p class="message">If VS Code didn't open automatically, you can:</p>
+            <div class="link-box" id="link-display"></div>
+            <button class="copy-btn" onclick="copyLink()">📋 Copy Link</button>
+            <p class="message" style="margin-top: 1rem; font-size: 0.9rem;">
+                Paste the copied link into your browser's address bar and press Enter.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function copyLink() {
+            const link = document.getElementById('link-display').textContent;
+            navigator.clipboard.writeText(link).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        }
+
+        // Get the vscode:// URL from query parameter
+        const vscodeUrl = getQueryParam('url');
+
+        if (vscodeUrl) {
+            const decodedUrl = decodeURIComponent(vscodeUrl);
+            
+            // Try to open VS Code immediately
+            window.location.href = decodedUrl;
+            
+            // Show fallback after 3 seconds
+            setTimeout(() => {
+                document.getElementById('message').textContent = 
+                    "VS Code should have opened. If it didn't:";
+                document.getElementById('link-display').textContent = decodedUrl;
+                document.getElementById('fallback').style.display = 'block';
+            }, 3000);
+        } else {
+            // No URL provided
+            document.querySelector('.spinner').style.display = 'none';
+            document.getElementById('message').innerHTML = 
+                '<strong>Error:</strong> No installation URL provided.<br>' +
+                'Please use a valid installation link.';
+        }
+    </script>
+</body>
+</html>
+

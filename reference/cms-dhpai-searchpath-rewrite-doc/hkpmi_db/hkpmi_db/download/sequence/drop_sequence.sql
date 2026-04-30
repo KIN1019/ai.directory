@@ -1,0 +1,1 @@
+    DROP SEQUENCE IF EXISTS patient_key_exception_record_id CASCADE;

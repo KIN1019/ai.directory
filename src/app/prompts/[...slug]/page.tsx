@@ -1,97 +1,188 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import yaml from "js-yaml";
+import { redirect } from "next/navigation";
 import { RulesCardWithDrawer } from "../RulesCard";
+import {
+	getRuleSectionTitle,
+	getRulesBySection,
+	getRulesBySectionAndTag,
+	getRulesByTag,
+	getTagName,
+	isRuleSection,
+	type RuleDocument,
+	type RuleSection,
+} from "../rules-data";
 
-type Tag = {
-	slug: string;
-	name: string;
-};
-
-type RuleDocument = {
+type RulesPageState = {
 	title: string;
-	content: string;
-	tags: string[];
-	fileName: string;
-	description: string;
+	rules: RuleDocument[];
+	selectedRuleSlug?: string;
+	getRuleHref: (rule: RuleDocument) => string;
 };
 
-async function getTagName(slug: string): Promise<string> {
-	try {
-		const tagsYamlPath = path.join(
-			process.cwd(),
-			"resources",
-			"rules",
-			"tags.yaml",
-		);
-		const tagsYamlContent = fs.readFileSync(tagsYamlPath, "utf8");
-		const tagsList = yaml.load(tagsYamlContent) as Tag[];
+type RulesPageSearchParams = {
+	[key: string]: string | string[] | undefined;
+};
 
-		const foundTag = tagsList.find((tag) => tag.slug === slug);
-		return foundTag?.name || slug;
-	} catch (err) {
-		console.error("Error loading tag name:", err);
-		return slug;
+function getSelectedSectionTags(
+	searchParams: RulesPageSearchParams,
+	section: RuleSection,
+) {
+	const rawValue = searchParams[section];
+	let values: string[] = [];
+
+	if (Array.isArray(rawValue)) {
+		values = rawValue.flatMap((value) => value.split(","));
+	} else if (typeof rawValue === "string") {
+		values = rawValue.split(",");
 	}
+
+	return [...new Set(values.filter(Boolean))];
 }
 
-async function getRulesByTag(tag: string): Promise<RuleDocument[]> {
-	const rulesDirectory = path.join(process.cwd(), "resources", "rules");
-	const fileNames = fs
-		.readdirSync(rulesDirectory)
-		.filter((file) => file.endsWith(".md"));
+function buildSearchSuffix(searchParams: RulesPageSearchParams) {
+	const params = new URLSearchParams();
 
-	const allRules: RuleDocument[] = [];
-
-	for (const fileName of fileNames) {
-		const filePath = path.join(rulesDirectory, fileName);
-		const fileContent = fs.readFileSync(filePath, "utf8");
-		const { data, content } = matter(fileContent);
-
-		if (data.tags && Array.isArray(data.tags) && data.tags.includes(tag)) {
-			allRules.push({
-				title: data.title || fileName.split(".")[0],
-				content: content,
-				tags: data.tags,
-				description: data.description,
-				fileName: fileName,
+	Object.entries(searchParams).forEach(([key, value]) => {
+		if (Array.isArray(value)) {
+			value.forEach((entry) => {
+				if (entry) {
+					params.append(key, entry);
+				}
 			});
+			return;
 		}
+
+		if (typeof value === "string" && value.length > 0) {
+			params.set(key, value);
+		}
+	});
+
+	const queryString = params.toString();
+	return queryString ? `?${queryString}` : "";
+}
+
+function filterRulesByTags(rules: RuleDocument[], tags: string[]) {
+	if (tags.length === 0) {
+		return rules;
 	}
 
-	return allRules;
+	return rules.filter((rule) => tags.every((tag) => rule.tags.includes(tag)));
+}
+
+async function getSectionPageState(
+	section: RuleSection,
+	segments: string[],
+): Promise<RulesPageState> {
+	const sectionTitle = getRuleSectionTitle(section);
+	const sectionRules = await getRulesBySection(section);
+
+	if (segments.length === 1) {
+		return {
+			title: `${sectionTitle} Rules`,
+			rules: sectionRules,
+			getRuleHref: (rule) => `/prompts/${section}/${rule.slug}`,
+		};
+	}
+
+	const secondSegment = segments[1];
+	const isTagSegment = sectionRules.some((rule) =>
+		rule.tags.includes(secondSegment),
+	);
+
+	if (!isTagSegment) {
+		return {
+			title: `${sectionTitle} Rules`,
+			rules: sectionRules,
+			selectedRuleSlug: secondSegment,
+			getRuleHref: (rule) => `/prompts/${section}/${rule.slug}`,
+		};
+	}
+
+	const tagName = await getTagName(secondSegment);
+	const filteredRules = await getRulesBySectionAndTag(section, secondSegment);
+
+	return {
+		title: `${sectionTitle} / ${tagName}`,
+		rules: filteredRules,
+		selectedRuleSlug: segments[2],
+		getRuleHref: (rule) => `/prompts/${section}/${secondSegment}/${rule.slug}`,
+	};
+}
+
+async function getTagPageState(segments: string[]): Promise<RulesPageState> {
+	const tag = segments[0];
+	const tagName = await getTagName(tag);
+	const rules = await getRulesByTag(tag);
+
+	return {
+		title: `${tagName} Rules`,
+		rules,
+		selectedRuleSlug: segments[1],
+		getRuleHref: (rule) => `/prompts/${tag}/${rule.slug}`,
+	};
 }
 
 export default async function RulesPage({
 	params,
+	searchParams,
 }: {
-	params: Promise<{ slug: [string, string?] }>;
+	params: Promise<{ slug: string[] }>;
+	searchParams: Promise<RulesPageSearchParams>;
 }) {
 	const { slug } = await params;
-	const rules = await getRulesByTag(slug[0]);
+	const resolvedSearchParams = await searchParams;
 
-	const tagName = await getTagName(slug[0]);
+	if (slug.length === 0) {
+		redirect("/prompts/instructions");
+	}
+
+	let pageState = isRuleSection(slug[0])
+		? await getSectionPageState(slug[0], slug)
+		: await getTagPageState(slug);
+	const searchSuffix = buildSearchSuffix(resolvedSearchParams);
+
+	if (isRuleSection(slug[0])) {
+		const selectedTags = getSelectedSectionTags(resolvedSearchParams, slug[0]);
+
+		if (selectedTags.length > 0) {
+			const selectedTagNames = await Promise.all(
+				selectedTags.map((tag) => getTagName(tag)),
+			);
+
+			pageState = {
+				...pageState,
+				title: `${getRuleSectionTitle(slug[0])} / ${selectedTagNames.join(", ")}`,
+				rules: filterRulesByTags(pageState.rules, selectedTags),
+			};
+		}
+	}
+
+	const baseGetRuleHref = pageState.getRuleHref;
+	pageState = {
+		...pageState,
+		getRuleHref: (rule) => `${baseGetRuleHref(rule)}${searchSuffix}`,
+	};
 
 	return (
-		<div className="p-8 pb-32">
-			<h1 className="text-2xl font-bold mb-6">{tagName} Rules</h1>
-			{rules.length > 0 ? (
+		<div className="p-8 pb-32 w-full">
+			<h1 className="text-2xl font-bold mb-6">{pageState.title}</h1>
+			{pageState.rules.length > 0 ? (
 				<div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-3">
-					{rules.map((rule) => (
+					{pageState.rules.map((rule) => (
 						<RulesCardWithDrawer
-							key={rule.fileName}
+							key={rule.slug}
 							title={rule.title}
 							description={rule.description}
 							content={rule.content}
 							tags={rule.tags}
-							open={slug[1] === rule.fileName.split(".")[0]}
-							href={`/prompts/${slug[0]}/${rule.fileName.split(".")[0]}`}
+							open={pageState.selectedRuleSlug === rule.slug}
+							href={pageState.getRuleHref(rule)}
 						/>
 					))}
 				</div>
 			) : (
-				<p className="text-muted-foreground">No rules found for tag: {slug}</p>
+				<p className="text-muted-foreground">
+					No rules found for: {slug.join(" / ")}
+				</p>
 			)}
 		</div>
 	);

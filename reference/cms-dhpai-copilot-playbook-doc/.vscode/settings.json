@@ -1,0 +1,122 @@
+{
+	/***********************************/
+	/* Date: 2025-09-16                */
+	/* VS Code version: 1.104.0        */
+	/***********************************/
+
+	// Proxy Settings for VS Code must be set in Default Settings (not Workspace Settings)
+	// put it here for record only
+	"http.proxy": "http://<corp_id>:<proxy_pw>@proxy.ha.org.hk:8080",
+	"http.noProxy": [".server.ha.org.hk", ".home"],
+	"http.proxyStrictSSL": false,
+
+	/***********************************/
+	/******** Personal Sections ********/
+	/***********************************/
+	// After enabling the Next Edit Suggestion (NES) feature, the editor will frequently prompt you to press Tab to insert the suggested code.
+	// However, by default, these suggestions occupy space in the editor, which can sometimes be very disruptive to our development flow.
+	// Therefore, I personally recommend setting this option to true, so it won't constantly pop up and show the content that would be added when you press Tab.
+	"editor.inlineSuggest.edits.showCollapsed": true,
+	//
+	/************************************/
+	/***** AI Instructions Sections *****/
+	/************************************/
+	// https://code.visualstudio.com/docs/copilot/copilot-customization#_specify-custom-instructions-in-settings
+	//
+	// Deprecated:
+	// - codeGeneration.instructions
+	// - testGeneration.instructions
+	//
+	// enable to use .github/copilot-instructions.md for Copilot Chat
+	"github.copilot.chat.codeGeneration.useInstructionFiles": true,
+	// instruction: commit message generation
+	"github.copilot.chat.commitMessageGeneration.instructions": [
+		{
+			"text": "Summarize the changes and impovement in one short description"
+		},
+		{
+			"text": "use conventional commit message format with emoji. e.g. feat(api)!: ✨send an email to the customer when a product is shipped"
+		}
+	],
+	// instruction: code review
+	"github.copilot.chat.reviewSelection.instructions": [
+		{
+			"file": ".github/instructions/review-selection.instructions.md"
+		}
+	],
+	// instruction: pull request description
+	"github.copilot.chat.pullRequestDescriptionGeneration.instructions": [
+		{
+			"file": ".github/instructions/pr-desc-generation.instructions.md"
+		}
+	],
+	// -------------------------------------------------------------------------------
+	// https://docs.github.com/en/copilot/how-tos/ai-models/changing-the-ai-model-for-copilot-code-completion?tool=vscode#overview
+	// empty string means use default model, currently only support gpt-4o-copilot
+	"github.copilot.selectedCompletionModel": "",
+	"github.copilot.nextEditSuggestions.enabled": true,
+	"github.copilot.nextEditSuggestions.fixes": true,
+	"github.copilot.chat.agent.autoFix": true,
+	"github.copilot.chat.agent.thinkingTool": true,
+	// When using #codebase in the prompt, Copilot automatically discovers relevant files to be edited
+	"github.copilot.chat.codesearch.enabled": true,
+	"github.copilot.chat.scopeSelection": true,
+	"github.copilot.chat.generateTests.codeLens": true,
+	// bootstrap a new project using '/new' in copilot chat
+	"github.copilot.chat.useProjectTemplates": true,
+	"github.copilot.enable": {
+		"*": true,
+		"plaintext": false,
+		"markdown": true, // enable for helping to generate instructions in markdown files
+		"scminput": false
+	},
+	// https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode#_auto-approve-terminal-commands
+	"chat.tools.terminal.autoApprove": {
+		"echo": true,
+		"cd": true,
+		"ls": true,
+		"cat": true,
+		"pwd": true,
+		"Write-Host": true,
+		"Set-Location": true,
+		"Get-ChildItem": true,
+		"Get-Content": true,
+		"Get-Location": true,
+		"rm": false,
+		"rmdir": false,
+		"del": false,
+		"kill": false,
+		"curl": false,
+		"wget": false,
+		"eval": false,
+		"chmod": false,
+		"chown": false,
+		"Remove-Item": false
+	},
+	// https://code.visualstudio.com/docs/copilot/copilot-smart-actions#_semantic-search-results-preview
+	// enable semantic search in the search view, not only search by keywords but also by the meaning of the code
+	"search.searchView.semanticSearchBehavior": "auto",
+	"search.searchView.keywordSuggestions": true,
+	// instead of using keyword search, use AI semantic search feature to find the vs code settings you want to change
+	"workbench.settings.showAISearchToggle": true,
+	"window.commandCenter": true,
+	// Enable the command center for chat-based interactions in VS Code
+	"chat.commandCenter.enabled": true,
+	// Maximum number of requests to allow per-turn in agent mode.
+	// When the limit is reached, will ask to confirm to continue. (Default: 25)
+	"chat.agent.maxRequests": 1000,
+	// Experimental - Enable the AI-powered to-do list tool for task management
+	"chat.todoListTool.enabled": true,
+	/***********************************/
+	/********** MCP Sections ***********/
+	/***********************************/
+	//
+	// Enable automatic discovery of Model Context Protocol (MCP) servers from configurations
+	// of other AI development tools including Claude Desktop, Windsurf, and Cursor
+	"chat.mcp.discovery.enabled": {
+		"claude-desktop": true,
+		"windsurf": true,
+		"cursor-global": true,
+		"cursor-workspace": true
+	}
+}

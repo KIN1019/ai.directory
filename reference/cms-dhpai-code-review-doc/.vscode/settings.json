@@ -1,0 +1,36 @@
+{
+	// enable to use .github/copilot-instructions.md for Copilot Chat
+	"github.copilot.chat.codeGeneration.useInstructionFiles": true,
+
+	// https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode#_auto-approve-terminal-commands
+	"chat.tools.terminal.autoApprove": {
+		"echo": true,
+		"cd": true,
+		"ls": true,
+		"cat": true,
+		"pwd": true,
+		"Write-Host": true,
+		"Set-Location": true,
+		"Get-ChildItem": true,
+		"Get-Content": true,
+		"Get-Location": true,
+		"rm": false,
+		"rmdir": false,
+		"del": false,
+		"kill": false,
+		"curl": false,
+		"wget": false,
+		"eval": false,
+		"chmod": false,
+		"chown": false,
+		"Remove-Item": false
+	},
+
+	// Enable the command center for chat-based interactions in VS Code
+	"chat.commandCenter.enabled": true,
+	// Maximum number of requests to allow per-turn in agent mode.
+	// When the limit is reached, will ask to confirm to continue. (Default: 25)
+	"chat.agent.maxRequests": 1000,
+	// Experimental - Enable the AI-powered to-do list tool for task management
+	"chat.todoListTool.enabled": true
+}

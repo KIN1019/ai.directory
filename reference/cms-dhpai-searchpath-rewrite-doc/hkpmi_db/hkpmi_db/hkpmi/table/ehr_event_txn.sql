@@ -1,0 +1,88 @@
+-- hkpmi.ehr_event_txn definition
+
+-- Drop table
+
+-- DROP TABLE hkpmi.ehr_event_txn;
+
+CREATE TABLE hkpmi.ehr_event_txn (
+	evt_txn_dtm timestamp(6) NOT NULL,
+	evt_txn_type varchar(6) NOT NULL,
+	evt_code varchar(30) NULL,
+	evt_log_type varchar(2) NULL,
+	evt_msg_no varchar(40) NULL,
+	evt_ack varchar(2) NULL,
+	ehr_flag varchar(6) NULL,
+	ehr_number varchar(24) NULL,
+	ehr_start_date varchar(16) NULL,
+	ehr_end_date varchar(16) NULL,
+	ehr_hkic varchar(24) NULL,
+	ehr_surname varchar(80) NULL,
+	ehr_givenname varchar(80) NULL,
+	ehr_full_name varchar(200) NULL,
+	ehr_sex varchar(2) NULL,
+	ehr_dob varchar(16) NULL,
+	ehr_exact_dob varchar(8) NULL,
+	ehr_doc_type varchar(12) NULL,
+	ehr_doc_no varchar(60) NULL,
+	ehr_death_date varchar(16) NULL,
+	ehr_death_time varchar(20) NULL,
+	ehr_exact_death varchar(8) NULL,
+	ehr_death_ind varchar(8) NULL,
+	old_ehr_number varchar(24) NULL,
+	old_ehr_flag varchar(6) NULL,
+	old_ehr_hkic varchar(24) NULL,
+	old_ehr_surname varchar(80) NULL,
+	old_ehr_givenname varchar(80) NULL,
+	old_ehr_full_name varchar(200) NULL,
+	old_ehr_sex varchar(2) NULL,
+	old_ehr_dob varchar(16) NULL,
+	old_ehr_exact_dob varchar(8) NULL,
+	old_ehr_doc_type varchar(12) NULL,
+	old_ehr_doc_no varchar(60) NULL,
+	pas_hosp varchar(6) NULL,
+	pas_hkic varchar(24) NULL,
+	pas_pky varchar(16) NULL,
+	pas_case varchar(24) NULL,
+	pas_surname varchar(96) NULL,
+	pas_givenname varchar(96) NULL,
+	pas_full_name varchar(200) NULL,
+	pas_sex varchar(2) NULL,
+	pas_dob varchar(16) NULL,
+	pas_exact_dob varchar(8) NULL,
+	pas_doc_type varchar(12) NULL,
+	pas_doc_no varchar(60) NULL,
+	pas_death_date varchar(16) NULL,
+	pas_death_time varchar(20) NULL,
+	pas_exact_death varchar(8) NULL,
+	pas_death_ind varchar(8) NULL,
+	old_pas_hkic varchar(24) NULL,
+	old_pas_pky varchar(16) NULL,
+	old_pas_surname varchar(96) NULL,
+	old_pas_givenname varchar(96) NULL,
+	old_pas_full_name varchar(200) NULL,
+	old_pas_sex varchar(2) NULL,
+	old_pas_dob varchar(16) NULL,
+	old_pas_exact_dob varchar(8) NULL,
+	old_pas_doc_type varchar(12) NULL,
+	old_pas_doc_no varchar(60) NULL,
+	upd_by varchar(24) NOT NULL,
+	upd_sys varchar(24) NOT NULL,
+	upd_hosp varchar(6) NULL,
+	upd_host varchar(30) NULL,
+	sys_dtm timestamp(6) NOT NULL,
+	ehr_ppi_ind varchar(2) NULL,
+	ehr_non_ha_ind varchar(2) NULL,
+	ehr_status varchar(6) NULL,
+	old_ehr_ppi_ind varchar(2) NULL,
+	old_ehr_non_ha_ind varchar(2) NULL,
+	old_ehr_status varchar(6) NULL,
+	ehr_smart_id varchar(40) NULL,
+	last_update_datetime timestamp(6) NULL
+);
+CREATE UNIQUE INDEX "XPK_ehr_event_txn" ON hkpmi.ehr_event_txn USING btree (evt_txn_dtm, evt_txn_type, evt_msg_no);
+CREATE INDEX ehr_event_txn_idx2 ON hkpmi.ehr_event_txn USING btree (ehr_number);
+
+
+
+
+ALTER TABLE hkpmi.ehr_event_txn OWNER TO "HKPMI_SCHEMA_OWNER_ROLE";

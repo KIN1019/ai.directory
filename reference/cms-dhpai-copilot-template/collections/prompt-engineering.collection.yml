@@ -1,0 +1,17 @@
+id: prompt-engineering
+name: Prompt Engineering Collection
+description: "A collection of best practices and guides for prompt engineering."
+tags: [github-copilot, prompt-engineering]
+items:
+  - path: instructions/gpt-5-1-prompting-guide.instructions.md
+    kind: instruction
+  - path: instructions/gpt-5-prompting-guide.instructions.md
+    kind: instruction
+  - path: instructions/claude-prompting-best-practices.instructions.md
+    kind: instruction
+  - path: agents/Prompt Engineer.agent.md
+    kind: agent
+display:
+  ordering: alpha # or "manual" to preserve the order above
+  show_badge: true # set to true to show collection badge on items
+  featured: true

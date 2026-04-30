@@ -1,0 +1,209 @@
+{
+	"generated": "2025-12-30T04:28:24.455Z",
+	"instructions": [
+		{
+			"filename": "clap.instructions.md",
+			"title": "clap.instructions",
+			"description": "\"Sample configuration for clap setup\"",
+			"link": "instructions/clap.instructions.md"
+		},
+		{
+			"filename": "claude-prompting-best-practices.instructions.md",
+			"title": "claude-prompting-best-practices.instructions",
+			"description": "\"Prompting best practices for Claude 4.x models\"",
+			"link": "instructions/claude-prompting-best-practices.instructions.md"
+		},
+		{
+			"filename": "cms-dhpai-unit-test-generation-doc.instructions.md",
+			"title": "cms-dhpai-unit-test-generation-doc.instructions",
+			"description": "\"Expert in Java, Spring Boot, JUnit 5, Mockito, JaCoCo, and SonarQube. Go to [https://hagithub.home/CMS/cms-dhpai-unit-test-generation-doc] for more details.\"",
+			"link": "instructions/cms-dhpai-unit-test-generation-doc.instructions.md"
+		},
+		{
+			"filename": "dhpai-junit.instructions.md",
+			"title": "dhpai-junit.instructions",
+			"description": "\"No description provided\"",
+			"link": "instructions/dhpai-junit.instructions.md"
+		},
+		{
+			"filename": "elastic-APM.instructions.md",
+			"title": "elastic-APM.instructions",
+			"description": "\"Sample configuration for elastic APM setup\"",
+			"link": "instructions/elastic-APM.instructions.md"
+		},
+		{
+			"filename": "gpt-5-1-prompting-guide.instructions.md",
+			"title": "gpt-5-1-prompting-guide.instructions",
+			"description": "\"GPT-5.1 prompting guide\"",
+			"link": "instructions/gpt-5-1-prompting-guide.instructions.md"
+		},
+		{
+			"filename": "gpt-5-prompting-guide.instructions.md",
+			"title": "gpt-5-prompting-guide.instructions",
+			"description": "\"GPT-5 prompting guide\"",
+			"link": "instructions/gpt-5-prompting-guide.instructions.md"
+		},
+		{
+			"filename": "ha-frontend-developer.instructions.md",
+			"title": "ha-frontend-developer.instructions",
+			"description": "\"Senior Front-End Developer and an Expert in ReactJS, MUI, and CMS MX Design System.\"",
+			"link": "instructions/ha-frontend-developer.instructions.md"
+		},
+		{
+			"filename": "ha-java-developer.instructions.md",
+			"title": "ha-java-developer.instructions",
+			"description": "\"You are an expert in Java, Spring Boot, Maven, JUnit, related Java technologies, and HA Java framework.\"",
+			"link": "instructions/ha-java-developer.instructions.md"
+		},
+		{
+			"filename": "ha-mobile-developer.instructions.md",
+			"title": "ha-mobile-developer.instructions",
+			"description": "\"Expert in TypeScript, React Native, Expo, and Mobile UI development.\"",
+			"link": "instructions/ha-mobile-developer.instructions.md"
+		},
+		{
+			"filename": "HPA.instructions.md",
+			"title": "HPA.instructions",
+			"description": "\"HPA instruction setup\"",
+			"link": "instructions/HPA.instructions.md"
+		},
+		{
+			"filename": "javadoc-best-practices.instructions.md",
+			"title": "javadoc-best-practices.instructions",
+			"description": "\"Best practices prompt on Javadoc\"",
+			"link": "instructions/javadoc-best-practices.instructions.md"
+		},
+		{
+			"filename": "jest-best-practices.instructions.md",
+			"title": "jest-best-practices.instructions",
+			"description": "\"Best practices for writing JavaScript/TypeScript tests using Jest, including mocking strategies, test structure, and common patterns.\"",
+			"link": "instructions/jest-best-practices.instructions.md"
+		},
+		{
+			"filename": "openjdk.instructions.md",
+			"title": "openjdk.instructions",
+			"description": "\"openjdk version\"",
+			"link": "instructions/openjdk.instructions.md"
+		},
+		{
+			"filename": "paas-naming-convention.instructions.md",
+			"title": "paas-naming-convention.instructions",
+			"description": "\"paas naming convention\"",
+			"link": "instructions/paas-naming-convention.instructions.md"
+		},
+		{
+			"filename": "react-unit-testing.instructions.md",
+			"title": "react-unit-testing.instructions",
+			"description": "\"You are an expert in TypeScript, React, Material UI, and testing with React Testing Library and Jest.\"",
+			"link": "instructions/react-unit-testing.instructions.md"
+		},
+		{
+			"filename": "sonarqube-bug-resolving.instructions.md",
+			"title": "sonarqube-bug-resolving.instructions",
+			"description": "\"No description provided\"",
+			"link": "instructions/sonarqube-bug-resolving.instructions.md"
+		},
+		{
+			"filename": "sonarqube-codesmell-resolving.instructions.md",
+			"title": "sonarqube-codesmell-resolving.instructions",
+			"description": "\"No description provided\"",
+			"link": "instructions/sonarqube-codesmell-resolving.instructions.md"
+		},
+		{
+			"filename": "sonarqube-vulnerability-resolving.instructions.md",
+			"title": "sonarqube-vulnerability-resolving.instructions",
+			"description": "\"No description provided\"",
+			"link": "instructions/sonarqube-vulnerability-resolving.instructions.md"
+		},
+		{
+			"filename": "spring-boot-best-practices.instructions.md",
+			"title": "spring-boot-best-practices.instructions",
+			"description": "\"Best practices prompt on Spring Boot\"",
+			"link": "instructions/spring-boot-best-practices.instructions.md"
+		},
+		{
+			"filename": "vscode-dev-server-task.instructions.md",
+			"title": "vscode-dev-server-task.instructions",
+			"description": "\"Use VS Code tasks to manage dev servers in multi-agent environments, preventing duplicate processes\"",
+			"link": "instructions/vscode-dev-server-task.instructions.md"
+		}
+	],
+	"prompts": [
+		{
+			"filename": "architecture-blueprint-generator.prompt.md",
+			"title": "architecture-blueprint-generator.prompt",
+			"description": "\"Comprehensive project architecture blueprint generator that analyzes codebases to create detailed architectural documentation. Automatically detects technology stacks and architectural patterns, generates visual diagrams, documents implementation patterns, and provides extensible blueprints for maintaining architectural consistency and guiding new development.\"",
+			"link": "prompts/architecture-blueprint-generator.prompt.md"
+		},
+		{
+			"filename": "professional-prompt-builder.md",
+			"title": "professional-prompt-builder",
+			"description": "\"Guide users through creating high-quality GitHub Copilot prompts with proper structure, tools, and best practices.\"",
+			"link": "prompts/professional-prompt-builder.md"
+		}
+	],
+	"agents": [
+		{
+			"filename": "cms-dhpai-copilot-booster-doc.agent.md",
+			"title": "CMS DHPAI Copilot Booster",
+			"description": "\"DHPAI\"",
+			"link": "agents/cms-dhpai-copilot-booster-doc.agent.md"
+		},
+		{
+			"filename": "cms-dhpai-sp-evaluation-doc.agent.md",
+			"title": "SP Evaluation Agent",
+			"description": "\"Expert in evaluating stored procedures conversion.\"",
+			"link": "agents/cms-dhpai-sp-evaluation-doc.agent.md"
+		},
+		{
+			"filename": "CRA-PullRequest.agent.md",
+			"title": "CRA-PullRequest.agent",
+			"description": "\"Code Review Agent for performing code reviews between two branches and creating PRs for Hospital Authority (HA) projects.\"",
+			"link": "agents/CRA-PullRequest.agent.md"
+		},
+		{
+			"filename": "OPT-cms-dhpai-copilot-booster-doc.agent.md",
+			"title": "OPT-cms-dhpai-copilot-booster-doc.agent",
+			"description": "\"Autonomous research and problem-solving agent for complex multi-step tasks requiring extensive web research and codebase exploration.\"",
+			"link": "agents/OPT-cms-dhpai-copilot-booster-doc.agent.md"
+		},
+		{
+			"filename": "OPT-cms-dhpai-sp-evaluation-doc.agent.md",
+			"title": "OPT-cms-dhpai-sp-evaluation-doc.agent",
+			"description": "\"Senior Database Migration Engineer specializing in Sybase ASE to PostgreSQL migrations with thorough code review and risk assessment capabilities.\"",
+			"link": "agents/OPT-cms-dhpai-sp-evaluation-doc.agent.md"
+		},
+		{
+			"filename": "OPT-CRA-PullRequest.agent.md",
+			"title": "OPT-CRA-PullRequest.agent",
+			"description": "\"Code Review Agent for performing code reviews between two branches and creating PRs for Hospital Authority (HA) projects.\"",
+			"link": "agents/OPT-CRA-PullRequest.agent.md"
+		},
+		{
+			"filename": "Prompt Engineer.agent.md",
+			"title": "Prompt Engineer.agent",
+			"description": "\"Expert agent for crafting high-quality prompts, instructions, and agent configurations optimized for Claude and GPT model families.\"",
+			"link": "agents/Prompt Engineer.agent.md"
+		}
+	],
+	"collections": [
+		{
+			"filename": "code-review.collection.yml",
+			"title": "Code Review Collection",
+			"description": "Code review collection that test functionality.",
+			"link": "collections/code-review.collection.yml"
+		},
+		{
+			"filename": "prompt-engineering.collection.yml",
+			"title": "Prompt Engineering Collection",
+			"description": "A collection of best practices and guides for prompt engineering.",
+			"link": "collections/prompt-engineering.collection.yml"
+		},
+		{
+			"filename": "sonarqube.collection.yml",
+			"title": "SonarQube Collection",
+			"description": "SonarQube collection that solve quality gate issues.",
+			"link": "collections/sonarqube.collection.yml"
+		}
+	]
+}

@@ -1,0 +1,230 @@
+{
+	"name": "dhpai",
+	"displayName": "DHPAI",
+	"description": "Explore and install instructions, prompts, agents, and collections from GitHub",
+	"version": "1.1.0",
+	"publisher": "dhpai",
+	"icon": "ha_logo.png",
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"enabledApiProposals": [
+		"lm-tools"
+	],
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"github",
+		"copilot",
+		"instructions",
+		"prompts",
+		"agents",
+		"github-enterprise"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://hagithub.home/CMS/cms-dhpai-copilot-template"
+	},
+	"activationEvents": [
+		"onStartupFinished",
+		"onUri"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "dhpai.explore",
+				"title": "DHPAI: Explore and Install",
+				"category": "DHPAI"
+			},
+			{
+				"command": "dhpai.login",
+				"title": "DHPAI: Login",
+				"category": "DHPAI"
+			},
+			{
+				"command": "dhpai.logout",
+				"title": "DHPAI: Logout",
+				"category": "DHPAI"
+			},
+			{
+				"command": "dhpai.clearCache",
+				"title": "DHPAI: Clear Search Cache",
+				"category": "DHPAI"
+			},
+			{
+				"command": "dhpai.checkAuth",
+				"title": "DHPAI: Check Authentication Status",
+				"category": "DHPAI"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "dhpai.login",
+					"when": "!dhpai.isAuthenticated"
+				},
+				{
+					"command": "dhpai.logout",
+					"when": "dhpai.isAuthenticated"
+				}
+			]
+		},
+		"languageModelTools": [
+			{
+				"name": "search_dhpaiResources",
+				"displayName": "Search DHPAI Resources",
+				"tags": [
+					"dhpai",
+					"search",
+					"instructions",
+					"prompts",
+					"agents"
+				],
+				"canBeReferencedInPrompt": true,
+				"toolReferenceName": "searchDHPAI",
+				"icon": "$(search)",
+				"userDescription": "Search and filter DHPAI resources including instructions, prompts, chatmodes, agents, and collections.",
+				"modelDescription": "This tool searches and filters DHPAI resources including instructions, prompts, chatmodes, agents, and collections. It returns a list of resources with their titles, descriptions, categories, and filenames. Use this tool when the user asks about available DHPAI resources, wants to find specific instructions or prompts, or needs to discover what content is available. The tool supports filtering by category and limiting the number of results. It searches across titles and descriptions to find relevant matches.",
+				"inputSchema": {
+					"type": "object",
+					"properties": {
+						"query": {
+							"type": "string",
+							"description": "Search query to filter resources by title or description. Use keywords that match what the user is looking for. If omitted, returns all resources in the specified category or all resources."
+						},
+						"category": {
+							"type": "string",
+							"enum": [
+								"instructions",
+								"prompts",
+								"chatmodes",
+								"agents",
+								"collections"
+							],
+							"description": "Filter by resource category. Use 'instructions' for coding guidelines, 'prompts' for task templates, 'chatmodes' for chat configurations, 'agents' for AI assistant profiles, or 'collections' for bundled resources. If omitted, searches across all categories."
+						},
+						"limit": {
+							"type": "number",
+							"description": "Maximum number of results to return. Defaults to 10. Use a higher limit if the user wants a comprehensive list.",
+							"default": 10
+						}
+					}
+				}
+			},
+			{
+				"name": "install_dhpaiResources",
+				"displayName": "Install DHPAI Resources",
+				"tags": [
+					"dhpai",
+					"install",
+					"instructions",
+					"prompts",
+					"agents"
+				],
+				"canBeReferencedInPrompt": true,
+				"toolReferenceName": "installDHPAI",
+				"icon": "$(cloud-download)",
+				"userDescription": "Install one or more DHPAI resources to your workspace or globally.",
+				"modelDescription": "This tool installs DHPAI resources (instructions, prompts, chatmodes, agents, or collections) to the user's VS Code environment. Use this tool when the user wants to install specific resources after searching for them, or when they request to add certain instructions or prompts to their setup. The tool can install single or multiple resources at once. Resources can be identified by their filename, title, or link. Installation targets include: 'workspace' (project-specific, default), 'global' (available across all projects), or 'copilot-instructions' (appends to .github/copilot-instructions.md). Always confirm what will be installed before proceeding. If the user doesn't specify a target, use 'workspace' as the default.",
+				"inputSchema": {
+					"type": "object",
+					"required": [
+						"resources"
+					],
+					"properties": {
+						"resources": {
+							"oneOf": [
+								{
+									"type": "string",
+									"description": "A single resource identifier (filename, title, or link)"
+								},
+								{
+									"type": "array",
+									"items": {
+										"type": "string"
+									},
+									"description": "Multiple resource identifiers to install at once"
+								}
+							],
+							"description": "Resource identifier(s) to install. Can be a filename (e.g., 'react-unit-testing.instructions.md'), title (e.g., 'React Unit Testing'), or link path. Use the search tool first to find the exact identifiers."
+						},
+						"target": {
+							"type": "string",
+							"enum": [
+								"workspace",
+								"global",
+								"copilot-instructions"
+							],
+							"default": "workspace",
+							"description": "Installation target. 'workspace' installs to current project (.github/ folder), 'global' installs for all projects, 'copilot-instructions' appends to .github/copilot-instructions.md file. Default is 'workspace'."
+						},
+						"category": {
+							"type": "string",
+							"enum": [
+								"instructions",
+								"prompts",
+								"chatmodes",
+								"agents",
+								"collections"
+							],
+							"description": "Optional category filter. If specified, only installs resources from this category. Useful for validation."
+						}
+					}
+				}
+			}
+		],
+		"configuration": {
+			"title": "DHPAI",
+			"properties": {
+				"dhpai.baseUrl": {
+					"type": "string",
+					"default": "hagithub.home",
+					"description": "GitHub base URL (without https://)"
+				},
+				"dhpai.repository": {
+					"type": "string",
+					"default": "CMS/cms-dhpai-copilot-template",
+					"description": "Repository path (e.g., CMS/cms-dhpai-copilot-template)"
+				},
+				"dhpai.branch": {
+					"type": "string",
+					"default": "main",
+					"description": "Branch name to fetch content from"
+				},
+				"dhpai.oauthClientId": {
+					"type": "string",
+					"default": "",
+					"description": "OAuth App Client ID for web-based authentication (optional, enables 'Login with Browser')"
+				},
+				"dhpai.oauthClientSecret": {
+					"type": "string",
+					"default": "",
+					"description": "OAuth App Client Secret (optional, required for OAuth flow). WARNING: This will be stored in settings - consider using environment variable for production"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"lint": "eslint src --ext ts",
+		"package": "vsce package --baseContentUrl https://hagithub.home/CMS/cms-dhpai-copilot-template/raw/main/extension/"
+	},
+	"devDependencies": {
+		"@types/node": "^20.0.0",
+		"@types/vscode": "^1.80.0",
+		"@typescript-eslint/eslint-plugin": "^6.0.0",
+		"@typescript-eslint/parser": "^6.0.0",
+		"@vscode/vsce": "^2.22.0",
+		"eslint": "^8.0.0",
+		"typescript": "^5.0.0"
+	},
+	"dependencies": {
+		"js-yaml": "^4.1.0",
+		"@types/js-yaml": "^4.0.9"
+	}
+}

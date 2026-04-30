@@ -7,11 +7,35 @@
 - slug: typescript
   name: TypeScript
 
+- slug: javascript
+  name: JavaScript
+
 - slug: springboot
+  name: Spring Boot
+
+- slug: spring-boot
   name: Spring Boot
 
 - slug: testing
   name: Testing
+
+- slug: unit-test
+  name: Unit Test
+
+- slug: unit-testing
+  name: Unit Testing
+
+- slug: junit
+  name: JUnit
+
+- slug: jest
+  name: Jest
+
+- slug: mockito
+  name: Mockito
+
+- slug: jacoco
+  name: JaCoCo
 
 - slug: postgresql
   name: PostgreSQL
@@ -22,11 +46,17 @@
 - slug: database
   name: Database
 
+- slug: sql
+  name: SQL
+
+- slug: jsonb
+  name: JSONB
+
 - slug: nodejs
   name: Node.js
 
 - slug: sonarqube
-  name: Sonarqube
+  name: SonarQube
 
 - slug: aws
   name: AWS
@@ -43,9 +73,6 @@
 - slug: github-actions
   name: GitHub Actions
 
-- slug: unit-test
-  name: Unit Test
-
 - slug: tailwindcss
   name: Tailwind CSS
 
@@ -58,117 +85,17 @@
 - slug: nextjs
   name: Next.js
 
-- slug: dhpai
-  name: DHPAI
-
-- slug: openshift
-  name: OpenShift
-
-- slug: selenium
-  name: Selenium
-
-- slug: logging
-  name: Logging
-
-- slug: monitoring
-  name: Monitoring
-
-- slug: bug-fixing
-  name: Bug Fixing
-
 - slug: react-native
   name: React Native
 
 - slug: expo
   name: Expo
 
-- slug: junit
-  name: JUnit
+- slug: openshift
+  name: OpenShift
 
-- slug: mockito
-  name: Mockito
-
-- slug: jacoco
-  name: JaCoCo
-
-- slug: jest
-  name: Jest
-
-- slug: best-practices
-  name: Best Practices
-
-- slug: prompt-engineering
-  name: Prompt Engineering
-
-- slug: dhpai
-  name: DHPAI Agents
-
-- slug: skills
-  name: Skills
-
-- slug: code-review
-  name: Code Review
-
-- slug: javascript
-  name: JavaScript
-
-- slug: unit-testing
-  name: Unit Testing
-
-- slug: git
-  name: Git
-
-- slug: github
-  name: GitHub
-
-- slug: pr-review
-  name: PR Review
-
-- slug: code-quality
-  name: Code Quality
-
-- slug: schema-validation
-  name: Schema Validation
-
-- slug: jsonb
-  name: JSONB
-
-- slug: vscode
-  name: VS Code
-
-- slug: copilot
-  name: GitHub Copilot
-
-- slug: bug-fixing
-  name: Bug Fixing
-
-- slug: sql
-  name: SQL
-
-# Added missing tags reported by sidebar warning
-- slug: data-testid
-  name: data-testid
-
-- slug: frontend
-  name: Frontend
-
-- slug: bugfix
-  name: Bug Fix
-
-- slug: ci
-  name: CI
-
-- slug: codesmell
-  name: Code Smell
-
-- slug: vulnerability
-  name: Vulnerability
-
-- slug: security
-  name: Security
-
-- slug: spring-boot
-  name: Spring Boot
+- slug: selenium
+  name: Selenium
 
 - slug: openapi
   name: OpenAPI
@@ -178,6 +105,78 @@
 
 - slug: springdoc
   name: SpringDoc
+
+- slug: schema-validation
+  name: Schema Validation
+
+- slug: dhpai
+  name: DHPAI
+
+- slug: best-practices
+  name: Best Practices
+
+- slug: prompt-engineering
+  name: Prompt Engineering
+
+- slug: code-review
+  name: Code Review
+
+- slug: pr-review
+  name: PR Review
+
+- slug: code-quality
+  name: Code Quality
+
+- slug: skills
+  name: Skills
+
+- slug: instructions
+  name: Instructions
+
+- slug: chatmode
+  name: Chatmode
+
+- slug: copilot
+  name: GitHub Copilot
+
+- slug: vscode
+  name: VS Code
+
+- slug: security
+  name: Security
+
+- slug: vulnerability
+  name: Vulnerability
+
+- slug: bugfix
+  name: Bug Fix
+
+- slug: bug-fixing
+  name: Bug Fixing
+
+- slug: codesmell
+  name: Code Smell
+
+- slug: logging
+  name: Logging
+
+- slug: monitoring
+  name: Monitoring
+
+- slug: git
+  name: Git
+
+- slug: github
+  name: GitHub
+
+- slug: frontend
+  name: Frontend
+
+- slug: data-testid
+  name: data-testid
+
+- slug: ci
+  name: CI
 
 - slug: section
   name: Section

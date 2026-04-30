@@ -1,0 +1,1 @@
+CREATE TRIGGER "tU_transaction_log_after_update" AFTER UPDATE ON download.transaction_log REFERENCING OLD TABLE AS deleted NEW TABLE AS inserted FOR EACH STATEMENT EXECUTE FUNCTION download."fn_tU_transaction_log"();

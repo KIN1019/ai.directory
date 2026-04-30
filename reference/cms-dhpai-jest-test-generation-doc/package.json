@@ -1,0 +1,28 @@
+{
+	"scripts": {
+		"test": "react-scripts test --watchAll=false --coverage --maxWorkers=50%",
+		"test:coverage": "react-scripts test --watchAll=false --coverage --maxWorkers=50%"
+	},
+	"jest": {
+		"transformIgnorePatterns": [
+			"[/\\\\]node_modules[/\\\\](?!axios|quill|lodash-es|quill-delta|parchment).+\\.(js|jsx|mjs|cjs|ts|tsx)$",
+			"^.+\\.module\\.(css|sass|scss)$"
+		],
+		"collectCoverageFrom": [
+			"src/**/*.{ts,tsx,js,jsx}",
+			"!src/**/*.test.{ts,tsx,js,jsx}",
+			"!src/**/__tests__/**",
+			"!src/**/*.(spec).{ts,tsx,js,jsx}"
+		],
+		"coveragePathIgnorePatterns": [
+			"/node_modules/",
+			"/src/__mocks__/",
+			"/src/__tests__/",
+			"/src/@test/",
+			"/src/@types/",
+			"/src/constants/",
+			"/src/Components/",
+			"/src/assets/"
+		]
+	}
+}

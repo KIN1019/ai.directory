@@ -10,13 +10,14 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Download, FileText } from "lucide-react";
+import { SkillMarkdownDialog } from "./SkillMarkdownDialog";
 
 interface SkillCardProps {
-	name: string;
-	description: string;
-	source: string;
-	folderPath: string;
-	files: { name: string; relativePath: string }[];
+	readonly name: string;
+	readonly description: string;
+	readonly source: string;
+	readonly folderPath: string;
+	readonly files: { name: string; relativePath: string }[];
 }
 
 export function SkillCard({
@@ -58,10 +59,16 @@ export function SkillCard({
 					)}
 				</div>
 			</CardContent>
-			<CardFooter className="pt-3">
-				<Button asChild variant="outline" size="sm" className="w-full gap-2">
+			<CardFooter className="pt-3 flex gap-2">
+				<SkillMarkdownDialog
+					skillName={name}
+					description={description}
+					folderPath={folderPath}
+					files={files}
+				/>
+				<Button asChild variant="outline" size="sm" className="flex-1 gap-2">
 					<a
-						href={`/api/skills/download?path=${encodeURIComponent(folderPath)}`}
+						href={`/api/skills/download?path=${encodeURIComponent(folderPath)}&name=${encodeURIComponent(name)}`}
 						download
 					>
 						<Download className="w-4 h-4" />

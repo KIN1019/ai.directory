@@ -1,0 +1,845 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "manage zoom account and create zoom meetings\n",
+		"version": "v1",
+		"title": "cms-telemeeting-meetingServices"
+	},
+	"host": "apim-gateway-sb.serverdev.hadev.org.hk:8443",
+	"basePath": "/gateway/cms-telemeeting-meetingServices/v1",
+	"tags": [
+		{
+			"name": "telemeeting"
+		},
+		{
+			"name": "cms"
+		},
+		{
+			"name": "CP13"
+		},
+		{
+			"name": "Internal Policy Plan B2"
+		},
+		{
+			"name": "Zoom User Management",
+			"description": "APIs for managing Zoom users. notice: HttpCode always 200"
+		},
+		{
+			"name": "Healthcheck",
+			"description": "APIs for healthcheck of the service"
+		},
+		{
+			"name": "Zoom Meeting Management",
+			"description": "APIs for managing Zoom meetings. notice: HttpCode always 201"
+		}
+	],
+	"schemes": ["https"],
+	"paths": {
+		"/meeting/getMeetingHostUrl": {
+			"get": {
+				"tags": [
+					"Zoom Meeting Management",
+					"telemeeting",
+					"cms",
+					"CP13",
+					"Internal Policy Plan B2"
+				],
+				"summary": "Get a meeting host URL",
+				"description": "Get the host URL for a Zoom meeting by externalRequestId And appId.",
+				"operationId": "getMeetingHostUrl",
+				"consumes": [],
+				"produces": ["*/*"],
+				"parameters": [
+					{
+						"name": "zoomMeetingRequest",
+						"in": "query",
+						"description": "UUID of the meeting",
+						"required": true,
+						"type": "object"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Host URL retrieved successfully",
+						"examples": {
+							"*/*": "{\"result\":\"https://zoom.us/s/93997131494?zak=eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJpc3MiOiJ3ZWIiLCJjbHQiOjAsIm1udW0iOiI5Mzk5NzEzMTQ5NCIsImF1ZCI6ImNsaWVudHNtIiwidWlkIjoiRnp6Z1FlQ3BTaUdPd0dlSkFmLWNLQSIsInppZCI6IjhkYTQ5YmNjMDNjMzRhOGY4YjNlN2M2YzY0N2FiYjQzIiwic2siOiIwIiwic3R5Ijo5OSwid2NkIjoiYXcxIiwiZXhwIjoxNzQ3ODgzMDc0LCJpYXQiOjE3NDAxMDcwNzQsImFpZCI6ImtYVklJOUhrUkJlX0tWdHB2R3FjeWciLCJjaWQiOiIifQ.U-2wHpOiavdA_7S1jNtfZmJ97XevvwlYR9v7gf0Z7-8\",\"status_code\":\"0\",\"status_message\":\"Success\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"500": {
+						"description": "Internal server error",
+						"examples": {
+							"*/*": "{\"status_code\":500,\"status_message\":\"Please try again later or contact the system administrator for further investigation!\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					}
+				}
+			}
+		},
+		"/healthcheckAPIM": {
+			"get": {
+				"tags": [
+					"Healthcheck",
+					"telemeeting",
+					"cms",
+					"CP13",
+					"Internal Policy Plan B2"
+				],
+				"summary": "provide health check api to gateway",
+				"description": "Returns the health status of the gateway.",
+				"operationId": "gatewayHealthCheck",
+				"consumes": [],
+				"produces": ["*/*"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "Service is healthy",
+						"examples": {
+							"*/*": "{\"status\":\"OK\"}"
+						},
+						"schema": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		},
+		"/meeting/cancel": {
+			"post": {
+				"tags": [
+					"Zoom Meeting Management",
+					"telemeeting",
+					"cms",
+					"CP13",
+					"Internal Policy Plan B2"
+				],
+				"summary": "Cancel a meeting",
+				"description": "Cancel a Zoom meeting by externalRequestId And appId.",
+				"operationId": "cancelMeeting",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"required": false,
+						"schema": {
+							"$ref": "#/definitions/DeleteMeetingRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Meeting canceled successfully",
+						"examples": {
+							"*/*": "{\"status_code\":0,\"status_message\":\"Success\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"500": {
+						"description": "Internal server error",
+						"examples": {
+							"*/*": "{\"status_code\":500,\"status_message\":\"can't find meeting room\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					}
+				}
+			}
+		},
+		"/account/update": {
+			"post": {
+				"tags": [
+					"Zoom User Management",
+					"telemeeting",
+					"cms",
+					"CP13",
+					"Internal Policy Plan B2"
+				],
+				"summary": "Update a Zoom user",
+				"description": "Updates an existing Zoom user with the provided details.",
+				"operationId": "updateUser",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"required": false,
+						"schema": {
+							"$ref": "#/definitions/UpdateMeetingUserRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "User updated successfully",
+						"examples": {
+							"*/*": "{\"status_code\":\"0\",\"status_message\":\"Success\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"500": {
+						"description": "Please try again later or contact the system administrator for further investigation!",
+						"examples": {
+							"*/*": "{\"status_code\":\"500\",\"status_message\":\"Please try again later or contact the system administrator for further investigation!\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					}
+				}
+			}
+		},
+		"/meeting/create": {
+			"post": {
+				"tags": [
+					"Zoom Meeting Management",
+					"telemeeting",
+					"cms",
+					"CP13",
+					"Internal Policy Plan B2"
+				],
+				"summary": "Create a meeting",
+				"description": "Create a Zoom meeting with the provided details.",
+				"operationId": "createMeeting",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"required": false,
+						"schema": {
+							"$ref": "#/definitions/CreateMeetingRoomRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Meeting created successfully",
+						"examples": {
+							"*/*": "{\"result\":{\"uuid\":\"2GAnvSenQi2hDyWPiYv/7Q==\",\"startDatetime\":\"2025-03-01 10:00:00\",\"endDatetime\":\"2025-03-01 12:00:00\",\"startUrl\":\"https://zoom.us/s/93997131494?zak=eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJpc3MiOiJ3ZWIiLCJjbHQiOjAsIm1udW0iOiI5Mzk5NzEzMTQ5NCIsImF1ZCI6ImNsaWVudHNtIiwidWlkIjoiRnp6Z1FlQ3BTaUdPd0dlSkFmLWNLQSIsInppZCI6IjdlM2NhOWJjMzYyMzQ0MDRiOWFkYmZjZDUzMDgzYWE3Iiwic2siOiIwIiwic3R5Ijo5OSwid2NkIjoiYXcxIiwiZXhwIjoxNzQ3ODgyODU5LCJpYXQiOjE3NDAxMDY4NTksImFpZCI6ImtYVklJOUhrUkJlX0tWdHB2R3FjeWciLCJjaWQiOiIifQ.v5ebvCKZvhbFTU8jKMlTXFzFvNyZ2-N4K0QDeEwd21U\",\"joinUrl\":\"https://zoom.us/j/93997131494?pwd=SaE3Uqya76tbiegZeHaZIa0dgrVm0A.1\",\"password\":\"76142583\",\"roomNumber\":93997131494,\"encryptedPassword\":\"SaE3Uqya76tbiegZeHaZIa0dgrVm0A.1\"},\"status_code\":\"0\",\"status_message\":\"Success\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"500": {
+						"description": "Internal server error",
+						"examples": {
+							"*/*": "{\"status_code\":500,\"status_message\":\"Please try again later or contact the system administrator for further investigation!\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					}
+				}
+			}
+		},
+		"/meeting/get": {
+			"post": {
+				"tags": [
+					"Zoom Meeting Management",
+					"telemeeting",
+					"cms",
+					"CP13",
+					"Internal Policy Plan B2"
+				],
+				"summary": "Get a meeting",
+				"description": "Get a Zoom meeting room information by externalRequestId and appId.",
+				"operationId": "getMeeting",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"required": false,
+						"schema": {
+							"$ref": "#/definitions/ZoomMeetingRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Meeting retrieved successfully",
+						"examples": {
+							"*/*": "{\"result\":{\"uuid\":\"2GAnvSenQi2hDyWPiYv/7Q==\",\"startDatetime\":\"2025-03-01 10:00:00\",\"endDatetime\":\"2025-03-01 12:00:00\",\"startUrl\":\"https://zoom.us/s/93997131494?zak=eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJpc3MiOiJ3ZWIiLCJjbHQiOjAsIm1udW0iOiI5Mzk5NzEzMTQ5NCIsImF1ZCI6ImNsaWVudHNtIiwidWlkIjoiRnp6Z1FlQ3BTaUdPd0dlSkFmLWNLQSIsInppZCI6IjdlM2NhOWJjMzYyMzQ0MDRiOWFkYmZjZDUzMDgzYWE3Iiwic2siOiIwIiwic3R5Ijo5OSwid2NkIjoiYXcxIiwiZXhwIjoxNzQ3ODgyODU5LCJpYXQiOjE3NDAxMDY4NTksImFpZCI6ImtYVklJOUhrUkJlX0tWdHB2R3FjeWciLCJjaWQiOiIifQ.v5ebvCKZvhbFTU8jKMlTXFzFvNyZ2-N4K0QDeEwd21U\",\"joinUrl\":\"https://zoom.us/j/93997131494?pwd=SaE3Uqya76tbiegZeHaZIa0dgrVm0A.1\",\"password\":\"76142583\",\"roomNumber\":93997131494,\"encryptedPassword\":\"SaE3Uqya76tbiegZeHaZIa0dgrVm0A.1\"},\"status_code\":\"0\",\"status_message\":\"Success\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"500": {
+						"description": "Internal server error",
+						"examples": {
+							"*/*": "{\"status_code\":500,\"status_message\":\"Please try again later or contact the system administrator for further investigation!\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					}
+				}
+			}
+		},
+		"/account/create": {
+			"post": {
+				"tags": [
+					"Zoom User Management",
+					"telemeeting",
+					"cms",
+					"CP13",
+					"Internal Policy Plan B2"
+				],
+				"summary": "Create a new Zoom user",
+				"description": "Creates a new Zoom user with the provided details.",
+				"operationId": "createUser",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"required": false,
+						"schema": {
+							"$ref": "#/definitions/CreateMeetingUserRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "User created successfully",
+						"examples": {
+							"*/*": "{\"status_code\":\"0\",\"status_message\":\"Success\",\"result\":true}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"500": {
+						"description": "Please try again later or contact the system administrator for further investigation!",
+						"examples": {
+							"*/*": "{\"status_code\":\"500\",\"status_message\":\"Please try again later or contact the system administrator for further investigation!\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					}
+				}
+			}
+		},
+		"/account/get": {
+			"post": {
+				"tags": [
+					"Zoom User Management",
+					"telemeeting",
+					"cms",
+					"CP13",
+					"Internal Policy Plan B2"
+				],
+				"summary": "Get Zoom users",
+				"description": "Retrieves Zoom users by their account IDs.",
+				"operationId": "getUser",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"description": "List of meeting account IDs",
+							"example": "[\"12345\",\"67890\"]"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Users retrieved successfully",
+						"examples": {
+							"*/*": "{\"result\":{\"meeting_accounts\":[{\"associated_domain\":\"core\",\"reserved_app_id\":\"1\",\"ac_password\":\"nothing\",\"name\":\"test\",\"ac_type\":1,\"meeting_ac_id\":\"FzzgQeCpSiGOwGeJAf-cKA\",\"email\":\"jlemon97213@gmail.com\"}]},\"status_code\":\"0\",\"status_message\":\"Success\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"500": {
+						"description": "Please try again later or contact the system administrator for further investigation!",
+						"examples": {
+							"*/*": "{\"status_code\":\"500\",\"status_message\":\"Please try again later or contact the system administrator for further investigation!\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					}
+				}
+			}
+		},
+		"/meeting/update": {
+			"post": {
+				"tags": [
+					"Zoom Meeting Management",
+					"telemeeting",
+					"cms",
+					"CP13",
+					"Internal Policy Plan B2"
+				],
+				"summary": "Update a meeting",
+				"description": "Update a Zoom meeting with the provided details.",
+				"operationId": "updateMeeting",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"required": false,
+						"schema": {
+							"$ref": "#/definitions/UpdateMeetingRoomRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Meeting updated successfully",
+						"examples": {
+							"*/*": "{\"status_code\":0,\"status_message\":\"Success\",\"data\":{\"uuid\":\"12345\",\"hostUrl\":\"https://zoom.us/j/1234567890\"}}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"500": {
+						"description": "Internal server error",
+						"examples": {
+							"*/*": "{\"status_code\":500,\"message\":\"Please try again later or contact the system administrator for further investigation!\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					}
+				}
+			}
+		},
+		"/account/delete": {
+			"post": {
+				"tags": [
+					"Zoom User Management",
+					"telemeeting",
+					"cms",
+					"CP13",
+					"Internal Policy Plan B2"
+				],
+				"summary": "Delete Zoom users",
+				"description": "Deletes Zoom users by their account IDs.",
+				"operationId": "deleteUser",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"description": "List of meeting account IDs",
+							"example": "[\"12345\",\"67890\"]"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Users deleted successfully",
+						"examples": {
+							"*/*": "{\"status_code\":\"0\",\"status_message\":\"Success\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"500": {
+						"description": "Please try again later or contact the system administrator for further investigation!",
+						"examples": {
+							"*/*": "{\"status_code\":\"500\",\"status_message\":\"Please try again later or contact the system administrator for further investigation!\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					}
+				}
+			}
+		},
+		"/meeting/end": {
+			"post": {
+				"tags": [
+					"Zoom Meeting Management",
+					"telemeeting",
+					"cms",
+					"CP13",
+					"Internal Policy Plan B2"
+				],
+				"summary": "Delete a meeting",
+				"description": "Delete a Zoom meeting by externalRequestId And appId, releasing the meeting room resource.",
+				"operationId": "deletedMeeting",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"required": false,
+						"schema": {
+							"$ref": "#/definitions/EndMeetingRequest"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Meeting deleted successfully",
+						"examples": {
+							"*/*": "{\"status_code\":0,\"status_message\":\"Success\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"500": {
+						"description": "Internal server error",
+						"examples": {
+							"*/*": "{\"status_code\":500,\"message\":\"Please try again later or contact the system administrator for further investigation!\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					}
+				}
+			}
+		},
+		"/account/available_count": {
+			"get": {
+				"tags": [
+					"Zoom User Management",
+					"telemeeting",
+					"cms",
+					"CP13",
+					"Internal Policy Plan B2"
+				],
+				"summary": "Get available user count",
+				"description": "Retrieves the count of available Zoom users for a given reserved date.",
+				"operationId": "getAvailableCount",
+				"consumes": [],
+				"produces": ["*/*"],
+				"parameters": [
+					{
+						"name": "reservedDt",
+						"in": "query",
+						"description": "Reserved date in YYYY-MM-DD format",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Available count retrieved successfully",
+						"examples": {
+							"*/*": "{\"result\":{\"available_account\":[{\"associated_domain\":\"core\",\"count\":22,\"ac_type\":1},{\"associated_domain\":\"itele\",\"count\":1,\"ac_type\":1},{\"associated_domain\":\"core\",\"count\":7,\"ac_type\":2}]},\"status_code\":\"0\",\"status_message\":\"Success\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					},
+					"500": {
+						"description": "Please try again later or contact the system administrator for further investigation!",
+						"examples": {
+							"*/*": "{\"status_code\":\"500\",\"status_message\":\"Please try again later or contact the system administrator for further investigation!\"}"
+						},
+						"schema": {
+							"$ref": "#/definitions/Response"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"Response": {
+			"type": "object",
+			"required": ["status_code", "status_message"],
+			"properties": {
+				"result": {
+					"type": "object",
+					"description": "Result data of the response",
+					"properties": {}
+				},
+				"status_code": {
+					"type": "string",
+					"example": "0",
+					"description": "Status code of the response"
+				},
+				"status_message": {
+					"type": "string",
+					"example": "Success",
+					"description": "Status message of the response"
+				}
+			},
+			"description": "Generic response object for API responses"
+		},
+		"UpdateMeetingRoomRequest": {
+			"type": "object",
+			"required": [
+				"acType",
+				"appId",
+				"associatedDomain",
+				"customSettings",
+				"reservedDt"
+			],
+			"properties": {
+				"acType": {
+					"type": "integer",
+					"format": "int32",
+					"example": 1,
+					"description": "Account type"
+				},
+				"appId": {
+					"type": "string",
+					"example": "app123",
+					"description": "Application ID"
+				},
+				"associatedDomain": {
+					"type": "string",
+					"example": "example.com",
+					"description": "Associated domain"
+				},
+				"customSettings": {
+					"type": "object",
+					"properties": {}
+				},
+				"externalRequestId": {
+					"type": "string",
+					"example": "req456",
+					"description": "External request ID"
+				},
+				"reservedDt": {
+					"type": "string",
+					"example": "2023-10-01",
+					"description": "Reserved date in YYYY-MM-DD format"
+				}
+			},
+			"description": "Details of the meeting to be updated"
+		},
+		"ZoomMeetingRequest": {
+			"type": "object",
+			"properties": {
+				"appId": {
+					"type": "string",
+					"example": "123456",
+					"description": "Application ID"
+				},
+				"externalRequestId": {
+					"type": "string",
+					"example": "uPZ6KUN_TUXnS6hxaWv3",
+					"description": "External unique request ID"
+				}
+			},
+			"description": "Request parameters for getting a meeting"
+		},
+		"CreateMeetingRoomRequest": {
+			"type": "object",
+			"required": [
+				"acType",
+				"appId",
+				"associatedDomain",
+				"customSettings",
+				"externalRequestId",
+				"reservedDt"
+			],
+			"properties": {
+				"acType": {
+					"type": "integer",
+					"format": "int32",
+					"example": 1,
+					"description": "Account type"
+				},
+				"appId": {
+					"type": "string",
+					"example": "123456",
+					"description": "Application ID"
+				},
+				"associatedDomain": {
+					"type": "string",
+					"example": "core/external system name",
+					"description": "Associated domain"
+				},
+				"customSettings": {
+					"type": "object",
+					"properties": {}
+				},
+				"externalRequestId": {
+					"type": "string",
+					"example": "uPZ6KUN_TUXnS6hxaWv3",
+					"description": "External unique request ID"
+				},
+				"reservedDt": {
+					"type": "string",
+					"example": "2023-10-01",
+					"description": "Reserved date in YYYY-MM-DD format"
+				}
+			},
+			"description": "Details of the meeting to be created"
+		},
+		"CustomSettingsDTO": {
+			"type": "object",
+			"required": ["duration", "startTime", "topic"],
+			"properties": {
+				"duration": {
+					"type": "integer",
+					"format": "int32",
+					"example": 60,
+					"description": "Meeting duration in minutes"
+				},
+				"startTime": {
+					"type": "string",
+					"example": "2023-10-01T10:00:00Z",
+					"description": "Meeting start time in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ)"
+				},
+				"topic": {
+					"type": "string",
+					"example": "Team Meeting",
+					"description": "Meeting topic"
+				}
+			},
+			"description": "Custom settings for the meeting room"
+		},
+		"DeleteMeetingRequest": {
+			"type": "object",
+			"required": ["appId", "externalRequestId"],
+			"properties": {
+				"appId": {
+					"type": "string",
+					"example": "123456",
+					"description": "Application ID"
+				},
+				"externalRequestId": {
+					"type": "string",
+					"example": "uPZ6KUN_TUXnS6hxaWv3",
+					"description": "External unique request ID"
+				}
+			},
+			"description": "JSON object containing the uuid of the meeting to be canceled"
+		},
+		"AccountInfo": {
+			"type": "object",
+			"required": ["name"],
+			"properties": {
+				"acPassword": {
+					"type": "string",
+					"example": "securePassword123",
+					"description": "Account password"
+				},
+				"acType": {
+					"type": "integer",
+					"format": "int32",
+					"example": 1,
+					"description": "Account type"
+				},
+				"associatedDomain": {
+					"type": "string",
+					"example": "example.com",
+					"description": "Associated domain"
+				},
+				"email": {
+					"type": "string",
+					"example": "john.doe@example.com",
+					"description": "Email of the account holder"
+				},
+				"meetingAcId": {
+					"type": "string",
+					"example": "12345",
+					"description": "Meeting account ID"
+				},
+				"name": {
+					"type": "string",
+					"example": "John Doe",
+					"description": "Name of the account holder"
+				},
+				"reservedAppId": {
+					"type": "string",
+					"example": "app123",
+					"description": "Reserved application ID"
+				},
+				"reservedDt": {
+					"type": "string",
+					"example": "2023-10-01",
+					"description": "Reserved date in YYYY-MM-DD format"
+				},
+				"reservedTelecareId": {
+					"type": "string",
+					"example": "tele123",
+					"description": "Reserved telecare ID"
+				}
+			},
+			"description": "Request object for account information",
+			"example": "[{\"meeting_ac_id\":\"12345\",\"associated_domain\":\"example.com\",\"ac_type\":1,\"ac_password\":\"securePassword123\",\"name\":\"John Doe\",\"email\":\"john.doe@example.com\",\"reserved_app_id\":\"app123\",\"reserved_dt\":\"2023-10-01\",\"reserved_telecare_id\":\"tele123\"}]"
+		},
+		"EndMeetingRequest": {
+			"type": "object",
+			"required": ["appId", "externalRequestId"],
+			"properties": {
+				"appId": {
+					"type": "string",
+					"example": "123456",
+					"description": "Application ID"
+				},
+				"externalRequestId": {
+					"type": "string",
+					"example": "uPZ6KUN_TUXnS6hxaWv3",
+					"description": "External unique request ID"
+				}
+			},
+			"description": "JSON object containing the uuid of the meeting to be deleted"
+		},
+		"CreateMeetingUserRequest": {
+			"type": "object",
+			"required": ["account_info"],
+			"properties": {
+				"account_info": {
+					"type": "array",
+					"example": "[{\"meeting_ac_id\":\"12345\",\"associated_domain\":\"core\",\"ac_type\":1,\"ac_password\":\"securePassword123\",\"name\":\"John Doe\",\"email\":\"john.doe@example.com\",\"reserved_app_id\":\"123456\",\"reserved_dt\":\"2023-10-01\",\"reserved_telecare_id\":\"tele123\"}]",
+					"description": "List of account information for the users to be created",
+					"items": {
+						"type": "object",
+						"properties": {}
+					}
+				}
+			},
+			"description": "Details of the user to be created"
+		},
+		"UpdateMeetingUserRequest": {
+			"type": "object",
+			"required": ["account_info"],
+			"properties": {
+				"account_info": {
+					"type": "array",
+					"example": "[{\"meeting_ac_id\":\"12345\",\"associated_domain\":\"example.com\",\"ac_type\":1,\"ac_password\":\"securePassword123\",\"name\":\"John Doe\",\"email\":\"john.doe@example.com\",\"reserved_app_id\":\"app123\",\"reserved_dt\":\"2023-10-01\",\"reserved_telecare_id\":\"tele123\"}]",
+					"description": "List of account information for the users to be updated",
+					"items": {
+						"type": "object",
+						"properties": {}
+					}
+				}
+			},
+			"description": "Details of the user to be updated"
+		}
+	}
+}

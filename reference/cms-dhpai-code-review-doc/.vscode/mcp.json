@@ -1,0 +1,74 @@
+{
+	"servers": {
+		"hagithubhome": {
+			"type": "stdio",
+			"command": "github-mcp-server",
+			"args": ["stdio"],
+			"env": {
+				"GITHUB_HOST": "https://hagithub.home",
+				"GITHUB_PERSONAL_ACCESS_TOKEN": "${input:HAGITHUB_HOME_PAT}"
+			}
+		},
+		"context7": {
+			"type": "stdio",
+			"command": "npx",
+			"args": ["-y", "@upstash/context7-mcp@latest"],
+			"env": {
+				"HTTP_PROXY": "${input:http-proxy}",
+				"HTTPS_PROXY": "${input:http-proxy}",
+				"NO_PROXY": ".server.ha.org.hk,.home"
+			}
+		},
+		"dhpai": {
+			"type": "sse",
+			"url": "https://dhpai-context-mcp-poc-cms-dhp-1.tstcld61.server.ha.org.hk/sse"
+		}
+		// "hagithub": {
+		//   "command": "github-mcp-server",
+		//   "args": ["stdio"],
+		//   "env": {
+		//     "GITHUB_HOST": "https://hagithub.ha.org.hk",
+		//     "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:HAGITHUB_PAT}",
+		//     "HTTPS_PROXY": "${input:http-proxy}"
+		//   },
+		//   "type": "stdio"
+		// },
+		// "sonarqube": {
+		//   "type": "stdio",
+		//   "command": "npx",
+		//   "args": ["-y", "ha-sonarqube-mcp-server@latest"],
+		//   "env": {
+		//     "SONARQUBE_URL": "https://hatool-sonarqube.home",
+		//     "SONARQUBE_TOKEN": "${input:sonarqube-token}"
+		//   }
+		// },
+	},
+
+	"inputs": [
+		{
+			"type": "promptString",
+			"id": "no-proxy",
+			"description": "NO_PROXY domains",
+			"default": "localhost,.home,.server.ha.org.hk"
+		},
+		{
+			"type": "promptString",
+			"id": "http-proxy",
+			"description": "HTTP_PROXY URL",
+			"password": true
+			// "default": "http://<username>:<password>@proxy.ha.org.hk:8080"
+		},
+		{
+			"type": "promptString",
+			"id": "sonarqube-token",
+			"description": "sonarqube token",
+			"password": true
+		},
+		{
+			"type": "promptString",
+			"id": "HAGITHUB_HOME_PAT",
+			"description": "hagithub.home PAT token",
+			"password": true
+		}
+	]
+}

@@ -1,0 +1,24 @@
+# OSX trash
+.DS_Store
+
+# OSX leaves these everywhere on SMB shares
+._*
+
+# Emacs save files
+*~
+\#*\#
+.\#*
+
+# Vim-related files
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# Version control
+.git
+.svn
+
+# backup files
+*.bak

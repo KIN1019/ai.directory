@@ -1,0 +1,20 @@
+[project]
+name = "sp-evaluation"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "logfire>=3.22.0",
+    "pydantic-ai>=0.3.6",
+    "docker>=7.0.0",
+    "psycopg2-binary>=2.9.0",
+    "pymssql>=2.2.0",
+    "requests>=2.31.0",
+    "sqlfluff>=3.4.1",
+    "rich>=14.0.0",
+    "prompt-toolkit>=3.0.51",
+    "nest-asyncio>=1.6.0",
+    "tiktoken>=0.9.0",
+    "matplotlib>=3.10.3",
+]

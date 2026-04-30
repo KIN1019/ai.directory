@@ -1,0 +1,34 @@
+{
+	"name": "awesome-copilot",
+	"version": "1.1.0",
+	"description": "Enhance your GitHub Copilot experience with community-contributed instructions, prompts, and chat modes",
+	"main": "update-readme.js",
+	"scripts": {
+		"build": "node update-readme.js",
+		"generate:index": "node scripts/generate-index.cjs",
+		"generate:docs": "node scripts/generate-docs.js",
+		"contributors:add": "all-contributors add",
+		"contributors:generate": "all-contributors generate",
+		"contributors:check": "all-contributors check"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/github/awesome-copilot.git"
+	},
+	"keywords": [
+		"github",
+		"copilot",
+		"ai",
+		"prompts",
+		"instructions"
+	],
+	"author": "GitHub",
+	"license": "MIT",
+	"dependencies": {
+		"gray-matter": "^4.0.3",
+		"js-yaml": "^4.1.0"
+	},
+	"devDependencies": {
+		"all-contributors-cli": "^6.26.1"
+	}
+}

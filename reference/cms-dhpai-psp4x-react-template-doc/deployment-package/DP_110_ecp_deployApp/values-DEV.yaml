@@ -1,0 +1,40 @@
+image:
+  repository: <$HELMVALUES_IMAGE_REPOSITORY_NON_PRD_SERVER_REPO>/<$APP_NAME>
+  pullPolicy: Always
+imagePullSecrets: []
+
+paas:
+  alert:
+    projectCode: "CP14"
+
+ingress:
+  enabled: true
+  className: ""
+  annotations:
+    haproxy.router.openshift.io/timeout: 60s
+  hosts:
+    - host: <$APP_NAME>-<$NAMESPACE_PREFIX>-<$PROFILES_ACTIVE>.<$HELMVALUES_INGRESS_HOSTS_HOST_NON_PRD_C2_LTM_SUFFIX>
+      paths:
+        - path:
+          pathType: ImplementationSpecific
+    - host: <$APP_NAME>-<$PROFILES_ACTIVE>.<$HELMVALUES_INGRESS_HOSTS_HOST_NON_PRD_CNAME_SUFFIX>
+      paths:
+        - path:
+          pathType: ImplementationSpecific
+    - host: <$APP_NAME>-<$PROFILES_ACTIVE>.<$HELMVALUES_INGRESS_HOSTS_HOST_NON_PRD_CORPDEV_CNAME_SUFFIX>
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+    - host: <$APP_NAME>-<$NAMESPACE_PREFIX>-<$PROFILES_ACTIVE>.<$HELMVALUES_INGRESS_HOSTS_HOST_NON_PRD_GTM_SUFFIX>
+      paths:
+        - path:
+          pathType: ImplementationSpecific
+    - host: <$APP_NAME>-<$NAMESPACE_PREFIX>-<$PROFILES_ACTIVE>.<$HELMVALUES_INGRESS_HOSTS_HOST_NON_PRD_SERVERDEV_C2_LTM_SUFFIX>
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+    - host: <$APP_NAME>-<$NAMESPACE_PREFIX>-<$PROFILES_ACTIVE>.<$HELMVALUES_INGRESS_HOSTS_HOST_NON_PRD_CORPDEV_GTM_SUFFIX>
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []

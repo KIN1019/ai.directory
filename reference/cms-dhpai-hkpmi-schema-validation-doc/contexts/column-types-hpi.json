@@ -1,0 +1,4002 @@
+[
+	{
+		"file": "acex_table.sql",
+		"tables": [
+			{
+				"name": "acex_table",
+				"properties": [
+					{ "name": "acex_hosp", "type": "varchar(6)" },
+					{ "name": "acex_month", "type": "varchar(12)" },
+					{ "name": "acex_hkid", "type": "varchar(24)" },
+					{ "name": "acex_case", "type": "varchar(24)" },
+					{ "name": "acex_count", "type": "varchar(12)" },
+					{ "name": "acex_spec", "type": "varchar(6)" },
+					{ "name": "acex_los", "type": "varchar(12)" },
+					{ "name": "acex_bdo", "type": "varchar(12)" },
+					{ "name": "acex_dsch", "type": "varchar(2)" },
+					{ "name": "acex_src_ind", "type": "varchar(2)" },
+					{ "name": "acex_adm_src", "type": "varchar(6)" },
+					{ "name": "acex_adm_date", "type": "varchar(16)" },
+					{ "name": "acex_prev_dsch_date", "type": "varchar(16)" },
+					{ "name": "acex_dsch_type", "type": "varchar(2)" },
+					{ "name": "acex_to_home", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "address_detail.sql",
+		"tables": [
+			{
+				"name": "address_detail",
+				"properties": [
+					{ "name": "record_id", "type": "int4" },
+					{ "name": "bldg_chi", "type": "varchar(200)" },
+					{ "name": "bldg_eng", "type": "varchar(400)" },
+					{ "name": "estate_chi", "type": "varchar(160)" },
+					{ "name": "estate_eng", "type": "varchar(200)" },
+					{ "name": "house_no", "type": "varchar(20)" },
+					{ "name": "street_chi", "type": "varchar(100)" },
+					{ "name": "street_eng", "type": "varchar(200)" },
+					{ "name": "district_code", "type": "varchar(10)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			},
+			{
+				"name": "address_phonetic_word",
+				"properties": [
+					{ "name": "non_standard", "type": "varchar(20)" },
+					{ "name": "standard", "type": "varchar(20)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "address_detail_cx_down.sql",
+		"tables": [
+			{
+				"name": "address_detail_cx_down",
+				"properties": [
+					{ "name": "record_id", "type": "int4" },
+					{ "name": "bldg_chi", "type": "varchar(200)" },
+					{ "name": "bldg_eng", "type": "varchar(400)" },
+					{ "name": "estate_chi", "type": "varchar(160)" },
+					{ "name": "estate_eng", "type": "varchar(200)" },
+					{ "name": "house_no", "type": "varchar(20)" },
+					{ "name": "street_chi", "type": "varchar(100)" },
+					{ "name": "street_eng", "type": "varchar(200)" },
+					{ "name": "district_code", "type": "varchar(10)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "address_key.sql",
+		"tables": [
+			{
+				"name": "address_key",
+				"properties": [
+					{ "name": "record_id", "type": "int4" },
+					{ "name": "long_key", "type": "varchar(48)" },
+					{ "name": "short_key", "type": "varchar(14)" },
+					{ "name": "soundex_key", "type": "varchar(16)" },
+					{ "name": "record_type", "type": "varchar(2)" },
+					{ "name": "region", "type": "varchar(4)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" },
+					{ "name": "id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "address_key_new.sql",
+		"tables": [
+			{
+				"name": "address_key_new",
+				"properties": [
+					{ "name": "record_id", "type": "int4" },
+					{ "name": "long_key", "type": "varchar(48)" },
+					{ "name": "short_key", "type": "varchar(14)" },
+					{ "name": "soundex_key", "type": "varchar(16)" },
+					{ "name": "record_type", "type": "varchar(2)" },
+					{ "name": "region", "type": "varchar(4)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "address_phonetic_code.sql",
+		"tables": [
+			{
+				"name": "address_phonetic_code",
+				"properties": [
+					{ "name": "phonetic_char", "type": "varchar(2)" },
+					{ "name": "phonetic_code", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "address_phonetic_word.sql",
+		"tables": [
+			{
+				"name": "address_phonetic_word",
+				"properties": [
+					{ "name": "non_standard", "type": "varchar(20)" },
+					{ "name": "standard", "type": "varchar(20)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "address_type.sql",
+		"tables": [
+			{
+				"name": "address_type",
+				"properties": [
+					{ "name": "full_name", "type": "varchar(32)" },
+					{ "name": "abbreviation", "type": "varchar(8)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{ "file": "adt_case_adtdb.sql", "tables": [] },
+	{ "file": "adt_case_adtdb_trigger_error_log.sql", "tables": [] },
+	{
+		"file": "ae_multi_registration.sql",
+		"tables": [
+			{
+				"name": "ae_multi_registration",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "close_date", "type": "timestamp(6)" },
+					{ "name": "multi_type", "type": "varchar(2)" },
+					{ "name": "request_by", "type": "varchar(96)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "audit_log.sql",
+		"tables": [
+			{
+				"name": "audit_log",
+				"properties": [
+					{ "name": "system_datetime", "type": "timestamp(6)" },
+					{ "name": "log_type", "type": "varchar(6)" },
+					{ "name": "pat_user_id", "type": "varchar(24)" },
+					{ "name": "workstation_id", "type": "varchar(12)" },
+					{ "name": "login_id", "type": "varchar(16)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "audit_log_no_pat_id.sql",
+		"tables": [
+			{
+				"name": "audit_log_no_pat_id",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "system_datetime", "type": "timestamp(6)" },
+					{ "name": "ws_id", "type": "varchar(16)" },
+					{ "name": "login_id", "type": "varchar(24)" },
+					{ "name": "func_id", "type": "int4" },
+					{ "name": "action_type", "type": "varchar(2)" },
+					{ "name": "action_string", "type": "varchar(80)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "available_function.sql",
+		"tables": [
+			{
+				"name": "available_function",
+				"properties": [
+					{ "name": "available_function_name", "type": "varchar(20)" },
+					{ "name": "available_function_value", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "bed.sql", "tables": [] },
+	{
+		"file": "bed_allocation.sql",
+		"tables": [
+			{
+				"name": "bed_allocation",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "original_specialty", "type": "varchar(8)" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "official_bed", "type": "int4" },
+					{ "name": "day_bed", "type": "int4" },
+					{ "name": "isolation_bed", "type": "int4" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" },
+					{ "name": "isolation_day", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "bed_allocation_trans.sql",
+		"tables": [
+			{
+				"name": "bed_allocation_trans",
+				"properties": [
+					{ "name": "host", "type": "varchar(60)" },
+					{ "name": "seq", "type": "int4" },
+					{ "name": "exec_datetime", "type": "timestamp(6)" },
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "original_specialty", "type": "varchar(8)" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "official_bed", "type": "int4" },
+					{ "name": "day_bed", "type": "int4" },
+					{ "name": "isolation_bed", "type": "int4" },
+					{ "name": "isolation_day", "type": "int4" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" },
+					{ "name": "old_ward", "type": "varchar(8)" },
+					{ "name": "old_specialty", "type": "varchar(8)" },
+					{ "name": "old_original", "type": "varchar(8)" },
+					{ "name": "old_effective", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "bed_category.sql",
+		"tables": [
+			{
+				"name": "bed_category",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "bed_no", "type": "varchar(10)" },
+					{ "name": "effective_datetime", "type": "timestamp(6)" },
+					{ "name": "bed_category", "type": "varchar(10)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" },
+					{ "name": "bed_service", "type": "varchar(6)" },
+					{ "name": "bed_location", "type": "varchar(4)" },
+					{ "name": "bed_type", "type": "varchar(2)" },
+					{ "name": "isolation_facilities", "type": "varchar(4)" },
+					{ "name": "funded_bed", "type": "varchar(4)" },
+					{ "name": "cubicle_no", "type": "varchar(8)" },
+					{ "name": "original_capacity", "type": "varchar(4)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "bed_category_type.sql",
+		"tables": [
+			{
+				"name": "bed_category_type",
+				"properties": [
+					{ "name": "bed_category", "type": "varchar(10)" },
+					{ "name": "bed_type", "type": "varchar(2)" },
+					{ "name": "description", "type": "varchar(96)" },
+					{ "name": "short_description", "type": "varchar(96)" },
+					{ "name": "treatment_location", "type": "varchar(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "bed_change_log.sql",
+		"tables": [
+			{
+				"name": "bed_change_log",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "cubicle_no", "type": "varchar(8)" },
+					{ "name": "bed_no", "type": "varchar(10)" },
+					{ "name": "effective_datetime", "type": "timestamp(6)" },
+					{ "name": "active_status", "type": "varchar(2)" },
+					{ "name": "isolation_facilities", "type": "varchar(4)" },
+					{ "name": "bed_type", "type": "varchar(2)" },
+					{ "name": "bed_category", "type": "varchar(10)" },
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "in_service_specialty", "type": "varchar(8)" },
+					{ "name": "row_no", "type": "int4" },
+					{ "name": "col_no", "type": "int4" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "source_system", "type": "varchar(10)" },
+					{ "name": "ciwl_indicator", "type": "varchar(2)" },
+					{ "name": "isolation_bed", "type": "varchar(2)" },
+					{ "name": "bed_ready", "type": "varchar(2)" },
+					{ "name": "old_active_status", "type": "varchar(2)" },
+					{ "name": "old_isolation_facilities", "type": "varchar(4)" },
+					{ "name": "old_bed_type", "type": "varchar(2)" },
+					{ "name": "old_bed_category", "type": "varchar(10)" },
+					{ "name": "old_specialty_code", "type": "varchar(8)" },
+					{ "name": "old_in_service_specialty", "type": "varchar(8)" },
+					{ "name": "old_row_no", "type": "int4" },
+					{ "name": "old_col_no", "type": "int4" },
+					{ "name": "old_update_datetime", "type": "timestamp(6)" },
+					{ "name": "old_update_by", "type": "varchar(24)" },
+					{ "name": "old_source_system", "type": "varchar(10)" },
+					{ "name": "old_ciwl_indicator", "type": "varchar(2)" },
+					{ "name": "old_isolation_bed", "type": "varchar(2)" },
+					{ "name": "old_bed_ready", "type": "varchar(2)" },
+					{ "name": "remark", "type": "varchar(8)" },
+					{ "name": "\"action\"", "type": "varchar(2)" },
+					{ "name": "sent", "type": "varchar(2)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "bed_history.sql",
+		"tables": [
+			{
+				"name": "bed_history",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "cubicle_no", "type": "varchar(8)" },
+					{ "name": "bed_no", "type": "varchar(10)" },
+					{ "name": "effective_datetime", "type": "timestamp(6)" },
+					{ "name": "active_status", "type": "varchar(2)" },
+					{ "name": "bed_type", "type": "varchar(2)" },
+					{ "name": "bed_category", "type": "varchar(10)" },
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "in_service_specialty", "type": "varchar(8)" },
+					{ "name": "row_no", "type": "int4" },
+					{ "name": "col_no", "type": "int4" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "source_system", "type": "varchar(10)" },
+					{ "name": "ciwl_indicator", "type": "varchar(2)" },
+					{ "name": "isolation_bed", "type": "varchar(2)" },
+					{ "name": "bed_ready", "type": "varchar(2)" },
+					{ "name": "physical_bed_no", "type": "varchar(10)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "bed_history_trans.sql",
+		"tables": [
+			{
+				"name": "bed_history_trans",
+				"properties": [
+					{ "name": "host", "type": "varchar(60)" },
+					{ "name": "seq", "type": "int4" },
+					{ "name": "exec_datetime", "type": "timestamp(6)" },
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "cubicle_no", "type": "varchar(8)" },
+					{ "name": "bed_no", "type": "varchar(10)" },
+					{ "name": "effective_datetime", "type": "timestamp(6)" },
+					{ "name": "active_status", "type": "varchar(2)" },
+					{ "name": "bed_type", "type": "varchar(2)" },
+					{ "name": "bed_category", "type": "varchar(10)" },
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "in_service_specialty", "type": "varchar(8)" },
+					{ "name": "row_no", "type": "int4" },
+					{ "name": "col_no", "type": "int4" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "source_system", "type": "varchar(10)" },
+					{ "name": "ciwl_indicator", "type": "varchar(2)" },
+					{ "name": "isolation_bed", "type": "varchar(2)" },
+					{ "name": "old_ward", "type": "varchar(8)" },
+					{ "name": "old_cubicle", "type": "varchar(8)" },
+					{ "name": "old_bed", "type": "varchar(10)" },
+					{ "name": "old_effective", "type": "timestamp(6)" },
+					{ "name": "bed_ready", "type": "varchar(2)" },
+					{ "name": "physical_bed_no", "type": "varchar(10)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "bed_location_type.sql",
+		"tables": [
+			{
+				"name": "bed_location_type",
+				"properties": [
+					{ "name": "bed_location", "type": "varchar(4)" },
+					{ "name": "description", "type": "varchar(160)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "bed_occupying_history.sql",
+		"tables": [
+			{
+				"name": "bed_occupying_history",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "bed_no", "type": "varchar(10)" },
+					{ "name": "bed_status", "type": "varchar(2)" },
+					{ "name": "effective_datetime", "type": "timestamp(6)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "bed_service_type.sql",
+		"tables": [
+			{
+				"name": "bed_service_type",
+				"properties": [
+					{ "name": "bed_service", "type": "varchar(6)" },
+					{ "name": "description", "type": "varchar(160)" },
+					{ "name": "status", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "borrowers.sql",
+		"tables": [
+			{
+				"name": "borrowers",
+				"properties": [
+					{ "name": "borrowers_id", "type": "varchar(30)" },
+					{ "name": "hospital_cde", "type": "varchar(6)" },
+					{ "name": "borrower_type", "type": "varchar(2)" },
+					{ "name": "borrower_title", "type": "varchar(20)" },
+					{ "name": "borrower_name", "type": "varchar(80)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "specialty", "type": "varchar(8)" },
+					{ "name": "borrower_status", "type": "varchar(6)" },
+					{ "name": "first_rmd_period", "type": "int4" },
+					{ "name": "second_rmd_period", "type": "int4" },
+					{ "name": "section_head", "type": "varchar(30)" },
+					{ "name": "tel_no", "type": "varchar(24)" },
+					{ "name": "cut_off_date", "type": "timestamp(6)" },
+					{ "name": "def_reason", "type": "varchar(6)" },
+					{ "name": "row_update_datetime", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "case_type.sql",
+		"tables": [
+			{
+				"name": "case_type",
+				"properties": [
+					{ "name": "case_type", "type": "varchar(6)" },
+					{ "name": "description", "type": "varchar(160)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ccc_unicode.sql",
+		"tables": [
+			{
+				"name": "ccc_unicode",
+				"properties": [
+					{ "name": "ccc_head", "type": "varchar(8)" },
+					{ "name": "ccc_tail", "type": "varchar(2)" },
+					{ "name": "phonetic_text", "type": "varchar(12)" },
+					{ "name": "unicode_int", "type": "int4" },
+					{ "name": "unicode_char", "type": "varchar(4)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "change_ward.sql",
+		"tables": [
+			{
+				"name": "change_ward",
+				"properties": [
+					{ "name": "ws_code", "type": "varchar(10)" },
+					{ "name": "change_ns_code", "type": "varchar(10)" },
+					{ "name": "default_ns_flag", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ciwl_table.sql",
+		"tables": [
+			{
+				"name": "ciwl_table",
+				"properties": [
+					{ "name": "hosp_code", "type": "varchar(6)" },
+					{ "name": "spec_code", "type": "varchar(8)" },
+					{ "name": "ciwl_ind", "type": "varchar(2)" },
+					{ "name": "active_status", "type": "varchar(2)" },
+					{ "name": "eff_date", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cluster_hospital.sql",
+		"tables": [
+			{
+				"name": "cluster_hospital",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "english_name", "type": "varchar(160)" },
+					{ "name": "chinese_name", "type": "varchar(160)" },
+					{ "name": "\"cluster\"", "type": "varchar(10)" },
+					{ "name": "server_name", "type": "varchar(40)" },
+					{ "name": "db_name", "type": "varchar(40)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cms_url_version_java.sql",
+		"tables": [
+			{
+				"name": "cms_url_version_java",
+				"properties": [
+					{ "name": "hosp_code", "type": "varchar(20)" },
+					{ "name": "\"function\"", "type": "varchar(80)" },
+					{ "name": "\"type\"", "type": "varchar(10)" },
+					{ "name": "\"version\"", "type": "varchar(40)" },
+					{ "name": "protocol", "type": "varchar(510)" },
+					{ "name": "host_name", "type": "varchar(510)" },
+					{ "name": "context_root", "type": "varchar(510)" },
+					{ "name": "login", "type": "varchar(40)" },
+					{ "name": "\"password\"", "type": "varchar(40)" },
+					{ "name": "version_info", "type": "varchar(400)" },
+					{ "name": "last_updated_by", "type": "varchar(60)" },
+					{ "name": "last_updated", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cms_ward_occ_group.sql",
+		"tables": [
+			{
+				"name": "cms_ward_occ_group",
+				"properties": [
+					{ "name": "hosp_code", "type": "varchar(8)" },
+					{ "name": "ward_occ_group", "type": "varchar(8)" },
+					{ "name": "description", "type": "varchar(100)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cms_ward_occ_preference.sql",
+		"tables": [
+			{
+				"name": "cms_ward_occ_preference",
+				"properties": [
+					{ "name": "hosp_code", "type": "varchar(8)" },
+					{ "name": "ward_occ_group", "type": "varchar(8)" },
+					{ "name": "ward_code", "type": "varchar(10)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "comp_doc_spec.sql",
+		"tables": [
+			{
+				"name": "comp_doc_spec",
+				"properties": [
+					{ "name": "hosp_code", "type": "varchar(6)" },
+					{ "name": "spec", "type": "varchar(8)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "control.sql",
+		"tables": [
+			{
+				"name": "control",
+				"properties": [
+					{ "name": "control_name", "type": "varchar(20)" },
+					{ "name": "control_value", "type": "varchar(70)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "convert_bed.sql",
+		"tables": [
+			{
+				"name": "convert_bed",
+				"properties": [
+					{ "name": "hosp_code", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "cubicle_no", "type": "varchar(8)" },
+					{ "name": "bed_no", "type": "varchar(10)" },
+					{ "name": "bed_type", "type": "varchar(2)" },
+					{ "name": "spec_code", "type": "varchar(8)" },
+					{ "name": "iso", "type": "varchar(4)" },
+					{ "name": "care", "type": "varchar(2)" },
+					{ "name": "service", "type": "varchar(6)" },
+					{ "name": "project", "type": "varchar(4)" },
+					{ "name": "patient_category", "type": "varchar(4)" },
+					{ "name": "active_status", "type": "varchar(2)" },
+					{ "name": "effective_datetime", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_access_changed.sql",
+		"tables": [
+			{
+				"name": "cpi_access_changed",
+				"properties": [
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "original_hkid", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" },
+					{ "name": "access_status", "type": "varchar(2)" },
+					{ "name": "update_hospital", "type": "varchar(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "row_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_active_case.sql",
+		"tables": [
+			{
+				"name": "cpi_active_case",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "active_indicator", "type": "varchar(2)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_ae_case_detail.sql",
+		"tables": [
+			{
+				"name": "cpi_ae_case_detail",
+				"properties": [
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ambulance_no", "type": "varchar(8)" },
+					{ "name": "police_case", "type": "varchar(2)" },
+					{ "name": "labour_case_flag", "type": "varchar(2)" },
+					{ "name": "ae_case_type", "type": "varchar(2)" },
+					{ "name": "dba_flag", "type": "varchar(2)" },
+					{ "name": "follow_up_datetime", "type": "timestamp(6)" },
+					{ "name": "eh_code", "type": "varchar(16)" },
+					{ "name": "pp_code", "type": "varchar(16)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "cpi_ae_express_case.sql", "tables": [] },
+	{
+		"file": "cpi_case.sql",
+		"tables": [
+			{
+				"name": "cpi_case",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "case_type", "type": "varchar(2)" },
+					{ "name": "admission_dtm", "type": "timestamp(6)" },
+					{ "name": "source_indicator", "type": "varchar(2)" },
+					{ "name": "source_code", "type": "varchar(6)" },
+					{ "name": "patient_type", "type": "varchar(6)" },
+					{ "name": "discharge_code", "type": "varchar(2)" },
+					{ "name": "discharge_dtm", "type": "timestamp(6)" },
+					{ "name": "destination_code", "type": "varchar(6)" },
+					{ "name": "last_specialty", "type": "varchar(8)" },
+					{ "name": "last_sub_specialty", "type": "varchar(8)" },
+					{ "name": "last_ward_code", "type": "varchar(8)" },
+					{ "name": "last_ward_class", "type": "varchar(2)" },
+					{ "name": "last_bed_no", "type": "varchar(10)" },
+					{ "name": "pp_code", "type": "varchar(16)" },
+					{ "name": "access_code", "type": "int4" },
+					{ "name": "status_code", "type": "varchar(4)" },
+					{ "name": "create_by", "type": "varchar(24)" },
+					{ "name": "create_dtm", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" },
+					{ "name": "row_update_datetime", "type": "timestamp(6)" },
+					{ "name": "movement_count", "type": "int4" },
+					{ "name": "district_code", "type": "varchar(10)" },
+					{ "name": "mrt_indicator", "type": "varchar(2)" },
+					{ "name": "document_flag", "type": "varchar(2)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_case_detail.sql",
+		"tables": [
+			{
+				"name": "cpi_case_detail",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "reference", "type": "varchar(40)" },
+					{ "name": "document_flag", "type": "varchar(2)" },
+					{ "name": "eh_code", "type": "varchar(16)" },
+					{ "name": "case_flag1", "type": "varchar(2)" },
+					{ "name": "case_flag2", "type": "varchar(2)" },
+					{ "name": "case_code1", "type": "varchar(16)" },
+					{ "name": "case_code2", "type": "varchar(16)" },
+					{ "name": "case_filler", "type": "varchar(96)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_case_key_changed.sql",
+		"tables": [
+			{
+				"name": "cpi_case_key_changed",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "admission_dtm", "type": "timestamp(6)" },
+					{ "name": "patient_type", "type": "varchar(6)" },
+					{ "name": "discharge_code", "type": "varchar(2)" },
+					{ "name": "discharge_dtm", "type": "timestamp(6)" },
+					{ "name": "destination_code", "type": "varchar(6)" },
+					{ "name": "last_specialty", "type": "varchar(8)" },
+					{ "name": "last_sub_specialty", "type": "varchar(8)" },
+					{ "name": "last_ward_code", "type": "varchar(8)" },
+					{ "name": "last_ward_class", "type": "varchar(2)" },
+					{ "name": "last_bed_no", "type": "varchar(10)" },
+					{ "name": "status_code", "type": "varchar(4)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" },
+					{ "name": "row_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_change_patient_key.sql",
+		"tables": [
+			{
+				"name": "cpi_change_patient_key",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "transaction_type", "type": "varchar(6)" },
+					{ "name": "transaction_datetime", "type": "timestamp(6)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "cpi_patient_key", "type": "varchar(16)" },
+					{ "name": "hkpmi_patient_key", "type": "varchar(16)" },
+					{ "name": "source_system", "type": "varchar(10)" },
+					{ "name": "system_datetime", "type": "timestamp(6)" },
+					{ "name": "action_code", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_linked_case.sql",
+		"tables": [
+			{
+				"name": "cpi_linked_case",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "previous_hospital", "type": "varchar(6)" },
+					{ "name": "previous_case", "type": "varchar(24)" },
+					{ "name": "create_by", "type": "varchar(24)" },
+					{ "name": "create_dtm", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "cpi_movement.sql", "tables": [] },
+	{
+		"file": "cpi_movement_type.sql",
+		"tables": [
+			{
+				"name": "cpi_movement_type",
+				"properties": [
+					{ "name": "move_code", "type": "varchar(2)" },
+					{ "name": "move_desc", "type": "varchar(28)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_new_born.sql",
+		"tables": [
+			{
+				"name": "cpi_new_born",
+				"properties": [
+					{ "name": "mother_patient_key", "type": "varchar(16)" },
+					{ "name": "new_born_patient_key", "type": "varchar(16)" },
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "mother_case_no", "type": "varchar(24)" },
+					{ "name": "birth_order", "type": "int4" },
+					{ "name": "pregnancy_number", "type": "int4" },
+					{ "name": "create_by", "type": "varchar(24)" },
+					{ "name": "create_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_nok.sql",
+		"tables": [
+			{
+				"name": "cpi_nok",
+				"properties": [
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "priority", "type": "int2" },
+					{ "name": "major_nok", "type": "varchar(2)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "relationship", "type": "varchar(4)" },
+					{ "name": "nok_name", "type": "varchar(96)" },
+					{ "name": "building", "type": "varchar(94)" },
+					{ "name": "room", "type": "varchar(10)" },
+					{ "name": "floor", "type": "varchar(4)" },
+					{ "name": "block", "type": "varchar(4)" },
+					{ "name": "district", "type": "varchar(10)" },
+					{ "name": "phone1", "type": "varchar(20)" },
+					{ "name": "phone2", "type": "varchar(20)" },
+					{ "name": "address_indicator", "type": "varchar(8)" },
+					{ "name": "mobile_phone", "type": "varchar(20)" },
+					{ "name": "sms_language", "type": "varchar(8)" },
+					{ "name": "update_hospital", "type": "varchar(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" },
+					{ "name": "row_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_octopus_blacklist.sql",
+		"tables": [
+			{
+				"name": "cpi_octopus_blacklist",
+				"properties": [
+					{ "name": "system_datetime", "type": "timestamp(6)" },
+					{ "name": "blacklist_data", "type": "bytea" },
+					{ "name": "blacklist_name", "type": "varchar(96)" },
+					{ "name": "blacklist_summ", "type": "bytea" },
+					{ "name": "eod_data", "type": "bytea" },
+					{ "name": "eod_name", "type": "varchar(96)" },
+					{ "name": "eod_summ", "type": "bytea" },
+					{ "name": "cchs_data", "type": "bytea" },
+					{ "name": "cchs_name", "type": "varchar(96)" },
+					{ "name": "cchs_summ", "type": "bytea" },
+					{ "name": "firm_data", "type": "bytea" },
+					{ "name": "firm_name", "type": "varchar(96)" },
+					{ "name": "firm_summ", "type": "bytea" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_octopus_blacklist_full.sql",
+		"tables": [
+			{
+				"name": "cpi_octopus_blacklist_full",
+				"properties": [
+					{ "name": "system_datetime", "type": "timestamp(6)" },
+					{ "name": "seq", "type": "int4" },
+					{ "name": "file_name", "type": "varchar(96)" },
+					{ "name": "file_data", "type": "bytea" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_octopus_location.sql",
+		"tables": [
+			{
+				"name": "cpi_octopus_location",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "workstation_id", "type": "varchar(24)" },
+					{ "name": "location_id", "type": "varchar(16)" },
+					{ "name": "payment_limit", "type": "int4" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_octopus_provider.sql",
+		"tables": [
+			{
+				"name": "cpi_octopus_provider",
+				"properties": [
+					{ "name": "sp_id", "type": "int4" },
+					{ "name": "sp_english_name", "type": "varchar(510)" },
+					{ "name": "sp_english_short_name", "type": "varchar(20)" },
+					{ "name": "sp_chinese_name", "type": "varchar(20)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_octopus_record.sql",
+		"tables": [
+			{
+				"name": "cpi_octopus_record",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "system_datetime", "type": "timestamp(6)" },
+					{ "name": "workstation_id", "type": "varchar(24)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "transaction_data", "type": "bytea" },
+					{ "name": "upload_ind", "type": "varchar(2)" },
+					{ "name": "file_name", "type": "varchar(96)" },
+					{ "name": "upload_datetime", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_octopus_transaction.sql",
+		"tables": [
+			{
+				"name": "cpi_octopus_transaction",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "transaction_datetime", "type": "timestamp(6)" },
+					{ "name": "term_id", "type": "varchar(40)" },
+					{ "name": "card_no", "type": "varchar(40)" },
+					{ "name": "paid_amount", "type": "int4" },
+					{ "name": "remain_balance", "type": "numeric(10, 2)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "workstation_id", "type": "varchar(24)" },
+					{ "name": "usage_data", "type": "varchar(64)" },
+					{ "name": "transaction_status", "type": "varchar(2)" },
+					{ "name": "error_code", "type": "int4" },
+					{ "name": "last_add_value_date", "type": "timestamp(6)" },
+					{ "name": "last_add_value_type", "type": "varchar(4)" },
+					{ "name": "last_add_value_device_id", "type": "varchar(12)" },
+					{ "name": "octopus_type", "type": "int4" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_octopus_updown.sql",
+		"tables": [
+			{
+				"name": "cpi_octopus_updown",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "workstation_id", "type": "varchar(24)" },
+					{ "name": "transaction_type", "type": "varchar(2)" },
+					{ "name": "system_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "transaction_status", "type": "varchar(2)" },
+					{ "name": "file_size", "type": "int4" },
+					{ "name": "file_name", "type": "varchar(510)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_pas_service_breaker.sql",
+		"tables": [
+			{
+				"name": "cpi_pas_service_breaker",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(10)" },
+					{ "name": "database_type", "type": "varchar(20)" },
+					{ "name": "project_id", "type": "varchar(100)" },
+					{ "name": "service_type", "type": "varchar(40)" },
+					{ "name": "service_name", "type": "varchar(100)" },
+					{ "name": "service_feature", "type": "varchar(100)" },
+					{ "name": "\"enable\"", "type": "varchar(2)" },
+					{ "name": "create_by", "type": "varchar(24)" },
+					{ "name": "create_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "cpi_patient.sql", "tables": [] },
+	{
+		"file": "cpi_patient_hosp_mrn_changed.sql",
+		"tables": [
+			{
+				"name": "cpi_patient_hosp_mrn_changed",
+				"properties": [
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "mrn", "type": "varchar(16)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" },
+					{ "name": "row_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_patient_hospital_data.sql",
+		"tables": [
+			{
+				"name": "cpi_patient_hospital_data",
+				"properties": [
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "mrn", "type": "varchar(16)" },
+					{ "name": "remark", "type": "varchar(510)" },
+					{ "name": "create_by", "type": "varchar(16)" },
+					{ "name": "create_dtm", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" },
+					{ "name": "row_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_patient_key.sql",
+		"tables": [
+			{
+				"name": "cpi_patient_key",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "effective_dtm", "type": "timestamp(6)" },
+					{ "name": "patient_key", "type": "int4" },
+					{ "name": "patient_key_from", "type": "int4" },
+					{ "name": "patient_key_to", "type": "int4" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_patient_key_changed.sql",
+		"tables": [
+			{
+				"name": "cpi_patient_key_changed",
+				"properties": [
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "patient_name", "type": "varchar(96)" },
+					{ "name": "sex", "type": "varchar(2)" },
+					{ "name": "cccode1", "type": "varchar(10)" },
+					{ "name": "cccode2", "type": "varchar(10)" },
+					{ "name": "cccode3", "type": "varchar(10)" },
+					{ "name": "cccode4", "type": "varchar(10)" },
+					{ "name": "cccode5", "type": "varchar(10)" },
+					{ "name": "cccode6", "type": "varchar(10)" },
+					{ "name": "chi_name", "type": "varchar(24)" },
+					{ "name": "dob", "type": "timestamp(6)" },
+					{ "name": "original_hkid", "type": "varchar(24)" },
+					{ "name": "update_hospital", "type": "varchar(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" },
+					{ "name": "row_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_patient_location.sql",
+		"tables": [
+			{
+				"name": "cpi_patient_location",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "patient_name", "type": "varchar(96)" },
+					{ "name": "name_soundex", "type": "varchar(8)" },
+					{ "name": "name_phonetic", "type": "varchar(96)" },
+					{ "name": "sex", "type": "varchar(2)" },
+					{ "name": "dob", "type": "timestamp(6)" },
+					{ "name": "chinese_name", "type": "varchar(24)" },
+					{ "name": "phone1", "type": "varchar(20)" },
+					{ "name": "phone2", "type": "varchar(20)" },
+					{ "name": "mobile_phone", "type": "varchar(20)" },
+					{ "name": "row_update_datetime", "type": "timestamp(6)" },
+					{ "name": "cccode1", "type": "varchar(10)" },
+					{ "name": "cccode2", "type": "varchar(10)" },
+					{ "name": "cccode3", "type": "varchar(10)" },
+					{ "name": "cccode4", "type": "varchar(10)" },
+					{ "name": "cccode5", "type": "varchar(10)" },
+					{ "name": "cccode6", "type": "varchar(10)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_patient_other_changed.sql",
+		"tables": [
+			{
+				"name": "cpi_patient_other_changed",
+				"properties": [
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "marital_status", "type": "varchar(2)" },
+					{ "name": "other_doc_no", "type": "varchar(24)" },
+					{ "name": "building", "type": "varchar(94)" },
+					{ "name": "room", "type": "varchar(10)" },
+					{ "name": "floor", "type": "varchar(4)" },
+					{ "name": "block", "type": "varchar(4)" },
+					{ "name": "district", "type": "varchar(10)" },
+					{ "name": "religion", "type": "varchar(6)" },
+					{ "name": "phone1", "type": "varchar(20)" },
+					{ "name": "phone2", "type": "varchar(20)" },
+					{ "name": "address_indicator", "type": "varchar(8)" },
+					{ "name": "mobile_phone", "type": "varchar(20)" },
+					{ "name": "sms_language", "type": "varchar(8)" },
+					{ "name": "update_hospital", "type": "varchar(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" },
+					{ "name": "row_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_payment_detail.sql",
+		"tables": [
+			{
+				"name": "cpi_payment_detail",
+				"properties": [
+					{ "name": "transaction_datetime", "type": "timestamp(6)" },
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "case_type", "type": "varchar(2)" },
+					{ "name": "receipt_no", "type": "varchar(24)" },
+					{ "name": "admission_dtm", "type": "timestamp(6)" },
+					{ "name": "pay_code", "type": "varchar(6)" },
+					{ "name": "payment_means", "type": "varchar(10)" },
+					{ "name": "waiver_no", "type": "varchar(48)" },
+					{ "name": "waiver_type", "type": "varchar(2)" },
+					{ "name": "waiver_issue_party", "type": "varchar(8)" },
+					{ "name": "waiver_eff_date", "type": "timestamp(6)" },
+					{ "name": "waiver_exp_date", "type": "timestamp(6)" },
+					{ "name": "no_charge_indicator", "type": "varchar(10)" },
+					{ "name": "payment_amount", "type": "int4" },
+					{ "name": "paid_amount", "type": "int4" },
+					{ "name": "transaction_type", "type": "varchar(2)" },
+					{ "name": "remark", "type": "varchar(96)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "workstation_id", "type": "varchar(24)" },
+					{ "name": "source_system", "type": "varchar(16)" },
+					{ "name": "nep_search_key", "type": "varchar(40)" },
+					{ "name": "nep_add_key_1", "type": "varchar(40)" },
+					{ "name": "nep_add_key_2", "type": "varchar(40)" },
+					{ "name": "new_waiver_type", "type": "varchar(4)" },
+					{ "name": "upd_sys", "type": "varchar(20)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_pin_change_log.sql",
+		"tables": [
+			{
+				"name": "cpi_pin_change_log",
+				"properties": [
+					{ "name": "hosp_code", "type": "varchar(6)" },
+					{ "name": "txn_dtm", "type": "timestamp(6)" },
+					{ "name": "txn_type", "type": "varchar(6)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "old_hkid", "type": "varchar(24)" },
+					{ "name": "old_patient_key", "type": "varchar(16)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "source_sys", "type": "varchar(24)" },
+					{ "name": "source_sys_dtm", "type": "timestamp(6)" },
+					{ "name": "update_hosp", "type": "varchar(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_postal_address.sql",
+		"tables": [
+			{
+				"name": "cpi_postal_address",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "building", "type": "varchar(94)" },
+					{ "name": "room", "type": "varchar(10)" },
+					{ "name": "floor", "type": "varchar(4)" },
+					{ "name": "block", "type": "varchar(4)" },
+					{ "name": "district_code", "type": "varchar(10)" },
+					{ "name": "update_hospital", "type": "varchar(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "source_system", "type": "varchar(10)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_privacy_flag.sql",
+		"tables": [
+			{
+				"name": "cpi_privacy_flag",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "privacy_flag", "type": "varchar(2)" },
+					{ "name": "last_update_system", "type": "varchar(24)" },
+					{ "name": "last_update_function_id", "type": "int4" },
+					{ "name": "last_update_user_id", "type": "varchar(24)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_privacy_flag_access_log.sql",
+		"tables": [
+			{
+				"name": "cpi_privacy_flag_access_log",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "access_search_type", "type": "varchar(24)" },
+					{ "name": "access_user_action", "type": "varchar(24)" },
+					{ "name": "access_reason_code", "type": "varchar(6)" },
+					{ "name": "access_reason", "type": "varchar(510)" },
+					{ "name": "access_system", "type": "varchar(24)" },
+					{ "name": "access_function_id", "type": "int4" },
+					{ "name": "access_user_id", "type": "varchar(24)" },
+					{ "name": "access_datetime", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_privacy_flag_reason_list.sql",
+		"tables": [
+			{
+				"name": "cpi_privacy_flag_reason_list",
+				"properties": [
+					{ "name": "reason_code", "type": "varchar(6)" },
+					{ "name": "\"type\"", "type": "varchar(60)" },
+					{ "name": "reason", "type": "varchar(510)" },
+					{ "name": "description", "type": "varchar(510)" },
+					{ "name": "remark", "type": "varchar(510)" },
+					{ "name": "active", "type": "varchar(2)" },
+					{ "name": "effective_datetime", "type": "timestamp(6)" },
+					{ "name": "seq_no", "type": "varchar(24)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_privacy_flag_update_log.sql",
+		"tables": [
+			{
+				"name": "cpi_privacy_flag_update_log",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "original_patient_key", "type": "varchar(16)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "privacy_flag", "type": "varchar(2)" },
+					{ "name": "update_system", "type": "varchar(24)" },
+					{ "name": "update_function_id", "type": "int4" },
+					{ "name": "update_user_id", "type": "varchar(24)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_suspend_upload_log.sql",
+		"tables": [
+			{
+				"name": "cpi_suspend_upload_log",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "transaction_datetime", "type": "timestamp(6)" },
+					{ "name": "transaction_type", "type": "varchar(6)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "old_hkid", "type": "varchar(24)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_transaction.sql",
+		"tables": [
+			{
+				"name": "cpi_transaction",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "transaction_datetime", "type": "timestamp(6)" },
+					{ "name": "transaction_type", "type": "varchar(6)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "patient_name", "type": "varchar(96)" },
+					{ "name": "sex", "type": "varchar(2)" },
+					{ "name": "dob", "type": "timestamp(6)" },
+					{ "name": "exact_dob_flag", "type": "varchar(2)" },
+					{ "name": "ccc_1", "type": "varchar(10)" },
+					{ "name": "ccc_2", "type": "varchar(10)" },
+					{ "name": "ccc_3", "type": "varchar(10)" },
+					{ "name": "ccc_4", "type": "varchar(10)" },
+					{ "name": "ccc_5", "type": "varchar(10)" },
+					{ "name": "ccc_6", "type": "varchar(10)" },
+					{ "name": "chi_name", "type": "varchar(24)" },
+					{ "name": "marital_status", "type": "varchar(2)" },
+					{ "name": "race_code", "type": "varchar(4)" },
+					{ "name": "other_document_no", "type": "varchar(24)" },
+					{ "name": "reference", "type": "varchar(40)" },
+					{ "name": "medical_record_number", "type": "varchar(16)" },
+					{ "name": "remark", "type": "varchar(510)" },
+					{ "name": "building", "type": "varchar(94)" },
+					{ "name": "room", "type": "varchar(10)" },
+					{ "name": "floor", "type": "varchar(4)" },
+					{ "name": "block", "type": "varchar(4)" },
+					{ "name": "district_code", "type": "varchar(10)" },
+					{ "name": "religion_code", "type": "varchar(6)" },
+					{ "name": "phone1", "type": "varchar(20)" },
+					{ "name": "phone2", "type": "varchar(20)" },
+					{ "name": "address_indicator", "type": "varchar(8)" },
+					{ "name": "mobile_phone", "type": "varchar(20)" },
+					{ "name": "sms_language", "type": "varchar(8)" },
+					{ "name": "death_indicator", "type": "varchar(2)" },
+					{ "name": "death_date", "type": "timestamp(6)" },
+					{ "name": "death_code", "type": "varchar(8)" },
+					{ "name": "card_holder", "type": "int4" },
+					{ "name": "priority", "type": "int4" },
+					{ "name": "major_nok", "type": "varchar(2)" },
+					{ "name": "nok_name", "type": "varchar(96)" },
+					{ "name": "nok_hkid", "type": "varchar(24)" },
+					{ "name": "nok_relation_code", "type": "varchar(4)" },
+					{ "name": "nok_building", "type": "varchar(94)" },
+					{ "name": "nok_room", "type": "varchar(10)" },
+					{ "name": "nok_floor", "type": "varchar(4)" },
+					{ "name": "nok_block", "type": "varchar(4)" },
+					{ "name": "nok_district_code", "type": "varchar(10)" },
+					{ "name": "nok_phone1", "type": "varchar(20)" },
+					{ "name": "nok_phone2", "type": "varchar(20)" },
+					{ "name": "nok_address_indicator", "type": "varchar(8)" },
+					{ "name": "nok_mobile_phone", "type": "varchar(20)" },
+					{ "name": "nok_sms_language", "type": "varchar(8)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "admission_datetime", "type": "timestamp(6)" },
+					{ "name": "source_indicator", "type": "varchar(2)" },
+					{ "name": "source_code", "type": "varchar(6)" },
+					{ "name": "patient_type", "type": "varchar(6)" },
+					{ "name": "discharge_code", "type": "varchar(2)" },
+					{ "name": "discharge_datetime", "type": "timestamp(6)" },
+					{ "name": "destination_code", "type": "varchar(6)" },
+					{ "name": "doctor_code", "type": "varchar(16)" },
+					{ "name": "case_type", "type": "varchar(2)" },
+					{ "name": "security_count", "type": "int4" },
+					{ "name": "case_access_code", "type": "int4" },
+					{ "name": "pmi_access_code", "type": "int4" },
+					{ "name": "ambulance_no", "type": "varchar(8)" },
+					{ "name": "police_case", "type": "varchar(2)" },
+					{ "name": "labour_case", "type": "varchar(2)" },
+					{ "name": "ae_case_type", "type": "varchar(2)" },
+					{ "name": "dba_flag", "type": "varchar(2)" },
+					{ "name": "follow_up_datetime", "type": "timestamp(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "sub_specialty_code", "type": "varchar(8)" },
+					{ "name": "bed_no", "type": "varchar(10)" },
+					{ "name": "ward_class", "type": "varchar(2)" },
+					{ "name": "transfer_datetime", "type": "timestamp(6)" },
+					{ "name": "old_patient_key", "type": "varchar(16)" },
+					{ "name": "old_name", "type": "varchar(96)" },
+					{ "name": "old_hkid", "type": "varchar(24)" },
+					{ "name": "old_sex", "type": "varchar(2)" },
+					{ "name": "old_dob", "type": "timestamp(6)" },
+					{ "name": "old_ward_class", "type": "varchar(2)" },
+					{ "name": "old_ward_code", "type": "varchar(8)" },
+					{ "name": "old_specialty_code", "type": "varchar(8)" },
+					{ "name": "old_bed_no", "type": "varchar(10)" },
+					{ "name": "old_doctor_code", "type": "varchar(16)" },
+					{ "name": "pp_code", "type": "varchar(16)" },
+					{ "name": "update_hospital", "type": "varchar(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "source_system", "type": "varchar(10)" },
+					{ "name": "success_indicator", "type": "varchar(2)" },
+					{ "name": "upload_status", "type": "varchar(2)" },
+					{ "name": "source_system_dtm", "type": "timestamp(6)" },
+					{ "name": "cpi_filler", "type": "varchar(60)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_unmatch_hkid.sql",
+		"tables": [
+			{
+				"name": "cpi_unmatch_hkid",
+				"properties": [
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cpi_used_unhkid.sql",
+		"tables": [
+			{
+				"name": "cpi_used_unhkid",
+				"properties": [
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "create_dtm", "type": "timestamp(6)" },
+					{ "name": "block_type", "type": "varchar(2)" },
+					{ "name": "request_hosp", "type": "varchar(6)" },
+					{ "name": "request_by", "type": "varchar(24)" },
+					{ "name": "filler", "type": "bpchar(50)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cubicle.sql",
+		"tables": [
+			{
+				"name": "cubicle",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "cubicle_no", "type": "varchar(8)" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "active_status", "type": "varchar(2)" },
+					{ "name": "description", "type": "varchar(96)" },
+					{ "name": "isolation_facilities", "type": "varchar(4)" },
+					{ "name": "project_category", "type": "varchar(4)" },
+					{ "name": "care_category", "type": "varchar(2)" },
+					{ "name": "sex", "type": "varchar(2)" },
+					{ "name": "treatment_location", "type": "varchar(8)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "source_system", "type": "varchar(10)" },
+					{ "name": "patient_category", "type": "varchar(10)" },
+					{ "name": "cubicle_service", "type": "varchar(6)" },
+					{ "name": "official_bed", "type": "int4" },
+					{ "name": "day_bed", "type": "int4" },
+					{ "name": "isolation_status", "type": "varchar(20)" },
+					{ "name": "facility_type", "type": "varchar(2)" },
+					{ "name": "ante_room", "type": "varchar(2)" },
+					{ "name": "ensuite_toilet", "type": "varchar(2)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cubicle_change_log.sql",
+		"tables": [
+			{
+				"name": "cubicle_change_log",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "cubicle_no", "type": "varchar(8)" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "active_status", "type": "varchar(2)" },
+					{ "name": "description", "type": "varchar(96)" },
+					{ "name": "isolation_facilities", "type": "varchar(4)" },
+					{ "name": "project_category", "type": "varchar(2)" },
+					{ "name": "sex", "type": "varchar(2)" },
+					{ "name": "treatment_location", "type": "varchar(8)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "source_system", "type": "varchar(10)" },
+					{ "name": "patient_category", "type": "varchar(10)" },
+					{ "name": "cubicle_service", "type": "varchar(6)" },
+					{ "name": "official_bed", "type": "int4" },
+					{ "name": "day_bed", "type": "int4" },
+					{ "name": "facility_type", "type": "varchar(4)" },
+					{ "name": "ante_room", "type": "varchar(2)" },
+					{ "name": "ensuite_toilet", "type": "varchar(2)" },
+					{ "name": "old_active_status", "type": "varchar(2)" },
+					{ "name": "old_description", "type": "varchar(96)" },
+					{ "name": "old_isolation_facilities", "type": "varchar(4)" },
+					{ "name": "old_project_category", "type": "varchar(2)" },
+					{ "name": "old_sex", "type": "varchar(2)" },
+					{ "name": "old_treatment_location", "type": "varchar(8)" },
+					{ "name": "old_update_datetime", "type": "timestamp(6)" },
+					{ "name": "old_update_by", "type": "varchar(24)" },
+					{ "name": "old_source_system", "type": "varchar(10)" },
+					{ "name": "old_patient_category", "type": "varchar(10)" },
+					{ "name": "old_cubicle_service", "type": "varchar(6)" },
+					{ "name": "old_official_bed", "type": "int4" },
+					{ "name": "old_day_bed", "type": "int4" },
+					{ "name": "old_facility_type", "type": "varchar(4)" },
+					{ "name": "old_ante_room", "type": "varchar(2)" },
+					{ "name": "old_ensuite_toilet", "type": "varchar(2)" },
+					{ "name": "\"action\"", "type": "varchar(2)" },
+					{ "name": "sent", "type": "varchar(2)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "cubicle_trans.sql",
+		"tables": [
+			{
+				"name": "cubicle_trans",
+				"properties": [
+					{ "name": "host", "type": "varchar(60)" },
+					{ "name": "seq", "type": "int4" },
+					{ "name": "exec_datetime", "type": "timestamp(6)" },
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "cubicle_no", "type": "varchar(8)" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "active_status", "type": "varchar(2)" },
+					{ "name": "description", "type": "varchar(96)" },
+					{ "name": "isolation_facilities", "type": "varchar(6)" },
+					{ "name": "project_category", "type": "varchar(4)" },
+					{ "name": "care_category", "type": "varchar(2)" },
+					{ "name": "sex", "type": "varchar(2)" },
+					{ "name": "treatment_location", "type": "varchar(8)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "source_system", "type": "varchar(10)" },
+					{ "name": "patient_category", "type": "varchar(10)" },
+					{ "name": "cubicle_service", "type": "varchar(6)" },
+					{ "name": "official_bed", "type": "int4" },
+					{ "name": "day_bed", "type": "int4" },
+					{ "name": "old_ward", "type": "varchar(8)" },
+					{ "name": "old_cubicle", "type": "varchar(8)" },
+					{ "name": "old_effective", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "daily_adm_summary.sql",
+		"tables": [
+			{
+				"name": "daily_adm_summary",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "report_date", "type": "timestamp(6)" },
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "age_group", "type": "int4" },
+					{ "name": "ae_attendance", "type": "int4" },
+					{ "name": "ae_admission", "type": "int4" },
+					{ "name": "admission", "type": "int4" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "daily_spec_summary.sql",
+		"tables": [
+			{
+				"name": "daily_spec_summary",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "report_date", "type": "timestamp(6)" },
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "admission_thru_ae", "type": "int4" },
+					{ "name": "admission", "type": "int4" },
+					{ "name": "ae_day", "type": "int4" },
+					{ "name": "patient_remain", "type": "int4" },
+					{ "name": "bdo", "type": "int4" },
+					{ "name": "vbd", "type": "int4" },
+					{ "name": "bda", "type": "int4" },
+					{ "name": "ebd", "type": "int4" },
+					{ "name": "day_discharge", "type": "int4" },
+					{ "name": "day_death", "type": "int4" },
+					{ "name": "ip_discharge", "type": "int4" },
+					{ "name": "ip_death", "type": "int4" },
+					{ "name": "day_bed", "type": "int4" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "daily_ward_summary.sql",
+		"tables": [
+			{
+				"name": "daily_ward_summary",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "report_date", "type": "timestamp(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "admission_thru_ae", "type": "int4" },
+					{ "name": "admission", "type": "int4" },
+					{ "name": "ae_day", "type": "int4" },
+					{ "name": "patient_remain", "type": "int4" },
+					{ "name": "bdo", "type": "int4" },
+					{ "name": "vbd", "type": "int4" },
+					{ "name": "bda", "type": "int4" },
+					{ "name": "ebd", "type": "int4" },
+					{ "name": "day_discharge", "type": "int4" },
+					{ "name": "day_death", "type": "int4" },
+					{ "name": "ip_discharge", "type": "int4" },
+					{ "name": "ip_death", "type": "int4" },
+					{ "name": "day_bed", "type": "int4" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "default_user_ac_setting.sql",
+		"tables": [
+			{
+				"name": "default_user_ac_setting",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "setting_code", "type": "varchar(60)" },
+					{ "name": "group_id", "type": "varchar(20)" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "expiration_date", "type": "timestamp(6)" },
+					{ "name": "system_authority", "type": "int4" },
+					{ "name": "user_authority", "type": "int4" },
+					{ "name": "create_datetime", "type": "timestamp(6)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "delivery_suite.sql",
+		"tables": [
+			{
+				"name": "delivery_suite",
+				"properties": [
+					{ "name": "ds_code", "type": "varchar(8)" },
+					{ "name": "ds_specialty_code", "type": "varchar(8)" },
+					{ "name": "ds_ns_code", "type": "varchar(8)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "destination.sql",
+		"tables": [
+			{
+				"name": "destination",
+				"properties": [
+					{ "name": "destination_code", "type": "varchar(6)" },
+					{ "name": "description", "type": "varchar(200)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "diagnosis.sql", "tables": [] },
+	{
+		"file": "discharge_type.sql",
+		"tables": [
+			{
+				"name": "discharge_type",
+				"properties": [
+					{ "name": "discharge_code", "type": "varchar(2)" },
+					{ "name": "description", "type": "varchar(80)" },
+					{ "name": "short_description", "type": "varchar(10)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "disposal_list_table.sql",
+		"tables": [
+			{
+				"name": "disposal_list_table",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "\"name\"", "type": "varchar(96)" },
+					{ "name": "mrn", "type": "varchar(16)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "discharge_datetime", "type": "timestamp(6)" },
+					{ "name": "disposal_date", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "disposal_table.sql",
+		"tables": [
+			{
+				"name": "disposal_table",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "\"name\"", "type": "varchar(96)" },
+					{ "name": "mrn", "type": "varchar(16)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "discharge_datetime", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "disposed_record_table.sql",
+		"tables": [
+			{
+				"name": "disposed_record_table",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "disposal_date", "type": "timestamp(6)" },
+					{ "name": "user_id", "type": "varchar(24)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "source_system", "type": "varchar(24)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "district.sql",
+		"tables": [
+			{
+				"name": "district",
+				"properties": [
+					{ "name": "district_code", "type": "varchar(10)" },
+					{ "name": "district_name", "type": "varchar(30)" },
+					{ "name": "district_board", "type": "varchar(30)" },
+					{ "name": "district_area", "type": "varchar(2)" },
+					{ "name": "district_chi", "type": "varchar(60)" },
+					{ "name": "district_board_chi", "type": "varchar(60)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "district_area.sql",
+		"tables": [
+			{
+				"name": "district_area",
+				"properties": [
+					{ "name": "area_code", "type": "varchar(2)" },
+					{ "name": "area_name", "type": "varchar(100)" },
+					{ "name": "area_chi", "type": "varchar(100)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "division.sql",
+		"tables": [
+			{
+				"name": "division",
+				"properties": [
+					{ "name": "d_specialty", "type": "varchar(8)" },
+					{ "name": "div_code", "type": "varchar(16)" },
+					{ "name": "div_desc", "type": "varchar(60)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "dnl_exception.sql",
+		"tables": [
+			{
+				"name": "dnl_exception",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "download_key", "type": "varchar(46)" },
+					{ "name": "patient_key", "type": "varchar(16)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "error_code", "type": "int4" },
+					{ "name": "error_msg", "type": "varchar(510)" },
+					{ "name": "update_hospital", "type": "varchar(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" },
+					{ "name": "row_update_datetime", "type": "timestamp(6)" },
+					{ "name": "download_system_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "document_type.sql",
+		"tables": [
+			{
+				"name": "document_type",
+				"properties": [
+					{ "name": "document_type", "type": "varchar(10)" },
+					{ "name": "document_code", "type": "varchar(2)" },
+					{ "name": "description", "type": "varchar(510)" },
+					{ "name": "chinese_description", "type": "varchar(510)" },
+					{ "name": "hkid_type", "type": "varchar(2)" },
+					{ "name": "pay_code", "type": "int4" },
+					{ "name": "function_used", "type": "varchar(2)" },
+					{ "name": "short_description", "type": "varchar(510)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "download_control_pg.sql",
+		"tables": [
+			{
+				"name": "download_control_pg",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "download_key", "type": "varchar(46)" },
+					{ "name": "download_priority", "type": "int4" },
+					{ "name": "download_num_rec", "type": "int4" },
+					{ "name": "download_enable", "type": "varchar(2)" },
+					{ "name": "download_last_datetime", "type": "timestamp(6)" },
+					{ "name": "dnl_server_name", "type": "varchar" },
+					{ "name": "row_update_datetime", "type": "timestamp(6)" },
+					{ "name": "last_download_system_datetime", "type": "timestamp(6)" },
+					{ "name": "delay_time", "type": "int4" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "dp_attendence.sql", "tables": [] },
+	{
+		"file": "ds_specialty.sql",
+		"tables": [
+			{
+				"name": "ds_specialty",
+				"properties": [
+					{ "name": "ds_specialty_code", "type": "varchar(8)" },
+					{ "name": "ds_dept_name", "type": "varchar(8)" },
+					{ "name": "ds_page", "type": "int2" },
+					{ "name": "ds_description", "type": "varchar(120)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "dt_bedlist_ws.sql",
+		"tables": [
+			{
+				"name": "dt_bedlist_ws",
+				"properties": [
+					{ "name": "ws_code", "type": "varchar(10)" },
+					{ "name": "bedlist", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "dt_transaction_type.sql",
+		"tables": [
+			{
+				"name": "dt_transaction_type",
+				"properties": [
+					{ "name": "adt_code", "type": "varchar(6)" },
+					{ "name": "dt_code", "type": "varchar(2)" },
+					{ "name": "description", "type": "varchar(160)" },
+					{ "name": "dt_cancellation_code", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{ "file": "dumm_ward_specialty.sql", "tables": [] },
+	{
+		"file": "eh_cgat.sql",
+		"tables": [
+			{
+				"name": "eh_cgat",
+				"properties": [
+					{ "name": "eh_code", "type": "varchar(16)" },
+					{ "name": "cgat_hospital", "type": "varchar(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "eh_transaction.sql",
+		"tables": [
+			{
+				"name": "eh_transaction",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "transaction_datetime", "type": "timestamp(6)" },
+					{ "name": "transaction_type", "type": "varchar(6)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "spec_code", "type": "varchar(8)" },
+					{ "name": "eh_code", "type": "varchar(16)" },
+					{ "name": "eh_cgat", "type": "varchar(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "eis_subx.sql",
+		"tables": [
+			{
+				"name": "eis_subx",
+				"properties": [
+					{ "name": "eis_string", "type": "varchar(68)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "elderly_home_table.sql",
+		"tables": [
+			{
+				"name": "elderly_home_table",
+				"properties": [
+					{ "name": "eh_code", "type": "varchar(16)" },
+					{ "name": "eh_name", "type": "varchar(510)" },
+					{ "name": "eh_chinese_name", "type": "varchar(510)" },
+					{ "name": "eh_address", "type": "varchar(510)" },
+					{ "name": "eh_building", "type": "varchar(94)" },
+					{ "name": "eh_room", "type": "varchar(10)" },
+					{ "name": "eh_floor", "type": "varchar(4)" },
+					{ "name": "eh_block", "type": "varchar(4)" },
+					{ "name": "eh_district_code", "type": "varchar(10)" },
+					{ "name": "eh_expiry_date", "type": "timestamp(6)" },
+					{ "name": "eh_district", "type": "varchar(80)" },
+					{ "name": "eh_phone", "type": "varchar(20)" },
+					{ "name": "eh_address_id", "type": "int4" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "error_log.sql", "tables": [] },
+	{ "file": "error_msgs.sql", "tables": [] },
+	{
+		"file": "event_log.sql",
+		"tables": [
+			{
+				"name": "event_log",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "system_datetime", "type": "timestamp(6)" },
+					{ "name": "\"type\"", "type": "varchar(6)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "\"name\"", "type": "varchar(96)" },
+					{ "name": "sex", "type": "varchar(2)" },
+					{ "name": "dob", "type": "timestamp(6)" },
+					{ "name": "exact_dob_flag", "type": "varchar(2)" },
+					{ "name": "ccc_1", "type": "varchar(10)" },
+					{ "name": "ccc_2", "type": "varchar(10)" },
+					{ "name": "ccc_3", "type": "varchar(10)" },
+					{ "name": "ccc_4", "type": "varchar(10)" },
+					{ "name": "ccc_5", "type": "varchar(10)" },
+					{ "name": "ccc_6", "type": "varchar(10)" },
+					{ "name": "martial_status", "type": "varchar(2)" },
+					{ "name": "race_code", "type": "varchar(4)" },
+					{ "name": "other_document_no", "type": "varchar(24)" },
+					{ "name": "medical_record_number", "type": "varchar(16)" },
+					{ "name": "building", "type": "varchar(94)" },
+					{ "name": "room", "type": "varchar(10)" },
+					{ "name": "floor", "type": "varchar(4)" },
+					{ "name": "block", "type": "varchar(4)" },
+					{ "name": "district_code", "type": "varchar(10)" },
+					{ "name": "religion_code", "type": "varchar(6)" },
+					{ "name": "phone1", "type": "varchar(20)" },
+					{ "name": "phone2", "type": "varchar(20)" },
+					{ "name": "address_indicator", "type": "varchar(8)" },
+					{ "name": "mobile_phone", "type": "varchar(20)" },
+					{ "name": "sms_language", "type": "varchar(8)" },
+					{ "name": "death_indicator", "type": "varchar(2)" },
+					{ "name": "death_date", "type": "timestamp(6)" },
+					{ "name": "t_prk", "type": "varchar(16)" },
+					{ "name": "nok_name", "type": "varchar(96)" },
+					{ "name": "nok_hkid", "type": "varchar(24)" },
+					{ "name": "nok_relation_code", "type": "varchar(4)" },
+					{ "name": "nok_building", "type": "varchar(94)" },
+					{ "name": "nok_room", "type": "varchar(10)" },
+					{ "name": "nok_floor", "type": "varchar(4)" },
+					{ "name": "nok_block", "type": "varchar(4)" },
+					{ "name": "nok_district_code", "type": "varchar(10)" },
+					{ "name": "nok_phone1", "type": "varchar(20)" },
+					{ "name": "nok_phone2", "type": "varchar(20)" },
+					{ "name": "nok_address_indicator", "type": "varchar(8)" },
+					{ "name": "nok_mobile_phone", "type": "varchar(20)" },
+					{ "name": "nok_sms_language", "type": "varchar(8)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "admission_datetime", "type": "timestamp(6)" },
+					{ "name": "source_indicator", "type": "varchar(2)" },
+					{ "name": "source_code", "type": "varchar(6)" },
+					{ "name": "pay_code", "type": "varchar(6)" },
+					{ "name": "discharge_code", "type": "varchar(2)" },
+					{ "name": "discharge_datetime", "type": "timestamp(6)" },
+					{ "name": "destination_code", "type": "varchar(6)" },
+					{ "name": "case_type", "type": "varchar(2)" },
+					{ "name": "movement_count", "type": "int4" },
+					{ "name": "security_count", "type": "int4" },
+					{ "name": "case_access_code", "type": "int4" },
+					{ "name": "pmi_access_code", "type": "int4" },
+					{ "name": "ambulance_no", "type": "varchar(8)" },
+					{ "name": "police_case", "type": "varchar(2)" },
+					{ "name": "labour_case", "type": "varchar(2)" },
+					{ "name": "ae_case_type", "type": "varchar(2)" },
+					{ "name": "dba_flag", "type": "varchar(2)" },
+					{ "name": "follow_up_datetime", "type": "timestamp(6)" },
+					{ "name": "from_ward_code", "type": "varchar(8)" },
+					{ "name": "from_specialty_code", "type": "varchar(8)" },
+					{ "name": "from_bed_no", "type": "varchar(10)" },
+					{ "name": "from_ward_class", "type": "varchar(2)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "bed_no", "type": "varchar(10)" },
+					{ "name": "ward_class", "type": "varchar(2)" },
+					{ "name": "old_name", "type": "varchar(96)" },
+					{ "name": "old_hkid", "type": "varchar(24)" },
+					{ "name": "old_sex", "type": "varchar(2)" },
+					{ "name": "old_dob", "type": "timestamp(6)" },
+					{ "name": "old_ward_class", "type": "varchar(2)" },
+					{ "name": "old_ward_code", "type": "varchar(8)" },
+					{ "name": "old_specialty_code", "type": "varchar(8)" },
+					{ "name": "old_bed_no", "type": "varchar(10)" },
+					{ "name": "user_id", "type": "varchar(16)" },
+					{ "name": "upload_status", "type": "varchar(2)" },
+					{ "name": "doctor_code", "type": "varchar(16)" },
+					{ "name": "old_doctor_code", "type": "varchar(16)" },
+					{ "name": "old_t_prk", "type": "varchar(16)" },
+					{ "name": "mrt_indicator", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "exception_rpt_table.sql",
+		"tables": [
+			{
+				"name": "exception_rpt_table",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "from_age", "type": "int4" },
+					{ "name": "from_age_unit", "type": "varchar(4)" },
+					{ "name": "to_age", "type": "int4" },
+					{ "name": "to_age_unit", "type": "varchar(4)" },
+					{ "name": "sex", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "external_service_config.sql",
+		"tables": [
+			{
+				"name": "external_service_config",
+				"properties": [
+					{ "name": "project", "type": "varchar(40)" },
+					{ "name": "service", "type": "varchar(60)" },
+					{ "name": "config_key", "type": "varchar(200)" },
+					{ "name": "config_value", "type": "varchar(2000)" },
+					{ "name": "custom", "type": "varchar(600)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(40)" }
+				]
+			}
+		]
+	},
+	{ "file": "func_table.sql", "tables": [] },
+	{
+		"file": "funded_isolation_type.sql",
+		"tables": [
+			{
+				"name": "funded_isolation_type",
+				"properties": [
+					{ "name": "funded_isolation", "type": "varchar(4)" },
+					{ "name": "description", "type": "varchar(160)" },
+					{ "name": "status", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "hago_close_reason_list.sql",
+		"tables": [
+			{
+				"name": "hago_close_reason_list",
+				"properties": [
+					{ "name": "reason_code", "type": "varchar(6)" },
+					{ "name": "hago_close_reason_code", "type": "varchar(6)" },
+					{ "name": "reason_description", "type": "varchar(400)" },
+					{ "name": "input_remark", "type": "int4" },
+					{ "name": "patient_type", "type": "varchar(2)" },
+					{ "name": "status", "type": "varchar(6)" },
+					{ "name": "order_no", "type": "int4" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "hago_designated_user.sql",
+		"tables": [
+			{
+				"name": "hago_designated_user",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "user_id", "type": "varchar(16)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "hago_rollout_control.sql",
+		"tables": [
+			{
+				"name": "hago_rollout_control",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "workstation_id", "type": "varchar(60)" },
+					{ "name": "rollout_control_flag", "type": "varchar(60)" },
+					{ "name": "description", "type": "varchar(200)" },
+					{ "name": "rollout_ready", "type": "varchar(2)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "hk_specialty.sql",
+		"tables": [
+			{
+				"name": "hk_specialty",
+				"properties": [
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "description", "type": "varchar(60)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "hkic_symbol_table.sql",
+		"tables": [
+			{
+				"name": "hkic_symbol_table",
+				"properties": [
+					{ "name": "hkic_symbol", "type": "varchar(2)" },
+					{ "name": "hkic_symbol_type", "type": "varchar(10)" },
+					{ "name": "short_description", "type": "varchar(510)" },
+					{ "name": "full_description", "type": "varchar(510)" },
+					{ "name": "sort_order", "type": "int4" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "hkpmi_control.sql",
+		"tables": [
+			{
+				"name": "hkpmi_control",
+				"properties": [
+					{ "name": "hkpmi_server", "type": "varchar" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{ "file": "hn_case_detail.sql", "tables": [] },
+	{
+		"file": "hospital.sql",
+		"tables": [
+			{
+				"name": "hospital",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "hospital_name", "type": "varchar(180)" },
+					{ "name": "chinese_name", "type": "varchar(120)" },
+					{ "name": "address", "type": "varchar(60)" },
+					{ "name": "source_code", "type": "varchar(4)" },
+					{ "name": "short_name", "type": "varchar(40)" },
+					{ "name": "cluster_hospital", "type": "varchar(2)" },
+					{ "name": "next_available_ae_no", "type": "int4" },
+					{ "name": "next_available_hn_no", "type": "int4" },
+					{ "name": "shift_factor", "type": "int4" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "hospital_config.sql", "tables": [] },
+	{ "file": "hospital_control.sql", "tables": [] },
+	{
+		"file": "hospital_location.sql",
+		"tables": [
+			{
+				"name": "hospital_location",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "location_code", "type": "varchar(8)" },
+					{ "name": "active_status", "type": "varchar(2)" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "description", "type": "varchar(510)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "hospital_mortuary.sql",
+		"tables": [
+			{
+				"name": "hospital_mortuary",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "mortuary_id", "type": "int4" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "active_indicator", "type": "varchar(2)" },
+					{ "name": "mortuary_hospital", "type": "varchar(6)" },
+					{ "name": "english_name", "type": "varchar(510)" },
+					{ "name": "chinese_name", "type": "varchar(510)" },
+					{ "name": "english_address", "type": "varchar(510)" },
+					{ "name": "chinese_address", "type": "varchar(510)" },
+					{ "name": "office_phone", "type": "varchar(20)" },
+					{ "name": "office_extension", "type": "varchar(8)" },
+					{ "name": "office_phone_2", "type": "varchar(20)" },
+					{ "name": "office_extension_2", "type": "varchar(8)" },
+					{ "name": "office_start_normal", "type": "varchar(10)" },
+					{ "name": "office_end_normal", "type": "varchar(10)" },
+					{ "name": "office_start_sat", "type": "varchar(10)" },
+					{ "name": "office_end_sat", "type": "varchar(10)" },
+					{ "name": "office_start_sun", "type": "varchar(10)" },
+					{ "name": "office_end_sun", "type": "varchar(10)" },
+					{ "name": "office_start_hol", "type": "varchar(10)" },
+					{ "name": "office_end_hol", "type": "varchar(10)" },
+					{ "name": "lunch_start", "type": "varchar(10)" },
+					{ "name": "lunch_end", "type": "varchar(10)" },
+					{ "name": "contact_phone", "type": "varchar(20)" },
+					{ "name": "contact_extension", "type": "varchar(8)" },
+					{ "name": "priority", "type": "int4" },
+					{ "name": "pro_phone", "type": "varchar(20)" },
+					{ "name": "pro_extension", "type": "varchar(8)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_hospital", "type": "varchar(6)" },
+					{ "name": "workstation_id", "type": "varchar(24)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "parent_hospital", "type": "varchar(6)" },
+					{ "name": "booking_office_phone", "type": "varchar(20)" },
+					{ "name": "booking_office_phone_ext", "type": "varchar(8)" },
+					{ "name": "booking_office_phone_2", "type": "varchar(20)" },
+					{ "name": "booking_office_phone_2_ext", "type": "varchar(8)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "hospital_ward_class.sql",
+		"tables": [
+			{
+				"name": "hospital_ward_class",
+				"properties": [
+					{ "name": "hospital_cde", "type": "varchar(6)" },
+					{ "name": "ward_cde", "type": "varchar(8)" },
+					{ "name": "ward_class", "type": "varchar(2)" },
+					{ "name": "ward_desc", "type": "varchar(60)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "icd9_table.sql", "tables": [] },
+	{ "file": "imis.sql", "tables": [] },
+	{ "file": "imis_1.sql", "tables": [] },
+	{ "file": "imis_2.sql", "tables": [] },
+	{ "file": "imis_3.sql", "tables": [] },
+	{ "file": "imis_4.sql", "tables": [] },
+	{
+		"file": "ip_specialty.sql",
+		"tables": [
+			{
+				"name": "ip_specialty",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "description", "type": "varchar(30)" },
+					{ "name": "treatment_location", "type": "varchar(8)" },
+					{ "name": "imis_code", "type": "varchar(6)" },
+					{ "name": "from_age", "type": "int4" },
+					{ "name": "to_age", "type": "int4" },
+					{ "name": "sex", "type": "varchar(2)" },
+					{ "name": "security_count", "type": "int4" },
+					{ "name": "active_status", "type": "varchar(2)" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "user_define", "type": "varchar(2)" },
+					{ "name": "treatment_flag", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ipas_revamp_info.sql",
+		"tables": [
+			{
+				"name": "ipas_revamp_info",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "func_id", "type": "int4" },
+					{ "name": "func_description", "type": "varchar(510)" },
+					{ "name": "rollout_type", "type": "varchar(4)" },
+					{ "name": "rollout_dtm_schedule", "type": "timestamp(6)" },
+					{ "name": "rollout_dtm_exact", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ipas_user_management_log.sql",
+		"tables": [
+			{
+				"name": "ipas_user_management_log",
+				"properties": [
+					{ "name": "hospital", "type": "varchar(6)" },
+					{ "name": "masked_hkid", "type": "varchar(24)" },
+					{ "name": "login_id", "type": "varchar(16)" },
+					{ "name": "\"action\"", "type": "varchar(100)" },
+					{ "name": "input_message_1", "type": "varchar(510)" },
+					{ "name": "input_message_2", "type": "varchar(510)" },
+					{ "name": "success", "type": "varchar(2)" },
+					{ "name": "error_message", "type": "varchar(510)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(16)" },
+					{ "name": "update_project", "type": "varchar(200)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ipas_whats_new_message.sql",
+		"tables": [
+			{
+				"name": "ipas_whats_new_message",
+				"properties": [
+					{ "name": "message_id", "type": "varchar(20)" },
+					{ "name": "hospital", "type": "varchar(6)" },
+					{ "name": "message_type", "type": "varchar(12)" },
+					{ "name": "message_header", "type": "varchar(200)" },
+					{ "name": "message_start_date", "type": "timestamp(6)" },
+					{ "name": "message_expiry_date", "type": "timestamp(6)" },
+					{ "name": "message_new_period", "type": "int4" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ipas_whats_new_message_dtl.sql",
+		"tables": [
+			{
+				"name": "ipas_whats_new_message_dtl",
+				"properties": [
+					{ "name": "message_id", "type": "varchar(20)" },
+					{ "name": "hospital", "type": "varchar(6)" },
+					{ "name": "message_line", "type": "int4" },
+					{ "name": "message_content", "type": "varchar(510)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "isolation_case.sql",
+		"tables": [
+			{
+				"name": "isolation_case",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "movement_count", "type": "int4" },
+					{ "name": "iso_status", "type": "varchar(4)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "isolation_case_code_table.sql",
+		"tables": [
+			{
+				"name": "isolation_case_code_table",
+				"properties": [
+					{ "name": "iso_type", "type": "varchar(100)" },
+					{ "name": "iso_code", "type": "varchar(4)" },
+					{ "name": "code_description", "type": "varchar(510)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "isolation_facilities_type.sql",
+		"tables": [
+			{
+				"name": "isolation_facilities_type",
+				"properties": [
+					{ "name": "isolation_facilities", "type": "varchar(4)" },
+					{ "name": "description", "type": "varchar(160)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "isolation_status.sql",
+		"tables": [
+			{
+				"name": "isolation_status",
+				"properties": [
+					{ "name": "code", "type": "varchar(20)" },
+					{ "name": "description", "type": "varchar(255)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "java_menu_url.sql",
+		"tables": [
+			{
+				"name": "java_menu_url",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "func_id", "type": "int4" },
+					{ "name": "func_description", "type": "varchar(255)" },
+					{ "name": "application_id", "type": "int4" },
+					{ "name": "function_id", "type": "int4" },
+					{ "name": "operation_id", "type": "int4" },
+					{ "name": "url", "type": "varchar(255)" },
+					{ "name": "url_parm", "type": "varchar(255)" },
+					{ "name": "icon_path", "type": "varchar(255)" },
+					{ "name": "proxy_url", "type": "varchar(255)" },
+					{ "name": "create_by", "type": "varchar(24)" },
+					{ "name": "create_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "show_on_menu", "type": "varchar(2)" },
+					{ "name": "proxy_url_by_hospital", "type": "varchar(2)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "lab_code.sql",
+		"tables": [
+			{
+				"name": "lab_code",
+				"properties": [
+					{ "name": "lab_cde", "type": "varchar(4)" },
+					{ "name": "lab_name", "type": "varchar(20)" },
+					{ "name": "lab_delphic_code", "type": "varchar(4)" },
+					{ "name": "front_end_order", "type": "int2" },
+					{ "name": "front_end_desc", "type": "varchar(30)" },
+					{ "name": "lab_enable", "type": "varchar(2)" },
+					{ "name": "lab_rept_title", "type": "varchar(100)" },
+					{ "name": "lab_footer_abbr", "type": "varchar(2)" },
+					{ "name": "lab_scr_dump", "type": "varchar(2)" },
+					{ "name": "lab_type", "type": "varchar(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "lab_rep_footer.sql",
+		"tables": [
+			{
+				"name": "lab_rep_footer",
+				"properties": [
+					{ "name": "hosp_code", "type": "varchar(10)" },
+					{ "name": "footer_desc", "type": "varchar(160)" },
+					{ "name": "bold_face", "type": "varchar(2)" },
+					{ "name": "srn_footer", "type": "varchar(160)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "log_type.sql",
+		"tables": [
+			{
+				"name": "log_type",
+				"properties": [
+					{ "name": "\"type\"", "type": "varchar(6)" },
+					{ "name": "description", "type": "varchar(80)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "lrr_log_type.sql",
+		"tables": [
+			{
+				"name": "lrr_log_type",
+				"properties": [
+					{ "name": "\"type\"", "type": "varchar(6)" },
+					{ "name": "description", "type": "varchar(80)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "merge_hkid.sql", "tables": [] },
+	{
+		"file": "mother_baby_case.sql",
+		"tables": [
+			{
+				"name": "mother_baby_case",
+				"properties": [
+					{ "name": "mother_hospital_code", "type": "varchar(6)" },
+					{ "name": "mother_case_no", "type": "varchar(24)" },
+					{ "name": "baby_hospital_code", "type": "varchar(6)" },
+					{ "name": "baby_case_no", "type": "varchar(24)" },
+					{ "name": "birth_order", "type": "int4" },
+					{ "name": "pregnancy_number", "type": "int4" },
+					{ "name": "birth_place", "type": "varchar(2)" },
+					{ "name": "birth_location", "type": "varchar(6)" },
+					{ "name": "mother_hospital_2", "type": "varchar(6)" },
+					{ "name": "mother_case_2", "type": "varchar(24)" },
+					{ "name": "mother_hospital_hn", "type": "varchar(6)" },
+					{ "name": "mother_case_hn", "type": "varchar(24)" },
+					{ "name": "baby_hospital_2", "type": "varchar(6)" },
+					{ "name": "baby_case_2", "type": "varchar(24)" },
+					{ "name": "baby_hospital_hn", "type": "varchar(6)" },
+					{ "name": "baby_case_hn", "type": "varchar(24)" },
+					{ "name": "create_by", "type": "varchar(24)" },
+					{ "name": "create_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "active_status", "type": "varchar(2)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "move_episode_code_table.sql",
+		"tables": [
+			{
+				"name": "move_episode_code_table",
+				"properties": [
+					{ "name": "\"type\"", "type": "varchar(100)" },
+					{ "name": "code", "type": "varchar(2)" },
+					{ "name": "description", "type": "varchar(510)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "move_episode_mail.sql",
+		"tables": [
+			{
+				"name": "move_episode_mail",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "email_address", "type": "varchar(510)" },
+					{ "name": "serial_number", "type": "int4" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "from_hkid", "type": "varchar(24)" },
+					{ "name": "to_hkid", "type": "varchar(24)" },
+					{ "name": "move_dtm", "type": "timestamp(6)" },
+					{ "name": "source_system", "type": "varchar(10)" },
+					{ "name": "user_id", "type": "varchar(24)" },
+					{ "name": "me_status", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "move_episode_notification.sql",
+		"tables": [
+			{
+				"name": "move_episode_notification",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "email_address", "type": "varchar(510)" },
+					{ "name": "last_sent_case", "type": "varchar(24)" },
+					{ "name": "last_sent_create_dtm", "type": "timestamp(6)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" },
+					{ "name": "serial_number", "type": "int4" },
+					{ "name": "last_sent_serial_number", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "move_type_code.sql",
+		"tables": [
+			{
+				"name": "move_type_code",
+				"properties": [
+					{ "name": "move_code", "type": "varchar(2)" },
+					{ "name": "move_desc", "type": "varchar(28)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "mras_table.sql",
+		"tables": [
+			{
+				"name": "mras_table",
+				"properties": [
+					{ "name": "string1", "type": "varchar(344)" },
+					{ "name": "string2", "type": "varchar(440)" },
+					{ "name": "string3", "type": "varchar(416)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "mrt_table.sql",
+		"tables": [
+			{
+				"name": "mrt_table",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "destination_code", "type": "varchar(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "no_charge_table.sql",
+		"tables": [
+			{
+				"name": "no_charge_table",
+				"properties": [
+					{ "name": "no_charge_indicator", "type": "varchar(10)" },
+					{ "name": "description", "type": "varchar(160)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "nok_relation.sql",
+		"tables": [
+			{
+				"name": "nok_relation",
+				"properties": [
+					{ "name": "nok_relation_code", "type": "varchar(4)" },
+					{ "name": "description", "type": "varchar(160)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "obs_adm_pay_code.sql",
+		"tables": [
+			{
+				"name": "obs_adm_pay_code",
+				"properties": [
+					{ "name": "mother_pay_code", "type": "varchar(6)" },
+					{ "name": "baby_pay_code", "type": "varchar(8)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ocsss_performance_log.sql",
+		"tables": [
+			{
+				"name": "ocsss_performance_log",
+				"properties": [
+					{ "name": "start_call_datetime", "type": "timestamp(6)" },
+					{ "name": "end_call_datetime", "type": "timestamp(6)" },
+					{ "name": "check_ocsss", "type": "varchar(2)" },
+					{ "name": "return_code", "type": "int4" },
+					{ "name": "ocsss_request_datetime", "type": "varchar(34)" },
+					{ "name": "ocsss_return_datetime", "type": "varchar(34)" },
+					{ "name": "ocsss_result", "type": "varchar(2)" },
+					{ "name": "ocsss_return_code", "type": "varchar(6)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "hkic_symbol", "type": "varchar(2)" },
+					{ "name": "last_document_type", "type": "varchar(10)" },
+					{ "name": "pay_code", "type": "varchar(6)" },
+					{ "name": "hospital", "type": "varchar(6)" },
+					{ "name": "appt_seq", "type": "int4" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "waiver_shorten_polled", "type": "varchar(2)" },
+					{ "name": "ref_id", "type": "varchar(50)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ocsss_random_log.sql",
+		"tables": [
+			{
+				"name": "ocsss_random_log",
+				"properties": [
+					{ "name": "log_datetime", "type": "timestamp(6)" },
+					{ "name": "hosp_code", "type": "varchar(6)" },
+					{ "name": "workstation_id", "type": "varchar(40)" },
+					{ "name": "user_id", "type": "varchar(24)" },
+					{ "name": "application_id", "type": "int4" },
+					{ "name": "function_id", "type": "int4" },
+					{ "name": "operation_id", "type": "int4" },
+					{ "name": "source_system", "type": "varchar(10)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "last_doc_code", "type": "varchar(2)" },
+					{ "name": "last_hkic", "type": "varchar(2)" },
+					{ "name": "new_doc_code", "type": "varchar(2)" },
+					{ "name": "new_hkic", "type": "varchar(2)" },
+					{ "name": "random_check", "type": "varchar(2)" },
+					{ "name": "appt_seq", "type": "int4" },
+					{ "name": "magic_number", "type": "varchar(8)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ocsss_soft_launch_check_log.sql",
+		"tables": [
+			{
+				"name": "ocsss_soft_launch_check_log",
+				"properties": [
+					{ "name": "hospital", "type": "varchar(6)" },
+					{ "name": "start_datetime", "type": "timestamp(6)" },
+					{ "name": "end_datetime", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ocsss_temp_paycode_check_log.sql",
+		"tables": [
+			{
+				"name": "ocsss_temp_paycode_check_log",
+				"properties": [
+					{ "name": "hospital", "type": "varchar(6)" },
+					{ "name": "start_datetime", "type": "timestamp(6)" },
+					{ "name": "end_datetime", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ocsss_temp_paycode_recheck.sql",
+		"tables": [
+			{
+				"name": "ocsss_temp_paycode_recheck",
+				"properties": [
+					{ "name": "transaction_datetime", "type": "timestamp(6)" },
+					{ "name": "hospital", "type": "varchar(6)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "appt_seq", "type": "int4" },
+					{ "name": "receipt_no", "type": "int4" },
+					{ "name": "original_paycode", "type": "varchar(6)" },
+					{ "name": "charging_amount", "type": "numeric(19, 4)" },
+					{ "name": "pay_amount", "type": "numeric(19, 4)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "hkic_symbol", "type": "varchar(2)" },
+					{ "name": "last_document_type", "type": "varchar(10)" },
+					{ "name": "ocsss_recheck_time", "type": "varchar(34)" },
+					{ "name": "ocsss_recheck_result", "type": "varchar(2)" },
+					{ "name": "pas_recheck_return_code", "type": "int4" },
+					{ "name": "pas_recheck_return_msg", "type": "varchar(510)" },
+					{ "name": "result_paycode", "type": "varchar(6)" },
+					{ "name": "result_generic_status", "type": "varchar(6)" },
+					{ "name": "result_pay_amount", "type": "numeric(19, 4)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "op_clt.sql",
+		"tables": [
+			{
+				"name": "op_clt",
+				"properties": [
+					{ "name": "hospital", "type": "varchar(6)" },
+					{ "name": "specialty", "type": "varchar(8)" },
+					{ "name": "sub_specialty", "type": "varchar(8)" },
+					{ "name": "specialty_desc", "type": "varchar(60)" },
+					{ "name": "sub_spec_desc", "type": "varchar(60)" },
+					{ "name": "eis_service_type", "type": "varchar(8)" },
+					{ "name": "eis_specialty", "type": "varchar(8)" },
+					{ "name": "eis_sub_specialty", "type": "varchar(20)" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "expiry_date", "type": "timestamp(6)" },
+					{ "name": "system_type", "type": "varchar(2)" },
+					{ "name": "status", "type": "varchar(2)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(16)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "op_control.sql",
+		"tables": [
+			{
+				"name": "op_control",
+				"properties": [
+					{ "name": "hosp_code", "type": "varchar(6)" },
+					{ "name": "hosp_name", "type": "varchar(100)" },
+					{ "name": "hosp_cname", "type": "varchar(120)" },
+					{ "name": "opd_clinic_cname", "type": "varchar(120)" },
+					{ "name": "op_server_name", "type": "varchar(40)" },
+					{ "name": "op_server_up", "type": "varchar(2)" },
+					{ "name": "op_res_bk", "type": "varchar(2)" },
+					{ "name": "op_res_sp", "type": "varchar(2)" },
+					{ "name": "op_xsp_bk", "type": "varchar(2)" },
+					{ "name": "pre_adm", "type": "varchar(2)" },
+					{ "name": "opsyb", "type": "varchar(2)" },
+					{ "name": "opopt_prt", "type": "varchar(4)" },
+					{ "name": "nr_ae_qta", "type": "varchar(2)" },
+					{ "name": "nr_wrd_qta", "type": "varchar(2)" },
+					{ "name": "op_sub_def", "type": "varchar(2)" },
+					{ "name": "op_prt_slip", "type": "varchar(40)" },
+					{ "name": "op_db_name", "type": "varchar(100)" },
+					{ "name": "op_enq_his_period", "type": "int4" },
+					{ "name": "op_enq_fut_period", "type": "int4" },
+					{ "name": "op_book_period", "type": "int4" },
+					{ "name": "opd_2nd_clinic_cname", "type": "varchar(120)" },
+					{ "name": "op_new_prt_funt", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "op_remarks.sql",
+		"tables": [
+			{
+				"name": "op_remarks",
+				"properties": [
+					{ "name": "op_rmk_code", "type": "varchar(6)" },
+					{ "name": "op_booking_type", "type": "varchar(8)" },
+					{ "name": "op_rmk_description", "type": "varchar(20)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "op_specialty.sql",
+		"tables": [
+			{
+				"name": "op_specialty",
+				"properties": [
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "spec_desc", "type": "varchar(60)" },
+					{ "name": "imis_specialty", "type": "varchar(8)" },
+					{ "name": "phone", "type": "varchar(20)" },
+					{ "name": "exclusive_group", "type": "int2" },
+					{ "name": "status", "type": "varchar(2)" },
+					{ "name": "\"type\"", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "op_sub_specialty.sql",
+		"tables": [
+			{
+				"name": "op_sub_specialty",
+				"properties": [
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "sub_specialty", "type": "varchar(8)" },
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "sub_spec_desc", "type": "varchar(60)" },
+					{ "name": "chi_long", "type": "varchar(32)" },
+					{ "name": "chi_short", "type": "varchar(16)" },
+					{ "name": "\"type\"", "type": "varchar(2)" },
+					{ "name": "phone", "type": "varchar(20)" },
+					{ "name": "exclusive_group", "type": "int2" },
+					{ "name": "am_pm_time", "type": "timestamp(6)" },
+					{ "name": "multi_book", "type": "varchar(2)" },
+					{ "name": "imis_specialty", "type": "varchar(8)" },
+					{ "name": "subs_control", "type": "varchar(2)" },
+					{ "name": "default_period", "type": "int2" },
+					{ "name": "default_period_unit", "type": "varchar(2)" },
+					{ "name": "status", "type": "varchar(2)" },
+					{ "name": "remark", "type": "varchar(60)" },
+					{ "name": "quota_control", "type": "varchar(24)" },
+					{ "name": "imis_service_type", "type": "varchar(2)" },
+					{ "name": "print_priority_no", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "op_trans_log.sql",
+		"tables": [
+			{
+				"name": "op_trans_log",
+				"properties": [
+					{ "name": "op_trans_sys_datetime", "type": "timestamp(6)" },
+					{ "name": "op_trans_function_type", "type": "varchar(2)" },
+					{ "name": "op_trans_ns_code", "type": "varchar(8)" },
+					{ "name": "op_trans_staff_id", "type": "varchar(16)" },
+					{ "name": "op_trans_app_datetime", "type": "timestamp(6)" },
+					{ "name": "op_trans_app_type", "type": "varchar(2)" },
+					{ "name": "op_trans_remark", "type": "varchar(40)" },
+					{ "name": "op_trans_priority_num", "type": "int4" },
+					{ "name": "op_trans_opd_clinic", "type": "varchar(16)" },
+					{ "name": "op_trans_op_num", "type": "varchar(24)" },
+					{ "name": "op_trans_op_hkid", "type": "varchar(24)" },
+					{ "name": "op_trans_op_name", "type": "varchar(96)" },
+					{ "name": "op_trans_status", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "op_ward_privilege.sql",
+		"tables": [
+			{
+				"name": "op_ward_privilege",
+				"properties": [
+					{ "name": "op_ns_code", "type": "varchar(8)" },
+					{ "name": "op_specialty", "type": "varchar(8)" },
+					{ "name": "op_sub_specialty", "type": "varchar(8)" },
+					{ "name": "op_quota_type", "type": "varchar(2)" },
+					{ "name": "op_priv_level", "type": "varchar(2)" },
+					{ "name": "op_booking_type", "type": "varchar(2)" },
+					{ "name": "op_sub_spec_longdescr", "type": "varchar(32)" },
+					{ "name": "op_sub_spec_shortdescr", "type": "varchar(16)" },
+					{ "name": "op_sub_spec_description", "type": "varchar(60)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "op_xspec_booking.sql",
+		"tables": [
+			{
+				"name": "op_xspec_booking",
+				"properties": [
+					{ "name": "op_xspec_ipas_code", "type": "varchar(8)" },
+					{ "name": "op_xspec_op_code", "type": "varchar(8)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "opas_pp_by_specialty.sql",
+		"tables": [
+			{
+				"name": "opas_pp_by_specialty",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "specialty", "type": "varchar(8)" },
+					{ "name": "pp_code", "type": "varchar(16)" },
+					{ "name": "create_by", "type": "varchar(16)" },
+					{ "name": "create_datetime", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(16)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "pa_privilege.sql",
+		"tables": [
+			{
+				"name": "pa_privilege",
+				"properties": [
+					{ "name": "pa_ns_code", "type": "varchar(8)" },
+					{ "name": "pa_specialty", "type": "varchar(8)" },
+					{ "name": "pa_sub_specialty", "type": "varchar(8)" },
+					{ "name": "pa_quota_type", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "pas_appl_control.sql",
+		"tables": [
+			{
+				"name": "pas_appl_control",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "appl_name", "type": "varchar(24)" },
+					{ "name": "appl_ctl_type", "type": "varchar(60)" },
+					{ "name": "appl_ctl_text_value", "type": "varchar(510)" },
+					{ "name": "appl_ctl_text_value_default", "type": "varchar(510)" },
+					{ "name": "appl_ctl_num_value", "type": "int4" },
+					{ "name": "appl_ctl_num_value_default", "type": "int4" },
+					{ "name": "appl_ctl_user_define", "type": "varchar(2)" },
+					{ "name": "appl_ctl_desc", "type": "varchar(510)" },
+					{ "name": "server_an", "type": "varchar(40)" },
+					{ "name": "db_name", "type": "varchar(40)" },
+					{ "name": "local_server_name", "type": "varchar(40)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_sys", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "pas_code_table.sql",
+		"tables": [
+			{
+				"name": "pas_code_table",
+				"properties": [
+					{ "name": "code_type", "type": "varchar(40)" },
+					{ "name": "code_name", "type": "varchar(40)" },
+					{ "name": "code_field", "type": "varchar(40)" },
+					{ "name": "code_text_1", "type": "varchar(160)" },
+					{ "name": "code_text_2", "type": "varchar(160)" },
+					{ "name": "code_text_3", "type": "varchar(160)" },
+					{ "name": "code_int", "type": "int4" },
+					{ "name": "code_desc", "type": "varchar(510)" },
+					{ "name": "code_hosp", "type": "varchar(6)" },
+					{ "name": "code_dtm", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "pas_custom_message.sql", "tables": [] },
+	{ "file": "pas_func_whitelist.sql", "tables": [] },
+	{ "file": "pas_func_whitelist_group.sql", "tables": [] },
+	{
+		"file": "pas_monitor.sql",
+		"tables": [
+			{
+				"name": "pas_monitor",
+				"properties": [
+					{ "name": "monitor_sys", "type": "varchar(24)" },
+					{ "name": "monitor_type", "type": "varchar(20)" },
+					{ "name": "monitor_dtm", "type": "timestamp(6)" },
+					{ "name": "monitor_data", "type": "varchar(512)" },
+					{ "name": "sys_now_dtm", "type": "timestamp(6)" },
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "server_an", "type": "varchar(40)" },
+					{ "name": "db_name", "type": "varchar(40)" },
+					{ "name": "local_server_name", "type": "varchar(40)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_sys", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "pas_name_search_log.sql", "tables": [] },
+	{
+		"file": "pas_print_control.sql",
+		"tables": [
+			{
+				"name": "pas_print_control",
+				"properties": [
+					{ "name": "hosp_code", "type": "varchar(6)" },
+					{ "name": "spec_code", "type": "varchar(8)" },
+					{ "name": "spec_imis", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "ward_loc_code", "type": "varchar(8)" },
+					{ "name": "eff_dtm", "type": "timestamp(6)" },
+					{ "name": "ws_id", "type": "varchar(24)" },
+					{ "name": "hn_print_format", "type": "varchar(16)" },
+					{ "name": "hn_label_set", "type": "int2" },
+					{ "name": "num_of_hn_full_label", "type": "int2" },
+					{ "name": "num_of_hn_partial_label", "type": "int2" },
+					{ "name": "num_of_hn_barcode_label", "type": "int2" },
+					{ "name": "num_of_hn_med_cert_label", "type": "int2" },
+					{ "name": "num_of_hn_without_hkid_label", "type": "int2" },
+					{ "name": "num_of_hn_document_label", "type": "int2" },
+					{ "name": "num_of_hn_name_label", "type": "int2" },
+					{ "name": "num_of_hn_case_label", "type": "int2" },
+					{ "name": "num_of_hn_specimen_label", "type": "int2" },
+					{ "name": "priority_hn_full_label", "type": "int2" },
+					{ "name": "priority_hn_partial_label", "type": "int2" },
+					{ "name": "priority_hn_barcode_label", "type": "int2" },
+					{ "name": "priority_hn_med_cert_label", "type": "int2" },
+					{ "name": "priority_hn_without_hkid_label", "type": "int2" },
+					{ "name": "priority_hn_document_label", "type": "int2" },
+					{ "name": "priority_hn_name_label", "type": "int2" },
+					{ "name": "priority_hn_case_label", "type": "int2" },
+					{ "name": "priority_hn_specimen_label", "type": "int2" },
+					{ "name": "wb_print_format", "type": "varchar(16)" },
+					{ "name": "wb_label_set", "type": "int2" },
+					{ "name": "num_of_hn_wb_adult", "type": "int2" },
+					{ "name": "num_of_hn_wb_child", "type": "int2" },
+					{ "name": "num_of_ae_wb_adult", "type": "int2" },
+					{ "name": "num_of_ae_wb_child", "type": "int2" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_sys", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "pas_sys_perf_log.sql",
+		"tables": [
+			{
+				"name": "pas_sys_perf_log",
+				"properties": [
+					{ "name": "system_dtm", "type": "timestamp(6)" },
+					{ "name": "hosp_code", "type": "varchar(6)" },
+					{ "name": "monitor_sys", "type": "varchar(24)" },
+					{ "name": "input_type", "type": "varchar(6)" },
+					{ "name": "func_id", "type": "int4" },
+					{ "name": "txn_type", "type": "varchar(6)" },
+					{ "name": "user_id", "type": "varchar(24)" },
+					{ "name": "term_id", "type": "varchar(30)" },
+					{ "name": "start_dtm", "type": "timestamp(6)" },
+					{ "name": "end_dtm", "type": "timestamp(6)" },
+					{ "name": "rpc_server", "type": "varchar(50)" },
+					{ "name": "sp_name", "type": "varchar(100)" },
+					{ "name": "sp_rtn_code", "type": "int4" },
+					{ "name": "input_parm1", "type": "varchar(510)" },
+					{ "name": "input_parm2", "type": "varchar(510)" },
+					{ "name": "input_misc_parm", "type": "varchar(510)" },
+					{ "name": "output_parm1", "type": "varchar(510)" },
+					{ "name": "output_parm2", "type": "varchar(510)" },
+					{ "name": "monitor_type", "type": "varchar(20)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "pas_url_version_java.sql",
+		"tables": [
+			{
+				"name": "pas_url_version_java",
+				"properties": [
+					{ "name": "hosp_code", "type": "varchar(20)" },
+					{ "name": "\"function\"", "type": "varchar(80)" },
+					{ "name": "\"type\"", "type": "varchar(10)" },
+					{ "name": "\"version\"", "type": "varchar(40)" },
+					{ "name": "protocol", "type": "varchar(510)" },
+					{ "name": "host_name", "type": "varchar(510)" },
+					{ "name": "context_root", "type": "varchar(510)" },
+					{ "name": "login", "type": "varchar(510)" },
+					{ "name": "\"password\"", "type": "varchar(510)" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "expiry_date", "type": "timestamp(6)" },
+					{ "name": "version_info", "type": "varchar(400)" },
+					{ "name": "last_updated_by", "type": "varchar(60)" },
+					{ "name": "last_updated", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "patient_doc_info_op.sql", "tables": [] },
+	{
+		"file": "patient_type.sql",
+		"tables": [
+			{
+				"name": "patient_type",
+				"properties": [
+					{ "name": "patient_type", "type": "varchar(6)" },
+					{ "name": "description", "type": "varchar(160)" },
+					{ "name": "effective_dtm", "type": "timestamp(6)" },
+					{ "name": "patient_group", "type": "varchar(10)" },
+					{ "name": "pay_code_type", "type": "varchar(10)" },
+					{ "name": "active_status", "type": "varchar(2)" },
+					{ "name": "user_define", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "payment_by_status.sql",
+		"tables": [
+			{
+				"name": "payment_by_status",
+				"properties": [
+					{ "name": "case_type", "type": "varchar(2)" },
+					{ "name": "pay_code", "type": "varchar(6)" },
+					{ "name": "from_age", "type": "int4" },
+					{ "name": "to_age", "type": "int4" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "expiry_date", "type": "timestamp(6)" },
+					{ "name": "payment_amount", "type": "int4" },
+					{ "name": "waiver_enable", "type": "varchar(2)" },
+					{ "name": "no_charge_indicator", "type": "varchar(10)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "partial_payment", "type": "varchar(2)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "payment_table.sql",
+		"tables": [
+			{
+				"name": "payment_table",
+				"properties": [
+					{ "name": "payment_means", "type": "varchar(10)" },
+					{ "name": "description", "type": "varchar(160)" },
+					{ "name": "deferred_payment", "type": "varchar(2)" },
+					{ "name": "short_description", "type": "varchar(160)" },
+					{ "name": "display_order", "type": "int4" },
+					{ "name": "default_value", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "pbrc_os_overriding_log.sql",
+		"tables": [
+			{
+				"name": "pbrc_os_overriding_log",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "txn_type", "type": "varchar(6)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "adm_dtm", "type": "timestamp(6)" },
+					{ "name": "pay_code", "type": "varchar(6)" },
+					{ "name": "source_ind", "type": "varchar(2)" },
+					{ "name": "source_code", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "ward_class", "type": "varchar(2)" },
+					{ "name": "spec_code", "type": "varchar(8)" },
+					{ "name": "eis_code", "type": "varchar(6)" },
+					{ "name": "os_amt", "type": "numeric(19, 4)" },
+					{ "name": "overriding_reason", "type": "varchar(510)" },
+					{ "name": "action_code_type", "type": "varchar(10)" },
+					{ "name": "action_code", "type": "varchar(6)" },
+					{ "name": "term_id", "type": "varchar(24)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_dtm", "type": "timestamp(6)" },
+					{ "name": "source_system", "type": "varchar(16)" },
+					{ "name": "remark", "type": "varchar(510)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "pp.sql",
+		"tables": [
+			{
+				"name": "pp",
+				"properties": [
+					{ "name": "pp_code", "type": "varchar(16)" },
+					{ "name": "pp_name", "type": "varchar(96)" },
+					{ "name": "room", "type": "varchar(10)" },
+					{ "name": "floor", "type": "varchar(4)" },
+					{ "name": "block", "type": "varchar(4)" },
+					{ "name": "building", "type": "varchar(94)" },
+					{ "name": "district_code", "type": "varchar(10)" },
+					{ "name": "phone", "type": "varchar(20)" },
+					{ "name": "fax_no", "type": "varchar(20)" },
+					{ "name": "email_address", "type": "varchar(48)" },
+					{ "name": "remarks", "type": "varchar(80)" },
+					{ "name": "hkma_code", "type": "varchar(2)" },
+					{ "name": "expiry_date", "type": "timestamp(6)" },
+					{ "name": "last_name", "type": "varchar(80)" },
+					{ "name": "first_name", "type": "varchar(80)" },
+					{ "name": "chinese_name", "type": "varchar(12)" },
+					{ "name": "address_1", "type": "varchar(255)" },
+					{ "name": "address_2", "type": "varchar(255)" },
+					{ "name": "address_3", "type": "varchar(255)" },
+					{ "name": "address_4", "type": "varchar(255)" },
+					{ "name": "chinese_address", "type": "varchar(255)" },
+					{ "name": "office_phone", "type": "varchar(48)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "pp_consent_fax.sql",
+		"tables": [
+			{
+				"name": "pp_consent_fax",
+				"properties": [
+					{ "name": "pp_code", "type": "varchar(16)" },
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "cluster_code", "type": "varchar(10)" },
+					{ "name": "consent_start_date", "type": "timestamp(6)" },
+					{ "name": "consent_end_date", "type": "timestamp(6)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_hospital", "type": "varchar(6)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "race.sql",
+		"tables": [
+			{
+				"name": "race",
+				"properties": [
+					{ "name": "race_code", "type": "varchar(4)" },
+					{ "name": "race_description", "type": "varchar(40)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "religion.sql",
+		"tables": [
+			{
+				"name": "religion",
+				"properties": [
+					{ "name": "religion_code", "type": "varchar(6)" },
+					{ "name": "religion_description", "type": "varchar(160)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "rep_cluster_bits.sql",
+		"tables": [
+			{
+				"name": "rep_cluster_bits",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "cluster_hosp", "type": "varchar(6)" },
+					{ "name": "bit_value", "type": "int4" },
+					{ "name": "class_catg", "type": "varchar(4)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "sms_language_table.sql",
+		"tables": [
+			{
+				"name": "sms_language_table",
+				"properties": [
+					{ "name": "sms_language_code", "type": "varchar(8)" },
+					{ "name": "sms_language", "type": "varchar(16)" },
+					{ "name": "description", "type": "varchar(60)" },
+					{ "name": "short_description", "type": "varchar(20)" },
+					{ "name": "seq_order", "type": "int4" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "source.sql", "tables": [] },
+	{
+		"file": "specialty_retention.sql",
+		"tables": [
+			{
+				"name": "specialty_retention",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "eis_specialty", "type": "varchar(6)" },
+					{ "name": "retention_period", "type": "int4" },
+					{ "name": "age", "type": "int4" },
+					{ "name": "death_indicator", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "transaction_log.sql",
+		"tables": [
+			{
+				"name": "transaction_log",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "system_datetime", "type": "timestamp(6)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "from_ward_code", "type": "varchar(8)" },
+					{ "name": "from_treatment_location", "type": "varchar(8)" },
+					{ "name": "from_class", "type": "varchar(2)" },
+					{ "name": "from_bed", "type": "varchar(10)" },
+					{ "name": "from_specialty_code", "type": "varchar(8)" },
+					{ "name": "to_ward_code", "type": "varchar(8)" },
+					{ "name": "to_treatment_location", "type": "varchar(8)" },
+					{ "name": "to_class", "type": "varchar(2)" },
+					{ "name": "to_bed", "type": "varchar(10)" },
+					{ "name": "to_specialty_code", "type": "varchar(8)" },
+					{ "name": "transaction_datetime", "type": "timestamp(6)" },
+					{ "name": "transaction_type", "type": "varchar(6)" },
+					{ "name": "post_datetime", "type": "timestamp(6)" },
+					{ "name": "user_id", "type": "varchar(16)" },
+					{ "name": "post_flag", "type": "varchar(2)" },
+					{ "name": "cancel_flag", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "txn_type.sql",
+		"tables": [
+			{
+				"name": "txn_type",
+				"properties": [
+					{ "name": "txn_type", "type": "varchar(6)" },
+					{ "name": "description", "type": "varchar(160)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "upd_address_detail.sql",
+		"tables": [
+			{
+				"name": "upd_address_detail",
+				"properties": [
+					{ "name": "record_id", "type": "int4" },
+					{ "name": "bldg_chi", "type": "varchar(200)" },
+					{ "name": "bldg_eng", "type": "varchar(400)" },
+					{ "name": "estate_chi", "type": "varchar(160)" },
+					{ "name": "estate_eng", "type": "varchar(200)" },
+					{ "name": "house_no", "type": "varchar(20)" },
+					{ "name": "street_chi", "type": "varchar(100)" },
+					{ "name": "street_eng", "type": "varchar(200)" },
+					{ "name": "district_code", "type": "varchar(10)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "upload.sql", "tables": [] },
+	{
+		"file": "upload_control_pg.sql",
+		"tables": [
+			{
+				"name": "upload_control_pg",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "provider_id", "type": "varchar(6)" },
+					{ "name": "gateway_id", "type": "varchar(16)" },
+					{ "name": "adt_cics_id", "type": "varchar(16)" },
+					{ "name": "ops_cics_id", "type": "varchar(16)" },
+					{ "name": "upload_enable", "type": "varchar(2)" },
+					{ "name": "last_upload_datetime", "type": "timestamp(6)" },
+					{ "name": "check_patient_key", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "upload_exception.sql",
+		"tables": [
+			{
+				"name": "upload_exception",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "transaction_datetime", "type": "timestamp(6)" },
+					{ "name": "error_detail", "type": "varchar(510)" },
+					{ "name": "record1", "type": "varchar(510)" },
+					{ "name": "record2", "type": "varchar(510)" },
+					{ "name": "record3", "type": "varchar(510)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "user_action_code_list.sql",
+		"tables": [
+			{
+				"name": "user_action_code_list",
+				"properties": [
+					{ "name": "action_code_type", "type": "varchar(10)" },
+					{ "name": "action_code", "type": "varchar(6)" },
+					{ "name": "short_description", "type": "varchar(510)" },
+					{ "name": "description", "type": "varchar(510)" },
+					{ "name": "chinese_description", "type": "varchar(510)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "user_activity_log.sql",
+		"tables": [
+			{
+				"name": "user_activity_log",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "user_id", "type": "varchar(16)" },
+					{ "name": "term_id", "type": "varchar(24)" },
+					{ "name": "func_id", "type": "varchar(6)" },
+					{ "name": "remark", "type": "varchar(160)" },
+					{ "name": "system_datetime", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{ "file": "user_group.sql", "tables": [] },
+	{ "file": "user_group_detail.sql", "tables": [] },
+	{
+		"file": "user_password.sql",
+		"tables": [
+			{
+				"name": "user_password",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "user_id", "type": "varchar(16)" },
+					{ "name": "\"password\"", "type": "varchar(140)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "last_updated_by", "type": "varchar(16)" },
+					{ "name": "last_update_status", "type": "varchar(100)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "user_profile.sql",
+		"tables": [
+			{
+				"name": "user_profile",
+				"properties": [
+					{ "name": "user_id", "type": "varchar(16)" },
+					{ "name": "group_id", "type": "varchar(20)" },
+					{ "name": "\"password\"", "type": "varchar(32)" },
+					{ "name": "department", "type": "varchar(20)" },
+					{ "name": "\"name\"", "type": "varchar(96)" },
+					{ "name": "authority_code", "type": "int4" },
+					{ "name": "expiration_date", "type": "timestamp(6)" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "rank_code", "type": "varchar(6)" },
+					{ "name": "menu", "type": "varchar(2)" },
+					{ "name": "dt_security_code", "type": "int4" },
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "hkid", "type": "varchar(24)" },
+					{ "name": "user_title", "type": "varchar(20)" },
+					{ "name": "dt_enable_flag", "type": "varchar(2)" },
+					{ "name": "dt_effective_date", "type": "timestamp(6)" },
+					{ "name": "dt_expiration_date", "type": "timestamp(6)" },
+					{ "name": "password_expiration_date", "type": "timestamp(6)" },
+					{ "name": "password_retry_count", "type": "int4" },
+					{ "name": "cuid_flag", "type": "varchar(2)" },
+					{ "name": "email", "type": "varchar(510)" },
+					{ "name": "encrypted_pswd", "type": "varchar(200)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ward.sql",
+		"tables": [
+			{
+				"name": "ward",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "description", "type": "varchar(60)" },
+					{ "name": "treatment_location", "type": "varchar(8)" },
+					{ "name": "\"location\"", "type": "varchar(40)" },
+					{ "name": "active_status", "type": "varchar(2)" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "user_define", "type": "varchar(2)" },
+					{ "name": "care_category", "type": "varchar(2)" },
+					{ "name": "default_specialty", "type": "varchar(8)" },
+					{ "name": "wristband_no", "type": "int4" },
+					{ "name": "isolation_type", "type": "varchar(2)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ward_class.sql",
+		"tables": [
+			{
+				"name": "ward_class",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "ward_class", "type": "varchar(2)" },
+					{ "name": "open_date", "type": "timestamp(6)" },
+					{ "name": "close_date", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "ward_class_code.sql", "tables": [] },
+	{
+		"file": "ward_list.sql",
+		"tables": [
+			{
+				"name": "ward_list",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "case_no", "type": "varchar(24)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "bed_no", "type": "varchar(10)" },
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "row_update_datetime", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ward_location.sql",
+		"tables": [
+			{
+				"name": "ward_location",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "location_code", "type": "varchar(8)" },
+					{ "name": "active_status", "type": "varchar(2)" },
+					{ "name": "effective_date", "type": "timestamp(6)" },
+					{ "name": "location_desc", "type": "varchar(100)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ward_spec_adj.sql",
+		"tables": [
+			{
+				"name": "ward_spec_adj",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ward_spec_adj_date", "type": "timestamp(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "treatment_location", "type": "varchar(8)" },
+					{ "name": "canc_admission", "type": "int2" },
+					{ "name": "canc_discharge", "type": "int2" },
+					{ "name": "canc_transfer_in", "type": "int2" },
+					{ "name": "canc_transfer_out", "type": "int2" },
+					{ "name": "canc_death", "type": "int2" },
+					{ "name": "canc_day_discharge", "type": "int2" },
+					{ "name": "canc_day_death", "type": "int2" },
+					{ "name": "canc_admission_thru_ae", "type": "int2" },
+					{ "name": "canc_transfer_in_from_td", "type": "int2" },
+					{ "name": "canc_transfer_out_to_td", "type": "int2" },
+					{ "name": "canc_ae_day_discharge", "type": "int2" },
+					{ "name": "canc_ae_day_death", "type": "int2" },
+					{ "name": "canc_transfer_within_specialty", "type": "int2" },
+					{ "name": "canc_transfer_within_ward", "type": "int2" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ward_spec_tx.sql",
+		"tables": [
+			{
+				"name": "ward_spec_tx",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ward_spec_tx_date", "type": "timestamp(6)" },
+					{ "name": "ward_code", "type": "varchar(8)" },
+					{ "name": "specialty_code", "type": "varchar(8)" },
+					{ "name": "treatment_location", "type": "varchar(8)" },
+					{ "name": "previous_remaining", "type": "int2" },
+					{ "name": "admission", "type": "int2" },
+					{ "name": "discharge", "type": "int2" },
+					{ "name": "transfer_in", "type": "int2" },
+					{ "name": "transfer_out", "type": "int2" },
+					{ "name": "death", "type": "int2" },
+					{ "name": "day_discharge", "type": "int2" },
+					{ "name": "day_death", "type": "int2" },
+					{ "name": "admission_thru_ae", "type": "int2" },
+					{ "name": "transfer_in_from_td", "type": "int2" },
+					{ "name": "transfer_out_to_td", "type": "int2" },
+					{ "name": "ae_day_discharge", "type": "int2" },
+					{ "name": "ae_day_death", "type": "int2" },
+					{ "name": "transfer_within_specialty", "type": "int2" },
+					{ "name": "transfer_within_ward", "type": "int2" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{ "file": "ward_specialty.sql", "tables": [] },
+	{
+		"file": "wdyr_table.sql",
+		"tables": [
+			{
+				"name": "wdyr_table",
+				"properties": [
+					{ "name": "wdyr_out", "type": "varchar(188)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" },
+					{ "name": "record_id", "type": "int4" }
+				]
+			}
+		]
+	},
+	{
+		"file": "we_id_usage.sql",
+		"tables": [
+			{
+				"name": "we_id_usage",
+				"properties": [
+					{ "name": "station_id", "type": "int2" },
+					{ "name": "used_flag", "type": "varchar(2)" },
+					{ "name": "id_enabled", "type": "varchar(2)" },
+					{ "name": "last_start_time", "type": "timestamp(6)" },
+					{ "name": "last_used_time", "type": "timestamp(6)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "web_function_user_control.sql",
+		"tables": [
+			{
+				"name": "web_function_user_control",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "func_id", "type": "int4" },
+					{ "name": "user_id", "type": "varchar(24)" },
+					{ "name": "update_by", "type": "varchar(24)" },
+					{ "name": "update_datetime", "type": "timestamp(6)" },
+					{ "name": "computer_name", "type": "varchar(40)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "work_station.sql",
+		"tables": [
+			{
+				"name": "work_station",
+				"properties": [
+					{ "name": "ws_code", "type": "varchar(10)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ws_history.sql",
+		"tables": [
+			{
+				"name": "ws_history",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ws_id", "type": "varchar(96)" },
+					{ "name": "system_datetime", "type": "timestamp(6)" },
+					{ "name": "error_code", "type": "int4" },
+					{ "name": "term_id", "type": "varchar(96)" },
+					{ "name": "user_id", "type": "varchar(96)" },
+					{ "name": "registration_year", "type": "varchar(4)" },
+					{ "name": "unhkid_prefix", "type": "varchar(4)" },
+					{ "name": "unhkid_next", "type": "varchar(12)" },
+					{ "name": "ae_next", "type": "varchar(12)" },
+					{ "name": "hn_next", "type": "varchar(12)" },
+					{ "name": "mini_label_next", "type": "varchar(20)" },
+					{ "name": "action_code", "type": "varchar(12)" },
+					{ "name": "old_registration_year", "type": "varchar(4)" },
+					{ "name": "old_unhkid_prefix", "type": "varchar(4)" },
+					{ "name": "old_unhkid_min", "type": "varchar(12)" },
+					{ "name": "old_unhkid_max", "type": "varchar(12)" },
+					{ "name": "old_ae_min", "type": "varchar(12)" },
+					{ "name": "old_ae_max", "type": "varchar(12)" },
+					{ "name": "old_hn_min", "type": "varchar(12)" },
+					{ "name": "old_hn_max", "type": "varchar(12)" },
+					{ "name": "old_mini_label_min", "type": "varchar(20)" },
+					{ "name": "old_mini_label_max", "type": "varchar(20)" },
+					{ "name": "old_unhkid_next", "type": "varchar(12)" },
+					{ "name": "old_ae_next", "type": "varchar(12)" },
+					{ "name": "old_hn_next", "type": "varchar(12)" },
+					{ "name": "old_mini_label_next", "type": "varchar(20)" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ws_information.sql",
+		"tables": [
+			{
+				"name": "ws_information",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ws_id", "type": "varchar(96)" },
+					{ "name": "effective_datetime", "type": "timestamp(6)" },
+					{ "name": "active_status", "type": "varchar(2)" },
+					{ "name": "term_id", "type": "varchar(96)" },
+					{ "name": "server_name", "type": "varchar(96)" },
+					{ "name": "database_name", "type": "varchar(96)" },
+					{ "name": "unhkid_prefix", "type": "varchar(4)" },
+					{ "name": "unhkid_min", "type": "varchar(12)" },
+					{ "name": "unhkid_max", "type": "varchar(12)" },
+					{ "name": "ae_min", "type": "varchar(12)" },
+					{ "name": "ae_max", "type": "varchar(12)" },
+					{ "name": "hn_min", "type": "varchar(12)" },
+					{ "name": "hn_max", "type": "varchar(12)" },
+					{ "name": "mini_label_min", "type": "varchar(20)" },
+					{ "name": "mini_label_max", "type": "varchar(20)" },
+					{ "name": "unhkid_next", "type": "varchar(12)" },
+					{ "name": "ae_next", "type": "varchar(12)" },
+					{ "name": "hn_next", "type": "varchar(12)" },
+					{ "name": "mini_label_next", "type": "varchar(20)" },
+					{ "name": "registration_year", "type": "varchar(4)" },
+					{ "name": "online_version", "type": "varchar(96)" },
+					{ "name": "downtime_version", "type": "varchar(96)" },
+					{ "name": "online_datetime", "type": "timestamp(6)" },
+					{ "name": "downtime_datetime", "type": "timestamp(6)" },
+					{ "name": "online_size", "type": "int4" },
+					{ "name": "downtime_size", "type": "int4" },
+					{ "name": "enable_web_version", "type": "varchar(2)" },
+					{ "name": "control_pc", "type": "varchar(2)" },
+					{ "name": "exit_only", "type": "varchar(2)" },
+					{ "name": "use_proxy_url", "type": "varchar(20)" },
+					{ "name": "use_usb_receipt_printer", "type": "varchar(100)" },
+					{ "name": "use_ccp", "type": "varchar(20)" },
+					{ "name": "use_pas_agent", "type": "varchar(20)" },
+					{ "name": "no_of_ip_label", "type": "int4" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	},
+	{
+		"file": "ws_problem_log.sql",
+		"tables": [
+			{
+				"name": "ws_problem_log",
+				"properties": [
+					{ "name": "hospital_code", "type": "varchar(6)" },
+					{ "name": "ws_id", "type": "varchar(96)" },
+					{ "name": "system_datetime", "type": "timestamp(6)" },
+					{ "name": "error_code", "type": "int4" },
+					{ "name": "term_id", "type": "varchar(96)" },
+					{ "name": "server_name", "type": "varchar(96)" },
+					{ "name": "database_name", "type": "varchar(96)" },
+					{ "name": "unhkid_prefix", "type": "varchar(4)" },
+					{ "name": "unhkid_min", "type": "varchar(12)" },
+					{ "name": "unhkid_max", "type": "varchar(12)" },
+					{ "name": "ae_min", "type": "varchar(12)" },
+					{ "name": "ae_max", "type": "varchar(12)" },
+					{ "name": "hn_min", "type": "varchar(12)" },
+					{ "name": "hn_max", "type": "varchar(12)" },
+					{ "name": "mini_label_min", "type": "varchar(20)" },
+					{ "name": "mini_label_max", "type": "varchar(20)" },
+					{ "name": "unhkid_next", "type": "varchar(12)" },
+					{ "name": "ae_next", "type": "varchar(12)" },
+					{ "name": "hn_next", "type": "varchar(12)" },
+					{ "name": "mini_label_next", "type": "varchar(20)" },
+					{ "name": "registration_year", "type": "varchar(4)" },
+					{ "name": "online_version", "type": "varchar(96)" },
+					{ "name": "downtime_version", "type": "varchar(96)" },
+					{ "name": "online_datetime", "type": "timestamp(6)" },
+					{ "name": "downtime_datetime", "type": "timestamp(6)" },
+					{ "name": "online_size", "type": "int4" },
+					{ "name": "downtime_size", "type": "int4" },
+					{ "name": "last_update_datetime", "type": "timestamp(6)" }
+				]
+			}
+		]
+	}
+]

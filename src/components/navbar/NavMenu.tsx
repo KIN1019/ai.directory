@@ -65,6 +65,13 @@ export function NavMenu() {
 					</Link>
 				</NavigationMenuItem>
 				<NavigationMenuItem>
+					<Link href="/skills" legacyBehavior passHref>
+						<NavigationMenuLink className={navigationMenuTriggerStyle()}>
+							Skills
+						</NavigationMenuLink>
+					</Link>
+				</NavigationMenuItem>
+				<NavigationMenuItem>
 					<Link href="/prompts" legacyBehavior passHref>
 						<NavigationMenuLink className={navigationMenuTriggerStyle()}>
 							Prompts

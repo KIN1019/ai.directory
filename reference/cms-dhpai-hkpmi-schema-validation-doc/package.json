@@ -1,0 +1,25 @@
+{
+	"name": "postgres-ddl-parser",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"build-schema-json": "tsx tools/build-schema-json.ts",
+		"check-schema-mismatches": "tsx tools/check-schema-mismatches.ts",
+		"mismatches-json-to-csv": "tsx tools/mismatches-json-to-csv.ts",
+		"analyze-sp-mismatches": "tsx tools/analyze-sp-mismatches.ts"
+	},
+	"devDependencies": {
+		"tsx": "^4.20.5",
+		"typescript": "~5.8.3",
+		"vite": "^7.1.2"
+	},
+	"dependencies": {
+		"@types/node": "^24.3.0",
+		"antlr4ng": "^3.0.16",
+		"node-jq": "^6.3.1"
+	}
+}

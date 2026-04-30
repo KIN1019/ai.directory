@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Get Branch Diff",
+			"type": "shell",
+			"command": "git",
+			"args": ["diff", "--name-only", "origin/main...HEAD"],
+			"group": "build"
+		},
+		{
+			"label": "Get Detailed Diff",
+			"type": "shell",
+			"command": "git",
+			"args": ["diff", "origin/main...HEAD"],
+			"group": "build"
+		}
+	]
+}
