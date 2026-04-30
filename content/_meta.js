@@ -8,4 +8,5 @@ export default {
 	mcpSetup: "MCP Introduction",
 	"dhpai-context-mcp": "DHPAI Context MCP",
 	bestPractices: "Best Practices",
+	"agent-skills": "Skills",
 };
