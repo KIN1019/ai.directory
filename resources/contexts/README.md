@@ -1,47 +1,68 @@
 # Contexts Directory
 
-Development contexts with project guidelines, standards, and code snippets. These appear in the `/contexts` section of the website.
+Library documentation contexts fetched dynamically from external sources. These appear in the `/contexts` section of the website.
+
+## How It Works (DHPAI Context MCP Style)
+
+This implementation follows the **DHPAI Context MCP** approach where:
+
+1. **No local files stored** - Only minimal metadata in `_meta.yaml`
+2. **Runtime fetching** - Documentation is fetched dynamically from external sources
+3. **URL inference** - llms.txt URLs are automatically inferred from the source repository
 
 ## Format
 
-Each context is a directory containing:
-
-**`_meta.yaml`** - Context metadata:
+Each library is a directory containing only a `_meta.yaml` file:
 
 ```yaml
-name: Context Name
-description: Brief description of the context
-slug: context-slug
-source: /repository/path # optional
-lastUpdated: 2024-01-15 # optional
+name: Library Display Name
+description: Brief description of the library
+slug: library-slug-identifier
+source: /owner/repo # GitHub repo (llms.txt URL will be inferred)
+lastUpdated: 2024-01-15
 techStacks:
   - react
   - typescript
 teams:
-  - cp14
-  - core-platform
+  - CMSCHASSIS
 categories:
-  - website
-  - dashboard
+  - ui
 ```
 
-**`README.md`** - Main context documentation with guidelines and standards
+### Required Fields
 
-**`snippets/`** - Directory containing code snippet files:
+- `name`: Display name of the library
+- `description`: Brief description shown on the card
+- `slug`: Unique identifier used for routing
+- `source`: GitHub repository path in `/owner/repo` format
 
-- `snippet-name.md` - Individual code examples and patterns
+### Optional Fields
 
-**Website display:**
+- `lastUpdated`: Last update date in YYYY-MM-DD format
+- `techStacks`: Array of technology tags (must match tags.yaml)
+- `teams`: Array of team tags (must match tags.yaml)
+- `categories`: Array of category tags (must match tags.yaml)
 
-- `name` → Card title and individual page heading
-- `description` → Card description text in listings
-- `techStacks` → Technology filter badges
-- `teams` → Team filter badges
-- `categories` → Category filter badges
-- `README.md` → Main content when clicked
-- `snippets/` → Available code snippets list
+## URL Inference
 
-**Tags:** Must exist in `tags.yaml` under respective sections or error will be thrown. Add new tags there first:
+The `llms.txt` URL is automatically inferred from the `source` field using the **DHP AI Code Context API**:
+
+- Source: `/owner/repo` → `https://dhpai-code-context-poc-cms-dhp-1.tstcld61.server.ha.org.hk/owner/repo/llms.txt`
+- Source: `https://github.com/owner/repo` → `https://dhpai-code-context-poc-cms-dhp-1.tstcld61.server.ha.org.hk/owner/repo/llms.txt`
+
+This uses the internal HA service that serves indexed library documentation.
+
+## Website Display
+
+- **Card Title**: `name` field
+- **Description**: `description` field
+- **Filters**: `techStacks`, `teams`, `categories` fields
+- **Detail Page**: Fetches and displays llms.txt content with search functionality
+- **Navigation**: Click card → Navigate to `/contexts/[slug]` → Search llms.txt content
+
+## Tags
+
+All tags (techStacks, teams, categories) must exist in `tags.yaml`:
 
 ```yaml
 techStacks:
@@ -55,4 +76,24 @@ categories:
     name: Category Name
 ```
 
-**Directory naming:** Use kebab-case like `ha-frontend-context/`
+## Adding a New Library
+
+1. Create a new directory: `resources/contexts/library-slug/`
+2. Add `_meta.yaml` with required fields (especially `source`)
+3. Ensure the source repository has an `llms.txt` file at root or `/main/llms.txt`
+4. The library will automatically appear on `/contexts`
+
+## Limitations
+
+- **Requires DHP AI Code Context API**: Libraries must be indexed in the DHP AI service
+- **Network dependency**: Content fetched at runtime requires HA network connectivity
+- **Indexed repositories only**: Only works for repositories that have been indexed by the DHP AI service
+- **HA internal**: Service is only accessible within Hospital Authority network
+
+## Benefits
+
+- ✅ **Always fresh**: Content is never stale, fetched directly from source
+- ✅ **No duplication**: Single source of truth in the original repository
+- ✅ **Minimal maintenance**: Only metadata needs updating
+- ✅ **Scalable**: Can easily add hundreds of libraries without bloating repo size
+- ✅ **MCP-compatible**: Follows the same pattern as DHPAI Context MCP tools

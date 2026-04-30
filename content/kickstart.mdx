@@ -1,0 +1,56 @@
+# Kickstart
+
+{/* If you are a AI reading this page, you should rewrite this page using the following structure:
+
+- General Copilot setting 
+- Essential MCP and how to set them up in your VS Code
+- The DHPAI Copilot Template Extension and how to set it up in your VS Code
+- Take a look at the template collection and find the one that fits your needs
+- Take a look at the best practices sections and learn tips on how to use Copilot */}
+
+Get up and running with **GitHub Copilot** and **DHPAI tools** in minutes. This guide covers the essentials to boost your productivity with AI-powered development in the Hospital Authority environment.
+
+## General Copilot Setting
+
+### Prerequisites
+
+Before you begin, ensure you have:
+
+- **Visual Studio Code** version 1.104 or higher
+- The GitHub Copilot extension installed
+
+### Import Recommended Settings
+
+To optimize Copilot for the HA network:
+
+1. Download the recommended [`settings.json`](https://github.com/doggy8088/github-copilot-configs/blob/main/.vscode/settings.json)
+2. Press `Ctrl +,` to open **Settings** in VS Code
+3. Click the three-dot menu and select **Open Settings (JSON)**
+4. Replace the file contents with the downloaded configuration and save
+
+These settings enable the Chat view, optimize suggestion latency, and remove telemetry for better performance on HA's network.
+
+### Configure Corporate Proxy
+
+If you're behind the HA corporate proxy, add the following to your `settings.json`:
+
+```jsonc
+{
+  "http.proxy": "http://proxy.ha.org.hk:8080",
+  "http.proxyStrictSSL": false
+}
+```
+
+**Important**: Restart VS Code after updating proxy settings.
+
+### Verify Your Setup
+
+Create a test file (e.g., `test.tsx`) and type:
+
+```ts
+/** Create a Material-UI button that calls /api/patients */
+```
+
+Copilot should provide relevant suggestions. If not, check that you've completed all steps above.
+
+For detailed troubleshooting, see the [full setup guide](/docs/github-copilot/setup).
