@@ -110,7 +110,7 @@ const DATA = {
 
 export function DockDemo() {
 	return (
-		<div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[60] flex flex-col items-center justify-center">
+		<div className="app-dock fixed bottom-4 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center justify-center">
 			<TooltipProvider>
 				<Dock direction="middle">
 					{DATA.navbar.map((item) => (

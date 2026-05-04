@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { LibraryCard, LibraryData } from "./LibraryCard";
 
@@ -58,7 +58,7 @@ function filterLibraries(
 	});
 }
 
-export default function ContextsPage() {
+function ContextsPageContent() {
 	const searchParams = useSearchParams();
 	const [libraries, setLibraries] = useState<LibraryData[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
@@ -143,5 +143,13 @@ export default function ContextsPage() {
 				))}
 			</div>
 		</div>
+	);
+}
+
+export default function ContextsPage() {
+	return (
+		<Suspense>
+			<ContextsPageContent />
+		</Suspense>
 	);
 }

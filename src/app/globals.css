@@ -154,3 +154,9 @@
 		@apply bg-background text-foreground;
 	}
 }
+
+body[data-markdown-dialog-open="true"] .app-dock {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}

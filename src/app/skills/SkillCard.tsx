@@ -59,14 +59,19 @@ export function SkillCard({
 					)}
 				</div>
 			</CardContent>
-			<CardFooter className="pt-3 flex gap-2">
+			<CardFooter className="pt-3 flex flex-wrap gap-2">
 				<SkillMarkdownDialog
 					skillName={name}
 					description={description}
 					folderPath={folderPath}
 					files={files}
 				/>
-				<Button asChild variant="outline" size="sm" className="flex-1 gap-2">
+				<Button
+					asChild
+					variant="outline"
+					size="sm"
+					className="w-full justify-center gap-2 sm:w-auto sm:min-w-[12rem] sm:flex-1"
+				>
 					<a
 						href={`/api/skills/download?path=${encodeURIComponent(folderPath)}&name=${encodeURIComponent(name)}`}
 						download

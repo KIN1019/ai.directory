@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { FileText, LoaderCircle } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -27,6 +27,8 @@ type MarkdownResponse = {
 };
 
 type MarkdownContentMap = Record<string, string>;
+
+const DOCK_RESTORE_DELAY_MS = 220;
 
 async function fetchMarkdownFile(
 	folderPath: string,
@@ -83,6 +85,31 @@ export function SkillMarkdownDialog({
 			setSelectedPath(markdownFiles[0].relativePath);
 		}
 	}, [markdownFiles, selectedPath]);
+
+	useLayoutEffect(() => {
+		let restoreTimeoutId: ReturnType<typeof globalThis.setTimeout> | null =
+			null;
+
+		if (open) {
+			document.body.dataset.markdownDialogOpen = "true";
+		} else {
+			restoreTimeoutId = globalThis.setTimeout(() => {
+				delete document.body.dataset.markdownDialogOpen;
+			}, DOCK_RESTORE_DELAY_MS);
+		}
+
+		return () => {
+			if (restoreTimeoutId !== null) {
+				globalThis.clearTimeout(restoreTimeoutId);
+			}
+		};
+	}, [open]);
+
+	useEffect(() => {
+		return () => {
+			delete document.body.dataset.markdownDialogOpen;
+		};
+	}, []);
 
 	useEffect(() => {
 		if (!open || markdownFiles.length === 0) {
@@ -152,7 +179,11 @@ export function SkillMarkdownDialog({
 	return (
 		<Dialog open={open} onOpenChange={setOpen}>
 			<DialogTrigger asChild>
-				<Button variant="secondary" size="sm" className="flex-1 gap-2">
+				<Button
+					variant="secondary"
+					size="sm"
+					className="w-full justify-center gap-2 sm:w-auto sm:min-w-[12rem] sm:flex-1"
+				>
 					<FileText className="w-4 h-4" />
 					View Markdown
 				</Button>
