@@ -6,7 +6,7 @@ Compare available AI models in Copilot Chat and choose the best model for your t
 
 ## Comparison of AI models for GitHub Copilot
 
-GitHub Copilot supports multiple AI models with different capabilities. The model you choose affects the quality and relevance of responses by Copilot Chat and Copilot code completion. Some models offer lower latency, while others offer fewer hallucinations or better performance on specific tasks. This guide helps you pick the best model based on your task, not just model names.
+GitHub Copilot supports multiple AI models with different capabilities. The model you choose affects the quality and relevance of responses by Copilot Chat and Copilot inline suggestions. Some models offer lower latency, while others offer fewer hallucinations or better performance on specific tasks. This guide helps you pick the best model based on your task, not just model names.
 
 <Callout type="info">
 	Different models have different premium request multipliers, which can affect
@@ -18,30 +18,29 @@ GitHub Copilot supports multiple AI models with different capabilities. The mode
 
 Use this table to find a suitable model quickly, see more detail in the sections below.
 
-| Model             | Task area                                    | Excels at (primary use case)                                            | Additional capabilities |
-| ----------------- | -------------------------------------------- | ----------------------------------------------------------------------- | ----------------------- |
-| GPT-4.1           | General-purpose coding and writing           | Fast, accurate code completions and explanations                        | Agent mode, visual      |
-| GPT-4o            | General-purpose coding and writing           | Fast completions and visual input understanding                         | Agent mode, visual      |
-| o3                | Deep reasoning and debugging                 | Multi-step problem solving and architecture-level code analysis         | Reasoning               |
-| o4-mini           | Fast help with simple or repetitive tasks    | Fast, reliable answers to lightweight coding questions                  | Lower latency           |
-| Claude Opus 4     | Deep reasoning and debugging                 | Complex problem-solving challenges, sophisticated reasoning             | Reasoning, vision       |
-| Claude Sonnet 3.5 | Fast help with simple or repetitive tasks    | Quick responses for code, syntax, and documentation                     | Agent mode              |
-| Claude Sonnet 3.7 | Deep reasoning and debugging                 | Structured reasoning across large, complex codebases                    | Agent mode              |
-| Claude Sonnet 4   | Deep reasoning and debugging                 | Performance and practicality, perfectly balanced for coding workflows   | Agent mode, vision      |
-| Gemini 2.5 Pro    | Deep reasoning and debugging                 | Complex code generation, debugging, and research workflows              | Reasoning               |
-| Gemini 2.0 Flash  | Working with visuals (diagrams, screenshots) | Real-time responses and visual reasoning for UI and diagram-based tasks | Visual                  |
+| Model | Task area | Excels at (primary use case) | Additional capabilities |
+| --- | --- | --- | --- |
+| GPT-5 mini | General-purpose coding and writing | Fast, accurate code completions and explanations | Agent mode, visual |
+| Grok Code Fast 1 | General-purpose coding and writing | Fast code generation and debugging across multiple languages | Agent mode |
+| Claude Haiku 4.5 | Fast help with simple or repetitive tasks | Fast, reliable answers to lightweight coding questions | Lower latency |
+| Gemini 3 Flash (Preview) | Fast help with simple or repetitive tasks | Fast, reliable answers to lightweight coding questions | Lower latency, visual |
+| GPT-5.4 mini | Fast help with simple or repetitive tasks | Fast responses and lower resource usage | Lower latency |
+| GPT-5.3-Codex | Deep reasoning and debugging | Complex engineering tasks — features, tests, debugging, refactors, and reviews | Agent mode |
+| GPT-5.4 | Deep reasoning and debugging | Multi-step problem solving and architecture-level code analysis | Reasoning |
+| GPT-5.5 | Deep reasoning and debugging | Complex reasoning, code analysis, and technical decision-making | Reasoning |
+| Claude Sonnet 4.6 | Deep reasoning and debugging | Reliable completions and smarter reasoning under pressure | Agent mode, vision |
+| Claude Opus 4.6 | Deep reasoning and debugging | Complex problem-solving challenges, sophisticated reasoning | Reasoning, vision |
+| Claude Opus 4.7 | Deep reasoning and debugging | Complex problem-solving challenges, sophisticated reasoning | Reasoning, vision |
+| Gemini 3.1 Pro (Preview) | Deep reasoning and debugging | Effective edit-then-test loops with high tool precision | Reasoning, visual |
 
 ## Task: General-purpose coding and writing
 
 Use these models for common development tasks that require a balance of quality, speed, and cost efficiency. These models are a good default when you don't have specific requirements.
 
-| Model             | Why it's a good fit                                                                                                 |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------- |
-| GPT-4.1           | Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks. |
-| GPT-4o            | Delivers GPT-4 level performance with lower latency.                                                                |
-| Claude Sonnet 3.7 | Produces clear, structured output. Follows formatting instructions and maintains consistent style.                  |
-| Gemini 2.0 Flash  | Fast and cost-effective. Well suited for quick questions, short code snippets, and lightweight writing tasks.       |
-| o4-mini           | Optimized for speed and cost efficiency. Ideal for real-time suggestions with low usage overhead.                   |
+| Model | Why it's a good fit |
+| --- | --- |
+| GPT-5 mini | Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks. |
+| Grok Code Fast 1 | Specialized for coding tasks. Performs well on code generation and debugging across multiple languages. |
 
 ### When to use these models
 
@@ -54,7 +53,7 @@ Use one of these models if you want to:
 
 ### When to use a different model
 
-If you're working on complex refactoring, architectural decisions, or multi-step logic, consider a model from Deep reasoning and debugging. For faster, simpler tasks like repetitive edits or one-off code suggestions, see Fast help with simple or repetitive tasks.
+If you're working on complex refactoring, architectural decisions, or multi-step logic, consider a model from [Deep reasoning and debugging](#task-deep-reasoning-and-debugging). For faster, simpler tasks like repetitive edits or one-off code suggestions, see [Fast help with simple or repetitive tasks](#task-fast-help-with-simple-or-repetitive-tasks).
 
 ## Task: Fast help with simple or repetitive tasks
 
@@ -62,11 +61,11 @@ These models are optimized for speed and responsiveness. They're ideal for quick
 
 ### Recommended models
 
-| Model             | Why it's a good fit                                                                                        |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- |
-| o4-mini           | A quick and cost-effective model for repetitive or simple coding tasks. Offers clear, concise suggestions. |
-| Claude Sonnet 3.5 | Balances fast responses with quality output. Ideal for small tasks and lightweight code explanations.      |
-| Gemini 2.0 Flash  | Extremely low latency and multimodal support (where available). Great for fast, interactive feedback.      |
+| Model | Why it's a good fit |
+| --- | --- |
+| Claude Haiku 4.5 | Balances fast responses with quality output. Ideal for small tasks and lightweight code explanations. |
+| Gemini 3 Flash (Preview) | Low latency with multimodal support. Great for fast, interactive feedback. |
+| GPT-5.4 mini | Delivers deep reasoning with faster responses and lower resource usage. Ideal for interactive sessions and step-by-step code analysis. |
 
 ### When to use these models
 
@@ -79,7 +78,7 @@ Use one of these models if you want to:
 
 ### When to use a different model
 
-If you're working on complex refactoring, architectural decisions, or multi-step logic, see Deep reasoning and debugging. For tasks that need stronger general-purpose reasoning or more structured output, see General-purpose coding and writing.
+If you're working on complex refactoring, architectural decisions, or multi-step logic, see [Deep reasoning and debugging](#task-deep-reasoning-and-debugging). For tasks that need stronger general-purpose reasoning or more structured output, see [General-purpose coding and writing](#task-general-purpose-coding-and-writing).
 
 ## Task: Deep reasoning and debugging
 
@@ -87,13 +86,15 @@ These models are designed for tasks that require step-by-step reasoning, complex
 
 ### Recommended models
 
-| Model             | Why it's a good fit                                                                                           |
-| ----------------- | ------------------------------------------------------------------------------------------------------------- |
-| o3                | Strong at algorithm design, system debugging, and architecture decisions. Balances performance and reasoning. |
-| Claude Sonnet 3.7 | Provides hybrid reasoning that adapts to both fast tasks and deeper thinking.                                 |
-| Claude Sonnet 4   | Improves on 3.7 with more reliable completions and smarter reasoning under pressure.                          |
-| Claude Opus 4     | Anthropic's most powerful model. Strong at strategy, debugging, and multi-layered logic.                      |
-| Gemini 2.5 Pro    | Advanced reasoning across long contexts and scientific or technical analysis.                                 |
+| Model | Why it's a good fit |
+| --- | --- |
+| GPT-5.3-Codex | Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions. |
+| GPT-5.4 | Strong multi-step problem solving and architecture-level code analysis. |
+| GPT-5.5 | Great at complex reasoning, code analysis, and technical decision-making. |
+| Claude Sonnet 4.6 | Reliable completions and smarter reasoning under pressure. Supports vision input. |
+| Claude Opus 4.6 | Anthropic's powerful model for strategy, debugging, and multi-layered logic. |
+| Claude Opus 4.7 | Anthropic's most capable model. Excels at strategy, debugging, and multi-layered logic. |
+| Gemini 3.1 Pro (Preview) | Effective and efficient edit-then-test loops with high tool precision. |
 
 ### When to use these models
 
@@ -107,17 +108,16 @@ Use one of these models if you want to:
 
 ### When to use a different model
 
-For fast iteration or lightweight tasks, see Fast help with simple or repetitive tasks. For general development workflows or content generation, see General-purpose coding and writing.
+For fast iteration or lightweight tasks, see [Fast help with simple or repetitive tasks](#task-fast-help-with-simple-or-repetitive-tasks). For general development workflows or content generation, see [General-purpose coding and writing](#task-general-purpose-coding-and-writing).
 
 ## Task: Working with visuals (diagrams, screenshots)
 
 Use these models when you want to ask questions about screenshots, diagrams, UI components, or other visual input. These models support multimodal input and are well suited for front-end work or visual debugging.
 
-| Model            | Why it's a good fit                                                                                                             |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| GPT-4o           | Supports image input. Great for interpreting screenshots or debugging UI issues with visual context.                            |
-| Gemini 2.0 Flash | Fast, multimodal model optimized for real-time interaction. Useful for feedback on diagrams, visual prototypes, and UI layouts. |
-
+| Model | Why it's a good fit |
+| --- | --- |
+| GPT-5 mini | Fast and accurate with multimodal support for visual reasoning tasks. |
+| Gemini 3 Flash (Preview) | Low latency multimodal model. Great for fast feedback on diagrams and UI layouts. |
 ### When to use these models
 
 Use one of these models if you want to:
@@ -135,4 +135,4 @@ Use one of these models if you want to:
 
 ### When to use a different model
 
-If your task involves deep reasoning or large-scale refactoring, consider a model from Deep reasoning and debugging. For text-only tasks or simpler code edits, see Fast help with simple or repetitive tasks.
+If your task involves deep reasoning or large-scale refactoring, consider a model from [Deep reasoning and debugging](#task-deep-reasoning-and-debugging). For text-only tasks or simpler code edits, see [Fast help with simple or repetitive tasks](#task-fast-help-with-simple-or-repetitive-tasks).
